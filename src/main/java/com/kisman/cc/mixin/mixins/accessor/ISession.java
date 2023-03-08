@@ -1,21 +1,17 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.util.Session
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.gen.Accessor
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins.accessor;
 
-import net.minecraft.util.Session;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Accessor;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.util.*;
+import org.spongepowered.asm.mixin.gen.*;
 
-@Mixin(value={Session.class})
-public interface ISession {
-    @Accessor(value="username")
-    @Accessor(value="username")
-    public void Method1120(String var1);
+@Mixin({ Session.class })
+public interface ISession
+{
+    @Accessor("username")
+    @Accessor("username")
+    void Method1120(final String p0);
 }
-

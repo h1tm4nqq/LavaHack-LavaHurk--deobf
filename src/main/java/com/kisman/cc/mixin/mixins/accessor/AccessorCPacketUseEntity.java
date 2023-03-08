@@ -1,21 +1,17 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.network.play.client.CPacketUseEntity
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.gen.Accessor
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins.accessor;
 
-import net.minecraft.network.play.client.CPacketUseEntity;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Accessor;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.network.play.client.*;
+import org.spongepowered.asm.mixin.gen.*;
 
-@Mixin(value={CPacketUseEntity.class})
-public interface AccessorCPacketUseEntity {
-    @Accessor(value="entityId")
-    @Accessor(value="entityId")
-    public int Method3299();
+@Mixin({ CPacketUseEntity.class })
+public interface AccessorCPacketUseEntity
+{
+    @Accessor("entityId")
+    @Accessor("entityId")
+    int Method3299();
 }
-

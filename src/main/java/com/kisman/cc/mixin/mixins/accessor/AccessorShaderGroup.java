@@ -1,32 +1,27 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.client.resources.IResourceManager
- *  net.minecraft.client.shader.ShaderGroup
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.gen.Accessor
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins.accessor;
 
-import java.util.List;
-import net.minecraft.client.resources.IResourceManager;
-import net.minecraft.client.shader.ShaderGroup;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Accessor;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.client.shader.*;
+import net.minecraft.client.resources.*;
+import org.spongepowered.asm.mixin.gen.*;
+import java.util.*;
 
-@Mixin(value={ShaderGroup.class})
-public interface AccessorShaderGroup {
-    @Accessor(value="resourceManager")
-    @Accessor(value="resourceManager")
-    public IResourceManager Method5560();
-
-    @Accessor(value="listShaders")
-    @Accessor(value="listShaders")
-    public List Method5561();
-
-    @Accessor(value="listFramebuffers")
-    @Accessor(value="listFramebuffers")
-    public List Method5562();
+@Mixin({ ShaderGroup.class })
+public interface AccessorShaderGroup
+{
+    @Accessor("resourceManager")
+    @Accessor("resourceManager")
+    IResourceManager Method5560();
+    
+    @Accessor("listShaders")
+    @Accessor("listShaders")
+    List Method5561();
+    
+    @Accessor("listFramebuffers")
+    @Accessor("listFramebuffers")
+    List Method5562();
 }
-

@@ -1,20 +1,17 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.gen.Invoker
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins.accessor;
 
-import java.util.Map;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Invoker;
+import org.spongepowered.asm.mixin.*;
+import java.util.*;
+import org.spongepowered.asm.mixin.gen.*;
 
-@Mixin(value={Class.class})
-public interface AccessorClass {
-    @Invoker(value="enumConstantDirectory")
-    @Invoker(value="enumConstantDirectory")
-    public Map Method6432();
+@Mixin({ Class.class })
+public interface AccessorClass
+{
+    @Invoker("enumConstantDirectory")
+    @Invoker("enumConstantDirectory")
+    Map Method6432();
 }
-

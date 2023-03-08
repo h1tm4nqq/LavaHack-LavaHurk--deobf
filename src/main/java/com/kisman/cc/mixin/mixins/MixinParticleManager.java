@@ -1,51 +1,37 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.client.particle.ParticleManager
- *  net.minecraft.entity.Entity
- *  net.minecraft.util.EnumParticleTypes
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.injection.At
- *  org.spongepowered.asm.mixin.injection.Inject
- *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins;
 
-import lavahack.client.o9lanP0gHU278cwDFs7XEsyWoBrJVe44;
-import lavahack.client.o9lanP0gHU278cwDFs7XEsyWoBrJVe44$leqS0IyKEB621E1SrHdAcHHAUjScjmKi;
-import net.minecraft.client.particle.ParticleManager;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.EnumParticleTypes;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.client.particle.*;
+import net.minecraft.entity.*;
+import net.minecraft.util.*;
+import org.spongepowered.asm.mixin.injection.callback.*;
+import org.spongepowered.asm.mixin.injection.*;
+import lavahack.client.*;
 
-@Mixin(value={ParticleManager.class})
-public class MixinParticleManager {
-    @Inject(method={"emitParticleAtEntity(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/EnumParticleTypes;)V"}, at={@At(value="HEAD")}, cancellable=true)
-    @Inject(method={"emitParticleAtEntity(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/EnumParticleTypes;)V"}, at={@At(value="HEAD")}, cancellable=true)
-    private void Method7333(Entity entity, EnumParticleTypes enumParticleTypes, CallbackInfo callbackInfo) {
-        if (!this.Method7335(enumParticleTypes)) return;
-        callbackInfo.cancel();
-    }
-
-    @Inject(method={"emitParticleAtEntity(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/EnumParticleTypes;I)V"}, at={@At(value="HEAD")}, cancellable=true)
-    @Inject(method={"emitParticleAtEntity(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/EnumParticleTypes;I)V"}, at={@At(value="HEAD")}, cancellable=true)
-    private void Method7334(Entity entity, EnumParticleTypes enumParticleTypes, int n, CallbackInfo callbackInfo) {
-        if (!this.Method7335(enumParticleTypes)) return;
-        callbackInfo.cancel();
-    }
-
-    private boolean Method7335(EnumParticleTypes enumParticleTypes) {
-        if (o9lanP0gHU278cwDFs7XEsyWoBrJVe44.Field16374.Field16384.Method359().equalsIgnoreCase("None")) return false;
-        if (!o9lanP0gHU278cwDFs7XEsyWoBrJVe44.Field16374.Method35()) {
-            return false;
+@Mixin({ ParticleManager.class })
+public class MixinParticleManager
+{
+    @Inject(method = { "emitParticleAtEntity(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/EnumParticleTypes;)V" }, at = { @At("HEAD") }, cancellable = true)
+    @Inject(method = { "emitParticleAtEntity(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/EnumParticleTypes;)V" }, at = { @At("HEAD") }, cancellable = true)
+    private void Method7333(final Entity entity, final EnumParticleTypes enumParticleTypes, final CallbackInfo callbackInfo) {
+        if (this.Method7335(enumParticleTypes)) {
+            callbackInfo.cancel();
         }
-        if (!o9lanP0gHU278cwDFs7XEsyWoBrJVe44.Field16374.Field16384.Method359().equalsIgnoreCase(o9lanP0gHU278cwDFs7XEsyWoBrJVe44$leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field12977.name())) return true;
-        if (!enumParticleTypes.equals((Object)EnumParticleTypes.TOTEM)) return true;
-        return false;
+    }
+    
+    @Inject(method = { "emitParticleAtEntity(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/EnumParticleTypes;I)V" }, at = { @At("HEAD") }, cancellable = true)
+    @Inject(method = { "emitParticleAtEntity(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/EnumParticleTypes;I)V" }, at = { @At("HEAD") }, cancellable = true)
+    private void Method7334(final Entity entity, final EnumParticleTypes enumParticleTypes, final int n, final CallbackInfo callbackInfo) {
+        if (this.Method7335(enumParticleTypes)) {
+            callbackInfo.cancel();
+        }
+    }
+    
+    private boolean Method7335(final EnumParticleTypes enumParticleTypes) {
+        return !o9lanP0gHU278cwDFs7XEsyWoBrJVe44.Field16374.Field16384.Method359().equalsIgnoreCase("None") && o9lanP0gHU278cwDFs7XEsyWoBrJVe44.Field16374.Method35() && (!o9lanP0gHU278cwDFs7XEsyWoBrJVe44.Field16374.Field16384.Method359().equalsIgnoreCase(o9lanP0gHU278cwDFs7XEsyWoBrJVe44.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field12977.name()) || !enumParticleTypes.equals((Object)EnumParticleTypes.TOTEM));
     }
 }
-

@@ -1,32 +1,24 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.client.model.ModelBook
- *  net.minecraft.entity.Entity
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.injection.At
- *  org.spongepowered.asm.mixin.injection.Inject
- *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins;
 
-import lavahack.client.o9lanP0gHU278cwDFs7XEsyWoBrJVe44;
-import net.minecraft.client.model.ModelBook;
-import net.minecraft.entity.Entity;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.client.model.*;
+import net.minecraft.entity.*;
+import org.spongepowered.asm.mixin.injection.callback.*;
+import lavahack.client.*;
+import org.spongepowered.asm.mixin.injection.*;
 
-@Mixin(value={ModelBook.class})
-public class MixinModelBook {
-    @Inject(method={"render"}, at={@At(value="HEAD")}, cancellable=true)
-    @Inject(method={"render"}, at={@At(value="HEAD")}, cancellable=true)
-    private void Method7679(Entity entity, float f, float f2, float f3, float f4, float f5, float f6, CallbackInfo callbackInfo) {
-        if (!o9lanP0gHU278cwDFs7XEsyWoBrJVe44.Field16374.Method35()) return;
-        if (!o9lanP0gHU278cwDFs7XEsyWoBrJVe44.Field16374.Field16380.Method365()) return;
-        callbackInfo.cancel();
+@Mixin({ ModelBook.class })
+public class MixinModelBook
+{
+    @Inject(method = { "render" }, at = { @At("HEAD") }, cancellable = true)
+    @Inject(method = { "render" }, at = { @At("HEAD") }, cancellable = true)
+    private void Method7679(final Entity entity, final float n, final float n2, final float n3, final float n4, final float n5, final float n6, final CallbackInfo callbackInfo) {
+        if (o9lanP0gHU278cwDFs7XEsyWoBrJVe44.Field16374.Method35() && o9lanP0gHU278cwDFs7XEsyWoBrJVe44.Field16374.Field16380.Method365()) {
+            callbackInfo.cancel();
+        }
     }
 }
-

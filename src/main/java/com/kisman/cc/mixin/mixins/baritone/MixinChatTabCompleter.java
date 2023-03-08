@@ -1,30 +1,22 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.client.gui.GuiChat$ChatTabCompleter
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.injection.At
- *  org.spongepowered.asm.mixin.injection.Inject
- *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins.baritone;
 
-import com.kisman.cc.mixin.mixins.baritone.MixinTabCompleter;
-import net.minecraft.client.gui.GuiChat;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.client.gui.*;
+import org.spongepowered.asm.mixin.injection.callback.*;
+import org.spongepowered.asm.mixin.injection.*;
 
-@Mixin(value={GuiChat.ChatTabCompleter.class})
-public class MixinChatTabCompleter
-extends MixinTabCompleter {
-    @Inject(method={"complete"}, at={@At(value="HEAD")}, cancellable=true)
-    @Inject(method={"complete"}, at={@At(value="HEAD")}, cancellable=true)
-    private void Method5263(CallbackInfo callbackInfo) {
-        if (!this.dontComplete) return;
-        callbackInfo.cancel();
+@Mixin({ GuiChat.ChatTabCompleter.class })
+public class MixinChatTabCompleter extends MixinTabCompleter
+{
+    @Inject(method = { "complete" }, at = { @At("HEAD") }, cancellable = true)
+    @Inject(method = { "complete" }, at = { @At("HEAD") }, cancellable = true)
+    private void Method5263(final CallbackInfo callbackInfo) {
+        if (this.dontComplete) {
+            callbackInfo.cancel();
+        }
     }
 }
-

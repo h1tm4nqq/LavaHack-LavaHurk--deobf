@@ -1,44 +1,29 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.client.renderer.GlStateManager
- *  net.minecraft.client.renderer.entity.layers.LayerArmorBase
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.injection.At
- *  org.spongepowered.asm.mixin.injection.Redirect
- */
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins;
 
-import java.awt.Color;
-import lavahack.client.IBONRcQCNUBg2NBpVpVQf61ykmVfU03E;
-import lavahack.client.IBONRcQCNUBg2NBpVpVQf61ykmVfU03E$leqS0IyKEB621E1SrHdAcHHAUjScjmKi;
-import lavahack.client.leqS0IyKEB621E1SrHdAcHHAUjScjmKi;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.entity.layers.LayerArmorBase;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.client.renderer.entity.layers.*;
+import java.awt.*;
+import lavahack.client.*;
+import net.minecraft.client.renderer.*;
+import org.spongepowered.asm.mixin.injection.*;
 
-@Mixin(value={LayerArmorBase.class})
-public class MixinLayerArmorBase {
-    @Redirect(method={"renderEnchantedGlint"}, at=@At(value="INVOKE", target="Lnet/minecraft/client/renderer/GlStateManager;color(FFFF)V"))
-    @Redirect(method={"renderEnchantedGlint"}, at=@At(value="INVOKE", target="Lnet/minecraft/client/renderer/GlStateManager;color(FFFF)V"))
-    private static void Method3750(float f, float f2, float f3, float f4) {
-        int n = Math.round(f * 255.0f);
-        int n2 = Math.round(f2 * 255.0f);
-        int n3 = Math.round(f3 * 255.0f);
-        int n4 = Math.round(f4 * 255.0f);
-        IBONRcQCNUBg2NBpVpVQf61ykmVfU03E iBONRcQCNUBg2NBpVpVQf61ykmVfU03E = new IBONRcQCNUBg2NBpVpVQf61ykmVfU03E(IBONRcQCNUBg2NBpVpVQf61ykmVfU03E$leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field16490, new Color(n, n2, n3, n4));
-        leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field16242.Method715(iBONRcQCNUBg2NBpVpVQf61ykmVfU03E);
-        if (iBONRcQCNUBg2NBpVpVQf61ykmVfU03E.Method159()) {
-            Color color = iBONRcQCNUBg2NBpVpVQf61ykmVfU03E.Method5370();
-            GlStateManager.color((float)((float)color.getRed() / 255.0f), (float)((float)color.getGreen() / 255.0f), (float)((float)color.getBlue() / 255.0f), (float)((float)color.getAlpha() / 255.0f));
+@Mixin({ LayerArmorBase.class })
+public class MixinLayerArmorBase
+{
+    @Redirect(method = { "renderEnchantedGlint" }, at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;color(FFFF)V"))
+    @Redirect(method = { "renderEnchantedGlint" }, at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;color(FFFF)V"))
+    private static void Method3750(final float n, final float n2, final float n3, final float n4) {
+        final IBONRcQCNUBg2NBpVpVQf61ykmVfU03E ibonRcQCNUBg2NBpVpVQf61ykmVfU03E = new IBONRcQCNUBg2NBpVpVQf61ykmVfU03E(IBONRcQCNUBg2NBpVpVQf61ykmVfU03E.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field16490, new Color(Math.round(n * 255.0f), Math.round(n2 * 255.0f), Math.round(n3 * 255.0f), Math.round(n4 * 255.0f)));
+        leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field16242.Method715((Object)ibonRcQCNUBg2NBpVpVQf61ykmVfU03E);
+        if (ibonRcQCNUBg2NBpVpVQf61ykmVfU03E.Method159()) {
+            final Color method5370 = ibonRcQCNUBg2NBpVpVQf61ykmVfU03E.Method5370();
+            GlStateManager.color(method5370.getRed() / 255.0f, method5370.getGreen() / 255.0f, method5370.getBlue() / 255.0f, method5370.getAlpha() / 255.0f);
             return;
         }
-        GlStateManager.color((float)f, (float)f2, (float)f3, (float)f4);
+        GlStateManager.color(n, n2, n3, n4);
     }
 }
-

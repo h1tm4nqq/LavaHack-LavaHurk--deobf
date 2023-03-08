@@ -1,31 +1,22 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.client.renderer.chunk.RenderChunk
- *  net.minecraft.util.math.BlockPos
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.injection.At
- *  org.spongepowered.asm.mixin.injection.Inject
- *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins;
 
-import lavahack.client.l6yKOMt7SVcyIzts9W2dZyllrA36dUBL;
-import lavahack.client.leqS0IyKEB621E1SrHdAcHHAUjScjmKi;
-import net.minecraft.client.renderer.chunk.RenderChunk;
-import net.minecraft.util.math.BlockPos;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.client.renderer.chunk.*;
+import org.spongepowered.asm.mixin.injection.callback.*;
+import net.minecraft.util.math.*;
+import lavahack.client.*;
+import org.spongepowered.asm.mixin.injection.*;
 
-@Mixin(value={RenderChunk.class})
-public class MixinRenderChunk {
-    @Inject(method={"setPosition"}, at={@At(value="RETURN")})
-    @Inject(method={"setPosition"}, at={@At(value="RETURN")})
-    private void Method2148(int n, int n2, int n3, CallbackInfo callbackInfo) {
-        leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field16242.Method715(new l6yKOMt7SVcyIzts9W2dZyllrA36dUBL((RenderChunk)this, new BlockPos(n, n2, n3)));
+@Mixin({ RenderChunk.class })
+public class MixinRenderChunk
+{
+    @Inject(method = { "setPosition" }, at = { @At("RETURN") })
+    @Inject(method = { "setPosition" }, at = { @At("RETURN") })
+    private void Method2148(final int n, final int n2, final int n3, final CallbackInfo callbackInfo) {
+        leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field16242.Method715((Object)new l6yKOMt7SVcyIzts9W2dZyllrA36dUBL((RenderChunk)this, new BlockPos(n, n2, n3)));
     }
 }
-

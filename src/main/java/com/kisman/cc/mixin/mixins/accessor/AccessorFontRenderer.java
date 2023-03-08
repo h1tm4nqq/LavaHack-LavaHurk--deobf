@@ -1,23 +1,18 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.client.gui.FontRenderer
- *  net.minecraft.util.ResourceLocation
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.gen.Accessor
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins.accessor;
 
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.util.ResourceLocation;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Accessor;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.client.gui.*;
+import net.minecraft.util.*;
+import org.spongepowered.asm.mixin.gen.*;
 
-@Mixin(value={FontRenderer.class})
-public interface AccessorFontRenderer {
-    @Accessor(value="locationFontTexture")
-    @Accessor(value="locationFontTexture")
-    public void Method6040(ResourceLocation var1);
+@Mixin({ FontRenderer.class })
+public interface AccessorFontRenderer
+{
+    @Accessor("locationFontTexture")
+    @Accessor("locationFontTexture")
+    void Method6040(final ResourceLocation p0);
 }
-

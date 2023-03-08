@@ -1,29 +1,25 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.network.play.server.SPacketEntityTeleport
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.gen.Accessor
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins.accessor;
 
-import net.minecraft.network.play.server.SPacketEntityTeleport;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Accessor;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.network.play.server.*;
+import org.spongepowered.asm.mixin.gen.*;
 
-@Mixin(value={SPacketEntityTeleport.class})
-public interface ISPacketEntityTeleport {
-    @Accessor(value="posX")
-    @Accessor(value="posX")
-    public void Method804(double var1);
-
-    @Accessor(value="posY")
-    @Accessor(value="posY")
-    public void Method805(double var1);
-
-    @Accessor(value="posZ")
-    @Accessor(value="posZ")
-    public void Method806(double var1);
+@Mixin({ SPacketEntityTeleport.class })
+public interface ISPacketEntityTeleport
+{
+    @Accessor("posX")
+    @Accessor("posX")
+    void Method804(final double p0);
+    
+    @Accessor("posY")
+    @Accessor("posY")
+    void Method805(final double p0);
+    
+    @Accessor("posZ")
+    @Accessor("posZ")
+    void Method806(final double p0);
 }
-

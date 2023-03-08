@@ -1,51 +1,35 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.client.gui.GuiButton
- *  net.minecraft.client.gui.GuiScreen
- *  net.minecraft.client.gui.GuiScreenAddServer
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.injection.At
- *  org.spongepowered.asm.mixin.injection.Inject
- *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
- */
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins.viaforge;
 
-import lavahack.client.FhLz4BFGdUZSlxEydtAGWmNr3cGJl86D;
-import lavahack.client.HnCeArMwqlA5KPZf75D1d92lhv5QGxpA;
-import lavahack.client.fG4zHmfoRGE4EaMv1zmxKijeYT9zMfCj;
-import lavahack.client.leqS0IyKEB621E1SrHdAcHHAUjScjmKi;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.GuiScreenAddServer;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.injection.callback.*;
+import net.minecraft.client.gui.*;
+import org.spongepowered.asm.mixin.injection.*;
+import lavahack.client.*;
 
-@Mixin(value={GuiScreenAddServer.class})
-public class MixinGuiScreenAddServer
-extends GuiScreen {
-    @Inject(method={"initGui"}, at={@At(value="RETURN")})
-    @Inject(method={"initGui"}, at={@At(value="RETURN")})
-    public void injectInitGui(CallbackInfo callbackInfo) {
+@Mixin({ GuiScreenAddServer.class })
+public class MixinGuiScreenAddServer extends GuiScreen
+{
+    @Inject(method = { "initGui" }, at = { @At("RETURN") })
+    @Inject(method = { "initGui" }, at = { @At("RETURN") })
+    public void injectInitGui(final CallbackInfo callbackInfo) {
         this.buttonList.add(new GuiButton(1337, 5, 6, 98, 20, HnCeArMwqlA5KPZf75D1d92lhv5QGxpA.Method7470(FhLz4BFGdUZSlxEydtAGWmNr3cGJl86D.Method7320().Method7330()).getName()));
     }
-
-    @Inject(method={"actionPerformed"}, at={@At(value="RETURN")})
-    @Inject(method={"actionPerformed"}, at={@At(value="RETURN")})
-    public void injectActionPerformed(GuiButton guiButton, CallbackInfo callbackInfo) {
-        if (guiButton.id != 1337) return;
-        this.mc.displayGuiScreen((GuiScreen)leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field16241.Field16266.Method1236(this));
+    
+    @Inject(method = { "actionPerformed" }, at = { @At("RETURN") })
+    @Inject(method = { "actionPerformed" }, at = { @At("RETURN") })
+    public void injectActionPerformed(final GuiButton guiButton, final CallbackInfo callbackInfo) {
+        if (guiButton.id == 1337) {
+            this.mc.displayGuiScreen((GuiScreen)leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field16241.Field16266.Method1236((GuiScreen)this));
+        }
     }
-
-    @Inject(method={"drawScreen"}, at={@At(value="RETURN")})
-    @Inject(method={"drawScreen"}, at={@At(value="RETURN")})
-    public void injectDrawScreen(int n, int n2, float f, CallbackInfo callbackInfo) {
+    
+    @Inject(method = { "drawScreen" }, at = { @At("RETURN") })
+    @Inject(method = { "drawScreen" }, at = { @At("RETURN") })
+    public void injectDrawScreen(final int n, final int n2, final float n3, final CallbackInfo callbackInfo) {
         fG4zHmfoRGE4EaMv1zmxKijeYT9zMfCj.Method4745("<-- Current Version", 104.0, 13.0, -1);
     }
 }
-

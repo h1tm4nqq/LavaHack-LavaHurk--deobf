@@ -1,27 +1,22 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.client.model.ModelBase
- *  net.minecraft.client.renderer.entity.RenderEnderCrystal
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.gen.Accessor
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins.accessor;
 
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.RenderEnderCrystal;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Accessor;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.model.*;
+import org.spongepowered.asm.mixin.gen.*;
 
-@Mixin(value={RenderEnderCrystal.class})
-public interface AccessorRenderEnderCrystal {
-    @Accessor(value="modelEnderCrystal")
-    @Accessor(value="modelEnderCrystal")
-    public void Method3251(ModelBase var1);
-
-    @Accessor(value="modelEnderCrystalNoBase")
-    @Accessor(value="modelEnderCrystalNoBase")
-    public void Method3252(ModelBase var1);
+@Mixin({ RenderEnderCrystal.class })
+public interface AccessorRenderEnderCrystal
+{
+    @Accessor("modelEnderCrystal")
+    @Accessor("modelEnderCrystal")
+    void Method3251(final ModelBase p0);
+    
+    @Accessor("modelEnderCrystalNoBase")
+    @Accessor("modelEnderCrystalNoBase")
+    void Method3252(final ModelBase p0);
 }
-

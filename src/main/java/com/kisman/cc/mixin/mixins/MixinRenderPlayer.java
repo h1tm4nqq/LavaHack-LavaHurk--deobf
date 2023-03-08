@@ -1,34 +1,25 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.client.entity.AbstractClientPlayer
- *  net.minecraft.client.renderer.entity.RenderPlayer
- *  net.minecraft.entity.player.EntityPlayer
- *  org.spongepowered.asm.mixin.Mixin
- *  org.spongepowered.asm.mixin.injection.At
- *  org.spongepowered.asm.mixin.injection.Inject
- *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
- */
+//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
+
+//Decompiled by Procyon!
+
 package com.kisman.cc.mixin.mixins;
 
-import lavahack.client.qkNYXJCKlwt24osL04Z8YViGXY5uHOX0;
-import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraft.client.renderer.entity.RenderPlayer;
-import net.minecraft.entity.player.EntityPlayer;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.entity.*;
+import org.spongepowered.asm.mixin.injection.callback.*;
+import lavahack.client.*;
+import net.minecraft.entity.player.*;
+import org.spongepowered.asm.mixin.injection.*;
 
-@Mixin(value={RenderPlayer.class})
-public class MixinRenderPlayer {
-    @Inject(method={"renderEntityName(Lnet/minecraft/client/entity/AbstractClientPlayer;DDDLjava/lang/String;D)V"}, at={@At(value="HEAD")}, cancellable=true)
-    @Inject(method={"renderEntityName(Lnet/minecraft/client/entity/AbstractClientPlayer;DDDLjava/lang/String;D)V"}, at={@At(value="HEAD")}, cancellable=true)
-    private void Method7284(AbstractClientPlayer abstractClientPlayer, double d, double d2, double d3, String string, double d4, CallbackInfo callbackInfo) {
-        if (!qkNYXJCKlwt24osL04Z8YViGXY5uHOX0.Field12155.Method35()) return;
-        if (!(abstractClientPlayer instanceof EntityPlayer)) return;
-        callbackInfo.cancel();
+@Mixin({ RenderPlayer.class })
+public class MixinRenderPlayer
+{
+    @Inject(method = { "renderEntityName(Lnet/minecraft/client/entity/AbstractClientPlayer;DDDLjava/lang/String;D)V" }, at = { @At("HEAD") }, cancellable = true)
+    @Inject(method = { "renderEntityName(Lnet/minecraft/client/entity/AbstractClientPlayer;DDDLjava/lang/String;D)V" }, at = { @At("HEAD") }, cancellable = true)
+    private void Method7284(final AbstractClientPlayer abstractClientPlayer, final double n, final double n2, final double n3, final String s, final double n4, final CallbackInfo callbackInfo) {
+        if (qkNYXJCKlwt24osL04Z8YViGXY5uHOX0.Field12155.Method35() && abstractClientPlayer instanceof EntityPlayer) {
+            callbackInfo.cancel();
+        }
     }
 }
-
