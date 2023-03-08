@@ -30,12 +30,12 @@ public final class ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS {
     }
 
     public static final void Method1647() {
-        ThreadsKt.thread$default(((int)-821104400L ^ 0xCF0EF0F0) != 0, ((int)-1977363220L ^ 0x8A23D4EC) != 0, null, null, (int)((int)((long)1128869459 ^ (long)1128869459)), (Function0)ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS$leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field12051, (int)((int)-305956448L ^ 0xEDC379BF), null);
+        ThreadsKt.thread$default(false, false, null, null, (int)((int)(0L)), (Function0)ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS$leqS0IyKEB621E1SrHdAcHHAUjScjmKi.Field12051, (int)((int)-305956448L ^ 0xEDC379BF), null);
     }
 
     static {
         Object[] objectArray = new String[(int)541783343L ^ 0x204AF50C];
-        objectArray[(int)((long)111576197 ^ (long)111576197)] = "HTTPDebuggerSvc.exe";
+        objectArray[(int)(0L)] = "HTTPDebuggerSvc.exe";
         objectArray[(int)1021976805L ^ 0x3CEA20E4] = "HTTPDebuggerUI.exe";
         objectArray[((int)-1935815020L ^ 0x8C9DCE95) << 1] = "Extreme Injector v3.exe";
         objectArray[(int)-1061849455L ^ 0xC0B57692] = "binaryninja.exe";

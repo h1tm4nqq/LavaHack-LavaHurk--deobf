@@ -220,7 +220,7 @@ public class leqS0IyKEB621E1SrHdAcHHAUjScjmKi {
         Field11608 = stringArray;
         Class<?> clazz = Class.forName("sun.misc.Unsafe");
         Field field = clazz.getDeclaredField("theUnsafe");
-        field.setAccessible(((int)-1220340436L ^ 0xB743152D) != 0);
+        field.setAccessible(true);
         Field11604 = unsafe = (Unsafe)field.get(null);
     }
 

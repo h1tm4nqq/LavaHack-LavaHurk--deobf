@@ -51,10 +51,9 @@ extends x8YwusC03s8tIPGjmLIR6QkgJnUSQfhk {
         int n = (int)-1710574717L ^ 0x9A0AB383;
         collection.add(jPanel);
         collection = this.Method1570();
-        n = (int)-1458140344L ^ 0xA9168B48;
         collection.add(jLabel);
         collection = this.Method1570();
-        n = (int)((long)1965747903 ^ (long)1965747903);
+        n = (int)(0L);
         collection.add(jTextField);
         collection = this.Method1570();
         n = (int)-1940945641L ^ 0x8C4F8517;
