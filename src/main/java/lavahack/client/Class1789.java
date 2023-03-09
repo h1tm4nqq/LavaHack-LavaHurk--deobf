@@ -1,27 +1,39 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.item.ItemBlock
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.util.math.Vec3i
+ *  org.lwjgl.input.Mouse
+ */
 package lavahack.client;
 
-import net.minecraft.util.math.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import org.lwjgl.input.*;
+import lavahack.client.Class1036;
+import lavahack.client.Class129;
+import lavahack.client.Class1496;
+import lavahack.client.Class42;
+import lavahack.client.Class97;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.Vec3i;
+import org.lwjgl.input.Mouse;
 
-public class Class1789 extends Class42
-{
-    private Class129 Field16207;
+public class Class1789
+extends Class42 {
+    private Class129 Field16207 = new Class129(null);
     private String Field16208 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     public Class1789() {
         super("SelectionPlacer", Class97.Field8343);
-        this.Field16207 = new Class129((Class286)null);
     }
-    
+
     @Override
     public void Method45() {
-        if (Class1789.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.player == null || Class1789.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world == null) {
+        if (Class1789.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.player == null) return;
+        if (Class1789.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world == null) {
             return;
         }
         if (!Class129.Method862(this.Field16207)) {
@@ -30,10 +42,11 @@ public class Class1789 extends Class42
         if (!Class129.Method862(this.Field16207)) {
             return;
         }
-        this.Method6768(new Class1496((Vec3i)this.Field16207.Field8442, (Vec3i)this.Field16207.Field8443, (Class286)null));
+        Class1496 class1496 = new Class1496((Vec3i)this.Field16207.Field8442, (Vec3i)this.Field16207.Field8443, null);
+        this.Method6768(class1496);
     }
-    
-    private void Method6768(final Class1496 class1496) {
+
+    private void Method6768(Class1496 class1496) {
         if (!Class1496.Method5995(class1496)) {
             return;
         }
@@ -42,23 +55,26 @@ public class Class1789 extends Class42
         }
         Class1036.Method4208(Class1496.Method5996(class1496), EnumHand.MAIN_HAND, false, false);
     }
-    
+
     private void Method20() {
-        if (!Mouse.isButtonDown(0)) {
+        if (!Mouse.isButtonDown((int)0)) {
             return;
         }
-        Class129.Method863(this.Field16207, (Object)Class1789.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.objectMouseOver.getBlockPos());
+        Class129.Method863(this.Field16207, Class1789.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.objectMouseOver.getBlockPos());
     }
-    
-    private static String Method57(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x6A1B ^ 0xB));
-            }
-            return new String(value);
+
+    private static String Method57(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 11;
+            cArray2[n] = (char)(cArray[n] ^ (0x6A1B ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

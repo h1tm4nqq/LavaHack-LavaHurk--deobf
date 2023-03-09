@@ -1,16 +1,15 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-public interface Class919
-{
-    boolean Method3832(final String p0);
-    
-    String Method3833();
-    
-    Class919 Method3834();
-    
-    String toString();
+public interface Class919 {
+    public boolean Method3832(String var1);
+
+    public String Method3833();
+
+    public Class919 Method3834();
+
+    public String toString();
 }
+

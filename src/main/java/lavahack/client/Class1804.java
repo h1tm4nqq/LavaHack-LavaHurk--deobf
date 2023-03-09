@@ -1,42 +1,59 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.renderer.entity.RenderManager
+ *  net.minecraft.client.renderer.entity.RenderPig
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.EntityLiving
+ *  net.minecraft.entity.EntityLivingBase
+ *  net.minecraft.entity.passive.EntityPig
+ *  net.minecraftforge.fml.relauncher.Side
+ *  net.minecraftforge.fml.relauncher.SideOnly
+ */
 package lavahack.client;
 
-import net.minecraftforge.fml.relauncher.*;
-import net.minecraft.client.*;
-import net.minecraft.client.renderer.entity.*;
-import net.minecraft.entity.passive.*;
-import net.minecraft.entity.*;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RenderPig;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.passive.EntityPig;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-@SideOnly(Side.CLIENT)
-public class Class1804 extends RenderPig
-{
+@SideOnly(value=Side.CLIENT)
+public class Class1804
+extends RenderPig {
     private final Minecraft Field16311;
     private String Field16312 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class1804(final RenderManager renderManager, final Minecraft field16311) {
+
+    public Class1804(RenderManager renderManager, Minecraft minecraft) {
         super(renderManager);
-        this.Field16311 = field16311;
+        this.Field16311 = minecraft;
     }
-    
-    public void doRender(final EntityPig entityPig, final double n, double n2, final double n3, final float n4, final float n5) {
+
+    public void doRender(EntityPig entityPig, double d, double d2, double d3, float f, float f2) {
         if (this.Field16311.player.getRidingEntity() == entityPig) {
-            n2 -= Double.longBitsToDouble((long)877562951 ^ 0x3FE00000344E8C47L);
+            d2 -= Double.longBitsToDouble((long)877562951 ^ 0x3FE00000344E8C47L);
         }
-        super.doRender((EntityLiving)entityPig, n, n2, n3, n4, n5);
+        super.doRender((EntityLiving)entityPig, d, d2, d3, f, f2);
     }
-    
-    public void doRender(final EntityLiving entityLiving, final double n, final double n2, final double n3, final float n4, final float n5) {
-        this.doRender((EntityPig)entityLiving, n, n2, n3, n4, n5);
+
+    public void doRender(EntityLiving entityLiving, double d, double d2, double d3, float f, float f2) {
+        this.doRender((EntityPig)entityLiving, d, d2, d3, f, f2);
     }
-    
-    public void doRender(final EntityLivingBase entityLivingBase, final double n, final double n2, final double n3, final float n4, final float n5) {
-        this.doRender((EntityPig)entityLivingBase, n, n2, n3, n4, n5);
+
+    public void doRender(EntityLivingBase entityLivingBase, double d, double d2, double d3, float f, float f2) {
+        this.doRender((EntityPig)entityLivingBase, d, d2, d3, f, f2);
     }
-    
-    public void doRender(final Entity entity, final double n, final double n2, final double n3, final float n4, final float n5) {
-        this.doRender((EntityPig)entity, n, n2, n3, n4, n5);
+
+    public void doRender(Entity entity, double d, double d2, double d3, float f, float f2) {
+        this.doRender((EntityPig)entity, d, d2, d3, f, f2);
     }
 }
+

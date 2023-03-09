@@ -1,18 +1,24 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.luaj.vm2.LuaValue
+ *  org.luaj.vm2.lib.OneArgFunction
+ *  org.luaj.vm2.lib.jse.CoerceJavaToLua
+ */
 package lavahack.client;
 
-import org.luaj.vm2.lib.*;
-import org.luaj.vm2.*;
-import org.luaj.vm2.lib.jse.*;
+import lavahack.client.Class44;
+import org.luaj.vm2.LuaValue;
+import org.luaj.vm2.lib.OneArgFunction;
+import org.luaj.vm2.lib.jse.CoerceJavaToLua;
 
-public final class Class1115 extends OneArgFunction
-{
+public final class Class1115
+extends OneArgFunction {
     private String Field13020 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public LuaValue call(final LuaValue luaValue) {
+
+    public LuaValue call(LuaValue luaValue) {
         return CoerceJavaToLua.coerce((Object)new Class44(luaValue.tojstring()));
     }
 }
+

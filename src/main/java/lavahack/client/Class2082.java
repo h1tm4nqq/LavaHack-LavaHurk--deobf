@@ -1,22 +1,26 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.viaversion.viaversion.ViaAPIBase
+ *  io.netty.buffer.ByteBuf
+ */
 package lavahack.client;
 
-import com.viaversion.viaversion.*;
-import io.netty.buffer.*;
-import java.util.*;
+import com.viaversion.viaversion.ViaAPIBase;
+import io.netty.buffer.ByteBuf;
+import java.util.UUID;
 
-public class Class2082 extends ViaAPIBase
-{
+public class Class2082
+extends ViaAPIBase {
     private String Field17512 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public void sendRawPacket(final Object o, final ByteBuf byteBuf) {
-        super.sendRawPacket((UUID)o, byteBuf);
+
+    public void sendRawPacket(Object object, ByteBuf byteBuf) {
+        super.sendRawPacket((UUID)object, byteBuf);
     }
-    
-    public int getPlayerVersion(final Object o) {
-        return super.getPlayerVersion((UUID)o);
+
+    public int getPlayerVersion(Object object) {
+        return super.getPlayerVersion((UUID)object);
     }
 }
+

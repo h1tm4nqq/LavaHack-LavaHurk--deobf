@@ -1,185 +1,214 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.renderer.texture.DynamicTexture
+ *  org.lwjgl.opengl.GL11
+ */
 package lavahack.client;
 
-import net.minecraft.client.renderer.texture.*;
-import java.awt.image.*;
-import java.awt.*;
-import java.awt.geom.*;
-import org.lwjgl.opengl.*;
-import org.jetbrains.annotations.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import lavahack.client.Class2034;
+import lavahack.client.Class88;
+import net.minecraft.client.renderer.texture.DynamicTexture;
+import org.jetbrains.annotations.NotNull;
+import org.lwjgl.opengl.GL11;
 
-public class Class987 extends Class88
-{
-    private final float Field12228 = 512.0f;
-    protected Class2034[] Field12229;
+public class Class987
+extends Class88 {
+    private final float Field12228 = Float.intBitsToFloat(0x44000000);
+    protected Class2034[] Field12229 = new Class2034[2000];
     protected Font Field12230;
     protected boolean Field12231;
     protected boolean Field12232;
-    public int Field12233;
-    protected int Field12234;
+    public int Field12233 = -1;
+    protected int Field12234 = 0;
     protected DynamicTexture Field12235;
-    public int Field12236;
+    public int Field12236 = 2;
     private String Field12237 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class987(final Font field12230, final boolean field12231, final boolean field12232) {
-        this.Field12229 = new Class2034[2000];
-        this.Field12233 = -1;
-        this.Field12234 = 0;
-        this.Field12236 = 2;
-        this.Field12230 = field12230;
-        this.Field12231 = field12231;
-        this.Field12232 = field12232;
-        this.Field12235 = this.Method2064(field12230, field12231, field12232, this.Field12229);
+
+    public Class987(Font font, boolean bl, boolean bl2) {
+        this.Field12230 = font;
+        this.Field12231 = bl;
+        this.Field12232 = bl2;
+        this.Field12235 = this.Method2064(font, bl, bl2, this.Field12229);
     }
-    
-    protected DynamicTexture Method2064(final Font font, final boolean b, final boolean b2, final Class2034[] array) {
-        return new DynamicTexture(this.Method2065(font, b, b2, array));
+
+    protected DynamicTexture Method2064(Font font, boolean bl, boolean bl2, Class2034[] class2034Array) {
+        BufferedImage bufferedImage = this.Method2065(font, bl, bl2, class2034Array);
+        return new DynamicTexture(bufferedImage);
     }
-    
-    protected BufferedImage Method2065(final Font font, final boolean b, final boolean b2, final Class2034[] array) {
-        final int n = 512;
-        final BufferedImage bufferedImage = new BufferedImage(n, n, 2);
-        final Graphics2D context = (Graphics2D)bufferedImage.getGraphics();
-        context.setFont(font);
-        context.setColor(new Color(255, 255, 255, 0));
-        context.fillRect(0, 0, n, n);
-        context.setColor(Color.WHITE);
-        context.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, b2 ? RenderingHints.VALUE_FRACTIONALMETRICS_ON : RenderingHints.VALUE_FRACTIONALMETRICS_OFF);
-        context.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, b ? RenderingHints.VALUE_TEXT_ANTIALIAS_ON : RenderingHints.VALUE_TEXT_ANTIALIAS_OFF);
-        context.setRenderingHint(RenderingHints.KEY_ANTIALIASING, b ? RenderingHints.VALUE_ANTIALIAS_ON : RenderingHints.VALUE_ANTIALIAS_OFF);
-        final FontMetrics fontMetrics = context.getFontMetrics();
-        int field17358 = 0;
-        int field17359 = 0;
-        int field17360 = 1;
-        for (int i = 0; i < array.length; ++i) {
-            final char c = (char)i;
-            final Class2034 class2034 = new Class2034();
-            final Rectangle2D stringBounds = fontMetrics.getStringBounds(String.valueOf(c), context);
-            class2034.Field17357 = stringBounds.getBounds().width + 8;
-            class2034.Field17358 = stringBounds.getBounds().height;
-            if (field17359 + class2034.Field17357 >= n) {
-                field17359 = 0;
-                field17360 += field17358;
-                field17358 = 0;
+
+    protected BufferedImage Method2065(Font font, boolean bl, boolean bl2, Class2034[] class2034Array) {
+        int n = 512;
+        BufferedImage bufferedImage = new BufferedImage(n, n, 2);
+        Graphics2D graphics2D = (Graphics2D)bufferedImage.getGraphics();
+        graphics2D.setFont(font);
+        graphics2D.setColor(new Color(255, 255, 255, 0));
+        graphics2D.fillRect(0, 0, n, n);
+        graphics2D.setColor(Color.WHITE);
+        graphics2D.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, bl2 ? RenderingHints.VALUE_FRACTIONALMETRICS_ON : RenderingHints.VALUE_FRACTIONALMETRICS_OFF);
+        graphics2D.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, bl ? RenderingHints.VALUE_TEXT_ANTIALIAS_ON : RenderingHints.VALUE_TEXT_ANTIALIAS_OFF);
+        graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, bl ? RenderingHints.VALUE_ANTIALIAS_ON : RenderingHints.VALUE_ANTIALIAS_OFF);
+        FontMetrics fontMetrics = graphics2D.getFontMetrics();
+        int n2 = 0;
+        int n3 = 0;
+        int n4 = 1;
+        int n5 = 0;
+        while (n5 < class2034Array.length) {
+            char c = (char)n5;
+            Class2034 class2034 = new Class2034();
+            Rectangle2D rectangle2D = fontMetrics.getStringBounds(String.valueOf(c), graphics2D);
+            class2034.Field17357 = rectangle2D.getBounds().width + 8;
+            class2034.Field17358 = rectangle2D.getBounds().height;
+            if (n3 + class2034.Field17357 >= n) {
+                n3 = 0;
+                n4 += n2;
+                n2 = 0;
             }
-            if (class2034.Field17358 > field17358) {
-                field17358 = class2034.Field17358;
+            if (class2034.Field17358 > n2) {
+                n2 = class2034.Field17358;
             }
-            class2034.Field17359 = field17359;
-            class2034.Field17360 = field17360;
+            class2034.Field17359 = n3;
+            class2034.Field17360 = n4;
             if (class2034.Field17358 > this.Field12233) {
                 this.Field12233 = class2034.Field17358;
             }
-            array[i] = class2034;
-            context.drawString(String.valueOf(c), field17359 + 2, field17360 + fontMetrics.getAscent());
-            field17359 += class2034.Field17357;
+            class2034Array[n5] = class2034;
+            graphics2D.drawString(String.valueOf(c), n3 + 2, n4 + fontMetrics.getAscent());
+            n3 += class2034.Field17357;
+            ++n5;
         }
         return bufferedImage;
     }
-    
-    public void Method746(final Class2034[] array, final char c, final float n, final float n2) throws ArrayIndexOutOfBoundsException {
-        this.Method2066(n, n2, (float)array[c].Field17357, (float)array[c].Field17358, (float)array[c].Field17359, (float)array[c].Field17360, (float)array[c].Field17357, (float)array[c].Field17358);
+
+    @Override
+    public void Method746(Class2034 @NotNull @NotNull [] class2034Array, char c, float f, float f2) throws ArrayIndexOutOfBoundsException {
+        this.Method2066(f, f2, class2034Array[c].Field17357, class2034Array[c].Field17358, class2034Array[c].Field17359, class2034Array[c].Field17360, class2034Array[c].Field17357, class2034Array[c].Field17358);
     }
-    
-    protected void Method2066(final float n, final float n2, final float n3, final float n4, final float n5, final float n6, final float n7, final float n8) {
-        final float n9 = n5 / Float.intBitsToFloat(1140850688);
-        final float n10 = n6 / Float.intBitsToFloat(1140850688);
-        final float n11 = n7 / Float.intBitsToFloat(1140850688);
-        final float n12 = n8 / Float.intBitsToFloat(1140850688);
-        GL11.glTexCoord2f(n9 + n11, n10);
-        GL11.glVertex2d((double)(n + n3), (double)n2);
-        GL11.glTexCoord2f(n9, n10);
-        GL11.glVertex2d((double)n, (double)n2);
-        GL11.glTexCoord2f(n9, n10 + n12);
-        GL11.glVertex2d((double)n, (double)(n2 + n4));
-        GL11.glTexCoord2f(n9, n10 + n12);
-        GL11.glVertex2d((double)n, (double)(n2 + n4));
-        GL11.glTexCoord2f(n9 + n11, n10 + n12);
-        GL11.glVertex2d((double)(n + n3), (double)(n2 + n4));
-        GL11.glTexCoord2f(n9 + n11, n10);
-        GL11.glVertex2d((double)(n + n3), (double)n2);
+
+    protected void Method2066(float f, float f2, float f3, float f4, float f5, float f6, float f7, float f8) {
+        float f9 = f5 / Float.intBitsToFloat(0x44000000);
+        float f10 = f6 / Float.intBitsToFloat(0x44000000);
+        float f11 = f7 / Float.intBitsToFloat(0x44000000);
+        float f12 = f8 / Float.intBitsToFloat(0x44000000);
+        GL11.glTexCoord2f((float)(f9 + f11), (float)f10);
+        GL11.glVertex2d((double)(f + f3), (double)f2);
+        GL11.glTexCoord2f((float)f9, (float)f10);
+        GL11.glVertex2d((double)f, (double)f2);
+        GL11.glTexCoord2f((float)f9, (float)(f10 + f12));
+        GL11.glVertex2d((double)f, (double)(f2 + f4));
+        GL11.glTexCoord2f((float)f9, (float)(f10 + f12));
+        GL11.glVertex2d((double)f, (double)(f2 + f4));
+        GL11.glTexCoord2f((float)(f9 + f11), (float)(f10 + f12));
+        GL11.glVertex2d((double)(f + f3), (double)(f2 + f4));
+        GL11.glTexCoord2f((float)(f9 + f11), (float)f10);
+        GL11.glVertex2d((double)(f + f3), (double)f2);
     }
-    
-    public int Method757(final String s) {
+
+    @Override
+    public int Method757(String string) {
         int n = 0;
-        for (final char c : s.toCharArray()) {
+        char[] cArray = string.toCharArray();
+        int n2 = cArray.length;
+        int n3 = 0;
+        while (n3 < n2) {
+            char c = cArray[n3];
             if (c < this.Field12229.length) {
                 n += this.Field12229[c].Field17357 - 8 + this.Field12234;
             }
+            ++n3;
         }
         return n / 2;
     }
-    
-    public void Method751(final boolean field12231) {
-        if (this.Field12231 != field12231) {
-            this.Field12231 = field12231;
-            this.Field12235 = this.Method2064(this.Field12230, field12231, this.Field12232, this.Field12229);
-        }
+
+    @Override
+    public void Method751(boolean bl) {
+        if (this.Field12231 == bl) return;
+        this.Field12231 = bl;
+        this.Field12235 = this.Method2064(this.Field12230, bl, this.Field12232, this.Field12229);
     }
-    
+
     public boolean Method2067() {
         return this.Field12232;
     }
-    
-    public void Method750(final boolean field12232) {
-        if (this.Field12232 != field12232) {
-            this.Field12232 = field12232;
-            this.Field12235 = this.Method2064(this.Field12230, this.Field12231, field12232, this.Field12229);
-        }
+
+    @Override
+    public void Method750(boolean bl) {
+        if (this.Field12232 == bl) return;
+        this.Field12232 = bl;
+        this.Field12235 = this.Method2064(this.Field12230, this.Field12231, bl, this.Field12229);
     }
-    
+
     public Font Method2068() {
         return this.Field12230;
     }
-    
-    public void Method754(final Font field12230) {
-        this.Field12230 = field12230;
-        this.Field12235 = this.Method2064(field12230, this.Field12231, this.Field12232, this.Field12229);
+
+    @Override
+    public void Method754(Font font) {
+        this.Field12230 = font;
+        this.Field12235 = this.Method2064(font, this.Field12231, this.Field12232, this.Field12229);
     }
-    
-    public void Method748(@NotNull @NotNull final String s, final int n, final int n2, final int n3) {
+
+    @Override
+    public void Method748(@NotNull @NotNull String string, int n, int n2, int n3) {
     }
-    
-    public void Method749(final int n, final int n2, final int n3, final int n4) {
+
+    @Override
+    public void Method749(int n, int n2, int n3, int n4) {
     }
-    
-    public float Method759(@NotNull @NotNull final String s, final double n, final double n2, final int n3, final boolean b) {
+
+    @Override
+    public float Method759(@NotNull @NotNull String string, double d, double d2, int n, boolean bl) {
         return 0.0f;
     }
-    
-    public void Method761(@NotNull @NotNull final String s, final float n, final float n2, final int n3) {
+
+    @Override
+    public void Method761(@NotNull @NotNull String string, float f, float f2, int n) {
     }
-    
-    public void Method762(@NotNull @NotNull final String s, final float n, final float n2, final int n3) {
+
+    @Override
+    public void Method762(@NotNull @NotNull String string, float f, float f2, int n) {
     }
-    
+
+    @Override
     public int Method747() {
         return 0;
     }
-    
-    public float Method760(@NotNull @NotNull final String s, final double n, final double n2, final int n3) {
+
+    @Override
+    public float Method760(@NotNull @NotNull String string, double d, double d2, int n) {
         return 0.0f;
     }
-    
+
+    @Override
     public boolean Method752() {
         return false;
     }
-    
+
+    @Override
     public boolean Method753() {
         return false;
     }
-    
+
+    @Override
     public int Method755() {
         return 0;
     }
-    
-    public void Method756(final int n) {
+
+    @Override
+    public void Method756(int n) {
     }
-    
-    public int Method758(@NotNull @NotNull final String s) {
+
+    @Override
+    public int Method758(@NotNull @NotNull String string) {
         return 0;
     }
 }
+

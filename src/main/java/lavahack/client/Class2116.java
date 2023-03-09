@@ -1,11 +1,9 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public final class Class2116
-{
+public final class Class2116 {
     public static final int Field17621;
     public static final int Field17622;
     public static final int Field17623;
@@ -20,7 +18,7 @@ public final class Class2116
     public static final int Field17632;
     public static final int Field17633;
     private int Field17634;
-    
+
     static {
         Field17633 = 63;
         Field17632 = 40;
@@ -37,3 +35,4 @@ public final class Class2116
         Field17621 = 17;
     }
 }
+

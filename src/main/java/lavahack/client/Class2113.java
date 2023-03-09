@@ -1,62 +1,71 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.io.*;
-import java.net.*;
+import java.io.File;
+import java.net.URL;
+import lavahack.client.Class1368;
+import lavahack.client.Class158;
+import lavahack.client.Class1617;
+import lavahack.client.Class813;
 
-class Class2113 extends Class1368
-{
+class Class2113
+extends Class1368 {
     private String Field17608 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class2113(final Class158 class158) {
+
+    public Class2113(Class158 class158) {
         super("play", class158);
     }
-    
-    public void Method443(final String s, final String[] array) {
-        final Class813 class813 = (Class813)this.Method2057();
-        if (array.length < 2) {
+
+    @Override
+    public void Method443(String string, String[] stringArray) {
+        Class813 class813 = (Class813)this.Method2057();
+        if (stringArray.length < 2) {
             return;
         }
-        if (array[1].equals("file")) {
-            if (array.length < 3) {
+        if (stringArray[1].equals("file")) {
+            if (stringArray.length < 3) {
                 return;
             }
-            final File file = new File(Class813.Method3422(class813) ? Class813.Method3423(array, 2) : array[2]);
-            if (!file.exists() || file.isDirectory()) {
+            String string2 = Class813.Method3422(class813) ? Class813.Method3423(stringArray, 2) : stringArray[2];
+            File file = new File(string2);
+            if (!file.exists()) return;
+            if (file.isDirectory()) {
                 return;
             }
-            final URL url = file.toURI().toURL();
-            Class1617.Method6297(url.toExternalForm());
-            this.Method437("Now playing: " + url.toExternalForm());
+            URL uRL = file.toURI().toURL();
+            Class1617.Method6297(uRL.toExternalForm());
+            this.Method437("Now playing: " + uRL.toExternalForm());
+            return;
         }
-        else {
-            if (!array[1].equals("url")) {
-                final String s2 = Class813.Method3422(class813) ? Class813.Method3423(array, 1) : array[1];
-                Class1617.Method6297(Class813.Method3426(Class813.Method3424()) + s2);
-                this.Method437("Now playing: " + Class813.Method3426(Class813.Method3424()) + s2);
+        if (stringArray[1].equals("url")) {
+            if (stringArray.length < 3) {
                 return;
             }
-            if (array.length < 3) {
-                return;
-            }
-            final URL url2 = new URL(Class813.Method3422(class813) ? Class813.Method3423(array, 2) : array[2]);
-            Class1617.Method6297(url2.toExternalForm());
-            this.Method437("Now playing: " + url2.toExternalForm());
+            String string3 = Class813.Method3422(class813) ? Class813.Method3423(stringArray, 2) : stringArray[2];
+            URL uRL = new URL(string3);
+            Class1617.Method6297(uRL.toExternalForm());
+            this.Method437("Now playing: " + uRL.toExternalForm());
+            return;
         }
+        String string4 = Class813.Method3422(class813) ? Class813.Method3423(stringArray, 1) : stringArray[1];
+        Class1617.Method6297(Class813.Method3426(Class813.Method3424()) + string4);
+        this.Method437("Now playing: " + Class813.Method3426(Class813.Method3424()) + string4);
     }
-    
-    private static String Method441(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x4799 ^ 0xDB));
-            }
-            return new String(value);
+
+    private static String Method441(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 219;
+            cArray2[n] = (char)(cArray[n] ^ (0x4799 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

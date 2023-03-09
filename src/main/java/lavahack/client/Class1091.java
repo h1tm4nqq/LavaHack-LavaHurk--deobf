@@ -1,13 +1,17 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-final class Class1091 extends Thread
-{
+import lavahack.client.Class1617;
+
+final class Class1091
+extends Thread {
     private int Field12888;
-    
+
+    Class1091() {
+    }
+
     @Override
     public void run() {
         Class1617.Field15563.Method5021();
@@ -15,3 +19,4 @@ final class Class1091 extends Thread
         Class1617.Field15565 = false;
     }
 }
+

@@ -1,38 +1,54 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  lavahack.client.MjqPPsIgrrFE8smKJhGdj08A51foRyqE
+ *  lavahack.client.MjqPPsIgrrFE8smKJhGdj08A51foRyqE$leqS0IyKEB621E1SrHdAcHHAUjScjmKi$YlFSugLHQAjzunVBKfamPjSRsvHTy3jf
+ *  lavahack.client.MjqPPsIgrrFE8smKJhGdj08A51foRyqE$leqS0IyKEB621E1SrHdAcHHAUjScjmKi$leqS0IyKEB621E1SrHdAcHHAUjScjmKi
+ *  net.minecraft.client.renderer.entity.RenderManager
+ *  net.minecraft.entity.Entity
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.At$Shift
+ *  org.spongepowered.asm.mixin.injection.Inject
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+ *  org.spongepowered.asm.mixin.injection.callback.LocalCapture
+ */
 package com.kisman.cc.mixin.mixins;
 
-import org.spongepowered.asm.mixin.*;
-import net.minecraft.client.renderer.entity.*;
-import net.minecraft.entity.*;
-import lavahack.client.*;
-import org.spongepowered.asm.mixin.injection.*;
-import org.spongepowered.asm.mixin.injection.callback.*;
+import lavahack.client.MjqPPsIgrrFE8smKJhGdj08A51foRyqE;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.Entity;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-@Mixin(value = { RenderManager.class }, priority = 114514)
-public class MixinRenderManager
-{
-    @Inject(method = { "renderEntity" }, at = { @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/Render;setRenderOutlines(Z)V", shift = At.Shift.BEFORE) }, cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
-    @Inject(method = { "renderEntity" }, at = { @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/Render;setRenderOutlines(Z)V", shift = At.Shift.BEFORE) }, cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
-    public void Method3249(final Entity entity, final double n, final double n2, final double n3, final float n4, final float n5, final boolean b, final CallbackInfo callbackInfo) {
-        if (entity == null || !MjqPPsIgrrFE8smKJhGdj08A51foRyqE.Method2089()) {
+@Mixin(value={RenderManager.class}, priority=114514)
+public class MixinRenderManager {
+    @Inject(method={"renderEntity"}, at={@At(value="INVOKE", target="Lnet/minecraft/client/renderer/entity/Render;setRenderOutlines(Z)V", shift=At.Shift.BEFORE)}, cancellable=true, locals=LocalCapture.CAPTURE_FAILHARD)
+    @Inject(method={"renderEntity"}, at={@At(value="INVOKE", target="Lnet/minecraft/client/renderer/entity/Render;setRenderOutlines(Z)V", shift=At.Shift.BEFORE)}, cancellable=true, locals=LocalCapture.CAPTURE_FAILHARD)
+    public void Method3249(Entity entity, double d, double d2, double d3, float f, float f2, boolean bl, CallbackInfo callbackInfo) {
+        if (entity == null) return;
+        if (!MjqPPsIgrrFE8smKJhGdj08A51foRyqE.Method2089()) {
             return;
         }
-        final MjqPPsIgrrFE8smKJhGdj08A51foRyqE.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf ylFSugLHQAjzunVBKfamPjSRsvHTy3jf = new MjqPPsIgrrFE8smKJhGdj08A51foRyqE.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf(entity, n, n2, n3, n4, n5);
-        ((MjqPPsIgrrFE8smKJhGdj08A51foRyqE)ylFSugLHQAjzunVBKfamPjSRsvHTy3jf).Method167();
-        if (((MjqPPsIgrrFE8smKJhGdj08A51foRyqE)ylFSugLHQAjzunVBKfamPjSRsvHTy3jf).Method159()) {
-            callbackInfo.cancel();
-        }
+        MjqPPsIgrrFE8smKJhGdj08A51foRyqE.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf ylFSugLHQAjzunVBKfamPjSRsvHTy3jf = new MjqPPsIgrrFE8smKJhGdj08A51foRyqE.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf(entity, d, d2, d3, f, f2);
+        ylFSugLHQAjzunVBKfamPjSRsvHTy3jf.Method167();
+        if (!ylFSugLHQAjzunVBKfamPjSRsvHTy3jf.Method159()) return;
+        callbackInfo.cancel();
     }
-    
-    @Inject(method = { "renderEntity" }, at = { @At("RETURN") }, locals = LocalCapture.CAPTURE_FAILHARD)
-    @Inject(method = { "renderEntity" }, at = { @At("RETURN") }, locals = LocalCapture.CAPTURE_FAILHARD)
-    public void Method3250(final Entity entity, final double n, final double n2, final double n3, final float n4, final float n5, final boolean b, final CallbackInfo callbackInfo) {
-        if (entity == null || !MjqPPsIgrrFE8smKJhGdj08A51foRyqE.Method2089()) {
+
+    @Inject(method={"renderEntity"}, at={@At(value="RETURN")}, locals=LocalCapture.CAPTURE_FAILHARD)
+    @Inject(method={"renderEntity"}, at={@At(value="RETURN")}, locals=LocalCapture.CAPTURE_FAILHARD)
+    public void Method3250(Entity entity, double d, double d2, double d3, float f, float f2, boolean bl, CallbackInfo callbackInfo) {
+        if (entity == null) return;
+        if (!MjqPPsIgrrFE8smKJhGdj08A51foRyqE.Method2089()) {
             return;
         }
-        ((MjqPPsIgrrFE8smKJhGdj08A51foRyqE)new MjqPPsIgrrFE8smKJhGdj08A51foRyqE.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.leqS0IyKEB621E1SrHdAcHHAUjScjmKi(entity, n, n2, n3, n4, n5)).Method167();
+        MjqPPsIgrrFE8smKJhGdj08A51foRyqE.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.leqS0IyKEB621E1SrHdAcHHAUjScjmKi leqS0IyKEB621E1SrHdAcHHAUjScjmKi2 = new MjqPPsIgrrFE8smKJhGdj08A51foRyqE.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.leqS0IyKEB621E1SrHdAcHHAUjScjmKi(entity, d, d2, d3, f, f2);
+        leqS0IyKEB621E1SrHdAcHHAUjScjmKi2.Method167();
     }
 }
+

@@ -1,18 +1,29 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.world.World
+ */
 package lavahack.client;
 
-import net.minecraft.block.state.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraft.util.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import lavahack.client.Class1403;
+import lavahack.client.Class1521;
+import lavahack.client.Class1924;
+import lavahack.client.Class820;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
-public class Class353
-{
+public class Class353 {
     private final Class820 Field9458;
     private final Class1521 Field9459;
     private Class1403 Field9460;
@@ -20,97 +31,88 @@ public class Class353
     private Class1403 Field9462;
     private Class1924 Field9463;
     private String Field9464 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     public Class353() {
         this(null, null);
     }
-    
-    public Class353(final Class820 class820) {
+
+    public Class353(Class820 class820) {
         this(class820, null);
     }
-    
-    public Class353(final Class1521 class1521) {
+
+    public Class353(Class1521 class1521) {
         this(null, class1521);
     }
-    
-    public Class353(final Class820 field9458, final Class1521 field9459) {
-        this.Field9458 = field9458;
-        this.Field9459 = field9459;
+
+    public Class353(Class820 class820, Class1521 class1521) {
+        this.Field9458 = class820;
+        this.Field9459 = class1521;
         this.Field9460 = null;
         this.Field9461 = null;
         this.Field9462 = null;
     }
-    
-    public Class353 Method1779(final Class1403 field9460) {
-        this.Field9460 = field9460;
+
+    public Class353 Method1779(Class1403 class1403) {
+        this.Field9460 = class1403;
         return this;
     }
-    
-    public Class353 Method1780(final Class1403 field9461) {
-        this.Field9461 = field9461;
+
+    public Class353 Method1780(Class1403 class1403) {
+        this.Field9461 = class1403;
         return this;
     }
-    
-    public Class353 Method1781(final Class1403 field9462) {
-        this.Field9462 = field9462;
+
+    public Class353 Method1781(Class1403 class1403) {
+        this.Field9462 = class1403;
         return this;
     }
-    
-    public Class353 Method1782(final Class1924 field9463) {
-        this.Field9463 = field9463;
+
+    public Class353 Method1782(Class1924 class1924) {
+        this.Field9463 = class1924;
         return this;
     }
-    
-    public float Method1783(final IBlockState blockState) {
-        if (this.Field9460 != null) {
-            return this.Field9460.Method5534(blockState);
-        }
-        return Float.intBitsToFloat(1056964608);
+
+    public float Method1783(IBlockState iBlockState) {
+        if (this.Field9460 == null) return Float.intBitsToFloat(0x3F000000);
+        return this.Field9460.Method5534(iBlockState);
     }
-    
-    public float Method1784(final IBlockState blockState) {
-        if (this.Field9461 != null) {
-            return this.Field9461.Method5534(blockState);
-        }
-        return Float.intBitsToFloat(1056964608);
+
+    public float Method1784(IBlockState iBlockState) {
+        if (this.Field9461 == null) return Float.intBitsToFloat(0x3F000000);
+        return this.Field9461.Method5534(iBlockState);
     }
-    
-    public float Method1785(final IBlockState blockState) {
-        if (this.Field9462 != null) {
-            return this.Field9462.Method5534(blockState);
-        }
-        return Float.intBitsToFloat(1056964608);
+
+    public float Method1785(IBlockState iBlockState) {
+        if (this.Field9462 == null) return Float.intBitsToFloat(0x3F000000);
+        return this.Field9462.Method5534(iBlockState);
     }
-    
-    public int Method1786(final IBlockState blockState) {
-        if (this.Field9463 != null) {
-            return this.Field9463.Method7176(blockState);
-        }
-        return 0;
+
+    public int Method1786(IBlockState iBlockState) {
+        if (this.Field9463 == null) return 0;
+        return this.Field9463.Method7176(iBlockState);
     }
-    
-    public boolean Method1787(final IBlockState blockState, final EntityPlayer entityPlayer, final BlockPos blockPos, final World world) {
-        return this.Field9458 == null || this.Field9458.Method3488(blockState, entityPlayer, blockPos, world);
+
+    public boolean Method1787(IBlockState iBlockState, EntityPlayer entityPlayer, BlockPos blockPos, World world) {
+        if (this.Field9458 == null) return true;
+        if (this.Field9458.Method3488(iBlockState, entityPlayer, blockPos, world)) return true;
+        return false;
     }
-    
-    public List Method1788(final List c, final IBlockState blockState) {
-        final List<EnumFacing> list = (this.Field9459 != null) ? this.Field9459.Method6049(c, blockState) : new ArrayList<EnumFacing>(c);
-        final Iterator<EnumFacing> iterator = list.iterator();
+
+    public List Method1788(List list, IBlockState iBlockState) {
+        List list2 = this.Field9459 != null ? this.Field9459.Method6049(list, iBlockState) : new ArrayList(list);
+        Iterator iterator = list2.iterator();
         while (iterator.hasNext()) {
-            final EnumFacing enumFacing = iterator.next();
-            if (this.Field9461 != null) {
-                final float method5534 = this.Field9461.Method5534(blockState);
-                if (method5534 < Double.longBitsToDouble(4602678819172646912L) && enumFacing == EnumFacing.UP) {
-                    iterator.remove();
-                }
-                else {
-                    if (method5534 <= Double.longBitsToDouble((long)730478755 ^ 0x3FE000002B8A38A3L) || enumFacing != EnumFacing.DOWN) {
-                        continue;
-                    }
-                    iterator.remove();
-                }
+            EnumFacing enumFacing = (EnumFacing)iterator.next();
+            if (this.Field9461 == null) continue;
+            float f = this.Field9461.Method5534(iBlockState);
+            if ((double)f < Double.longBitsToDouble(4602678819172646912L) && enumFacing == EnumFacing.UP) {
+                iterator.remove();
+                continue;
             }
+            if (!((double)f > Double.longBitsToDouble((long)730478755 ^ 0x3FE000002B8A38A3L)) || enumFacing != EnumFacing.DOWN) continue;
+            iterator.remove();
         }
-        return list;
+        return list2;
     }
 }
+

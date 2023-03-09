@@ -1,21 +1,25 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.inventory.Container
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.gen.Accessor
+ */
 package com.kisman.cc.mixin.mixins.accessor;
 
-import org.spongepowered.asm.mixin.*;
-import net.minecraft.inventory.*;
-import org.spongepowered.asm.mixin.gen.*;
+import net.minecraft.inventory.Container;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({ Container.class })
-public interface AccessorContainer
-{
-    @Accessor("transactionID")
-    @Accessor("transactionID")
-    short Method3021();
-    
-    @Accessor("transactionID")
-    @Accessor("transactionID")
-    void Method3022(final short p0);
+@Mixin(value={Container.class})
+public interface AccessorContainer {
+    @Accessor(value="transactionID")
+    @Accessor(value="transactionID")
+    public short Method3021();
+
+    @Accessor(value="transactionID")
+    @Accessor(value="transactionID")
+    public void Method3022(short var1);
 }
+

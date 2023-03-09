@@ -1,18 +1,25 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.luaj.vm2.LuaValue
+ *  org.luaj.vm2.lib.ThreeArgFunction
+ */
 package lavahack.client;
 
-import org.luaj.vm2.lib.*;
-import org.luaj.vm2.*;
-import java.awt.*;
+import java.awt.Color;
+import org.luaj.vm2.LuaValue;
+import org.luaj.vm2.lib.ThreeArgFunction;
 
-class Class1846 extends ThreeArgFunction
-{
+class Class1846
+extends ThreeArgFunction {
     private int Field16511;
-    
-    public LuaValue call(final LuaValue luaValue, final LuaValue luaValue2, final LuaValue luaValue3) {
-        return (LuaValue)userdataOf((Object)Color.getHSBColor(luaValue.tofloat(), luaValue2.tofloat(), luaValue3.tofloat()));
+
+    Class1846() {
+    }
+
+    public LuaValue call(LuaValue luaValue, LuaValue luaValue2, LuaValue luaValue3) {
+        return Class1846.userdataOf((Object)Color.getHSBColor(luaValue.tofloat(), luaValue2.tofloat(), luaValue3.tofloat()));
     }
 }
+

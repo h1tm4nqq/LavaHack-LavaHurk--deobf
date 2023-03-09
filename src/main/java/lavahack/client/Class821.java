@@ -1,182 +1,182 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public class Class821
-{
-    public static final float Field11501;
+import lavahack.client.Class2138;
+import lavahack.client.Class541;
+
+public class Class821 {
+    public static final float Field11501 = 0.0f;
     public float Field11502;
     public float Field11503;
     private int Field11504;
-    
+
     public Class821() {
         this(0.0f, 0.0f);
     }
-    
-    public Class821(final Class821 class821) {
+
+    public Class821(Class821 class821) {
         this(class821.Field11502, class821.Field11503);
     }
-    
-    public Class821(final float n) {
-        this(n, n);
+
+    public Class821(float f) {
+        this(f, f);
     }
-    
-    public Class821(final float field11502, final float field11503) {
-        this.Field11502 = field11502;
-        this.Field11503 = field11503;
+
+    public Class821(float f, float f2) {
+        this.Field11502 = f;
+        this.Field11503 = f2;
     }
-    
+
     public final float Method3489() {
         return this.Field11502;
     }
-    
+
     public final float Method3490() {
         return this.Field11503;
     }
-    
-    public final void Method3491(final float field11502) {
-        this.Field11502 = field11502;
+
+    public final void Method3491(float f) {
+        this.Field11502 = f;
     }
-    
-    public final void Method3492(final float field11503) {
-        this.Field11503 = field11503;
+
+    public final void Method3492(float f) {
+        this.Field11503 = f;
     }
-    
-    public Class821 Method3493(final Class821 class821) {
+
+    public Class821 Method3493(Class821 class821) {
         return this.Method3494(class821.Field11502, class821.Field11503);
     }
-    
-    public Class821 Method3494(final float field11502, final float field11503) {
-        this.Field11502 = field11502;
-        this.Field11503 = field11503;
+
+    public Class821 Method3494(float f, float f2) {
+        this.Field11502 = f;
+        this.Field11503 = f2;
         return this;
     }
-    
+
     public final double Method3495() {
         return Math.sqrt(this.Method3496());
     }
-    
+
     public float Method3496() {
         return this.Field11502 * this.Field11502 + this.Field11503 * this.Field11503;
     }
-    
-    public final double Method3497(final Class821 class821) {
+
+    public final double Method3497(Class821 class821) {
         return Math.sqrt(this.Method3498(class821));
     }
-    
-    public float Method3498(final Class821 class821) {
+
+    public float Method3498(Class821 class821) {
         return this.Method3499(this.Field11502 - class821.Field11502) + this.Method3499(this.Field11503 - class821.Field11503);
     }
-    
-    protected final float Method3499(final float n) {
-        return n * n;
+
+    protected final float Method3499(float f) {
+        return f * f;
     }
-    
+
     public final Class821 Method3500() {
-        final double method3495 = this.Method3495();
-        if (method3495 != 0.0) {
-            return this.Method3503(1.0 / method3495);
-        }
-        return this;
+        double d = this.Method3495();
+        if (d == 0.0) return this;
+        return this.Method3503(1.0 / d);
     }
-    
+
     public Class821 Method3501() {
         this.Field11502 = -this.Field11502;
         this.Field11503 = -this.Field11503;
         return this;
     }
-    
-    public float Method3502(final Class821 class821) {
+
+    public float Method3502(Class821 class821) {
         return this.Field11502 * class821.Field11502 + this.Field11503 * class821.Field11503;
     }
-    
-    public Class821 Method3503(final double n) {
-        this.Field11502 *= (float)n;
-        this.Field11503 *= (float)n;
+
+    public Class821 Method3503(double d) {
+        this.Field11502 = (float)((double)this.Field11502 * d);
+        this.Field11503 = (float)((double)this.Field11503 * d);
         return this;
     }
-    
-    public Class821 Method3504(final Class821 class821) {
+
+    public Class821 Method3504(Class821 class821) {
         this.Field11502 += class821.Field11502;
         this.Field11503 += class821.Field11503;
         return this;
     }
-    
-    public Class821 Method3505(final float n, final float n2) {
-        this.Field11502 += n;
-        this.Field11503 += n2;
+
+    public Class821 Method3505(float f, float f2) {
+        this.Field11502 += f;
+        this.Field11503 += f2;
         return this;
     }
-    
-    public Class821 Method3506(final Class821 class821) {
+
+    public Class821 Method3506(Class821 class821) {
         this.Field11502 -= class821.Field11502;
         this.Field11503 -= class821.Field11503;
         return this;
     }
-    
-    public Class821 Method3507(final float n, final float n2) {
-        this.Field11502 -= n;
-        this.Field11503 -= n2;
+
+    public Class821 Method3507(float f, float f2) {
+        this.Field11502 -= f;
+        this.Field11503 -= f2;
         return this;
     }
-    
+
     public Class541 Method3508() {
         return new Class541((int)Math.floor(this.Field11502), (int)Math.floor(this.Field11503));
     }
-    
-    public Class541 Method3509(final Class541 class541) {
+
+    public Class541 Method3509(Class541 class541) {
         return class541.Method1008((int)Math.floor(this.Field11502), (int)Math.floor(this.Field11503));
     }
-    
+
     public Class2138 Method3510() {
-        return new Class2138((double)this.Field11502, (double)this.Field11503);
+        return new Class2138(this.Field11502, this.Field11503);
     }
-    
-    public Class2138 Method3511(final Class2138 class2138) {
-        return class2138.Method5824((double)this.Field11502, (double)this.Field11503);
+
+    public Class2138 Method3511(Class2138 class2138) {
+        return class2138.Method5824(this.Field11502, this.Field11503);
     }
-    
+
     public Class821 Method3512() {
         return new Class821(this);
     }
-    
-    @Override
-    public boolean equals(final Object o) {
-        return o instanceof Class821 && this.Method3513((Class821)o);
+
+    public boolean equals(Object object) {
+        if (!(object instanceof Class821)) return false;
+        if (!this.Method3513((Class821)object)) return false;
+        return true;
     }
-    
-    public boolean Method3513(final Class821 class821) {
+
+    public boolean Method3513(Class821 class821) {
         return this.Method3514(class821, Float.intBitsToFloat(925353388));
     }
-    
-    public boolean Method3514(final Class821 class821, final float n) {
-        return Math.abs(this.Field11502 - class821.Field11502) < n && Math.abs(this.Field11503 - class821.Field11503) < n;
+
+    public boolean Method3514(Class821 class821, float f) {
+        if (!(Math.abs(this.Field11502 - class821.Field11502) < f)) return false;
+        if (!(Math.abs(this.Field11503 - class821.Field11503) < f)) return false;
+        return true;
     }
-    
-    @Override
+
     public String toString() {
-        return String.format("[%s, %s]", this.Field11502, this.Field11503);
+        return String.format("[%s, %s]", Float.valueOf(this.Field11502), Float.valueOf(this.Field11503));
     }
-    
+
     public Object clone() throws CloneNotSupportedException {
         return this.Method3512();
     }
-    
-    static {
-        Field11501 = 0.0f;
-    }
-    
-    private static String Method3515(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x662 ^ 0xAB));
-            }
-            return new String(value);
+
+    private static String Method3515(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 171;
+            cArray2[n] = (char)(cArray[n] ^ (0x662 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

@@ -1,38 +1,47 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketPlayer$Rotation
+ */
 package lavahack.client;
 
-import com.kisman.cc.util.*;
-import net.minecraft.network.play.client.*;
-import net.minecraft.network.*;
-import net.minecraft.entity.*;
+import com.kisman.cc.util.Class2142;
+import lavahack.client.Class1568;
+import net.minecraft.entity.Entity;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.client.CPacketPlayer;
 
-public class Class1346 implements Class2142
-{
+public class Class1346
+implements Class2142 {
     private int Field14128;
-    
+
     boolean Method5401() {
-        return Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.player == null || Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.world == null;
+        if (Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.player == null) return true;
+        if (Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.world == null) return true;
+        return false;
     }
-    
-    public void Method5402(final float rotationYaw, final float rotationPitch) {
-        if (this.Method5401()) {
-            Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.player.rotationYaw = rotationYaw;
-            Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.player.rotationPitch = rotationPitch;
-        }
+
+    public void Method5402(float f, float f2) {
+        if (!this.Method5401()) return;
+        Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.player.rotationYaw = f;
+        Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.player.rotationPitch = f2;
     }
-    
-    public void Method5403(final float n, final float n2, final boolean b) {
-        Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.player.connection.sendPacket((Packet)new CPacketPlayer$Rotation(n, n2, b));
+
+    public void Method5403(float f, float f2, boolean bl) {
+        Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.player.connection.sendPacket((Packet)new CPacketPlayer.Rotation(f, f2, bl));
     }
-    
-    public void Method5404(final float n, final float n2) {
-        this.Method5403(n, n2, Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.player.onGround);
+
+    public void Method5404(float f, float f2) {
+        this.Method5403(f, f2, Class1346.ts6KBY6AhQzOwtEvzPYxB53u6ODrgszS.player.onGround);
     }
-    
-    public float[] Method5405(final Entity entity) {
+
+    public float[] Method5405(Entity entity) {
         return Class1568.Method6179(entity);
     }
 }
+

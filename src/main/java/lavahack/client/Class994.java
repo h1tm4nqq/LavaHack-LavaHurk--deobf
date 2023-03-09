@@ -1,10 +1,9 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public interface Class994
-{
-    boolean Method4024(final Object p0);
+public interface Class994 {
+    public boolean Method4024(Object var1);
 }
+

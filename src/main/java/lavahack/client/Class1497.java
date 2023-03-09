@@ -1,35 +1,87 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.collections.CollectionsKt
+ *  kotlin.jvm.internal.Intrinsics
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.init.Blocks
+ *  net.minecraft.init.Items
+ *  net.minecraft.item.Item
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketPlayerTryUseItem
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.world.World
+ */
 package lavahack.client;
 
-import kotlin.*;
-import kotlin.jvm.internal.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.world.*;
-import net.minecraft.network.*;
-import net.minecraft.network.play.client.*;
-import net.minecraft.client.entity.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
-import com.kisman.cc.util.*;
-import net.minecraft.init.*;
-import kotlin.collections.*;
-import java.util.*;
-import java.util.stream.*;
-import net.minecraft.block.state.*;
-import java.util.function.*;
-import net.minecraft.client.*;
+import com.kisman.cc.util.Class650;
+import com.kisman.cc.util.Class886;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import kotlin.Metadata;
+import kotlin.collections.CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import lavahack.client.Class1261;
+import lavahack.client.Class1303;
+import lavahack.client.Class1393;
+import lavahack.client.Class1423;
+import lavahack.client.Class1495;
+import lavahack.client.Class1862;
+import lavahack.client.Class1887;
+import lavahack.client.Class1914;
+import lavahack.client.Class1917;
+import lavahack.client.Class1996;
+import lavahack.client.Class2012;
+import lavahack.client.Class2115;
+import lavahack.client.Class2155;
+import lavahack.client.Class314;
+import lavahack.client.Class387;
+import lavahack.client.Class394;
+import lavahack.client.Class411;
+import lavahack.client.Class42;
+import lavahack.client.Class422;
+import lavahack.client.Class44;
+import lavahack.client.Class467;
+import lavahack.client.Class577;
+import lavahack.client.Class61;
+import lavahack.client.Class664;
+import lavahack.client.Class724;
+import lavahack.client.Class794;
+import lavahack.client.Class9;
+import lavahack.client.Class97;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.client.CPacketPlayerTryUseItem;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 @Class794
 @Class2012
 @Class1887
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 1, d1 = { "\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u000e\b\u00c7\u0002\u0018\u00002\u00020\u0001:\u0002?@B\u0007\b\u0002?\u0006\u0002\u0010\u0002J\b\u0010\u0003\u001a\u00020!H\u0002J\b\u0010\b\u001a\u00020!H\u0002J\u0010\u0010\"\u001a\u00020\u00172\u0006\u0010#\u001a\u00020$H\u0002J\u0012\u0010%\u001a\u0004\u0018\u00010&2\u0006\u0010'\u001a\u00020(H\u0002J\u0012\u0010)\u001a\u0004\u0018\u00010&2\u0006\u0010'\u001a\u00020(H\u0002J\b\u0010*\u001a\u00020\rH\u0002J\u0012\u0010+\u001a\u0004\u0018\u00010,2\u0006\u0010-\u001a\u00020.H\u0002J \u0010/\u001a\u0012\u0012\u0004\u0012\u00020$00j\b\u0012\u0004\u0012\u00020$`12\u0006\u0010'\u001a\u00020(H\u0002J \u00102\u001a\u0002032\u0006\u00104\u001a\u00020$2\u0006\u00105\u001a\u0002032\u0006\u0010'\u001a\u00020(H\u0002J(\u00106\u001a\u0012\u0012\u0004\u0012\u00020$00j\b\u0012\u0004\u0012\u00020$`12\u0006\u00107\u001a\u00020(2\u0006\u00105\u001a\u000203H\u0002J\u0010\u00108\u001a\u00020!2\u0006\u0010'\u001a\u00020(H\u0002J\u0010\u00109\u001a\u00020!2\u0006\u0010:\u001a\u00020,H\u0002J\u0010\u0010;\u001a\u00020\u00172\u0006\u0010#\u001a\u00020$H\u0002J\b\u0010<\u001a\u00020\u0017H\u0002J\b\u0010=\u001a\u00020!H\u0016J\b\u0010>\u001a\u00020!H\u0016R\u0016\u0010\u0003\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0006\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\t\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004?\u0006\u0002\n\u0000R\u0014\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\r0\fX\u0082\u0004?\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e?\u0006\u0002\n\u0000R\u0016\u0010\u0010\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0013\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0014\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0015\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e?\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0017X\u0082\u000e?\u0006\u0002\n\u0000R\u0016\u0010\u0019\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u001b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u001dX\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u001e\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082\u0004?\u0006\u0002\n\u0000?\u0006A" }, d2 = { "Lcom/kisman/cc/features/module/combat/AutoCrystalPvP;", "Lcom/kisman/cc/features/module/Module;", "()V", "autoEat", "Lcom/kisman/cc/settings/Setting;", "kotlin.jvm.PlatformType", "autoEatGroup", "Lcom/kisman/cc/settings/types/SettingGroup;", "autoXP", "autoXPArmorPercent", "autoXPGroup", "autoXPMode", "Lcom/kisman/cc/settings/types/SettingEnum;", "Lcom/kisman/cc/features/module/combat/AutoCrystalPvP$AutoXPMode;", "autoXPOldSlot", "", "autoXPSilentDelay", "autoXPSilentTimer", "Lcom/kisman/cc/util/TimerUtils;", "autoXPSmart", "debug1", "debug2", "isEating", "", "lastIsMoving", "moveStateLogic", "targetIsUsingMultiPlace", "targetRange", "targets", "Lcom/kisman/cc/util/entity/TargetFinder;", "terrain", "threads", "Lcom/kisman/cc/settings/util/MultiThreaddableModulePattern;", "", "canPlace", "pos", "Lnet/minecraft/util/math/BlockPos;", "findSpot", "Lcom/kisman/cc/features/module/combat/autocrystalpvp/PlaceInfo;", "target", "Lnet/minecraft/entity/Entity;", "findSpotNew", "getAutoXPMode", "getHandOfItem", "Lnet/minecraft/util/EnumHand;", "item", "Lnet/minecraft/item/Item;", "getHoles", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "getMaxTargetDamageFromHole", "", "hole", "range", "getPossibleHoles", "entity", "gotoSafeSpot", "handleAutoEat", "hand", "isBadPos", "isMoving", "onEnable", "update", "AutoXPMode", "MoveStateLogic", "kisman.cc" })
-public final class Class1497 extends Class42
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=1, d1={"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u000e\b\u00c7\u0002\u0018\u00002\u00020\u0001:\u0002?@B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002J\b\u0010\u0003\u001a\u00020!H\u0002J\b\u0010\b\u001a\u00020!H\u0002J\u0010\u0010\"\u001a\u00020\u00172\u0006\u0010#\u001a\u00020$H\u0002J\u0012\u0010%\u001a\u0004\u0018\u00010&2\u0006\u0010'\u001a\u00020(H\u0002J\u0012\u0010)\u001a\u0004\u0018\u00010&2\u0006\u0010'\u001a\u00020(H\u0002J\b\u0010*\u001a\u00020\rH\u0002J\u0012\u0010+\u001a\u0004\u0018\u00010,2\u0006\u0010-\u001a\u00020.H\u0002J \u0010/\u001a\u0012\u0012\u0004\u0012\u00020$00j\b\u0012\u0004\u0012\u00020$`12\u0006\u0010'\u001a\u00020(H\u0002J \u00102\u001a\u0002032\u0006\u00104\u001a\u00020$2\u0006\u00105\u001a\u0002032\u0006\u0010'\u001a\u00020(H\u0002J(\u00106\u001a\u0012\u0012\u0004\u0012\u00020$00j\b\u0012\u0004\u0012\u00020$`12\u0006\u00107\u001a\u00020(2\u0006\u00105\u001a\u000203H\u0002J\u0010\u00108\u001a\u00020!2\u0006\u0010'\u001a\u00020(H\u0002J\u0010\u00109\u001a\u00020!2\u0006\u0010:\u001a\u00020,H\u0002J\u0010\u0010;\u001a\u00020\u00172\u0006\u0010#\u001a\u00020$H\u0002J\b\u0010<\u001a\u00020\u0017H\u0002J\b\u0010=\u001a\u00020!H\u0016J\b\u0010>\u001a\u00020!H\u0016R\u0016\u0010\u0003\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0006\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\t\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0014\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\r0\fX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0010\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0013\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0014\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0015\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0017X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0019\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u001b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u001dX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u001e\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006A"}, d2={"Lcom/kisman/cc/features/module/combat/AutoCrystalPvP;", "Lcom/kisman/cc/features/module/Module;", "()V", "autoEat", "Lcom/kisman/cc/settings/Setting;", "kotlin.jvm.PlatformType", "autoEatGroup", "Lcom/kisman/cc/settings/types/SettingGroup;", "autoXP", "autoXPArmorPercent", "autoXPGroup", "autoXPMode", "Lcom/kisman/cc/settings/types/SettingEnum;", "Lcom/kisman/cc/features/module/combat/AutoCrystalPvP$AutoXPMode;", "autoXPOldSlot", "", "autoXPSilentDelay", "autoXPSilentTimer", "Lcom/kisman/cc/util/TimerUtils;", "autoXPSmart", "debug1", "debug2", "isEating", "", "lastIsMoving", "moveStateLogic", "targetIsUsingMultiPlace", "targetRange", "targets", "Lcom/kisman/cc/util/entity/TargetFinder;", "terrain", "threads", "Lcom/kisman/cc/settings/util/MultiThreaddableModulePattern;", "", "canPlace", "pos", "Lnet/minecraft/util/math/BlockPos;", "findSpot", "Lcom/kisman/cc/features/module/combat/autocrystalpvp/PlaceInfo;", "target", "Lnet/minecraft/entity/Entity;", "findSpotNew", "getAutoXPMode", "getHandOfItem", "Lnet/minecraft/util/EnumHand;", "item", "Lnet/minecraft/item/Item;", "getHoles", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "getMaxTargetDamageFromHole", "", "hole", "range", "getPossibleHoles", "entity", "gotoSafeSpot", "handleAutoEat", "hand", "isBadPos", "isMoving", "onEnable", "update", "AutoXPMode", "MoveStateLogic", "kisman.cc"})
+public final class Class1497
+extends Class42 {
     private static final Class44 Field15014;
     private static final Class44 Field15015;
     private static final Class44 Field15016;
@@ -52,424 +104,432 @@ public final class Class1497 extends Class42
     private static int Field15033;
     public static final Class1497 Field15034;
     private String Field15035 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     @Override
     public void Method38() {
         super.Method38();
-        Class1497.Field15028.Method2004();
-        Class1497.Field15029.Method498();
-        Class1497.Field15030.Method2801();
-        Class1497.Field15031 = false;
-        Class1497.Field15033 = -1;
-        Class1497.Field15032 = false;
+        Field15028.Method2004();
+        Field15029.Method498();
+        Field15030.Method2801();
+        Field15031 = false;
+        Field15033 = -1;
+        Field15032 = false;
     }
-    
+
     @Override
     public void Method45() {
-        if (Method6011().player == null || Method6011().world == null || Method6011().player.isDead) {
+        boolean bl;
+        String string;
+        if (Class1497.Method6011().player == null) return;
+        if (Class1497.Method6011().world == null) return;
+        if (Class1497.Method6011().player.isDead) {
             return;
         }
-        Class1497.Field15029.Method499();
-        final Class44 field15017 = Class1497.Field15017;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15017, "debug2");
-        if (field15017.Method365()) {
-            System.out.println((Object)"Update 1");
+        Field15029.Method499();
+        Class44 class44 = Field15017;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"debug2");
+        if (class44.Method365()) {
+            string = "Update 1";
+            bl = false;
+            System.out.println((Object)string);
         }
-        if (Class1497.Field15029.Method496() != null) {
-            final Class44 field15018 = Class1497.Field15017;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field15018, "debug2");
-            if (field15018.Method365()) {
-                System.out.println((Object)"Update 2");
-            }
-            Class1497.Field15028.Method2005(Class577.Field10465);
+        if (Field15029.Method496() == null) return;
+        Class44 class442 = Field15017;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class442, (String)"debug2");
+        if (class442.Method365()) {
+            string = "Update 2";
+            bl = false;
+            System.out.println((Object)string);
         }
+        Field15028.Method2005(Class577.Field10465);
     }
-    
+
     private final void Method5997() {
-        final Class44 field15027 = Class1497.Field15027;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15027, "autoEat");
-        if (field15027.Method365() && !this.Method6001()) {
-            final Item GOLDEN_APPLE = Items.GOLDEN_APPLE;
-            Intrinsics.checkExpressionValueIsNotNull((Object)GOLDEN_APPLE, "Items.GOLDEN_APPLE");
-            EnumHand enumHand = this.Method6002(GOLDEN_APPLE);
+        Class44 class44 = Field15027;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"autoEat");
+        if (class44.Method365() && !this.Method6001()) {
+            Item item = Items.GOLDEN_APPLE;
+            Intrinsics.checkExpressionValueIsNotNull((Object)item, (String)"Items.GOLDEN_APPLE");
+            EnumHand enumHand = this.Method6002(item);
             if (enumHand == null) {
-                final int method116 = Class9.Method116(Items.GOLDEN_APPLE, 0, 9);
-                if (method116 == -1) {
+                int n = Class9.Method116(Items.GOLDEN_APPLE, 0, 9);
+                if (n == -1) {
                     return;
                 }
-                Method6011().player.inventory.currentItem = method116;
-                final Item GOLDEN_APPLE2 = Items.GOLDEN_APPLE;
-                Intrinsics.checkExpressionValueIsNotNull((Object)GOLDEN_APPLE2, "Items.GOLDEN_APPLE");
-                enumHand = this.Method6002(GOLDEN_APPLE2);
+                Class1497.Method6011().player.inventory.currentItem = n;
+                Item item2 = Items.GOLDEN_APPLE;
+                Intrinsics.checkExpressionValueIsNotNull((Object)item2, (String)"Items.GOLDEN_APPLE");
+                enumHand = this.Method6002(item2);
                 if (enumHand == null) {
                     return;
                 }
             }
             this.Method5998(enumHand);
+            return;
         }
-        else {
-            Class1497.Field15032 = false;
-        }
+        Field15032 = false;
     }
-    
-    private final void Method5998(final EnumHand enumHand) {
-        Method6011().playerController.processRightClick((EntityPlayer)Method6011().player, (World)Method6011().world, enumHand);
-        Class1497.Field15032 = true;
+
+    private final void Method5998(EnumHand enumHand) {
+        Class1497.Method6011().playerController.processRightClick((EntityPlayer)Class1497.Method6011().player, (World)Class1497.Method6011().world, enumHand);
+        Field15032 = true;
     }
-    
+
+    /*
+     * Unable to fully structure code
+     */
     private final void Method5999() {
-        final Class44 field15021 = Class1497.Field15021;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15021, "autoXP");
-        if (field15021.Method365()) {
-            final EntityPlayer entityPlayer = (EntityPlayer)Method6011().player;
-            final Class44 field15022 = Class1497.Field15025;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field15022, "autoXPArmorPercent");
-            if (Class9.Method137(entityPlayer, field15022.Method368())) {
-                if (this.Method6000() == Class314.Field9329) {
-                    Label_0262: {
-                        if (Class1497.Field15031 && !this.Method6001()) {
-                            Class1497.Field15033 = Method6011().player.inventory.currentItem;
-                            final int method116 = Class9.Method116(Items.EXPERIENCE_BOTTLE, 0, 9);
-                            if (method116 == -1) {
-                                final Class44 field15023 = Class1497.Field15016;
-                                Intrinsics.checkExpressionValueIsNotNull((Object)field15023, "debug1");
-                                if (field15023.Method365()) {
-                                    Class1393.Method5508("Initial-AI >> Auto-XP >> No xp in hotbar");
-                                }
-                            }
-                            else {
-                                Method6011().player.inventory.currentItem = method116;
-                            }
-                        }
-                        else {
-                            if (!Class1497.Field15031 && !this.Method6001()) {
-                                final EntityPlayerSP player = Method6011().player;
-                                Intrinsics.checkExpressionValueIsNotNull((Object)player, "mc.player");
-                                if (Intrinsics.areEqual((Object)player.getHeldItemMainhand().item, (Object)Items.EXPERIENCE_BOTTLE)) {
-                                    final float rotationPitch = Method6011().player.rotationPitch;
-                                    Method6011().player.connection.sendPacket((Packet)new CPacketPlayerTryUseItem(EnumHand.MAIN_HAND));
-                                    Method6011().player.rotationPitch = rotationPitch;
-                                    break Label_0262;
-                                }
-                            }
-                            if (!Class1497.Field15031 && this.Method6001() && Class1497.Field15033 != -1) {
-                                Method6011().player.inventory.currentItem = Class1497.Field15033;
-                            }
-                        }
-                    }
-                    Class1497.Field15030.Method2801();
-                }
-                else if (!this.Method6001()) {
-                    final Class650 field15024 = Class1497.Field15030;
-                    final Class44 field15025 = Class1497.Field15024;
-                    Intrinsics.checkExpressionValueIsNotNull((Object)field15025, "autoXPSilentDelay");
-                    if (field15024.Method2797(field15025.Method369())) {
-                        Class1497.Field15030.Method2801();
-                        final int method117 = Class9.Method116(Items.EXPERIENCE_BOTTLE, 0, 9);
-                        if (method117 == -1) {
-                            final Class44 field15026 = Class1497.Field15016;
-                            Intrinsics.checkExpressionValueIsNotNull((Object)field15026, "debug1");
-                            if (field15026.Method365()) {
+        block11: {
+            block12: {
+                block14: {
+                    block13: {
+                        v0 = Class1497.Field15021;
+                        Intrinsics.checkExpressionValueIsNotNull((Object)v0, (String)"autoXP");
+                        if (!v0.Method365()) break block11;
+                        v1 = (EntityPlayer)Class1497.Method6011().player;
+                        v2 = Class1497.Field15025;
+                        Intrinsics.checkExpressionValueIsNotNull((Object)v2, (String)"autoXPArmorPercent");
+                        if (!Class9.Method137(v1, v2.Method368())) break block11;
+                        if (this.Method6000() != Class314.Field9329) break block12;
+                        if (!Class1497.Field15031 || this.Method6001()) break block13;
+                        Class1497.Field15033 = Class1497.Method6011().player.inventory.currentItem;
+                        var1_1 = Class9.Method116(Items.EXPERIENCE_BOTTLE, 0, 9);
+                        if (var1_1 == -1) {
+                            v3 = Class1497.Field15016;
+                            Intrinsics.checkExpressionValueIsNotNull((Object)v3, (String)"debug1");
+                            if (v3.Method365()) {
                                 Class1393.Method5508("Initial-AI >> Auto-XP >> No xp in hotbar");
                             }
+                        } else {
+                            Class1497.Method6011().player.inventory.currentItem = var1_1;
                         }
-                        else {
-                            final int currentItem = Method6011().player.inventory.currentItem;
-                            Method6011().player.inventory.currentItem = method117;
-                            final float rotationPitch2 = Method6011().player.rotationPitch;
-                            Method6011().player.connection.sendPacket((Packet)new CPacketPlayerTryUseItem(EnumHand.MAIN_HAND));
-                            Method6011().player.rotationPitch = rotationPitch2;
-                            Method6011().player.inventory.currentItem = currentItem;
+                        break block14;
+                    }
+                    if (Class1497.Field15031 || this.Method6001()) ** GOTO lbl-1000
+                    v4 = Class1497.Method6011().player;
+                    Intrinsics.checkExpressionValueIsNotNull((Object)v4, (String)"mc.player");
+                    if (Intrinsics.areEqual((Object)v4.getHeldItemMainhand().item, (Object)Items.EXPERIENCE_BOTTLE)) {
+                        var1_2 = Class1497.Method6011().player.rotationPitch;
+                        Class1497.Method6011().player.connection.sendPacket((Packet)new CPacketPlayerTryUseItem(EnumHand.MAIN_HAND));
+                        Class1497.Method6011().player.rotationPitch = var1_2;
+                    } else if (!Class1497.Field15031 && this.Method6001() && Class1497.Field15033 != -1) {
+                        Class1497.Method6011().player.inventory.currentItem = Class1497.Field15033;
+                    }
+                }
+                Class1497.Field15030.Method2801();
+                break block11;
+            }
+            if (!this.Method6001()) {
+                v5 = Class1497.Field15024;
+                Intrinsics.checkExpressionValueIsNotNull((Object)v5, (String)"autoXPSilentDelay");
+                if (Class1497.Field15030.Method2797(v5.Method369())) {
+                    Class1497.Field15030.Method2801();
+                    var1_3 = Class9.Method116(Items.EXPERIENCE_BOTTLE, 0, 9);
+                    if (var1_3 == -1) {
+                        v6 = Class1497.Field15016;
+                        Intrinsics.checkExpressionValueIsNotNull((Object)v6, (String)"debug1");
+                        if (v6.Method365()) {
+                            Class1393.Method5508("Initial-AI >> Auto-XP >> No xp in hotbar");
                         }
+                    } else {
+                        var2_4 = Class1497.Method6011().player.inventory.currentItem;
+                        Class1497.Method6011().player.inventory.currentItem = var1_3;
+                        var3_5 = Class1497.Method6011().player.rotationPitch;
+                        Class1497.Method6011().player.connection.sendPacket((Packet)new CPacketPlayerTryUseItem(EnumHand.MAIN_HAND));
+                        Class1497.Method6011().player.rotationPitch = var3_5;
+                        Class1497.Method6011().player.inventory.currentItem = var2_4;
                     }
                 }
             }
         }
         Class1497.Field15031 = this.Method6001();
     }
-    
+
     private final Class314 Method6000() {
-        final Class44 field15022 = Class1497.Field15022;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15022, "autoXPSmart");
-        return (Class314)(field15022.Method365() ? (Class1497.Field15032 ? Class314.Field9330 : Class314.Field9329) : Class1497.Field15023.Method341());
+        Class314 class314;
+        Class44 class44 = Field15022;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"autoXPSmart");
+        if (!class44.Method365()) {
+            class314 = (Class314)Field15023.Method341();
+            return class314;
+        }
+        if (Field15032) {
+            class314 = Class314.Field9330;
+            return class314;
+        }
+        class314 = Class314.Field9329;
+        return class314;
     }
-    
+
     private final boolean Method6001() {
-        final Class44 field15018 = Class1497.Field15018;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15018, "moveStateLogic");
-        return (field15018.Method341() == Class2115.Field17617) ? Class1917.Method7159() : Class1495.Method5990();
+        boolean bl;
+        Class44 class44 = Field15018;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"moveStateLogic");
+        if (class44.Method341() == Class2115.Field17617) {
+            bl = Class1917.Method7159();
+            return bl;
+        }
+        bl = Class1495.Method5990();
+        return bl;
     }
-    
-    private final EnumHand Method6002(final Item item) {
-        final EntityPlayerSP player = Method6011().player;
-        Intrinsics.checkExpressionValueIsNotNull((Object)player, "mc.player");
-        EnumHand main_HAND;
-        if (Intrinsics.areEqual((Object)player.getHeldItemMainhand().item, (Object)item)) {
-            main_HAND = EnumHand.MAIN_HAND;
+
+    private final EnumHand Method6002(Item item) {
+        EnumHand enumHand;
+        EntityPlayerSP entityPlayerSP = Class1497.Method6011().player;
+        Intrinsics.checkExpressionValueIsNotNull((Object)entityPlayerSP, (String)"mc.player");
+        if (Intrinsics.areEqual((Object)entityPlayerSP.getHeldItemMainhand().item, (Object)item)) {
+            enumHand = EnumHand.MAIN_HAND;
+            return enumHand;
         }
-        else {
-            final EntityPlayerSP player2 = Method6011().player;
-            Intrinsics.checkExpressionValueIsNotNull((Object)player2, "mc.player");
-            main_HAND = (Intrinsics.areEqual((Object)player2.getHeldItemOffhand().item, (Object)item) ? EnumHand.OFF_HAND : null);
-        }
-        return main_HAND;
+        EntityPlayerSP entityPlayerSP2 = Class1497.Method6011().player;
+        Intrinsics.checkExpressionValueIsNotNull((Object)entityPlayerSP2, (String)"mc.player");
+        if (!Intrinsics.areEqual((Object)entityPlayerSP2.getHeldItemOffhand().item, (Object)item)) return null;
+        enumHand = EnumHand.OFF_HAND;
+        return enumHand;
     }
-    
-    private final Class387 Method6003(final Entity entity) {
-        final ArrayList<Class387> list = new ArrayList<Class387>();
-        for (final BlockPos blockPos2 : Class2155.Method7756(entity, Float.intBitsToFloat(1086324736), true, false)) {
-            final BlockPos blockPos = blockPos2;
-            Intrinsics.checkExpressionValueIsNotNull((Object)blockPos2, "pos");
-            if (Intrinsics.areEqual((Object)Class886.Method3703(blockPos2).getBlock(), (Object)Blocks.AIR)) {
-                final BlockPos up = blockPos.up();
-                Intrinsics.checkExpressionValueIsNotNull((Object)up, "pos.up()");
-                if (!Intrinsics.areEqual((Object)Class886.Method3703(up).getBlock(), (Object)Blocks.AIR) || blockPos.getY() < 1 || this.Method6005(blockPos)) {
-                    continue;
-                }
-                final ArrayList<Class387> list2 = list;
-                final BlockPos blockPos3 = blockPos;
-                final World world = (World)Method6011().world;
-                final double n = blockPos.getX() + Double.longBitsToDouble((long)302001021 ^ 0x3FE0000012002B7DL);
-                final double n2 = blockPos.getY();
-                final double n3 = blockPos.getZ() + Double.longBitsToDouble((long)1712011939 ^ 0x3FE00000660B3AA3L);
-                final Class44 field15014 = Class1497.Field15014;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field15014, "terrain");
-                list2.add(new Class387(entity, blockPos3, Class2155.Method7759(world, n, n2, n3, entity, field15014.Method365())));
-            }
+
+    private final Class387 Method6003(Entity entity) {
+        ArrayList<Class387> arrayList = new ArrayList<Class387>();
+        Iterator iterator = Class2155.Method7756(entity, Float.intBitsToFloat(0x40C00000), true, false).iterator();
+        while (iterator.hasNext()) {
+            BlockPos blockPos;
+            BlockPos blockPos2 = blockPos = (BlockPos)iterator.next();
+            Intrinsics.checkExpressionValueIsNotNull((Object)blockPos2, (String)"pos");
+            if (!Intrinsics.areEqual((Object)Class886.Method3703(blockPos2).getBlock(), (Object)Blocks.AIR)) continue;
+            BlockPos blockPos3 = blockPos.up();
+            Intrinsics.checkExpressionValueIsNotNull((Object)blockPos3, (String)"pos.up()");
+            if (!Intrinsics.areEqual((Object)Class886.Method3703(blockPos3).getBlock(), (Object)Blocks.AIR) || blockPos.getY() < 1 || this.Method6005(blockPos)) continue;
+            World world = (World)Class1497.Method6011().world;
+            double d = (double)blockPos.getX() + Double.longBitsToDouble((long)302001021 ^ 0x3FE0000012002B7DL);
+            double d2 = blockPos.getY();
+            double d3 = (double)blockPos.getZ() + Double.longBitsToDouble((long)1712011939 ^ 0x3FE00000660B3AA3L);
+            Class44 class44 = Field15014;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"terrain");
+            arrayList.add(new Class387(entity, blockPos, Class2155.Method7759(world, d, d2, d3, entity, class44.Method365())));
         }
-        if (list.isEmpty()) {
+        if (arrayList.isEmpty()) {
             return null;
         }
-        final ArrayList<Class387> list3 = list;
-        final Comparator<Object> comparingDouble = Comparator.comparingDouble(Class664.Field10819);
-        Intrinsics.checkExpressionValueIsNotNull((Object)comparingDouble, "Comparator.comparingDoub\u2026 { it.damage.toDouble() }");
-        CollectionsKt.sortWith((List)list3, (Comparator)comparingDouble);
-        return list.get(0);
+        List list = arrayList;
+        Comparator comparator = Comparator.comparingDouble(Class664.Field10819);
+        Intrinsics.checkExpressionValueIsNotNull(comparator, (String)"Comparator.comparingDoub\u2026 { it.damage.toDouble() }");
+        CollectionsKt.sortWith((List)list, comparator);
+        return (Class387)arrayList.get(0);
     }
-    
-    private final void Method6004(final Entity entity) {
-        final Class387 method6007 = this.Method6007(entity);
-        final Class44 field15017 = Class1497.Field15017;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15017, "debug2");
-        if (field15017.Method365()) {
-            System.out.println((Object)("Spot != null is " + (method6007 != null)));
+
+    private final void Method6004(Entity entity) {
+        Object object;
+        Class387 class387 = this.Method6007(entity);
+        Class44 class44 = Field15017;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"debug2");
+        if (class44.Method365()) {
+            object = "Spot != null is " + (class387 != null);
+            boolean bl = false;
+            System.out.println(object);
         }
-        if (method6007 == null) {
-            final Class44 field15018 = Class1497.Field15016;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field15018, "debug1");
-            if (field15018.Method365()) {
-                Class1393.Method5508("Initial-AI >> No safe spot found.");
-            }
+        if (class387 == null) {
+            Class44 class442 = Field15016;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class442, (String)"debug1");
+            if (!class442.Method365()) return;
+            Class1393.Method5508("Initial-AI >> No safe spot found.");
+            return;
         }
-        else {
-            final BlockPos method6008 = method6007.Method1866();
-            Class1495.Method5986(method6008);
-            final Class44 field15019 = Class1497.Field15016;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field15019, "debug1");
-            if (field15019.Method365()) {
-                Class1393.Method5508("Initial-AI >> Going to " + method6008.getX() + ", " + method6008.getY() + ", " + method6008.getZ());
-            }
-        }
+        object = class387.Method1866();
+        Class1495.Method5986(object);
+        Class44 class443 = Field15016;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class443, (String)"debug1");
+        if (!class443.Method365()) return;
+        Class1393.Method5508("Initial-AI >> Going to " + object.getX() + ", " + object.getY() + ", " + object.getZ());
     }
-    
-    private final boolean Method6005(final BlockPos blockPos) {
-        final BlockPos north = blockPos.north();
-        Intrinsics.checkExpressionValueIsNotNull((Object)north, "pos.north()");
-        if (!this.Method6006(north)) {
-            final BlockPos east = blockPos.east();
-            Intrinsics.checkExpressionValueIsNotNull((Object)east, "pos.east()");
-            if (!this.Method6006(east)) {
-                final BlockPos west = blockPos.west();
-                Intrinsics.checkExpressionValueIsNotNull((Object)west, "pos.west()");
-                if (!this.Method6006(west)) {
-                    final BlockPos south = blockPos.south();
-                    Intrinsics.checkExpressionValueIsNotNull((Object)south, "pos.south()");
-                    if (!this.Method6006(south)) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
+
+    private final boolean Method6005(BlockPos blockPos) {
+        BlockPos blockPos2 = blockPos.north();
+        Intrinsics.checkExpressionValueIsNotNull((Object)blockPos2, (String)"pos.north()");
+        if (this.Method6006(blockPos2)) return true;
+        BlockPos blockPos3 = blockPos.east();
+        Intrinsics.checkExpressionValueIsNotNull((Object)blockPos3, (String)"pos.east()");
+        if (this.Method6006(blockPos3)) return true;
+        BlockPos blockPos4 = blockPos.west();
+        Intrinsics.checkExpressionValueIsNotNull((Object)blockPos4, (String)"pos.west()");
+        if (this.Method6006(blockPos4)) return true;
+        BlockPos blockPos5 = blockPos.south();
+        Intrinsics.checkExpressionValueIsNotNull((Object)blockPos5, (String)"pos.south()");
+        if (this.Method6006(blockPos5)) return true;
+        return false;
     }
-    
-    private final boolean Method6006(final BlockPos blockPos) {
-        return Class2155.Method7755(blockPos, true, true, Class1497.Field15015.Method365(), true);
+
+    private final boolean Method6006(BlockPos blockPos) {
+        return Class2155.Method7755(blockPos, true, true, Field15015.Method365(), true);
     }
-    
-    private final Class387 Method6007(final Entity entity) {
-        final ArrayList<Class387> list = new ArrayList<Class387>();
-        double longBitsToDouble = Double.longBitsToDouble((long)2029359978 ^ 0x3FE0000078F5936AL);
-        for (final BlockPos blockPos2 : this.Method6009(entity)) {
-            final BlockPos blockPos = blockPos2;
-            Intrinsics.checkExpressionValueIsNotNull((Object)blockPos2, "hole");
-            final float method6008 = this.Method6008(blockPos2, Float.intBitsToFloat(1086324736), entity);
-            if (method6008 > longBitsToDouble) {
-                longBitsToDouble = method6008;
-                list.add(new Class387(entity, blockPos, method6008));
-            }
+
+    private final Class387 Method6007(Entity entity) {
+        ArrayList<Class387> arrayList = new ArrayList<Class387>();
+        double d = Double.longBitsToDouble((long)2029359978 ^ 0x3FE0000078F5936AL);
+        Iterator iterator = this.Method6009(entity).iterator();
+        while (iterator.hasNext()) {
+            BlockPos blockPos;
+            BlockPos blockPos2 = blockPos = (BlockPos)iterator.next();
+            Intrinsics.checkExpressionValueIsNotNull((Object)blockPos2, (String)"hole");
+            float f = this.Method6008(blockPos2, Float.intBitsToFloat(0x40C00000), entity);
+            if (!((double)f > d)) continue;
+            d = f;
+            arrayList.add(new Class387(entity, blockPos, f));
         }
-        if (list.isEmpty()) {
+        if (arrayList.isEmpty()) {
             return null;
         }
-        final ArrayList<Class387> list2 = list;
-        final Comparator<Object> comparingDouble = Comparator.comparingDouble(Class724.Field11083);
-        Intrinsics.checkExpressionValueIsNotNull((Object)comparingDouble, "Comparator.comparingDoub\u2026 { it.damage.toDouble() }");
-        CollectionsKt.sortWith((List)list2, (Comparator)comparingDouble);
-        return list.get(0);
+        List list = arrayList;
+        Comparator comparator = Comparator.comparingDouble(Class724.Field11083);
+        Intrinsics.checkExpressionValueIsNotNull(comparator, (String)"Comparator.comparingDoub\u2026 { it.damage.toDouble() }");
+        CollectionsKt.sortWith((List)list, comparator);
+        return (Class387)arrayList.get(0);
     }
-    
-    private final float Method6008(final BlockPos blockPos, final float n, final Entity entity) {
-        double longBitsToDouble = Double.longBitsToDouble(4602678819172646912L);
-        for (final BlockPos blockPos2 : Class394.Method1946(blockPos, n, (int)n + 1, false, true, 0)) {
-            final World world = (World)Method6011().world;
-            final BlockPos blockPos3 = blockPos2;
-            Intrinsics.checkExpressionValueIsNotNull((Object)blockPos3, "pos");
-            final double n2 = blockPos3.getX() + Double.longBitsToDouble((long)618989735 ^ 0x3FE0000024E508A7L);
-            final double n3 = blockPos2.getY();
-            final double n4 = blockPos2.getZ() + Double.longBitsToDouble(4602678819172646912L);
-            final Class44 field15014 = Class1497.Field15014;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field15014, "terrain");
-            final float method7759 = Class2155.Method7759(world, n2, n3, n4, entity, field15014.Method365());
-            if (method7759 > longBitsToDouble) {
-                longBitsToDouble = method7759;
-            }
+
+    private final float Method6008(BlockPos blockPos, float f, Entity entity) {
+        double d = Double.longBitsToDouble(4602678819172646912L);
+        Iterator iterator = Class394.Method1946(blockPos, f, (int)f + 1, false, true, 0).iterator();
+        while (iterator.hasNext()) {
+            BlockPos blockPos2 = (BlockPos)iterator.next();
+            World world = (World)Class1497.Method6011().world;
+            BlockPos blockPos3 = blockPos2;
+            Intrinsics.checkExpressionValueIsNotNull((Object)blockPos3, (String)"pos");
+            double d2 = (double)blockPos3.getX() + Double.longBitsToDouble((long)618989735 ^ 0x3FE0000024E508A7L);
+            double d3 = blockPos2.getY();
+            double d4 = (double)blockPos2.getZ() + Double.longBitsToDouble(4602678819172646912L);
+            Class44 class44 = Field15014;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"terrain");
+            float f2 = Class2155.Method7759(world, d2, d3, d4, entity, class44.Method365());
+            if (!((double)f2 > d)) continue;
+            d = f2;
         }
-        return (float)longBitsToDouble;
+        return (float)d;
     }
-    
-    private final ArrayList Method6009(final Entity entity) {
-        final ArrayList<BlockPos> list = new ArrayList<BlockPos>();
-        for (final BlockPos e : this.Method6010(entity, Float.intBitsToFloat(1086324736))) {
-            final Class1862 method7131 = Class1914.Method7131(e, false, true);
-            Intrinsics.checkExpressionValueIsNotNull((Object)method7131, "info");
-            if (method7131.Method6959() == Class422.Field9771) {
-                continue;
-            }
-            list.add(e);
+
+    private final ArrayList Method6009(Entity entity) {
+        ArrayList<BlockPos> arrayList = new ArrayList<BlockPos>();
+        Iterator iterator = this.Method6010(entity, Float.intBitsToFloat(0x40C00000)).iterator();
+        while (iterator.hasNext()) {
+            Class1862 class1862;
+            BlockPos blockPos = (BlockPos)iterator.next();
+            Class1862 class18622 = class1862 = Class1914.Method7131(blockPos, false, true);
+            Intrinsics.checkExpressionValueIsNotNull((Object)class18622, (String)"info");
+            if (class18622.Method6959() == Class422.Field9771) continue;
+            arrayList.add(blockPos);
         }
-        return list;
+        return arrayList;
     }
-    
-    private final ArrayList Method6010(final Entity entity, final float n) {
-        final ArrayList<BlockPos> list = new ArrayList<BlockPos>(64);
-        for (final BlockPos e : (List<Object>)Class394.Method1946(entity.getPosition(), n, (int)n + 1, false, true, 0).stream().sorted((Comparator)Class1261.Field13708).collect(Collectors.toList())) {
-            final IBlockState getBlockState = Method6011().world.getBlockState(e);
-            Intrinsics.checkExpressionValueIsNotNull((Object)getBlockState, "mc.world.getBlockState(pos)");
-            if (Intrinsics.areEqual((Object)getBlockState.getBlock(), (Object)Blocks.AIR) ^ true) {
-                continue;
-            }
-            final IBlockState getBlockState2 = Method6011().world.getBlockState(e.add(0, -1, 0));
-            Intrinsics.checkExpressionValueIsNotNull((Object)getBlockState2, "mc.world.getBlockState(pos.add(0, -1, 0))");
-            if (Intrinsics.areEqual((Object)getBlockState2.getBlock(), (Object)Blocks.AIR)) {
-                continue;
-            }
-            final IBlockState getBlockState3 = Method6011().world.getBlockState(e.add(0, 1, 0));
-            Intrinsics.checkExpressionValueIsNotNull((Object)getBlockState3, "mc.world.getBlockState(pos.add(0, 1, 0))");
-            if (Intrinsics.areEqual((Object)getBlockState3.getBlock(), (Object)Blocks.AIR) ^ true) {
-                continue;
-            }
-            final IBlockState getBlockState4 = Method6011().world.getBlockState(e.add(0, 2, 0));
-            Intrinsics.checkExpressionValueIsNotNull((Object)getBlockState4, "mc.world.getBlockState(pos.add(0, 2, 0))");
-            if (!Intrinsics.areEqual((Object)getBlockState4.getBlock(), (Object)Blocks.AIR)) {
-                continue;
-            }
-            list.add(e);
+
+    private final ArrayList Method6010(Entity entity, float f) {
+        ArrayList<BlockPos> arrayList = new ArrayList<BlockPos>(64);
+        List list = Class394.Method1946(entity.getPosition(), f, (int)f + 1, false, true, 0);
+        list = list.stream().sorted(Class1261.Field13708).collect(Collectors.toList());
+        Iterator iterator = list.iterator();
+        while (iterator.hasNext()) {
+            BlockPos blockPos = (BlockPos)iterator.next();
+            IBlockState iBlockState = Class1497.Method6011().world.getBlockState(blockPos);
+            Intrinsics.checkExpressionValueIsNotNull((Object)iBlockState, (String)"mc.world.getBlockState(pos)");
+            if (Intrinsics.areEqual((Object)iBlockState.getBlock(), (Object)Blocks.AIR) ^ true) continue;
+            IBlockState iBlockState2 = Class1497.Method6011().world.getBlockState(blockPos.add(0, -1, 0));
+            Intrinsics.checkExpressionValueIsNotNull((Object)iBlockState2, (String)"mc.world.getBlockState(pos.add(0, -1, 0))");
+            if (Intrinsics.areEqual((Object)iBlockState2.getBlock(), (Object)Blocks.AIR)) continue;
+            IBlockState iBlockState3 = Class1497.Method6011().world.getBlockState(blockPos.add(0, 1, 0));
+            Intrinsics.checkExpressionValueIsNotNull((Object)iBlockState3, (String)"mc.world.getBlockState(pos.add(0, 1, 0))");
+            if (Intrinsics.areEqual((Object)iBlockState3.getBlock(), (Object)Blocks.AIR) ^ true) continue;
+            IBlockState iBlockState4 = Class1497.Method6011().world.getBlockState(blockPos.add(0, 2, 0));
+            Intrinsics.checkExpressionValueIsNotNull((Object)iBlockState4, (String)"mc.world.getBlockState(pos.add(0, 2, 0))");
+            if (!Intrinsics.areEqual((Object)iBlockState4.getBlock(), (Object)Blocks.AIR)) continue;
+            arrayList.add(blockPos);
         }
-        return list;
+        return arrayList;
     }
-    
+
     private Class1497() {
         super("AutoCrystalPvP", "crystal pvp go brr", Class97.Field8338);
     }
-    
+
     static {
-        final Class1497 class1497 = Field15034 = new Class1497();
-        Field15014 = class1497.Method23(new Class44("Terrain", class1497, true));
-        Field15015 = new Class44("Target Is Using Multi Place", class1497, false);
-        Field15016 = class1497.Method23(new Class44("Debug 1", class1497, false));
-        Field15017 = class1497.Method23(new Class44("Debug 2", class1497, false));
-        Field15018 = class1497.Method23(new Class44("Move State Logic", class1497, Class2115.Field17617));
-        Field15019 = class1497.Method23(new Class44("Range", class1497, Double.longBitsToDouble((long)1079343196 ^ 0x404900004055785CL), 1.0, Double.longBitsToDouble(4636737291354636288L), true));
+        Class1497 class1497;
+        Field15034 = class1497 = new Class1497();
+        Field15014 = class1497.Method23(new Class44("Terrain", (Class42)class1497, true));
+        Field15015 = new Class44("Target Is Using Multi Place", (Class42)class1497, false);
+        Field15016 = class1497.Method23(new Class44("Debug 1", (Class42)class1497, false));
+        Field15017 = class1497.Method23(new Class44("Debug 2", (Class42)class1497, false));
+        Field15018 = class1497.Method23(new Class44("Move State Logic", (Class42)class1497, Class2115.Field17617));
+        Field15019 = class1497.Method23(new Class44("Range", (Class42)class1497, Double.longBitsToDouble((long)1079343196 ^ 0x404900004055785CL), 1.0, Double.longBitsToDouble(4636737291354636288L), true));
         Field15020 = class1497.Method24(new Class1996(new Class44("Auto XP", class1497)));
-        final Class1497 class1498 = class1497;
-        final Class1996 field15020 = Class1497.Field15020;
-        final Class44 method355 = new Class44("Auto XP", class1497, false).Method355("State");
-        Intrinsics.checkExpressionValueIsNotNull((Object)method355, "Setting(\"Auto XP\", this, false).setTitle(\"State\")");
-        Field15021 = class1498.Method23(field15020.Method7405(method355));
-        final Class1497 class1499 = class1497;
-        final Class1996 field15021 = Class1497.Field15020;
-        final Class44 method356 = new Class44("Auto XP Smart", class1497, false).Method355("Smart");
-        Intrinsics.checkExpressionValueIsNotNull((Object)method356, "Setting(\"Auto XP Smart\",\u2026 false).setTitle(\"Smart\")");
-        Field15022 = class1499.Method23(field15021.Method7405(method356));
-        final Class1303 method357 = new Class1303("Auto XP Mode", (Class42)class1497, (Enum)Class314.Field9329).Method5300("Mode");
-        final Class1996 field15022 = Class1497.Field15020;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15022, "autoXPGroup");
-        Field15023 = method357.Method5304(field15022).Method5303();
-        final Class1497 class1500 = class1497;
-        final Class1996 field15023 = Class1497.Field15020;
-        final Class44 method358 = new Class44("Auto Xp Silent Delay", class1497, Double.longBitsToDouble(4636737291354636288L), 0.0, Double.longBitsToDouble((long)1955345823 ^ 0x408F4000748C359FL), Class467.Field9943).Method355("Silent Delay");
-        Intrinsics.checkExpressionValueIsNotNull((Object)method358, "Setting(\"Auto Xp Silent \u2026.setTitle(\"Silent Delay\")");
-        Field15024 = class1500.Method23(field15023.Method7405(method358));
-        final Class1497 class1501 = class1497;
-        final Class1996 field15024 = Class1497.Field15020;
-        final Class44 method359 = new Class44("Auto XP Armor Percent", class1497, Double.longBitsToDouble(4632233691727265792L), 0.0, Double.longBitsToDouble((long)1956246685 ^ 0x405900007499F49DL), Class467.Field9942).Method355("Armor Percent");
-        Intrinsics.checkExpressionValueIsNotNull((Object)method359, "Setting(\"Auto XP Armor P\u2026setTitle(\"Armor Percent\")");
-        Field15025 = class1501.Method23(field15024.Method7405(method359));
+        Class44 class44 = new Class44("Auto XP", (Class42)class1497, false).Method355("State");
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"Setting(\"Auto XP\", this, false).setTitle(\"State\")");
+        Field15021 = class1497.Method23(Field15020.Method7405(class44));
+        Class44 class442 = new Class44("Auto XP Smart", (Class42)class1497, false).Method355("Smart");
+        Intrinsics.checkExpressionValueIsNotNull((Object)class442, (String)"Setting(\"Auto XP Smart\",\u2026 false).setTitle(\"Smart\")");
+        Field15022 = class1497.Method23(Field15020.Method7405(class442));
+        Class1303 class1303 = new Class1303("Auto XP Mode", (Class42)class1497, Class314.Field9329).Method5300("Mode");
+        Class1996 class1996 = Field15020;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class1996, (String)"autoXPGroup");
+        Field15023 = class1303.Method5304(class1996).Method5303();
+        Class44 class443 = new Class44("Auto Xp Silent Delay", (Class42)class1497, Double.longBitsToDouble(4636737291354636288L), 0.0, Double.longBitsToDouble((long)1955345823 ^ 0x408F4000748C359FL), Class467.Field9943).Method355("Silent Delay");
+        Intrinsics.checkExpressionValueIsNotNull((Object)class443, (String)"Setting(\"Auto Xp Silent \u2026.setTitle(\"Silent Delay\")");
+        Field15024 = class1497.Method23(Field15020.Method7405(class443));
+        Class44 class444 = new Class44("Auto XP Armor Percent", (Class42)class1497, Double.longBitsToDouble(0x4049000000000000L), 0.0, Double.longBitsToDouble((long)1956246685 ^ 0x405900007499F49DL), Class467.Field9942).Method355("Armor Percent");
+        Intrinsics.checkExpressionValueIsNotNull((Object)class444, (String)"Setting(\"Auto XP Armor P\u2026setTitle(\"Armor Percent\")");
+        Field15025 = class1497.Method23(Field15020.Method7405(class444));
         Field15026 = class1497.Method24(new Class1996(new Class44("Auto Eat", class1497)));
-        final Class1497 class1502 = class1497;
-        final Class1996 field15025 = Class1497.Field15026;
-        final Class44 method360 = new Class44("Auto Eat", class1497, false).Method355("State");
-        Intrinsics.checkExpressionValueIsNotNull((Object)method360, "Setting(\"Auto Eat\", this, false).setTitle(\"State\")");
-        Field15027 = class1502.Method23(field15025.Method7405(method360));
+        Class44 class445 = new Class44("Auto Eat", (Class42)class1497, false).Method355("State");
+        Intrinsics.checkExpressionValueIsNotNull((Object)class445, (String)"Setting(\"Auto Eat\", this, false).setTitle(\"State\")");
+        Field15027 = class1497.Method23(Field15026.Method7405(class445));
         Field15028 = new Class411(class1497).Method2003();
-        final Class44 field15026 = Class1497.Field15019;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15026, "targetRange");
-        final Supplier method361 = field15026.Method393();
-        Intrinsics.checkExpressionValueIsNotNull((Object)method361, "targetRange.supplierDouble");
-        Field15029 = new Class61(method361, Class1497.Field15028);
+        Class44 class446 = Field15019;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class446, (String)"targetRange");
+        Supplier supplier = class446.Method393();
+        Intrinsics.checkExpressionValueIsNotNull((Object)supplier, (String)"targetRange.supplierDouble");
+        Field15029 = new Class61(supplier, Field15028);
         Field15030 = new Class650();
-        Class1497.Field15033 = -1;
-        class1497.Method44((Supplier)Class1423.Field14620);
+        Field15033 = -1;
+        super.Method44(Class1423.Field14620);
     }
-    
+
     public static final Minecraft Method6011() {
         return Class42.Field8052;
     }
-    
-    public static final void Method6012(final Minecraft field8052) {
-        Class42.Field8052 = field8052;
+
+    public static final void Method6012(Minecraft minecraft) {
+        Class42.Field8052 = minecraft;
     }
-    
-    public static final Class44 Method6013(final Class1497 class1497) {
-        return Class1497.Field15017;
+
+    public static final Class44 Method6013(Class1497 class1497) {
+        Class1497 class14972 = class1497;
+        return Field15017;
     }
-    
-    public static final void Method6014(final Class1497 class1497, final Entity entity) {
+
+    public static final void Method6014(Class1497 class1497, Entity entity) {
         class1497.Method6004(entity);
     }
-    
-    public static final Class61 Method6015(final Class1497 class1497) {
-        return Class1497.Field15029;
+
+    public static final Class61 Method6015(Class1497 class1497) {
+        Class1497 class14972 = class1497;
+        return Field15029;
     }
-    
-    public static final void Method6016(final Class1497 class1497) {
+
+    public static final void Method6016(Class1497 class1497) {
         class1497.Method5999();
     }
-    
-    public static final void Method6017(final Class1497 class1497) {
+
+    public static final void Method6017(Class1497 class1497) {
         class1497.Method5997();
     }
-    
-    private static String Method57(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x11FF ^ 0x14));
-            }
-            return new String(value);
+
+    private static String Method57(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 20;
+            cArray2[n] = (char)(cArray[n] ^ (0x11FF ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

@@ -1,86 +1,107 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.GuiButton
+ *  net.minecraft.client.gui.GuiScreen
+ *  net.minecraft.client.gui.GuiTextField
+ */
 package lavahack.client;
 
-import net.minecraft.client.gui.*;
-import java.util.*;
-import java.io.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import lavahack.client.Class1093;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.GuiTextField;
 
-public class Class593 extends GuiScreen
-{
+public class Class593
+extends GuiScreen {
     protected final GuiScreen Field10527;
-    protected List Field10528;
+    protected List Field10528 = new ArrayList();
     private String Field10529 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     public Class593() {
         this(null);
     }
-    
-    public Class593(final GuiScreen field10527) {
-        this.Field10528 = new ArrayList();
-        this.Field10527 = field10527;
+
+    public Class593(GuiScreen guiScreen) {
+        this.Field10527 = guiScreen;
     }
-    
+
     public void initGui() {
         this.buttonList.clear();
         this.Field10528.clear();
     }
-    
-    protected void mouseClicked(final int n, final int n2, final int n3) throws IOException {
-        for (final GuiButton guiButton : this.buttonList) {
-            if (guiButton instanceof Class1093) {
-                ((Class1093)guiButton).mouseClicked(n, n2, n3);
+
+    protected void mouseClicked(int n, int n2, int n3) throws IOException {
+        for (GuiButton guiButton : this.buttonList) {
+            if (!(guiButton instanceof Class1093)) continue;
+            Class1093 class1093 = (Class1093)guiButton;
+            class1093.mouseClicked(n, n2, n3);
+        }
+        Iterator iterator = this.Field10528.iterator();
+        while (true) {
+            GuiButton guiButton;
+            if (!iterator.hasNext()) {
+                super.mouseClicked(n, n2, n3);
+                return;
             }
+            guiButton = (GuiTextField)iterator.next();
+            guiButton.mouseClicked(n, n2, n3);
         }
-        final Iterator<GuiTextField> iterator2 = this.Field10528.iterator();
-        while (iterator2.hasNext()) {
-            iterator2.next().mouseClicked(n, n2, n3);
-        }
-        super.mouseClicked(n, n2, n3);
     }
-    
-    protected void keyTyped(final char c, final int n) throws IOException {
+
+    protected void keyTyped(char c, int n) throws IOException {
         if (n == 1) {
             this.mc.displayGuiScreen(this.Field10527);
             return;
         }
-        for (final GuiButton guiButton : this.buttonList) {
-            if (guiButton instanceof Class1093) {
-                final Class1093 class1093 = (Class1093)guiButton;
-                class1093.keyTyped(c, n);
-                if (!class1093.isFocused()) {
-                    continue;
-                }
-                this.actionPerformed((GuiButton)class1093);
+        for (GuiButton guiButton : this.buttonList) {
+            if (!(guiButton instanceof Class1093)) continue;
+            Class1093 class1093 = (Class1093)guiButton;
+            class1093.keyTyped(c, n);
+            if (!class1093.isFocused()) continue;
+            this.actionPerformed(class1093);
+        }
+        Iterator iterator = this.Field10528.iterator();
+        while (true) {
+            GuiButton guiButton;
+            if (!iterator.hasNext()) {
+                super.keyTyped(c, n);
+                return;
             }
+            guiButton = (GuiTextField)iterator.next();
+            guiButton.textboxKeyTyped(c, n);
         }
-        final Iterator<GuiTextField> iterator2 = this.Field10528.iterator();
-        while (iterator2.hasNext()) {
-            iterator2.next().textboxKeyTyped(c, n);
-        }
-        super.keyTyped(c, n);
     }
-    
+
     public void updateScreen() {
         super.updateScreen();
-        for (final GuiButton guiButton : this.buttonList) {
-            if (guiButton instanceof Class1093) {
-                ((Class1093)guiButton).updateCursorCounter();
-            }
+        for (GuiButton guiButton : this.buttonList) {
+            if (!(guiButton instanceof Class1093)) continue;
+            Class1093 class1093 = (Class1093)guiButton;
+            class1093.updateCursorCounter();
         }
-        final Iterator<GuiTextField> iterator2 = this.Field10528.iterator();
-        while (iterator2.hasNext()) {
-            iterator2.next().updateCursorCounter();
+        Iterator iterator = this.Field10528.iterator();
+        while (iterator.hasNext()) {
+            GuiButton guiButton;
+            guiButton = (GuiTextField)iterator.next();
+            guiButton.updateCursorCounter();
         }
     }
-    
-    public void drawScreen(final int n, final int n2, final float n3) {
-        super.drawScreen(n, n2, n3);
-        final Iterator<GuiTextField> iterator = this.Field10528.iterator();
+
+    public void drawScreen(int n, int n2, float f) {
+        super.drawScreen(n, n2, f);
+        Iterator iterator = this.Field10528.iterator();
         while (iterator.hasNext()) {
-            iterator.next().drawTextBox();
+            GuiTextField guiTextField = (GuiTextField)iterator.next();
+            guiTextField.drawTextBox();
         }
     }
 }
+

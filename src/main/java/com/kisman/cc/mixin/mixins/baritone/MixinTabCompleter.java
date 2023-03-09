@@ -1,56 +1,71 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  baritone.api.BaritoneAPI
+ *  baritone.api.IBaritone
+ *  baritone.api.event.events.TabCompleteEvent
+ *  net.minecraft.client.gui.GuiChat$ChatTabCompleter
+ *  net.minecraft.client.gui.GuiTextField
+ *  net.minecraft.util.TabCompleter
+ *  org.spongepowered.asm.mixin.Final
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.Shadow
+ *  org.spongepowered.asm.mixin.Unique
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Inject
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+ */
 package com.kisman.cc.mixin.mixins.baritone;
 
-import net.minecraft.util.*;
-import org.spongepowered.asm.mixin.*;
-import org.spongepowered.asm.mixin.injection.callback.*;
-import net.minecraft.client.gui.*;
-import baritone.api.event.events.*;
-import baritone.api.*;
-import org.spongepowered.asm.mixin.injection.*;
+import baritone.api.BaritoneAPI;
+import baritone.api.IBaritone;
+import baritone.api.event.events.TabCompleteEvent;
+import net.minecraft.client.gui.GuiChat;
+import net.minecraft.client.gui.GuiTextField;
+import net.minecraft.util.TabCompleter;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin({ TabCompleter.class })
-public class MixinTabCompleter
-{
+@Mixin(value={TabCompleter.class})
+public class MixinTabCompleter {
     @Shadow
     @Final
     protected GuiTextField Field14802;
     @Shadow
     protected boolean Field14803;
     @Unique
-    protected boolean Field14804;
-    
-    public MixinTabCompleter() {
-        this.Field14804 = false;
-    }
-    
+    protected boolean Field14804 = false;
+
     @Shadow
     @Shadow
-    public void Method5261(final String... array) {
+    public void Method5261(String ... stringArray) {
     }
-    
-    @Inject(method = { "requestCompletions" }, at = { @At("HEAD") }, cancellable = true)
-    @Inject(method = { "requestCompletions" }, at = { @At("HEAD") }, cancellable = true)
-    private void Method5262(final String s, final CallbackInfo callbackInfo) {
+
+    @Inject(method={"requestCompletions"}, at={@At(value="HEAD")}, cancellable=true)
+    @Inject(method={"requestCompletions"}, at={@At(value="HEAD")}, cancellable=true)
+    private void Method5262(String string, CallbackInfo callbackInfo) {
         if (!(this instanceof GuiChat.ChatTabCompleter)) {
             return;
         }
-        final IBaritone primaryBaritone = BaritoneAPI.getProvider().getPrimaryBaritone();
-        final TabCompleteEvent tabCompleteEvent = new TabCompleteEvent(s);
-        primaryBaritone.getGameEventHandler().onPreTabComplete(tabCompleteEvent);
+        IBaritone iBaritone = BaritoneAPI.getProvider().getPrimaryBaritone();
+        TabCompleteEvent tabCompleteEvent = new TabCompleteEvent(string);
+        iBaritone.getGameEventHandler().onPreTabComplete(tabCompleteEvent);
         if (tabCompleteEvent.isCancelled()) {
             callbackInfo.cancel();
             return;
         }
-        if (tabCompleteEvent.completions != null) {
-            callbackInfo.cancel();
-            this.Field14804 = true;
-            this.Field14803 = true;
-            this.Method5261(tabCompleteEvent.completions);
-            this.Field14804 = false;
-        }
+        if (tabCompleteEvent.completions == null) return;
+        callbackInfo.cancel();
+        this.Field14804 = true;
+        this.Field14803 = true;
+        this.Method5261(tabCompleteEvent.completions);
+        this.Field14804 = false;
     }
 }
+

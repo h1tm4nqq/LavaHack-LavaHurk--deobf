@@ -1,55 +1,75 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.item.EntityItem
+ *  net.minecraft.entity.item.EntityXPOrb
+ *  net.minecraft.init.Blocks
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.util.math.AxisAlignedBB
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.world.IBlockAccess
+ *  net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+ *  net.minecraftforge.fml.common.gameevent.TickEvent
+ */
 package lavahack.client;
 
-import net.minecraft.entity.*;
-import net.minecraftforge.fml.common.gameevent.*;
-import net.minecraftforge.fml.common.eventhandler.*;
-import net.minecraft.init.*;
-import net.minecraft.world.*;
-import net.minecraft.util.math.*;
-import net.minecraft.entity.item.*;
-import net.minecraft.util.*;
-import java.util.stream.*;
-import java.util.*;
-import java.util.function.*;
-import net.minecraft.block.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+import lavahack.client.Class1036;
+import lavahack.client.Class1303;
+import lavahack.client.Class394;
+import lavahack.client.Class42;
+import lavahack.client.Class44;
+import lavahack.client.Class711;
+import lavahack.client.Class796;
+import lavahack.client.Class9;
+import lavahack.client.Class97;
+import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-public class Class1660 extends Class42
-{
-    private final Class1303 Field15724;
-    private final Class44 Field15725;
-    private final Class44 Field15726;
-    private final Class1303 Field15727;
-    private final Class44 Field15728;
-    private final Class44 Field15729;
-    private final Class44 Field15730;
-    private final Class44 Field15731;
-    private Entity Field15732;
+public class Class1660
+extends Class42 {
+    private final Class1303 Field15724 = new Class1303("EventMode", (Class42)this, Class796.Field11386).Method5303();
+    private final Class44 Field15725 = this.Method23(new Class44("PlaceRange", (Class42)this, Double.longBitsToDouble((long)719316874 ^ 0x401400002ADFE78AL), 1.0, Double.longBitsToDouble((long)1170349115 ^ 0x4018000045C21C3BL), false));
+    private final Class44 Field15726 = this.Method23(new Class44("TargetRange", (Class42)this, Double.longBitsToDouble(0x4020000000000000L), 1.0, Double.longBitsToDouble(4624633867356078080L), false));
+    private final Class1303 Field15727 = new Class1303("Switch", (Class42)this, Class711.Field11028);
+    private final Class44 Field15728 = this.Method23(new Class44("Cancel", (Class42)this, true));
+    private final Class44 Field15729 = this.Method23(new Class44("PredictFacing", (Class42)this, false));
+    private final Class44 Field15730 = this.Method23(new Class44("Rotate", (Class42)this, false));
+    private final Class44 Field15731 = this.Method23(new Class44("Packet", (Class42)this, false));
+    private Entity Field15732 = null;
     private String Field15733 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     public Class1660() {
         super("DamageIncreaser", Class97.Field8338);
-        this.Field15724 = new Class1303("EventMode", (Class42)this, (Enum)Class796.Field11386).Method5303();
-        this.Field15725 = this.Method23(new Class44("PlaceRange", this, Double.longBitsToDouble((long)719316874 ^ 0x401400002ADFE78AL), 1.0, Double.longBitsToDouble((long)1170349115 ^ 0x4018000045C21C3BL), false));
-        this.Field15726 = this.Method23(new Class44("TargetRange", this, Double.longBitsToDouble(4620693217682128896L), 1.0, Double.longBitsToDouble(4624633867356078080L), false));
-        this.Field15727 = new Class1303("Switch", (Class42)this, (Enum)Class711.Field11028);
-        this.Field15728 = this.Method23(new Class44("Cancel", this, true));
-        this.Field15729 = this.Method23(new Class44("PredictFacing", this, false));
-        this.Field15730 = this.Method23(new Class44("Rotate", this, false));
-        this.Field15731 = this.Method23(new Class44("Packet", this, false));
-        this.Field15732 = null;
         this.Method44(this::Method6431);
     }
-    
+
     @Override
     public void Method39() {
         super.Method39();
         this.Field15732 = null;
     }
-    
+
     @Override
     public void Method45() {
         if (this.Field15724.Method341() != Class796.Field11387) {
@@ -57,149 +77,160 @@ public class Class1660 extends Class42
         }
         this.Method20();
     }
-    
+
     @SubscribeEvent
     @SubscribeEvent
-    public void Method6415(final TickEvent tickEvent) {
+    public void Method6415(TickEvent tickEvent) {
         if (this.Field15724.Method341() != Class796.Field11386) {
             return;
         }
         this.Method20();
     }
-    
+
     private void Method20() {
-        if (Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.player == null || Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world == null) {
+        if (Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.player == null) return;
+        if (Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world == null) {
             return;
         }
-        this.Field15732 = (Entity)Class394.Method1924(this.Field15726.Method368());
+        this.Field15732 = Class394.Method1924(this.Field15726.Method368());
         if (this.Field15732 == null) {
             return;
         }
-        final BlockPos method6418 = this.Method6418();
-        if (method6418 == null) {
+        BlockPos blockPos = this.Method6418();
+        if (blockPos == null) {
             return;
         }
-        this.Method6416(method6418);
+        this.Method6416(blockPos);
     }
-    
-    private void Method6416(final BlockPos blockPos) {
-        final int method127 = Class9.Method127(Blocks.OBSIDIAN);
-        if (method127 == -1) {
+
+    private void Method6416(BlockPos blockPos) {
+        int n = Class9.Method127(Blocks.OBSIDIAN);
+        if (n == -1) {
             return;
         }
-        final int currentItem = Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.player.inventory.currentItem;
-        if (!Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world.getBlockState(blockPos).getBlock().isReplaceable((IBlockAccess)Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world, blockPos) || this.Method6417(blockPos)) {
+        int n2 = Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.player.inventory.currentItem;
+        if (!Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world.getBlockState(blockPos).getBlock().isReplaceable((IBlockAccess)Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world, blockPos)) return;
+        if (this.Method6417(blockPos)) {
             return;
         }
-        ((Class711)this.Field15727.Method341()).Method2972().Method1726(method127, false);
+        ((Class711)this.Field15727.Method341()).Method2972().Method1726(n, false);
         Class1036.Method4208(blockPos, EnumHand.MAIN_HAND, this.Field15730.Method365(), this.Field15731.Method365());
-        ((Class711)this.Field15727.Method341()).Method2972().Method1726(currentItem, true);
+        ((Class711)this.Field15727.Method341()).Method2972().Method1726(n2, true);
     }
-    
-    private boolean Method6417(final BlockPos blockPos) {
-        for (final Entity entity : Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world.getEntitiesWithinAABB((Class)Entity.class, new AxisAlignedBB(blockPos))) {
-            if (!(entity instanceof EntityItem)) {
-                if (entity instanceof EntityXPOrb) {
-                    continue;
-                }
-                return true;
-            }
+
+    private boolean Method6417(BlockPos blockPos) {
+        AxisAlignedBB axisAlignedBB = new AxisAlignedBB(blockPos);
+        Iterator iterator = Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world.getEntitiesWithinAABB(Entity.class, axisAlignedBB).iterator();
+        while (iterator.hasNext()) {
+            Entity entity = (Entity)iterator.next();
+            if (entity instanceof EntityItem) continue;
+            if (!(entity instanceof EntityXPOrb)) return true;
         }
         return false;
     }
-    
+
     private BlockPos Method6418() {
-        final BlockPos blockPos = new BlockPos(this.Field15732.posX, this.Field15732.posY, this.Field15732.posZ);
-        if (this.Method6421(blockPos.down()).isReplaceable((IBlockAccess)Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world, blockPos.down())) {
+        List list;
+        BlockPos blockPos;
+        BlockPos blockPos2 = new BlockPos(this.Field15732.posX, this.Field15732.posY, this.Field15732.posZ);
+        if (this.Method6421(blockPos2.down()).isReplaceable((IBlockAccess)Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world, blockPos2.down())) {
             return null;
         }
-        final List<? super Object> list = Arrays.stream(EnumFacing.HORIZONTALS).map((Function<? super EnumFacing, ?>)Class1660::Method6430).collect((Collector<? super Object, ?, List<? super Object>>)Collectors.toList());
+        List list2 = Arrays.stream(EnumFacing.HORIZONTALS).map(arg_0 -> Class1660.Method6430(blockPos2, arg_0)).collect(Collectors.toList());
         if (this.Field15729.Method365()) {
-            list.remove(blockPos.down().offset(this.Method6420()));
+            list2.remove(blockPos2.down().offset(this.Method6420()));
         }
-        final List<Object> list2 = list.stream().filter((Predicate<? super Object>)this::Method6429).filter((Predicate<? super Object>)Class1660::Method6428).filter((Predicate<? super Object>)this::Method6427).filter((Predicate<? super Object>)this::Method6426).filter((Predicate<? super Object>)this::Method6425).collect((Collector<? super Object, ?, List<Object>>)Collectors.toList());
-        final BlockPos blockPos2 = list2.stream().min(Comparator.comparingDouble((ToDoubleFunction<? super BlockPos>)this::Method6424)).orElse(null);
-        if (blockPos2 == null) {
+        if ((blockPos = (BlockPos)(list = list2.stream().filter(this::Method6429).filter(Class1660::Method6428).filter(this::Method6427).filter(this::Method6426).filter(this::Method6425).collect(Collectors.toList())).stream().min(Comparator.comparingDouble(this::Method6424)).orElse(null)) == null) {
             return null;
         }
-        if (this.Field15728.Method365() && !this.Method6421(blockPos2).isReplaceable((IBlockAccess)Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world, blockPos2)) {
-            return null;
-        }
-        return list2.stream().filter(this::Method6423).min(Comparator.comparingDouble((ToDoubleFunction<? super BlockPos>)this::Method6422)).orElse(null);
+        if (!this.Field15728.Method365()) return list.stream().filter(this::Method6423).min(Comparator.comparingDouble(this::Method6422)).orElse(null);
+        if (this.Method6421(blockPos).isReplaceable((IBlockAccess)Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world, blockPos)) return list.stream().filter(this::Method6423).min(Comparator.comparingDouble(this::Method6422)).orElse(null);
+        return null;
     }
-    
-    private double Method6419(final Entity entity, final BlockPos blockPos, final int n) {
-        return entity.getDistance(blockPos.getX() + Double.longBitsToDouble((long)1059936278 ^ 0x3FE000003F2D5816L), (double)(blockPos.getY() + n), blockPos.getZ() + Double.longBitsToDouble(4602678819172646912L));
+
+    private double Method6419(Entity entity, BlockPos blockPos, int n) {
+        double d = (double)blockPos.getX() + Double.longBitsToDouble((long)1059936278 ^ 0x3FE000003F2D5816L);
+        double d2 = blockPos.getY() + n;
+        double d3 = (double)blockPos.getZ() + Double.longBitsToDouble(4602678819172646912L);
+        return entity.getDistance(d, d2, d3);
     }
-    
+
     private EnumFacing Method6420() {
-        if (Math.abs(this.Field15732.motionX) > Math.abs(this.Field15732.motionZ)) {
-            if (this.Field15732.motionX >= 0.0) {
-                return EnumFacing.EAST;
-            }
-            return EnumFacing.WEST;
+        double d;
+        double d2 = Math.abs(this.Field15732.motionX);
+        if (d2 > (d = Math.abs(this.Field15732.motionZ))) {
+            if (!(this.Field15732.motionX >= 0.0)) return EnumFacing.WEST;
+            return EnumFacing.EAST;
         }
-        else {
-            if (this.Field15732.motionZ >= 0.0) {
-                return EnumFacing.SOUTH;
-            }
-            return EnumFacing.NORTH;
-        }
+        if (!(this.Field15732.motionZ >= 0.0)) return EnumFacing.NORTH;
+        return EnumFacing.SOUTH;
     }
-    
-    private Block Method6421(final BlockPos blockPos) {
+
+    private Block Method6421(BlockPos blockPos) {
         return Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world.getBlockState(blockPos).getBlock();
     }
-    
-    private double Method6422(final BlockPos blockPos) {
+
+    private double Method6422(BlockPos blockPos) {
         return this.Method6419(this.Field15732, blockPos, 1);
     }
-    
-    private boolean Method6423(final BlockPos blockPos) {
+
+    private boolean Method6423(BlockPos blockPos) {
         return this.Method6421(blockPos).isReplaceable((IBlockAccess)Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.world, blockPos);
     }
-    
-    private double Method6424(final BlockPos blockPos) {
+
+    private double Method6424(BlockPos blockPos) {
         return this.Method6419(this.Field15732, blockPos, 1);
     }
-    
-    private boolean Method6425(final BlockPos blockPos) {
-        return !this.Field15732.getEntityBoundingBox().intersects(new AxisAlignedBB(blockPos.up()));
+
+    private boolean Method6425(BlockPos blockPos) {
+        if (this.Field15732.getEntityBoundingBox().intersects(new AxisAlignedBB(blockPos.up()))) return false;
+        return true;
     }
-    
-    private boolean Method6426(final BlockPos blockPos) {
-        return this.Method6421(blockPos.up(2)) == Blocks.AIR;
+
+    private boolean Method6426(BlockPos blockPos) {
+        if (this.Method6421(blockPos.up(2)) != Blocks.AIR) return false;
+        return true;
     }
-    
-    private boolean Method6427(final BlockPos blockPos) {
-        return this.Method6421(blockPos.up()) == Blocks.AIR;
+
+    private boolean Method6427(BlockPos blockPos) {
+        if (this.Method6421(blockPos.up()) != Blocks.AIR) return false;
+        return true;
     }
-    
-    private static boolean Method6428(final BlockPos blockPos) {
-        return !Class1036.Method4213(blockPos).isEmpty();
+
+    private static boolean Method6428(BlockPos blockPos) {
+        if (Class1036.Method4213(blockPos).isEmpty()) return false;
+        return true;
     }
-    
-    private boolean Method6429(final BlockPos blockPos) {
-        return this.Method6419((Entity)Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.player, blockPos, 0) <= this.Field15725.Method367();
+
+    private boolean Method6429(BlockPos blockPos) {
+        if (!(this.Method6419((Entity)Class1660.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.player, blockPos, 0) <= this.Field15725.Method367())) return false;
+        return true;
     }
-    
-    private static BlockPos Method6430(final BlockPos blockPos, final EnumFacing enumFacing) {
+
+    private static BlockPos Method6430(BlockPos blockPos, EnumFacing enumFacing) {
         return blockPos.down().offset(enumFacing);
     }
-    
+
     private String Method6431() {
-        return (this.Field15732 == null) ? "No Target" : this.Field15732.getName();
-    }
-    
-    private static String Method57(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x567A ^ 0xA2));
-            }
-            return new String(value);
+        if (this.Field15732 == null) {
+            return "No Target";
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        String string = this.Field15732.getName();
+        return string;
+    }
+
+    private static String Method57(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 162;
+            cArray2[n] = (char)(cArray[n] ^ (0x567A ^ n2));
+            ++n;
+        }
+        return new String(cArray2);
     }
 }
+

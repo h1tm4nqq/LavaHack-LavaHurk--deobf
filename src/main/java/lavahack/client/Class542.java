@@ -1,13 +1,16 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.apache.logging.log4j.LogManager
+ *  org.apache.logging.log4j.Logger
+ */
 package lavahack.client;
 
-import org.apache.logging.log4j.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class Class542
-{
+public class Class542 {
     public static final String Field10306;
     public static final String Field10307;
     public static final String Field10308;
@@ -18,7 +21,7 @@ public class Class542
     public static final String Field10313;
     public static Logger Field10314;
     private String Field10315 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     static {
         Field10313 = "com.kisman.cc.features.schematica.schematica.client.gui.config.GuiFactory";
         Field10312 = "com.kisman.cc.features.schematica.schematica.proxy.ClientProxy";
@@ -28,18 +31,21 @@ public class Class542
         Field10308 = "${version_schematica}";
         Field10307 = "Schematica";
         Field10306 = "schematica";
-        Class542.Field10314 = LogManager.getLogger("schematica");
+        Field10314 = LogManager.getLogger((String)"schematica");
     }
-    
-    private static String Method2441(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x3943 ^ 0xC6));
-            }
-            return new String(value);
+
+    private static String Method2441(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 198;
+            cArray2[n] = (char)(cArray[n] ^ (0x3943 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

@@ -1,369 +1,370 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.TypeCastException
+ *  kotlin.jvm.internal.Intrinsics
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.inventory.ClickType
+ *  net.minecraft.inventory.Container
+ *  net.minecraft.item.Item
+ *  net.minecraft.item.ItemBow
+ *  net.minecraft.item.ItemBucketMilk
+ *  net.minecraft.item.ItemEnderPearl
+ *  net.minecraft.item.ItemExpBottle
+ *  net.minecraft.item.ItemFood
+ *  net.minecraft.item.ItemPotion
+ *  net.minecraft.item.ItemStack
+ *  org.lwjgl.input.Mouse
+ */
 package lavahack.client;
 
-import kotlin.jvm.internal.*;
-import org.lwjgl.input.*;
-import net.minecraft.client.entity.*;
-import kotlin.*;
-import net.minecraft.item.*;
-import net.minecraft.inventory.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.client.*;
+import kotlin.Metadata;
+import kotlin.TypeCastException;
+import kotlin.jvm.internal.Intrinsics;
+import lavahack.client.Class1051;
+import lavahack.client.Class1393;
+import lavahack.client.Class1740;
+import lavahack.client.Class1887;
+import lavahack.client.Class1912;
+import lavahack.client.Class42;
+import lavahack.client.Class44;
+import lavahack.client.Class97;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.ClickType;
+import net.minecraft.inventory.Container;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemBucketMilk;
+import net.minecraft.item.ItemEnderPearl;
+import net.minecraft.item.ItemExpBottle;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemPotion;
+import net.minecraft.item.ItemStack;
+import org.lwjgl.input.Mouse;
 
 @Class1887
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 1, d1 = { "\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u00002\u00020\u0001:\u0001)B\u0005?\u0006\u0002\u0010\u0002J \u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J \u0010\u0018\u001a\u00020\u00192\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J \u0010\u001a\u001a\u00020\u00192\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J \u0010\u001b\u001a\u00020\u00112\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J\u0010\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u0011H\u0002J\"\u0010\u001f\u001a\u0004\u0018\u00010 2\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J \u0010!\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J\u0010\u0010\"\u001a\u00020\u00192\u0006\u0010#\u001a\u00020\u0011H\u0002J\u0018\u0010\"\u001a\u00020\u00192\u0006\u0010#\u001a\u00020\u00112\u0006\u0010$\u001a\u00020%H\u0002J\b\u0010&\u001a\u00020\u0019H\u0016J\b\u0010'\u001a\u00020\u0014H\u0002J\u0018\u0010(\u001a\u00020\u00192\u0006\u0010\u001e\u001a\u00020\u00112\u0006\u0010\u0015\u001a\u00020\u0014H\u0002R\u0016\u0010\u0003\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0006\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0007\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\t\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u000b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\f\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\r\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u000e\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u000f\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082D?\u0006\u0002\n\u0000R\u0016\u0010\u0012\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000?\u0006*" }, d2 = { "Lcom/kisman/cc/features/module/combat/HandRewrite;", "Lcom/kisman/cc/features/module/Module;", "()V", "hotbarFirst", "Lcom/kisman/cc/settings/Setting;", "kotlin.jvm.PlatformType", "mainhandLowHPMode", "mainhandLowHPVal", "mainhandMode", "mainhandRightClickMode", "mainhandSlot", "offhandLowHPMode", "offhandLowHPVal", "offhandMode", "offhandRightClickMode", "offhandRightClickNoUsefulItems", "offhandSlot", "", "usageUpdateController", "canBeSwitched", "", "offhand", "right", "lowHP", "doHandRewrite", "", "doSwitch", "findItem", "get", "Lnet/minecraft/item/ItemStack;", "slot", "getItem", "Lnet/minecraft/item/Item;", "itemCheck", "switch", "slotOfItem", "slotToSwitch", "Lcom/kisman/cc/util/enums/HandRewriteSlotMappings;", "update", "usefulItemsCheck", "windowClick", "Modes", "kisman.cc" })
-public final class Class1573 extends Class42
-{
-    private final Class44 Field15329;
-    private final Class44 Field15330;
-    private final Class44 Field15331;
-    private final Class44 Field15332;
-    private final Class44 Field15333;
-    private final Class44 Field15334;
-    private final Class44 Field15335;
-    private final Class44 Field15336;
-    private final Class44 Field15337;
-    private final Class44 Field15338;
-    private final Class44 Field15339;
-    private final Class44 Field15340;
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=1, d1={"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u00002\u00020\u0001:\u0001)B\u0005\u00a2\u0006\u0002\u0010\u0002J \u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J \u0010\u0018\u001a\u00020\u00192\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J \u0010\u001a\u001a\u00020\u00192\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J \u0010\u001b\u001a\u00020\u00112\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J\u0010\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u0011H\u0002J\"\u0010\u001f\u001a\u0004\u0018\u00010 2\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J \u0010!\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0014H\u0002J\u0010\u0010\"\u001a\u00020\u00192\u0006\u0010#\u001a\u00020\u0011H\u0002J\u0018\u0010\"\u001a\u00020\u00192\u0006\u0010#\u001a\u00020\u00112\u0006\u0010$\u001a\u00020%H\u0002J\b\u0010&\u001a\u00020\u0019H\u0016J\b\u0010'\u001a\u00020\u0014H\u0002J\u0018\u0010(\u001a\u00020\u00192\u0006\u0010\u001e\u001a\u00020\u00112\u0006\u0010\u0015\u001a\u00020\u0014H\u0002R\u0016\u0010\u0003\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0006\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0007\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\t\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u000b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\f\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\r\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u000e\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u000f\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082D\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0012\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006*"}, d2={"Lcom/kisman/cc/features/module/combat/HandRewrite;", "Lcom/kisman/cc/features/module/Module;", "()V", "hotbarFirst", "Lcom/kisman/cc/settings/Setting;", "kotlin.jvm.PlatformType", "mainhandLowHPMode", "mainhandLowHPVal", "mainhandMode", "mainhandRightClickMode", "mainhandSlot", "offhandLowHPMode", "offhandLowHPVal", "offhandMode", "offhandRightClickMode", "offhandRightClickNoUsefulItems", "offhandSlot", "", "usageUpdateController", "canBeSwitched", "", "offhand", "right", "lowHP", "doHandRewrite", "", "doSwitch", "findItem", "get", "Lnet/minecraft/item/ItemStack;", "slot", "getItem", "Lnet/minecraft/item/Item;", "itemCheck", "switch", "slotOfItem", "slotToSwitch", "Lcom/kisman/cc/util/enums/HandRewriteSlotMappings;", "update", "usefulItemsCheck", "windowClick", "Modes", "kisman.cc"})
+public final class Class1573
+extends Class42 {
+    private final Class44 Field15329 = this.Method23(new Class44("Mainhand Mode", (Class42)this, Class1912.Field16825));
+    private final Class44 Field15330 = this.Method23(new Class44("Mainhand Slot", (Class42)this, 1.0, 1.0, Double.longBitsToDouble((long)1819707370 ^ 0x402200006C7687EAL), true));
+    private final Class44 Field15331 = this.Method23(new Class44("Mainhand Right Click Mode", (Class42)this, Class1912.Field16825));
+    private final Class44 Field15332 = this.Method23(new Class44("Mainhand Low HP Mode", (Class42)this, Class1912.Field16825));
+    private final Class44 Field15333 = this.Method23(new Class44("Mainhand Low HP Val", (Class42)this, Double.longBitsToDouble(0x4024000000000000L), 1.0, Double.longBitsToDouble(0x4042000000000000L), true));
+    private final Class44 Field15334 = this.Method23(new Class44("Offhand Mode", (Class42)this, Class1912.Field16825));
+    private final Class44 Field15335 = this.Method23(new Class44("Offhand Right Click Mode", (Class42)this, Class1912.Field16825));
+    private final Class44 Field15336 = this.Method23(new Class44("Offhand Right Click No Useful Items", (Class42)this, true));
+    private final Class44 Field15337 = this.Method23(new Class44("Offhand Low HP Mode", (Class42)this, Class1912.Field16825));
+    private final Class44 Field15338 = this.Method23(new Class44("Offhand Low HP Val", (Class42)this, Double.longBitsToDouble(0x4024000000000000L), 1.0, Double.longBitsToDouble((long)111834406 ^ 0x4042000006AA7526L), true));
+    private final Class44 Field15339 = this.Method23(new Class44("Usage UpdateController", (Class42)this, true));
+    private final Class44 Field15340 = this.Method23(new Class44("Hotbar First", (Class42)this, false));
     private final int Field15341 = 45;
     private int Field15342;
-    
+
+    /*
+     * Unable to fully structure code
+     */
     @Override
     public void Method45() {
-        if (Method6211().player == null || Method6211().world == null || Method6211().playerController == null) {
-            return;
-        }
-        final Class44 field15329 = this.Field15329;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15329, "mainhandMode");
-        if (field15329.Method341() != Class1912.Field16825 && this.Method6201(false, false, false)) {
-            final boolean b = false;
-            final boolean b2 = Mouse.isButtonDown(1) && Method6211().currentScreen == null && this.Method6201(false, true, false);
-            final EntityPlayerSP player = Method6211().player;
-            Intrinsics.checkExpressionValueIsNotNull((Object)player, "mc.player");
-            final float n = player.getHealth() + Method6211().player.absorptionAmount;
-            final Class44 field15330 = this.Field15333;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field15330, "mainhandLowHPVal");
-            boolean b3 = false;
-            Label_0167: {
-                if (n < field15330.Method335()) {
-                    final Class44 field15331 = this.Field15332;
-                    Intrinsics.checkExpressionValueIsNotNull((Object)field15331, "mainhandLowHPMode");
-                    if (field15331.Method341() != Class1912.Field16825 && this.Method6201(false, false, true)) {
-                        b3 = true;
-                        break Label_0167;
-                    }
-                }
-                b3 = false;
+        block7: {
+            if (Class1573.Method6211().player == null) return;
+            if (Class1573.Method6211().world == null) return;
+            if (Class1573.Method6211().playerController == null) {
+                return;
             }
-            this.Method6202(b, b2, b3);
-        }
-        final Class44 field15332 = this.Field15334;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15332, "offhandMode");
-        if (field15332.Method341() != Class1912.Field16825 && this.Method6201(true, false, false)) {
-            final boolean b4 = true;
-            boolean b5 = false;
-            Label_0255: {
-                if (Mouse.isButtonDown(1) && Method6211().currentScreen == null) {
-                    final Class44 field15333 = this.Field15336;
-                    Intrinsics.checkExpressionValueIsNotNull((Object)field15333, "offhandRightClickNoUsefulItems");
-                    if ((!field15333.Method365() || !this.Method27()) && this.Method6201(true, true, false)) {
-                        b5 = true;
-                        break Label_0255;
-                    }
-                }
-                b5 = false;
+            v0 = this.Field15329;
+            Intrinsics.checkExpressionValueIsNotNull((Object)v0, (String)"mainhandMode");
+            if (v0.Method341() == Class1912.Field16825 || !this.Method6201(false, false, false)) break block7;
+            v1 = Mouse.isButtonDown((int)1) != false && Class1573.Method6211().currentScreen == null && this.Method6201(false, true, false) != false;
+            v2 = Class1573.Method6211().player;
+            Intrinsics.checkExpressionValueIsNotNull((Object)v2, (String)"mc.player");
+            v3 = v2.getHealth() + Class1573.Method6211().player.absorptionAmount;
+            v4 = this.Field15333;
+            Intrinsics.checkExpressionValueIsNotNull((Object)v4, (String)"mainhandLowHPVal");
+            if (!(v3 < (float)v4.Method335())) ** GOTO lbl-1000
+            v5 = this.Field15332;
+            Intrinsics.checkExpressionValueIsNotNull((Object)v5, (String)"mainhandLowHPMode");
+            if (v5.Method341() != Class1912.Field16825 && this.Method6201(false, false, true)) {
+                v6 = true;
+            } else lbl-1000:
+            // 2 sources
+
+            {
+                v6 = false;
             }
-            final EntityPlayerSP player2 = Method6211().player;
-            Intrinsics.checkExpressionValueIsNotNull((Object)player2, "mc.player");
-            final float n2 = player2.getHealth() + Method6211().player.absorptionAmount;
-            final Class44 field15334 = this.Field15338;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field15334, "offhandLowHPVal");
-            boolean b6 = false;
-            Label_0332: {
-                if (n2 < field15334.Method335()) {
-                    final Class44 field15335 = this.Field15337;
-                    Intrinsics.checkExpressionValueIsNotNull((Object)field15335, "offhandLowHPMode");
-                    if (field15335.Method341() != Class1912.Field16825 && this.Method6201(true, false, true)) {
-                        b6 = true;
-                        break Label_0332;
-                    }
-                }
-                b6 = false;
-            }
-            this.Method6202(b4, b5, b6);
+            this.Method6202(false, v1, v6);
         }
+        v7 = this.Field15334;
+        Intrinsics.checkExpressionValueIsNotNull((Object)v7, (String)"offhandMode");
+        if (v7.Method341() == Class1912.Field16825) return;
+        if (this.Method6201(true, false, false) == false) return;
+        if (!Mouse.isButtonDown((int)1) || Class1573.Method6211().currentScreen != null) ** GOTO lbl-1000
+        v8 = this.Field15336;
+        Intrinsics.checkExpressionValueIsNotNull((Object)v8, (String)"offhandRightClickNoUsefulItems");
+        if (!(v8.Method365() && this.Method27() || !this.Method6201(true, true, false))) {
+            v9 = true;
+        } else lbl-1000:
+        // 2 sources
+
+        {
+            v9 = false;
+        }
+        v10 = Class1573.Method6211().player;
+        Intrinsics.checkExpressionValueIsNotNull((Object)v10, (String)"mc.player");
+        v11 = v10.getHealth() + Class1573.Method6211().player.absorptionAmount;
+        v12 = this.Field15338;
+        Intrinsics.checkExpressionValueIsNotNull((Object)v12, (String)"offhandLowHPVal");
+        if (!(v11 < (float)v12.Method335())) ** GOTO lbl-1000
+        v13 = this.Field15337;
+        Intrinsics.checkExpressionValueIsNotNull((Object)v13, (String)"offhandLowHPMode");
+        if (v13.Method341() != Class1912.Field16825 && this.Method6201(true, false, true)) {
+            v14 = true;
+        } else lbl-1000:
+        // 2 sources
+
+        {
+            v14 = false;
+        }
+        this.Method6202(true, v9, v14);
     }
-    
-    private final boolean Method6201(final boolean b, final boolean b2, final boolean b3) {
-        return this.Method6204(b, b2, b3) != -1;
-    }
-    
-    private final boolean Method27() {
-        final EntityPlayerSP player = Method6211().player;
-        Intrinsics.checkExpressionValueIsNotNull((Object)player, "mc.player");
-        if (!(player.getHeldItemMainhand().item instanceof ItemFood)) {
-            final EntityPlayerSP player2 = Method6211().player;
-            Intrinsics.checkExpressionValueIsNotNull((Object)player2, "mc.player");
-            if (!(player2.getHeldItemMainhand().item instanceof ItemPotion)) {
-                final EntityPlayerSP player3 = Method6211().player;
-                Intrinsics.checkExpressionValueIsNotNull((Object)player3, "mc.player");
-                if (!(player3.getHeldItemMainhand().item instanceof ItemBucketMilk)) {
-                    final EntityPlayerSP player4 = Method6211().player;
-                    Intrinsics.checkExpressionValueIsNotNull((Object)player4, "mc.player");
-                    if (!(player4.getHeldItemMainhand().item instanceof ItemExpBottle)) {
-                        final EntityPlayerSP player5 = Method6211().player;
-                        Intrinsics.checkExpressionValueIsNotNull((Object)player5, "mc.player");
-                        if (!(player5.getHeldItemMainhand().item instanceof ItemBow)) {
-                            final EntityPlayerSP player6 = Method6211().player;
-                            Intrinsics.checkExpressionValueIsNotNull((Object)player6, "mc.player");
-                            if (!(player6.getHeldItemMainhand().item instanceof ItemEnderPearl)) {
-                                return false;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+
+    private final boolean Method6201(boolean bl, boolean bl2, boolean bl3) {
+        if (this.Method6204(bl, bl2, bl3) == -1) return false;
         return true;
     }
-    
-    private final void Method6202(final boolean b, final boolean b2, final boolean b3) {
-        if (this.Method6206(b, b2, b3)) {
-            this.Method6205(b, b2, b3);
-        }
+
+    private final boolean Method27() {
+        EntityPlayerSP entityPlayerSP = Class1573.Method6211().player;
+        Intrinsics.checkExpressionValueIsNotNull((Object)entityPlayerSP, (String)"mc.player");
+        if (entityPlayerSP.getHeldItemMainhand().item instanceof ItemFood) return true;
+        EntityPlayerSP entityPlayerSP2 = Class1573.Method6211().player;
+        Intrinsics.checkExpressionValueIsNotNull((Object)entityPlayerSP2, (String)"mc.player");
+        if (entityPlayerSP2.getHeldItemMainhand().item instanceof ItemPotion) return true;
+        EntityPlayerSP entityPlayerSP3 = Class1573.Method6211().player;
+        Intrinsics.checkExpressionValueIsNotNull((Object)entityPlayerSP3, (String)"mc.player");
+        if (entityPlayerSP3.getHeldItemMainhand().item instanceof ItemBucketMilk) return true;
+        EntityPlayerSP entityPlayerSP4 = Class1573.Method6211().player;
+        Intrinsics.checkExpressionValueIsNotNull((Object)entityPlayerSP4, (String)"mc.player");
+        if (entityPlayerSP4.getHeldItemMainhand().item instanceof ItemExpBottle) return true;
+        EntityPlayerSP entityPlayerSP5 = Class1573.Method6211().player;
+        Intrinsics.checkExpressionValueIsNotNull((Object)entityPlayerSP5, (String)"mc.player");
+        if (entityPlayerSP5.getHeldItemMainhand().item instanceof ItemBow) return true;
+        EntityPlayerSP entityPlayerSP6 = Class1573.Method6211().player;
+        Intrinsics.checkExpressionValueIsNotNull((Object)entityPlayerSP6, (String)"mc.player");
+        if (entityPlayerSP6.getHeldItemMainhand().item instanceof ItemEnderPearl) return true;
+        return false;
     }
-    
-    private final Item Method6203(final boolean b, final boolean b2, final boolean b3) {
+
+    private final void Method6202(boolean bl, boolean bl2, boolean bl3) {
+        if (!this.Method6206(bl, bl2, bl3)) return;
+        this.Method6205(bl, bl2, bl3);
+    }
+
+    private final Item Method6203(boolean bl, boolean bl2, boolean bl3) {
+        Enum enum_;
         Item item;
-        if (b) {
-            Enum enum2;
-            Enum enum1;
-            if (b2) {
-                final Class44 field15335 = this.Field15335;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field15335, "offhandRightClickMode");
-                enum1 = (enum2 = field15335.Method341());
+        if (bl) {
+            Enum enum_2;
+            if (bl2) {
+                Class44 class44 = this.Field15335;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"offhandRightClickMode");
+                enum_2 = class44.Method341();
+            } else if (bl3) {
+                Class44 class44 = this.Field15337;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"offhandLowHPMode");
+                enum_2 = class44.Method341();
+            } else {
+                Class44 class44 = this.Field15334;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"offhandMode");
+                enum_2 = class44.Method341();
             }
-            else if (b3) {
-                final Class44 field15336 = this.Field15337;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field15336, "offhandLowHPMode");
-                enum1 = (enum2 = field15336.Method341());
-            }
-            else {
-                final Class44 field15337 = this.Field15334;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field15337, "offhandMode");
-                enum1 = (enum2 = field15337.Method341());
-            }
-            if (enum2 == null) {
+            if (enum_2 == null) {
                 throw new TypeCastException("null cannot be cast to non-null type com.kisman.cc.features.module.combat.HandRewrite.Modes");
             }
-            item = ((Class1912)enum1).Method7099();
+            item = ((Class1912)enum_2).Method7099();
+            return item;
         }
-        else {
-            Enum enum4;
-            Enum enum3;
-            if (b2) {
-                final Class44 field15338 = this.Field15331;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field15338, "mainhandRightClickMode");
-                enum3 = (enum4 = field15338.Method341());
-            }
-            else if (b3) {
-                final Class44 field15339 = this.Field15332;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field15339, "mainhandLowHPMode");
-                enum3 = (enum4 = field15339.Method341());
-            }
-            else {
-                final Class44 field15340 = this.Field15329;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field15340, "mainhandMode");
-                enum3 = (enum4 = field15340.Method341());
-            }
-            if (enum4 == null) {
-                throw new TypeCastException("null cannot be cast to non-null type com.kisman.cc.features.module.combat.HandRewrite.Modes");
-            }
-            item = ((Class1912)enum3).Method7099();
+        if (bl2) {
+            Class44 class44 = this.Field15331;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"mainhandRightClickMode");
+            enum_ = class44.Method341();
+        } else if (bl3) {
+            Class44 class44 = this.Field15332;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"mainhandLowHPMode");
+            enum_ = class44.Method341();
+        } else {
+            Class44 class44 = this.Field15329;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"mainhandMode");
+            enum_ = class44.Method341();
         }
+        if (enum_ == null) {
+            throw new TypeCastException("null cannot be cast to non-null type com.kisman.cc.features.module.combat.HandRewrite.Modes");
+        }
+        item = ((Class1912)enum_).Method7099();
         return item;
     }
-    
-    private final int Method6204(final boolean b, final boolean b2, final boolean b3) {
-        final Class44 field15340 = this.Field15340;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15340, "hotbarFirst");
-        if (field15340.Method365()) {
-            final Container inventoryContainer = Method6211().player.inventoryContainer;
-            Intrinsics.checkExpressionValueIsNotNull((Object)inventoryContainer, "mc.player.inventoryContainer");
-            for (int i = inventoryContainer.getInventory().size() - 1; i >= 1; --i) {
-                if (i != 5 && i != 6 && i != 7) {
-                    if (i != 8) {
-                        final Container inventoryContainer2 = Method6211().player.inventoryContainer;
-                        Intrinsics.checkExpressionValueIsNotNull((Object)inventoryContainer2, "mc.player.inventoryContainer");
-                        final Object value = inventoryContainer2.getInventory().get(i);
-                        Intrinsics.checkExpressionValueIsNotNull(value, "mc.player.inventoryContainer.inventory[i]");
-                        final ItemStack itemStack = (ItemStack)value;
-                        if (!itemStack.isEmpty) {
-                            if (Intrinsics.areEqual((Object)itemStack.item, (Object)this.Method6203(b, b2, b3))) {
-                                return i;
-                            }
-                        }
+
+    private final int Method6204(boolean bl, boolean bl2, boolean bl3) {
+        Class44 class44 = this.Field15340;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"hotbarFirst");
+        if (class44.Method365()) {
+            Container container = Class1573.Method6211().player.inventoryContainer;
+            Intrinsics.checkExpressionValueIsNotNull((Object)container, (String)"mc.player.inventoryContainer");
+            int n = container.getInventory().size() - 1;
+            int n2 = 1;
+            while (n >= n2) {
+                if (n != 5 && n != 6 && n != 7 && n != 8) {
+                    Container container2 = Class1573.Method6211().player.inventoryContainer;
+                    Intrinsics.checkExpressionValueIsNotNull((Object)container2, (String)"mc.player.inventoryContainer");
+                    Object object = container2.getInventory().get(n);
+                    Intrinsics.checkExpressionValueIsNotNull((Object)object, (String)"mc.player.inventoryContainer.inventory[i]");
+                    ItemStack itemStack = (ItemStack)object;
+                    if (!itemStack.isEmpty && Intrinsics.areEqual((Object)itemStack.item, (Object)this.Method6203(bl, bl2, bl3))) {
+                        return n;
                     }
                 }
+                --n;
             }
+            return -1;
         }
-        else {
-            int j = 0;
-            final Container inventoryContainer3 = Method6211().player.inventoryContainer;
-            Intrinsics.checkExpressionValueIsNotNull((Object)inventoryContainer3, "mc.player.inventoryContainer");
-            while (j < inventoryContainer3.getInventory().size()) {
-                final Container inventoryContainer4 = Method6211().player.inventoryContainer;
-                Intrinsics.checkExpressionValueIsNotNull((Object)inventoryContainer4, "mc.player.inventoryContainer");
-                final Object value2 = inventoryContainer4.getInventory().get(j);
-                Intrinsics.checkExpressionValueIsNotNull(value2, "mc.player.inventoryContainer.inventory[i]");
-                final ItemStack itemStack2 = (ItemStack)value2;
-                if (!itemStack2.isEmpty) {
-                    if (Intrinsics.areEqual((Object)itemStack2.item, (Object)this.Method6203(b, b2, b3))) {
-                        return j;
-                    }
-                }
-                ++j;
+        int n = 0;
+        Container container = Class1573.Method6211().player.inventoryContainer;
+        Intrinsics.checkExpressionValueIsNotNull((Object)container, (String)"mc.player.inventoryContainer");
+        int n3 = container.getInventory().size();
+        while (n < n3) {
+            Container container3 = Class1573.Method6211().player.inventoryContainer;
+            Intrinsics.checkExpressionValueIsNotNull((Object)container3, (String)"mc.player.inventoryContainer");
+            Object object = container3.getInventory().get(n);
+            Intrinsics.checkExpressionValueIsNotNull((Object)object, (String)"mc.player.inventoryContainer.inventory[i]");
+            ItemStack itemStack = (ItemStack)object;
+            if (!itemStack.isEmpty && Intrinsics.areEqual((Object)itemStack.item, (Object)this.Method6203(bl, bl2, bl3))) {
+                return n;
             }
+            ++n;
         }
         return -1;
     }
-    
-    private final void Method6205(final boolean b, final boolean b2, final boolean b3) {
-        if (b) {
-            this.Method6208(this.Method6204(b, b2, b3));
+
+    private final void Method6205(boolean bl, boolean bl2, boolean bl3) {
+        String string;
+        if (bl) {
+            this.Method6208(this.Method6204(bl, bl2, bl3));
+        } else {
+            int n = this.Method6204(bl, bl2, bl3);
+            Class44 class44 = this.Field15330;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"mainhandSlot");
+            this.Method6209(n, Class1051.Field12661.Method7454(class44.Method335()));
         }
-        else {
-            final int method6204 = this.Method6204(b, b2, b3);
-            final Class2005 field12661 = Class1051.Field12661;
-            final Class44 field12662 = this.Field15330;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field12662, "mainhandSlot");
-            this.Method6209(method6204, field12661.Method7454(field12662.Method335()));
-        }
-        final Class1740 method6205 = Class1393.Method5505();
-        final StringBuilder append = new StringBuilder().append(b ? "Offhand" : " Mainhand").append(" now has a ");
-        String str;
-        if (b) {
-            if (b3) {
-                final Class44 field12663 = this.Field15337;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field12663, "offhandLowHPMode");
-                str = field12663.Method341().name();
+        Class1740 class1740 = Class1393.Method5505();
+        StringBuilder stringBuilder = new StringBuilder().append(bl ? "Offhand" : " Mainhand").append(" now has a ");
+        if (bl) {
+            if (bl3) {
+                Class44 class44 = this.Field15337;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"offhandLowHPMode");
+                string = class44.Method341().name();
+            } else if (bl2) {
+                Class44 class44 = this.Field15335;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"offhandRightClickMode");
+                string = class44.Method341().name();
+            } else {
+                Class44 class44 = this.Field15334;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"offhandMode");
+                string = class44.Method341().name();
             }
-            else if (b2) {
-                final Class44 field12664 = this.Field15335;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field12664, "offhandRightClickMode");
-                str = field12664.Method341().name();
-            }
-            else {
-                final Class44 field12665 = this.Field15334;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field12665, "offhandMode");
-                str = field12665.Method341().name();
-            }
+        } else if (bl3) {
+            Class44 class44 = this.Field15332;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"mainhandLowHPMode");
+            string = class44.Method341().name();
+        } else if (bl2) {
+            Class44 class44 = this.Field15331;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"mainhandRightClickMode");
+            string = class44.Method341().name();
+        } else {
+            Class44 class44 = this.Field15329;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"mainhandMode");
+            string = class44.Method341().name();
         }
-        else if (b3) {
-            final Class44 field12666 = this.Field15332;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field12666, "mainhandLowHPMode");
-            str = field12666.Method341().name();
-        }
-        else if (b2) {
-            final Class44 field12667 = this.Field15331;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field12667, "mainhandRightClickMode");
-            str = field12667.Method341().name();
-        }
-        else {
-            final Class44 field12668 = this.Field15329;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field12668, "mainhandMode");
-            str = field12668.Method341().name();
-        }
-        method6205.Method1886(append.append(str).toString());
+        class1740.Method1886(stringBuilder.append(string).toString());
     }
-    
-    private final boolean Method6206(final boolean b, final boolean b2, final boolean b3) {
+
+    private final boolean Method6206(boolean bl, boolean bl2, boolean bl3) {
         Item item;
-        if (b) {
-            final EntityPlayerSP player = Method6211().player;
-            Intrinsics.checkExpressionValueIsNotNull((Object)player, "mc.player");
-            item = player.getHeldItemMainhand().item;
+        if (bl) {
+            EntityPlayerSP entityPlayerSP = Class1573.Method6211().player;
+            Intrinsics.checkExpressionValueIsNotNull((Object)entityPlayerSP, (String)"mc.player");
+            item = entityPlayerSP.getHeldItemMainhand().item;
+            return Intrinsics.areEqual((Object)item, (Object)this.Method6203(bl, bl2, bl3)) ^ true;
         }
-        else {
-            final Class2005 field12661 = Class1051.Field12661;
-            final Class44 field12662 = this.Field15330;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field12662, "mainhandSlot");
-            item = this.Method6207(field12661.Method7454(field12662.Method335()).Method4290()).item;
-        }
-        return Intrinsics.areEqual((Object)item, (Object)this.Method6203(b, b2, b3)) ^ true;
+        Class44 class44 = this.Field15330;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"mainhandSlot");
+        item = this.Method6207((int)Class1051.Field12661.Method7454((int)class44.Method335()).Method4290()).item;
+        return Intrinsics.areEqual((Object)item, (Object)this.Method6203(bl, bl2, bl3)) ^ true;
     }
-    
-    private final ItemStack Method6207(final int n) {
-        final Container inventoryContainer = Method6211().player.inventoryContainer;
-        Intrinsics.checkExpressionValueIsNotNull((Object)inventoryContainer, "mc.player.inventoryContainer");
-        final Object value = inventoryContainer.getInventory().get(n);
-        Intrinsics.checkExpressionValueIsNotNull(value, "mc.player.inventoryContainer.inventory[slot]");
-        return (ItemStack)value;
+
+    private final ItemStack Method6207(int n) {
+        Container container = Class1573.Method6211().player.inventoryContainer;
+        Intrinsics.checkExpressionValueIsNotNull((Object)container, (String)"mc.player.inventoryContainer");
+        Object object = container.getInventory().get(n);
+        Intrinsics.checkExpressionValueIsNotNull((Object)object, (String)"mc.player.inventoryContainer.inventory[slot]");
+        return (ItemStack)object;
     }
-    
-    private final void Method6208(final int n) {
+
+    private final void Method6208(int n) {
         this.Method6210(n, false);
         this.Method6210(n, true);
         this.Method6210(n, false);
-        final Class44 field15339 = this.Field15339;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15339, "usageUpdateController");
-        if (field15339.Method365()) {
-            Method6211().playerController.updateController();
-        }
+        Class44 class44 = this.Field15339;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"usageUpdateController");
+        if (!class44.Method365()) return;
+        Class1573.Method6211().playerController.updateController();
     }
-    
-    private final void Method6209(final int n, final Class1051 class1051) {
+
+    private final void Method6209(int n, Class1051 class1051) {
         this.Method6210(n, false);
         this.Method6210(class1051.Method4290(), false);
         this.Method6210(n, false);
-        final Class44 field15339 = this.Field15339;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field15339, "usageUpdateController");
-        if (field15339.Method365()) {
-            Method6211().playerController.updateController();
-        }
+        Class44 class44 = this.Field15339;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"usageUpdateController");
+        if (!class44.Method365()) return;
+        Class1573.Method6211().playerController.updateController();
     }
-    
-    private final void Method6210(final int n, final boolean b) {
-        Method6211().playerController.windowClick(Method6211().player.inventoryContainer.windowId, b ? this.Field15341 : n, 0, ClickType.PICKUP, (EntityPlayer)Method6211().player);
+
+    private final void Method6210(int n, boolean bl) {
+        Class1573.Method6211().playerController.windowClick(Class1573.Method6211().player.inventoryContainer.windowId, bl ? this.Field15341 : n, 0, ClickType.PICKUP, (EntityPlayer)Class1573.Method6211().player);
     }
-    
+
     public Class1573() {
         super("HandRewrite", "Need to update btw, dont use mainhand feature", Class97.Field8338);
-        this.Field15329 = this.Method23(new Class44("Mainhand Mode", this, Class1912.Field16825));
-        this.Field15330 = this.Method23(new Class44("Mainhand Slot", this, 1.0, 1.0, Double.longBitsToDouble((long)1819707370 ^ 0x402200006C7687EAL), true));
-        this.Field15331 = this.Method23(new Class44("Mainhand Right Click Mode", this, Class1912.Field16825));
-        this.Field15332 = this.Method23(new Class44("Mainhand Low HP Mode", this, Class1912.Field16825));
-        this.Field15333 = this.Method23(new Class44("Mainhand Low HP Val", this, Double.longBitsToDouble(4621819117588971520L), 1.0, Double.longBitsToDouble(4630263366890291200L), true));
-        this.Field15334 = this.Method23(new Class44("Offhand Mode", this, Class1912.Field16825));
-        this.Field15335 = this.Method23(new Class44("Offhand Right Click Mode", this, Class1912.Field16825));
-        this.Field15336 = this.Method23(new Class44("Offhand Right Click No Useful Items", this, true));
-        this.Field15337 = this.Method23(new Class44("Offhand Low HP Mode", this, Class1912.Field16825));
-        this.Field15338 = this.Method23(new Class44("Offhand Low HP Val", this, Double.longBitsToDouble(4621819117588971520L), 1.0, Double.longBitsToDouble((long)111834406 ^ 0x4042000006AA7526L), true));
-        this.Field15339 = this.Method23(new Class44("Usage UpdateController", this, true));
-        this.Field15340 = this.Method23(new Class44("Hotbar First", this, false));
     }
-    
+
     public static final Minecraft Method6211() {
         return Class42.Field8052;
     }
-    
-    public static final void Method6212(final Minecraft field8052) {
-        Class42.Field8052 = field8052;
+
+    public static final void Method6212(Minecraft minecraft) {
+        Class42.Field8052 = minecraft;
     }
-    
-    private static String Method57(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x33C0 ^ 0xED));
-            }
-            return new String(value);
+
+    private static String Method57(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 237;
+            cArray2[n] = (char)(cArray[n] ^ (0x33C0 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

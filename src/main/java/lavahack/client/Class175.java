@@ -1,12 +1,11 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public interface Class175
-{
-    void Method158();
-    
-    boolean Method159();
+public interface Class175 {
+    public void Method158();
+
+    public boolean Method159();
 }
+

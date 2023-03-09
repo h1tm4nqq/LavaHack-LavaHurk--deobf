@@ -1,34 +1,37 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import com.kisman.cc.event.*;
+import com.kisman.cc.event.Class2157;
 
-public class Class112 extends Class2157
-{
+public class Class112
+extends Class2157 {
     public float Field8390;
     private String Field8391 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class112(final float field8390) {
+
+    public Class112(float f) {
         super(new Object[0]);
-        this.Field8390 = field8390;
+        this.Field8390 = f;
     }
-    
+
+    @Override
     public String Method163() {
         return "render_2d";
     }
-    
-    private static String Method170(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x74B9 ^ 0x70));
-            }
-            return new String(value);
+
+    private static String Method170(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 112;
+            cArray2[n] = (char)(cArray[n] ^ (0x74B9 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

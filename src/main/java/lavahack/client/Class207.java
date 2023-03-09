@@ -1,70 +1,77 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.jvm.internal.Intrinsics
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.world.World
+ */
 package lavahack.client;
 
-import kotlin.*;
-import com.kisman.cc.util.*;
-import net.minecraft.entity.player.*;
-import kotlin.jvm.internal.*;
-import net.minecraft.world.*;
-import java.util.*;
+import com.kisman.cc.util.Class2142;
+import java.util.Iterator;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
+import lavahack.client.Class1285;
+import lavahack.client.Class2032;
+import lavahack.client.Class2051;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 3, d1 = { "\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n?\u0006\u0002\b\u0002" }, d2 = { "<anonymous>", "", "run" })
-final class Class207 implements Runnable
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=3, d1={"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n\u00a2\u0006\u0002\b\u0002"}, d2={"<anonymous>", "", "run"})
+final class Class207
+implements Runnable {
     final Class1285 Field8898;
     private int Field8899;
-    
+
     @Override
     public final void run() {
-        for (final EntityPlayer entityPlayer : Class2142.Field17803.world.playerEntities) {
-            final Class1285 field8898 = this.Field8898;
-            final EntityPlayer entityPlayer2 = entityPlayer;
-            Intrinsics.checkExpressionValueIsNotNull((Object)entityPlayer2, "player");
-            Class2032 method5225 = field8898.Method5225(entityPlayer2);
-            if (entityPlayer.isDead && method5225 != null) {
-                method5225.Field17351 = false;
+        Iterator iterator = Class2142.Field17803.world.playerEntities.iterator();
+        while (iterator.hasNext()) {
+            EntityPlayer entityPlayer;
+            EntityPlayer entityPlayer2 = entityPlayer = (EntityPlayer)iterator.next();
+            Intrinsics.checkExpressionValueIsNotNull((Object)entityPlayer2, (String)"player");
+            Class2032 class2032 = this.Field8898.Method5225(entityPlayer2);
+            if (entityPlayer.isDead && class2032 != null) {
+                class2032.Field17351 = false;
+                continue;
             }
-            else {
-                Label_0129: {
-                    if (method5225 == null) {
-                        final Integer n = Class1285.Method5226(this.Field8898).get();
-                        if (n != null) {
-                            if (n == 0) {
-                                break Label_0129;
-                            }
-                        }
-                        method5225 = new Class2032((World)Class2142.Field17803.world, entityPlayer);
-                        ((Class2051)entityPlayer).Method2144(method5225);
-                    }
+            if (class2032 == null) {
+                Integer n = (Integer)Class1285.Method5226(this.Field8898).get();
+                if (n == null || n != 0) {
+                    class2032 = new Class2032((World)Class2142.Field17803.world, entityPlayer);
+                    ((Class2051)entityPlayer).Method2144(class2032);
                 }
-                final Class1285 field8899 = this.Field8898;
-                final Class2032 class2032 = method5225;
-                if (class2032 == null) {
-                    Intrinsics.throwNpe();
-                }
-                final Number value = Class1285.Method5226(this.Field8898).get();
-                Intrinsics.checkExpressionValueIsNotNull((Object)value, "ticks.get()");
-                Class1285.Method5227(field8899, class2032, value.intValue());
             }
+            Class2032 class20322 = class2032;
+            if (class20322 == null) {
+                Intrinsics.throwNpe();
+            }
+            Object t = Class1285.Method5226(this.Field8898).get();
+            Intrinsics.checkExpressionValueIsNotNull(t, (String)"ticks.get()");
+            Class1285.Method5227(this.Field8898, class20322, ((Number)t).intValue());
         }
     }
-    
-    Class207(final Class1285 field8898) {
-        this.Field8898 = field8898;
+
+    Class207(Class1285 class1285) {
+        this.Field8898 = class1285;
     }
-    
-    private static String Method1237(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x7D1F ^ 0x11));
-            }
-            return new String(value);
+
+    private static String Method1237(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 17;
+            cArray2[n] = (char)(cArray[n] ^ (0x7D1F ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

@@ -1,68 +1,78 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.formdev.flatlaf.FlatLaf
+ *  com.formdev.flatlaf.intellijthemes.FlatAllIJThemes
+ *  com.formdev.flatlaf.intellijthemes.FlatAllIJThemes$FlatIJLookAndFeelInfo
+ *  kotlin.Metadata
+ *  kotlin.jvm.internal.Intrinsics
+ */
 package lavahack.loader;
 
-import kotlin.*;
-import javax.swing.*;
-import java.awt.event.*;
-import kotlin.jvm.internal.*;
-import com.formdev.flatlaf.*;
-import java.util.*;
-import com.formdev.flatlaf.intellijthemes.*;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.intellijthemes.FlatAllIJThemes;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.NoSuchElementException;
+import javax.swing.JComboBox;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 3, d1 = { "\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\u000e\u0010\u0002\u001a\n \u0004*\u0004\u0018\u00010\u00030\u0003H\n?\u0006\u0002\b\u0005" }, d2 = { "<anonymous>", "", "it", "Ljava/awt/event/ActionEvent;", "kotlin.jvm.PlatformType", "actionPerformed" })
-final class Class763 implements ActionListener
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=3, d1={"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\u000e\u0010\u0002\u001a\n \u0004*\u0004\u0018\u00010\u00030\u0003H\n\u00a2\u0006\u0002\b\u0005"}, d2={"<anonymous>", "", "it", "Ljava/awt/event/ActionEvent;", "kotlin.jvm.PlatformType", "actionPerformed"})
+final class Class763
+implements ActionListener {
     final JComboBox Field11231;
     private String Field11232 = "TheKisDevs & LavaHack Development owns you";
-    
+
     @Override
-    public final void actionPerformed(final ActionEvent actionEvent) {
-        final FlatAllIJThemes$FlatIJLookAndFeelInfo[] infos = FlatAllIJThemes.INFOS;
-        Intrinsics.checkExpressionValueIsNotNull((Object)infos, "FlatAllIJThemes.INFOS");
-        final FlatAllIJThemes$FlatIJLookAndFeelInfo[] array = infos;
-        final int length = array.length;
-        int i = 0;
-        while (i < length) {
-            final FlatAllIJThemes$FlatIJLookAndFeelInfo flatAllIJThemes$FlatIJLookAndFeelInfo2;
-            final FlatAllIJThemes$FlatIJLookAndFeelInfo flatAllIJThemes$FlatIJLookAndFeelInfo = flatAllIJThemes$FlatIJLookAndFeelInfo2 = array[i];
-            Intrinsics.checkExpressionValueIsNotNull((Object)flatAllIJThemes$FlatIJLookAndFeelInfo2, "it");
-            final String name = flatAllIJThemes$FlatIJLookAndFeelInfo2.getName();
-            final Object selectedItem = this.Field11231.getSelectedItem();
-            if (selectedItem != null) {
-                final String string = selectedItem.toString();
-                if (string != null) {
-                    if (Intrinsics.areEqual((Object)name, (Object)string)) {
-                        final FlatAllIJThemes$FlatIJLookAndFeelInfo flatAllIJThemes$FlatIJLookAndFeelInfo3 = flatAllIJThemes$FlatIJLookAndFeelInfo;
-                        Intrinsics.checkExpressionValueIsNotNull((Object)flatAllIJThemes$FlatIJLookAndFeelInfo3, "FlatAllIJThemes.INFOS\n  \u2026                        }");
-                        Class.forName(flatAllIJThemes$FlatIJLookAndFeelInfo3.getClassName()).getMethod("setup", (Class<?>[])new Class[0]).invoke(null, new Object[0]);
-                        FlatLaf.updateUI();
-                        return;
-                    }
-                    ++i;
-                    continue;
-                }
+    public final void actionPerformed(ActionEvent actionEvent) {
+        Intrinsics.checkExpressionValueIsNotNull((Object)FlatAllIJThemes.INFOS, (String)"FlatAllIJThemes.INFOS");
+        FlatAllIJThemes.FlatIJLookAndFeelInfo[] flatIJLookAndFeelInfoArray = FlatAllIJThemes.INFOS;
+        boolean bl = false;
+        FlatAllIJThemes.FlatIJLookAndFeelInfo[] flatIJLookAndFeelInfoArray2 = flatIJLookAndFeelInfoArray;
+        int n = flatIJLookAndFeelInfoArray2.length;
+        int n2 = 0;
+        while (n2 < n) {
+            FlatAllIJThemes.FlatIJLookAndFeelInfo flatIJLookAndFeelInfo;
+            FlatAllIJThemes.FlatIJLookAndFeelInfo flatIJLookAndFeelInfo2 = flatIJLookAndFeelInfo = flatIJLookAndFeelInfoArray2[n2];
+            boolean bl2 = false;
+            FlatAllIJThemes.FlatIJLookAndFeelInfo flatIJLookAndFeelInfo3 = flatIJLookAndFeelInfo2;
+            Intrinsics.checkExpressionValueIsNotNull((Object)flatIJLookAndFeelInfo3, (String)"it");
+            Object object = this.Field11231.getSelectedItem();
+            Object object2 = object;
+            if (object == null) return;
+            String string = object2.toString();
+            object2 = string;
+            if (string == null) return;
+            if (Intrinsics.areEqual((Object)flatIJLookAndFeelInfo3.getName(), (Object)object2)) {
+                FlatAllIJThemes.FlatIJLookAndFeelInfo flatIJLookAndFeelInfo4 = flatIJLookAndFeelInfo;
+                Intrinsics.checkExpressionValueIsNotNull((Object)flatIJLookAndFeelInfo4, (String)"FlatAllIJThemes.INFOS\n  \u2026                        }");
+                Class.forName(flatIJLookAndFeelInfo4.getClassName()).getMethod("setup", new Class[0]).invoke(null, new Object[0]);
+                FlatLaf.updateUI();
+                return;
             }
-            return;
+            ++n2;
         }
-        throw new NoSuchElementException("Array contains no element matching the predicate.");
+        throw (Throwable)new NoSuchElementException("Array contains no element matching the predicate.");
     }
-    
-    Class763(final JComboBox field11231) {
-        this.Field11231 = field11231;
+
+    Class763(JComboBox jComboBox) {
+        this.Field11231 = jComboBox;
     }
-    
-    private static String Method3154(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x77A8 ^ 0x73));
-            }
-            return new String(value);
+
+    private static String Method3154(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 115;
+            cArray2[n] = (char)(cArray[n] ^ (0x77A8 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

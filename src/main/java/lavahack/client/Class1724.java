@@ -1,44 +1,59 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.jvm.functions.Function1
+ *  kotlin.jvm.internal.Intrinsics
+ *  kotlin.jvm.internal.Lambda
+ *  net.minecraft.util.math.BlockPos
+ */
 package lavahack.client;
 
-import kotlin.jvm.functions.*;
-import kotlin.*;
-import net.minecraft.util.math.*;
-import org.jetbrains.annotations.*;
-import kotlin.jvm.internal.*;
+import kotlin.Metadata;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Lambda;
+import lavahack.client.Class1281;
+import lavahack.client.Class654;
+import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.NotNull;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 3, d1 = { "\u0000\u000e\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n?\u0006\u0002\b\u0004" }, d2 = { "shouldMine", "", "pos", "Lnet/minecraft/util/math/BlockPos;", "invoke" })
-final class Class1724 extends Lambda implements Function1
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=3, d1={"\u0000\u000e\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n\u00a2\u0006\u0002\b\u0004"}, d2={"shouldMine", "", "pos", "Lnet/minecraft/util/math/BlockPos;", "invoke"})
+final class Class1724
+extends Lambda
+implements Function1 {
     final Class654 Field15923;
     private int Field15924;
-    
-    public Object invoke(final Object o) {
-        return this.leqS0IyKEB621E1SrHdAcHHAUjScjmKi((BlockPos)o);
+
+    public Object invoke(Object object) {
+        return this.leqS0IyKEB621E1SrHdAcHHAUjScjmKi((BlockPos)object);
     }
-    
-    public final boolean leqS0IyKEB621E1SrHdAcHHAUjScjmKi(@NotNull @NotNull final BlockPos blockPos) {
-        Intrinsics.checkParameterIsNotNull((Object)blockPos, "pos");
-        return !Class1281.Method5179(this.Field15923.Field10800, blockPos) && !Class1281.Method5182(this.Field15923.Field10800, blockPos);
+
+    public final boolean leqS0IyKEB621E1SrHdAcHHAUjScjmKi(@NotNull @NotNull BlockPos blockPos) {
+        Intrinsics.checkParameterIsNotNull((Object)blockPos, (String)"pos");
+        if (Class1281.Method5179(this.Field15923.Field10800, blockPos)) return false;
+        if (Class1281.Method5182(this.Field15923.Field10800, blockPos)) return false;
+        return true;
     }
-    
-    Class1724(final Class654 field15923) {
-        this.Field15923 = field15923;
+
+    Class1724(Class654 class654) {
+        this.Field15923 = class654;
         super(1);
     }
-    
-    private static String a(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x65B0 ^ 0xA3));
-            }
-            return new String(value);
+
+    private static String a(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 163;
+            cArray2[n] = (char)(cArray[n] ^ (0x65B0 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

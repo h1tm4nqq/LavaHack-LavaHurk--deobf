@@ -1,61 +1,66 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.material.Material
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.network.play.client.CPacketPlayer$Position
+ *  net.minecraft.util.math.BlockPos
+ */
 package lavahack.client;
 
-import net.minecraft.client.*;
-import net.minecraft.network.play.client.*;
-import net.minecraft.util.math.*;
-import net.minecraft.block.material.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.play.client.CPacketPlayer;
+import net.minecraft.util.math.BlockPos;
 
-public class Class341
-{
+public class Class341 {
     private static final Minecraft Field9407;
     public static final double Field9408;
     public static final double Field9409;
     private String Field9410 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public static int Method1678(final double n, final boolean b) {
-        return (int)(n / (b ? Double.longBitsToDouble((long)930751934 ^ 0x3FD1EB8529C27452L) : Double.longBitsToDouble((long)95062374 ^ 0x3FCB851EBDFB62E3L))) + 1;
+
+    public static int Method1678(double d, boolean bl) {
+        double d2 = bl ? Double.longBitsToDouble((long)930751934 ^ 0x3FD1EB8529C27452L) : Double.longBitsToDouble((long)95062374 ^ 0x3FCB851EBDFB62E3L);
+        return (int)(d / d2) + 1;
     }
-    
-    public static CPacketPlayer$Position[] Method1679(final int n, final boolean b, final boolean b2, final boolean b3, final boolean b4, final double n2, final double n3, final double n4, final double n5, final double n6, final double n7) {
+
+    public static CPacketPlayer.Position[] Method1679(int n, boolean bl, boolean bl2, boolean bl3, boolean bl4, double d, double d2, double d3, double d4, double d5, double d6) {
         if (n < 2) {
-            return new CPacketPlayer$Position[] { new CPacketPlayer$Position(n5, n6, n7, b) };
+            return new CPacketPlayer.Position[]{new CPacketPlayer.Position(d4, d5, d6, bl)};
         }
-        final double n8 = n5 - n2;
-        final double n9 = n6 - n3;
-        final double n10 = n7 - n4;
-        final double n11 = n8 / n;
-        final double n12 = n9 / n;
-        final double n13 = n10 / n;
-        final CPacketPlayer$Position[] array = new CPacketPlayer$Position[n];
-        double n14 = n2;
-        double n15 = n3;
-        double n16 = n4;
-        for (int i = 0; i < n - 1; ++i) {
-            n14 += n11;
-            n15 += n12;
-            n16 += n13;
-            final Material getMaterial = Class341.Field9407.world.getBlockState(new BlockPos(n14, n15, n16).down()).getMaterial();
-            final Material getMaterial2 = Class341.Field9407.world.getBlockState(new BlockPos(n14, n15, n16)).getMaterial();
-            if (!b3 || !getMaterial2.isSolid()) {
-                if (!b4 || !getMaterial.isLiquid()) {
-                    if (!getMaterial.isReplaceable()) {
-                        final boolean b5 = getMaterial.isLiquid() || getMaterial.isReplaceable() || getMaterial2.isSolid();
-                        array[i] = new CPacketPlayer$Position(n14, n15, n16, b2 ? b5 : b);
-                    }
-                }
+        double d7 = d4 - d;
+        double d8 = d5 - d2;
+        double d9 = d6 - d3;
+        double d10 = d7 / (double)n;
+        double d11 = d8 / (double)n;
+        double d12 = d9 / (double)n;
+        CPacketPlayer.Position[] positionArray = new CPacketPlayer.Position[n];
+        double d13 = d;
+        double d14 = d2;
+        double d15 = d3;
+        int n2 = 0;
+        while (true) {
+            if (n2 >= n - 1) {
+                positionArray[n - 1] = new CPacketPlayer.Position(d4, d5, d6, bl);
+                return positionArray;
             }
+            Material material = Class341.Field9407.world.getBlockState(new BlockPos(d13 += d10, d14 += d11, d15 += d12).down()).getMaterial();
+            Material material2 = Class341.Field9407.world.getBlockState(new BlockPos(d13, d14, d15)).getMaterial();
+            if (!(bl3 && material2.isSolid() || bl4 && material.isLiquid() || material.isReplaceable())) {
+                boolean bl5 = material.isLiquid() || material.isReplaceable() || material2.isSolid();
+                positionArray[n2] = new CPacketPlayer.Position(d13, d14, d15, bl2 ? bl5 : bl);
+            }
+            ++n2;
         }
-        array[n - 1] = new CPacketPlayer$Position(n5, n6, n7, b);
-        return array;
     }
-    
+
     static {
         Field9409 = 0.0;
         Field9408 = 0.0;
         Field9407 = Minecraft.getMinecraft();
     }
 }
+

@@ -1,58 +1,69 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketHeldItemChange
+ */
 package lavahack.client;
 
-import net.minecraft.network.play.client.*;
-import net.minecraft.network.*;
+import java.lang.invoke.LambdaMetafactory;
+import lavahack.client.Class1471;
+import lavahack.client.Class1763;
+import lavahack.client.Class1903;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.client.CPacketHeldItemChange;
 
-public enum Class711
-{
-    Field11026("None", 0, Class1903.Method7049().Method7663(Class711::lambda$static$0)), 
-    Field11027("Normal", 1, Class1903.Method7049().Method7663(class424 -> {
-        if (class424.Method2054(1)) {
+public enum Class711 {
+    Field11026(Class1903.Method7049().Method7663((Class1471)LambdaMetafactory.metafactory(null, null, null, (Llavahack/client/Z557Xkt0AW4jCvkPSKwfIN0oRCjfHldC;)Ljava/lang/Object;, lambda$static$0(Class424), (Llavahack/client/Z557Xkt0AW4jCvkPSKwfIN0oRCjfHldC;)Ljava/lang/Void;)())),
+    Field11027(Class1903.Method7049().Method7663(class424 -> {
+        if (((Boolean)class424.Method2054(1)).booleanValue()) {
             return null;
         }
-        Class1903.Method7050().player.connection.sendPacket((Packet)new CPacketHeldItemChange((int)class424.Method2054(0)));
-        Class1903.Method7050().player.inventory.currentItem = (int)class424.Method2054(0);
+        Class1903.Method7050().player.connection.sendPacket((Packet)new CPacketHeldItemChange(((Integer)class424.Method2054(0)).intValue()));
+        Class1903.Method7050().player.inventory.currentItem = (Integer)class424.Method2054(0);
         return null;
-    })), 
-    Field11028("Silent", 2, Class1903.Method7049().Method7663(class424 -> {
-        Class1903.Method7050().player.connection.sendPacket((Packet)new CPacketHeldItemChange((int)class424.Method2054(0)));
-        Class1903.Method7050().player.inventory.currentItem = (int)class424.Method2054(0);
+    })),
+    Field11028(Class1903.Method7049().Method7663(class424 -> {
+        Class1903.Method7050().player.connection.sendPacket((Packet)new CPacketHeldItemChange(((Integer)class424.Method2054(0)).intValue()));
+        Class1903.Method7050().player.inventory.currentItem = (Integer)class424.Method2054(0);
         return null;
-    })), 
-    Field11029("Packet", 3, Class1903.Method7049().Method7663(class424 -> {
-        Class1903.Method7050().player.connection.sendPacket((Packet)new CPacketHeldItemChange((int)class424.Method2054(0)));
+    })),
+    Field11029(Class1903.Method7049().Method7663(class424 -> {
+        Class1903.Method7050().player.connection.sendPacket((Packet)new CPacketHeldItemChange(((Integer)class424.Method2054(0)).intValue()));
         return null;
     }));
-    
+
     private final Class1763 Field11030;
-    private static final Class711[] Field11031;
     private String Field11032 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    private Class711(final String name, final int ordinal, final Class1763 field11030) {
-        this.Field11030 = field11030;
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    private Class711() {
+        void var3_1;
+        this.Field11030 = var3_1;
     }
-    
+
     public Class1763 Method2972() {
         return this.Field11030;
     }
-    
-    static {
-        Field11031 = new Class711[] { Class711.Field11026, Class711.Field11027, Class711.Field11028, Class711.Field11029 };
-    }
-    
-    private static String Method2976(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x5B25 ^ 0xA3));
-            }
-            return new String(value);
+
+    private static String Method2976(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 163;
+            cArray2[n] = (char)(cArray[n] ^ (0x5B25 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

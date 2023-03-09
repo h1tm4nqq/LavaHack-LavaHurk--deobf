@@ -1,131 +1,200 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.TypeCastException
+ *  kotlin.collections.ArraysKt
+ *  kotlin.collections.CollectionsKt
+ *  kotlin.jvm.internal.Intrinsics
+ *  kotlin.ranges.IntRange
+ *  kotlin.text.Charsets
+ *  kotlin.text.MatchResult
+ *  kotlin.text.Regex
+ *  kotlin.text.StringsKt
+ */
 package lavahack.client;
 
-import kotlin.jvm.internal.*;
-import kotlin.*;
-import kotlin.ranges.*;
-import kotlin.text.*;
-import java.nio.charset.*;
-import org.jetbrains.annotations.*;
-import kotlin.collections.*;
-import java.util.*;
+import java.nio.charset.Charset;
+import java.util.Collection;
+import java.util.List;
+import kotlin.Metadata;
+import kotlin.TypeCastException;
+import kotlin.collections.ArraysKt;
+import kotlin.collections.CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.ranges.IntRange;
+import kotlin.text.Charsets;
+import kotlin.text.MatchResult;
+import kotlin.text.Regex;
+import kotlin.text.StringsKt;
+import lavahack.client.Class378;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 1, d1 = { "\u00000\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0012\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002?\u0006\u0002\u0010\u0002J\u000e\u0010\u0006\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\tJ\u000e\u0010\n\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\tJ\u000e\u0010\u000b\u001a\u00020\t2\u0006\u0010\f\u001a\u00020\rJ\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000f2\u0006\u0010\b\u001a\u00020\tJ\u0010\u0010\u0010\u001a\u0004\u0018\u00010\r2\u0006\u0010\b\u001a\u00020\tR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082\u0004?\u0006\u0002\n\u0000?\u0006\u0011" }, d2 = { "Lcom/kisman/cc/websockets/util/ConvertUtils;", "", "()V", "fileRegex", "Lkotlin/text/Regex;", "textRegex", "isFile", "", "byteArray", "", "isText", "textToByteArray", "text", "", "toFile", "Lcom/kisman/cc/websockets/data/SocketFile;", "toText", "kisman.cc" })
-public final class Class417
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=1, d1={"\u00000\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0012\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002J\u000e\u0010\u0006\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\tJ\u000e\u0010\n\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\tJ\u000e\u0010\u000b\u001a\u00020\t2\u0006\u0010\f\u001a\u00020\rJ\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000f2\u0006\u0010\b\u001a\u00020\tJ\u0010\u0010\u0010\u001a\u0004\u0018\u00010\r2\u0006\u0010\b\u001a\u00020\tR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0011"}, d2={"Lcom/kisman/cc/websockets/util/ConvertUtils;", "", "()V", "fileRegex", "Lkotlin/text/Regex;", "textRegex", "isFile", "", "byteArray", "", "isText", "textToByteArray", "text", "", "toFile", "Lcom/kisman/cc/websockets/data/SocketFile;", "toText", "kisman.cc"})
+public final class Class417 {
     private static final Regex Field9729;
     private static final Regex Field9730;
     public static final Class417 Field9731;
     private int Field9732;
-    
-    public final boolean Method2039(@NotNull @NotNull final byte[] bytes) {
-        Intrinsics.checkParameterIsNotNull((Object)bytes, "byteArray");
-        return Class417.Field9729.containsMatchIn((CharSequence)new String(bytes, Charsets.UTF_8));
+
+    public final boolean Method2039(@NotNull @NotNull byte[] byArray) {
+        Intrinsics.checkParameterIsNotNull((Object)byArray, (String)"byteArray");
+        Object object = byArray;
+        Charset charset = Charsets.UTF_8;
+        boolean bl = false;
+        boolean bl2 = false;
+        object = new String((byte[])object, charset);
+        charset = Field9729;
+        return charset.containsMatchIn((CharSequence)object);
     }
-    
-    public final boolean Method2040(@NotNull @NotNull final byte[] bytes) {
-        Intrinsics.checkParameterIsNotNull((Object)bytes, "byteArray");
-        return Class417.Field9730.containsMatchIn((CharSequence)new String(bytes, Charsets.UTF_8));
+
+    public final boolean Method2040(@NotNull @NotNull byte[] byArray) {
+        Intrinsics.checkParameterIsNotNull((Object)byArray, (String)"byteArray");
+        Object object = byArray;
+        Charset charset = Charsets.UTF_8;
+        boolean bl = false;
+        boolean bl2 = false;
+        object = new String((byte[])object, charset);
+        charset = Field9730;
+        return charset.containsMatchIn((CharSequence)object);
     }
-    
+
     @Nullable
     @Nullable
-    public final Class378 Method2041(@NotNull @NotNull final byte[] bytes) {
-        Intrinsics.checkParameterIsNotNull((Object)bytes, "byteArray");
-        if (!this.Method2039(bytes)) {
+    public final Class378 Method2041(@NotNull @NotNull byte[] byArray) {
+        Intrinsics.checkParameterIsNotNull((Object)byArray, (String)"byteArray");
+        if (!this.Method2039(byArray)) {
             return null;
         }
-        final MatchResult find$default = Regex.find$default(Class417.Field9729, (CharSequence)new String(bytes, Charsets.UTF_8), 0, 2, (Object)null);
-        if (find$default != null) {
-            final List groupValues = find$default.getGroupValues();
-            if (groupValues != null) {
-                final List<String> list = (List<String>)groupValues;
-                final String s = list.get(0);
-                final List split$default = StringsKt.split$default((CharSequence)list.get(1), new String[] { ":" }, false, 0, 6, (Object)null);
-                if (split$default.size() != 2) {
-                    return null;
-                }
-                final String s2 = s;
-                final Charset utf_8 = Charsets.UTF_8;
-                final String s3 = s2;
-                if (s3 == null) {
-                    throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-                }
-                final byte[] bytes2 = s3.getBytes(utf_8);
-                Intrinsics.checkExpressionValueIsNotNull((Object)bytes2, "(this as java.lang.String).getBytes(charset)");
-                return new Class378((String)split$default.get(0), ArraysKt.sliceArray(bytes, new IntRange(bytes2.length, ArraysKt.getLastIndex(bytes))), (String)split$default.get(1));
-            }
-        }
-        return null;
-    }
-    
-    @Nullable
-    @Nullable
-    public final String Method2042(@NotNull @NotNull final byte[] bytes) {
-        Intrinsics.checkParameterIsNotNull((Object)bytes, "byteArray");
-        if (!this.Method2040(bytes)) {
+        Object object = byArray;
+        Charset charset = Charsets.UTF_8;
+        Object object2 = Field9729;
+        boolean bl = false;
+        boolean bl2 = false;
+        Object object3 = new String((byte[])object, charset);
+        MatchResult matchResult = Regex.find$default((Regex)object2, (CharSequence)((CharSequence)object3), (int)0, (int)2, null);
+        Object object4 = matchResult;
+        if (matchResult == null) return null;
+        List list = object4.getGroupValues();
+        object4 = list;
+        if (list == null) return null;
+        Object object5 = object4;
+        object = object5;
+        boolean bl3 = false;
+        String string = (String)object.get(0);
+        object = object5;
+        bl3 = false;
+        String string2 = (String)object.get(1);
+        object5 = StringsKt.split$default((CharSequence)string2, (String[])new String[]{":"}, (boolean)false, (int)0, (int)6, null);
+        if (object5.size() != 2) {
             return null;
         }
-        final MatchResult find$default = Regex.find$default(Class417.Field9730, (CharSequence)new String(bytes, Charsets.UTF_8), 0, 2, (Object)null);
-        if (find$default != null) {
-            final List groupValues = find$default.getGroupValues();
-            if (groupValues != null) {
-                final String s = groupValues.get(0);
-                final List list = ArraysKt.toList(bytes);
-                final String s2 = s;
-                final List list2 = list;
-                final Charset utf_8 = Charsets.UTF_8;
-                final String s3 = s2;
-                if (s3 == null) {
-                    throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-                }
-                final byte[] bytes2 = s3.getBytes(utf_8);
-                Intrinsics.checkExpressionValueIsNotNull((Object)bytes2, "(this as java.lang.String).getBytes(charset)");
-                return new String(CollectionsKt.toByteArray((Collection)list2.subList(bytes2.length, bytes.length)), Charsets.UTF_8);
-            }
-        }
-        return null;
-    }
-    
-    @NotNull
-    @NotNull
-    public final byte[] Method2043(@NotNull @NotNull final String s) {
-        Intrinsics.checkParameterIsNotNull((Object)s, "text");
-        final String string = Class417.Field9730.toString();
-        final Charset utf_8 = Charsets.UTF_8;
-        final String s2 = string;
-        if (s2 == null) {
+        String string3 = string;
+        object2 = byArray;
+        Charset charset2 = Charsets.UTF_8;
+        bl2 = false;
+        String string4 = string3;
+        if (string4 == null) {
             throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
         }
-        final byte[] bytes = s2.getBytes(utf_8);
-        Intrinsics.checkExpressionValueIsNotNull((Object)bytes, "(this as java.lang.String).getBytes(charset)");
-        final byte[] array = bytes;
-        final byte[] bytes2 = s.getBytes(Charsets.UTF_8);
-        Intrinsics.checkExpressionValueIsNotNull((Object)bytes2, "(this as java.lang.String).getBytes(charset)");
-        return ArraysKt.plus(array, bytes2);
+        byte[] byArray2 = string4.getBytes(charset2);
+        Intrinsics.checkExpressionValueIsNotNull((Object)byArray2, (String)"(this as java.lang.String).getBytes(charset)");
+        object3 = byArray2;
+        int n = ((Object)object3).length;
+        object = ArraysKt.sliceArray((byte[])object2, (IntRange)new IntRange(n, ArraysKt.getLastIndex((byte[])byArray)));
+        return new Class378((String)object5.get(0), (byte[])object, (String)object5.get(1));
     }
-    
+
+    @Nullable
+    @Nullable
+    public final String Method2042(@NotNull @NotNull byte[] byArray) {
+        Intrinsics.checkParameterIsNotNull((Object)byArray, (String)"byteArray");
+        if (!this.Method2040(byArray)) {
+            return null;
+        }
+        Object object = byArray;
+        Charset charset = Charsets.UTF_8;
+        Object object2 = Field9730;
+        boolean bl = false;
+        boolean bl2 = false;
+        Object object3 = new String((byte[])object, charset);
+        MatchResult matchResult = Regex.find$default((Regex)object2, (CharSequence)((CharSequence)object3), (int)0, (int)2, null);
+        Object object4 = matchResult;
+        if (matchResult == null) return null;
+        List list = object4.getGroupValues();
+        object4 = list;
+        if (list == null) return null;
+        Object object5 = object4;
+        object = object5;
+        boolean bl3 = false;
+        String string = (String)object.get(0);
+        object5 = string;
+        object2 = ArraysKt.toList((byte[])byArray);
+        object = Charsets.UTF_8;
+        bl3 = false;
+        MatchResult matchResult2 = object5;
+        if (matchResult2 == null) {
+            throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+        }
+        byte[] byArray2 = matchResult2.getBytes((Charset)object);
+        Intrinsics.checkExpressionValueIsNotNull((Object)byArray2, (String)"(this as java.lang.String).getBytes(charset)");
+        object3 = byArray2;
+        object5 = CollectionsKt.toByteArray((Collection)object2.subList(((Object)object3).length, byArray.length));
+        object = Charsets.UTF_8;
+        return new String((byte[])object5, (Charset)object);
+    }
+
+    @NotNull
+    @NotNull
+    public final byte[] Method2043(@NotNull @NotNull String string) {
+        Intrinsics.checkParameterIsNotNull((Object)string, (String)"text");
+        String string2 = Field9730.toString();
+        Charset charset = Charsets.UTF_8;
+        boolean bl = false;
+        String string3 = string2;
+        if (string3 == null) {
+            throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+        }
+        byte[] byArray = string3.getBytes(charset);
+        Intrinsics.checkExpressionValueIsNotNull((Object)byArray, (String)"(this as java.lang.String).getBytes(charset)");
+        string2 = string;
+        byte[] byArray2 = byArray;
+        charset = Charsets.UTF_8;
+        bl = false;
+        byte[] byArray3 = string2.getBytes(charset);
+        Intrinsics.checkExpressionValueIsNotNull((Object)byArray3, (String)"(this as java.lang.String).getBytes(charset)");
+        byte[] byArray4 = byArray3;
+        return ArraysKt.plus((byte[])byArray2, (byte[])byArray4);
+    }
+
     private Class417() {
     }
-    
+
     static {
-        Field9731 = new Class417();
-        Field9729 = new Regex("IFILE:(.*?):IFILE");
-        Field9730 = new Regex("ITEXT:ITEXT");
+        Class417 class417;
+        Field9731 = class417 = new Class417();
+        String string = "IFILE:(.*?):IFILE";
+        boolean bl = false;
+        Field9729 = new Regex(string);
+        string = "ITEXT:ITEXT";
+        bl = false;
+        Field9730 = new Regex(string);
     }
-    
-    private static String Method2044(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x3796 ^ 0x7D));
-            }
-            return new String(value);
+
+    private static String Method2044(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 125;
+            cArray2[n] = (char)(cArray[n] ^ (0x3796 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

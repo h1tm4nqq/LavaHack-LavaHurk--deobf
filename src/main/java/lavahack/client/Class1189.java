@@ -1,26 +1,22 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
 
-class Class1189
-{
-    final Thread Field13385;
-    Object Field13386;
-    boolean Field13387;
+class Class1189 {
+    final Thread Field13385 = new Thread(() -> this.Method4785(callable));
+    Object Field13386 = null;
+    boolean Field13387 = false;
     private String Field13388 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    Class1189(final Callable callable) {
-        this.Field13386 = null;
-        this.Field13387 = false;
-        this.Field13385 = new Thread(this::Method4785);
+
+    Class1189(Callable callable) {
     }
-    
-    private void Method4785(final Callable callable) {
+
+    private void Method4785(Callable callable) {
         this.Field13386 = callable.call();
         this.Field13387 = true;
     }
 }
+

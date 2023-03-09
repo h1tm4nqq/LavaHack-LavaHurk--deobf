@@ -1,14 +1,15 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public interface Class750
-{
-    Object Method3132(final Class p0) throws Exception;
-    
-    default Class750 Method3133() {
-        return (Class750)new Class1760();
+import lavahack.client.Class1760;
+
+public interface Class750 {
+    public Object Method3132(Class var1) throws Exception;
+
+    public static Class750 Method3133() {
+        return new Class1760();
     }
 }
+

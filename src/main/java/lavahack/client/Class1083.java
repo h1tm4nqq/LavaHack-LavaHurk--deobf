@@ -1,65 +1,80 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.awt.event.*;
-import javax.swing.event.*;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JSlider;
+import lavahack.client.Class1128;
+import lavahack.client.Class1130;
+import lavahack.client.Class1131;
+import lavahack.client.Class1134;
+import lavahack.client.Class1152;
+import lavahack.client.Class1154;
+import lavahack.client.Class1157;
+import lavahack.client.Class1158;
+import lavahack.client.Class1251;
+import lavahack.client.Class1326;
 
-final class Class1083 implements Class1326
-{
+final class Class1083
+implements Class1326 {
     private int Field12834;
-    
-    @Override
-    public void Method4375(final Class1251 class1251) {
-        final JButton button = new JButton();
-        button.setText(">");
-        button.setToolTipText("Play");
-        button.addActionListener(new Class1130(this, class1251));
-        final JButton button2 = new JButton();
-        button2.setText("||");
-        button2.setToolTipText("Pause");
-        button2.addActionListener(new Class1128(this, class1251));
-        final JButton button3 = new JButton();
-        button3.setText("#");
-        button3.setToolTipText("Stop");
-        button3.addActionListener(new Class1134(this, class1251));
-        final JButton button4 = new JButton();
-        button4.setText("|<");
-        button4.setToolTipText("Skip Backward");
-        button4.addActionListener(new Class1131(this, class1251));
-        final JButton button5 = new JButton();
-        button5.setText(">|");
-        button5.setToolTipText("Skip Forward");
-        button5.addActionListener(new Class1154(this, class1251));
-        final JSlider slider = new JSlider();
-        slider.setToolTipText("Volume");
-        slider.addChangeListener(new Class1152(this, class1251, slider));
-        slider.setMinimum(0);
-        slider.setMaximum(100);
-        slider.setMajorTickSpacing(50);
-        slider.setMinorTickSpacing(10);
-        slider.setPaintTicks(true);
-        slider.setPaintTrack(true);
-        final JCheckBox checkBox = new JCheckBox();
-        checkBox.setText("Repeat");
-        checkBox.addActionListener(new Class1158(this, class1251, checkBox));
-        final JCheckBox checkBox2 = new JCheckBox();
-        checkBox2.setText("Shuffle");
-        checkBox2.addActionListener(new Class1157(this, class1251, checkBox2));
+
+    Class1083() {
     }
-    
-    private static String Method4376(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x7754 ^ 0xC7));
-            }
-            return new String(value);
+
+    @Override
+    public void Method4375(Class1251 class1251) {
+        JButton jButton = new JButton();
+        jButton.setText(">");
+        jButton.setToolTipText("Play");
+        jButton.addActionListener(new Class1130(this, class1251));
+        JButton jButton2 = new JButton();
+        jButton2.setText("||");
+        jButton2.setToolTipText("Pause");
+        jButton2.addActionListener(new Class1128(this, class1251));
+        JButton jButton3 = new JButton();
+        jButton3.setText("#");
+        jButton3.setToolTipText("Stop");
+        jButton3.addActionListener(new Class1134(this, class1251));
+        JButton jButton4 = new JButton();
+        jButton4.setText("|<");
+        jButton4.setToolTipText("Skip Backward");
+        jButton4.addActionListener(new Class1131(this, class1251));
+        JButton jButton5 = new JButton();
+        jButton5.setText(">|");
+        jButton5.setToolTipText("Skip Forward");
+        jButton5.addActionListener(new Class1154(this, class1251));
+        JSlider jSlider = new JSlider();
+        jSlider.setToolTipText("Volume");
+        jSlider.addChangeListener(new Class1152(this, class1251, jSlider));
+        jSlider.setMinimum(0);
+        jSlider.setMaximum(100);
+        jSlider.setMajorTickSpacing(50);
+        jSlider.setMinorTickSpacing(10);
+        jSlider.setPaintTicks(true);
+        jSlider.setPaintTrack(true);
+        JCheckBox jCheckBox = new JCheckBox();
+        jCheckBox.setText("Repeat");
+        jCheckBox.addActionListener(new Class1158(this, class1251, jCheckBox));
+        JCheckBox jCheckBox2 = new JCheckBox();
+        jCheckBox2.setText("Shuffle");
+        jCheckBox2.addActionListener(new Class1157(this, class1251, jCheckBox2));
+    }
+
+    private static String Method4376(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 199;
+            cArray2[n] = (char)(cArray[n] ^ (0x7754 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

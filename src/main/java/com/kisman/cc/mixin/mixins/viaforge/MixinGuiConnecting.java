@@ -1,21 +1,29 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  lavahack.client.FhLz4BFGdUZSlxEydtAGWmNr3cGJl86D
+ *  net.minecraft.client.multiplayer.GuiConnecting
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Inject
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+ */
 package com.kisman.cc.mixin.mixins.viaforge;
 
-import org.spongepowered.asm.mixin.*;
-import net.minecraft.client.multiplayer.*;
-import org.spongepowered.asm.mixin.injection.callback.*;
-import lavahack.client.*;
-import org.spongepowered.asm.mixin.injection.*;
+import lavahack.client.FhLz4BFGdUZSlxEydtAGWmNr3cGJl86D;
+import net.minecraft.client.multiplayer.GuiConnecting;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin({ GuiConnecting.class })
-public class MixinGuiConnecting
-{
-    @Inject(method = { "connect" }, at = { @At("HEAD") })
-    @Inject(method = { "connect" }, at = { @At("HEAD") })
-    public void Method1857(final String str, final int i, final CallbackInfo callbackInfo) {
-        FhLz4BFGdUZSlxEydtAGWmNr3cGJl86D.Method7320().Method7329(str + ":" + i);
+@Mixin(value={GuiConnecting.class})
+public class MixinGuiConnecting {
+    @Inject(method={"connect"}, at={@At(value="HEAD")})
+    @Inject(method={"connect"}, at={@At(value="HEAD")})
+    public void Method1857(String string, int n, CallbackInfo callbackInfo) {
+        FhLz4BFGdUZSlxEydtAGWmNr3cGJl86D.Method7320().Method7329(string + ":" + n);
     }
 }
+

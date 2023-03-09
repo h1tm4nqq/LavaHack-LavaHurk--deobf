@@ -1,58 +1,63 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.TreeMap;
+import lavahack.loader.Class1213;
 
-public class Class587 implements Class1213
-{
+public class Class587
+implements Class1213 {
     private byte[] Field10491;
-    private TreeMap Field10492;
+    private TreeMap Field10492 = new TreeMap(String.CASE_INSENSITIVE_ORDER);
     private String Field10493 = "TheKisDevs & LavaHack Development owns you";
-    
-    public Class587() {
-        this.Field10492 = new TreeMap((Comparator<? super K>)String.CASE_INSENSITIVE_ORDER);
-    }
-    
+
+    @Override
     public Iterator Method179() {
         return Collections.unmodifiableSet(this.Field10492.keySet()).iterator();
     }
-    
-    public String Method180(final String key) {
-        final String s = this.Field10492.get(key);
-        if (s == null) {
-            return "";
-        }
-        return s;
+
+    @Override
+    public String Method180(String string) {
+        String string2 = (String)this.Field10492.get(string);
+        if (string2 != null) return string2;
+        return "";
     }
-    
+
+    @Override
     public byte[] Method182() {
         return this.Field10491;
     }
-    
-    public void Method183(final byte[] field10491) {
-        this.Field10491 = field10491;
+
+    @Override
+    public void Method183(byte[] byArray) {
+        this.Field10491 = byArray;
     }
-    
-    public void Method184(final String key, final String value) {
-        this.Field10492.put(key, value);
+
+    @Override
+    public void Method184(String string, String string2) {
+        this.Field10492.put(string, string2);
     }
-    
-    public boolean Method181(final String key) {
-        return this.Field10492.containsKey(key);
+
+    @Override
+    public boolean Method181(String string) {
+        return this.Field10492.containsKey(string);
     }
-    
-    private static String Method185(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x6DF1 ^ 0xB3));
-            }
-            return new String(value);
+
+    private static String Method185(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 179;
+            cArray2[n] = (char)(cArray[n] ^ (0x6DF1 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

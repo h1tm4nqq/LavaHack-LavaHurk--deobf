@@ -1,134 +1,156 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.apache.logging.log4j.LogManager
+ *  org.apache.logging.log4j.Logger
+ */
 package lavahack.client;
 
-import java.net.*;
-import java.lang.reflect.*;
-import java.util.*;
-import java.io.*;
-import java.util.jar.*;
-import org.apache.logging.log4j.*;
+import java.io.File;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.lang.reflect.Constructor;
+import java.net.URLClassLoader;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Objects;
+import java.util.jar.Attributes;
+import java.util.jar.JarFile;
+import java.util.jar.Manifest;
+import lavahack.client.Class1207;
+import lavahack.client.Class1244;
+import lavahack.client.Class1635;
+import lavahack.client.Class1669;
+import lavahack.client.Class1684;
+import lavahack.client.Class1851;
+import lavahack.client.Class2112;
+import lavahack.client.Class906;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class Class379
-{
+public class Class379 {
     public static final Logger Field9593;
     private static final Class379 Field9594;
     private static final String Field9595;
-    private final Map Field9596;
-    private final Map Field9597;
-    private final Class1851 Field9598;
+    private final Map Field9596 = new HashMap();
+    private final Map Field9597 = new HashMap();
+    private final Class1851 Field9598 = new Class1851();
     private ClassLoader Field9599;
     private String Field9600 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class379() {
-        this.Field9596 = new HashMap();
-        this.Field9597 = new HashMap();
-        this.Field9598 = new Class1851();
-    }
-    
+
     public static Class379 Method1845() {
-        return Class379.Field9594;
+        return Field9594;
     }
-    
-    public void Method1846(final ClassLoader field9599) {
-        if (!(field9599 instanceof URLClassLoader)) {
-            throw new IllegalArgumentException("PluginClassLoader was not an URLClassLoader, but: " + field9599.getClass().getName());
+
+    public void Method1846(ClassLoader classLoader) {
+        if (!(classLoader instanceof URLClassLoader)) {
+            throw new IllegalArgumentException("PluginClassLoader was not an URLClassLoader, but: " + classLoader.getClass().getName());
         }
-        this.Field9599 = field9599;
-        Class379.Field9593.info("PluginManager: Scanning for PluginConfigs.");
-        final Map method1847 = this.Method1847(new File("kisman.cc/Plugins").listFiles(), field9599);
-        method1847.keySet().removeAll(this.Field9597.keySet());
-        this.Method1847(this.Field9598.Method6945((Collection)method1847.values()), field9599);
+        this.Field9599 = classLoader;
+        Field9593.info("PluginManager: Scanning for PluginConfigs.");
+        File file = new File("kisman.cc/Plugins");
+        Map map = this.Method1847(file.listFiles(), classLoader);
+        map.keySet().removeAll(this.Field9597.keySet());
+        File[] fileArray = this.Field9598.Method6945(map.values());
+        this.Method1847(fileArray, classLoader);
     }
-    
-    private Map Method1847(final File[] array, final ClassLoader classLoader) {
-        final HashMap hashMap = new HashMap();
-        for (final File file : array) {
+
+    private Map Method1847(File[] fileArray, ClassLoader classLoader) {
+        HashMap hashMap = new HashMap();
+        File[] fileArray2 = fileArray;
+        int n = fileArray2.length;
+        int n2 = 0;
+        while (n2 < n) {
+            File file = fileArray2[n2];
             if (file.getName().endsWith(".jar")) {
-                Class379.Field9593.info("PluginManager: Scanning " + file.getName());
+                Field9593.info("PluginManager: Scanning " + file.getName());
                 this.Method1849(file, classLoader, hashMap);
             }
+            ++n2;
         }
         return hashMap;
     }
-    
+
     public void Method1848() {
-        for (final Class1669 class1669 : this.Field9597.values()) {
+        Iterator iterator = this.Field9597.values().iterator();
+        while (iterator.hasNext()) {
+            Class1669 class1669 = (Class1669)iterator.next();
             if (this.Field9596.containsKey(class1669)) {
-                Class379.Field9593.info("Can't register Plugin " + class1669.Method6438() + ", a plugin with that name is already registered.");
+                Field9593.info("Can't register Plugin " + class1669.Method6438() + ", a plugin with that name is already registered.");
+                continue;
             }
-            else {
-                Class379.Field9593.info("Instantiating: " + class1669.Method6438() + ", MainClass: " + class1669.Method6442());
-                final Constructor<?> constructor = Class.forName(class1669.Method6442()).getConstructor((Class<?>[])new Class[0]);
-                constructor.setAccessible(true);
-                this.Field9596.put(class1669, constructor.newInstance(new Object[0]));
-            }
+            Field9593.info("Instantiating: " + class1669.Method6438() + ", MainClass: " + class1669.Method6442());
+            Class<?> clazz = Class.forName(class1669.Method6442());
+            Constructor<?> constructor = clazz.getConstructor(new Class[0]);
+            constructor.setAccessible(true);
+            Class906 class906 = (Class906)constructor.newInstance(new Object[0]);
+            this.Field9596.put(class1669, class906);
         }
     }
-    
-    private void Method1849(final File file, final ClassLoader classLoader, final Map map) throws Exception {
-        final JarFile jarFile = new JarFile(file);
-        final Attributes mainAttributes = jarFile.getManifest().getMainAttributes();
-        final String value = mainAttributes.getValue("LavaHackConfig");
-        if (value == null) {
+
+    private void Method1849(File file, ClassLoader classLoader, Map map) throws Exception {
+        JarFile jarFile = new JarFile(file);
+        Manifest manifest = jarFile.getManifest();
+        Attributes attributes = manifest.getMainAttributes();
+        String string = attributes.getValue("LavaHackConfig");
+        if (string == null) {
             throw new Class1635(jarFile.getName() + ": Manifest doesn't provide a LavaHackConfig!");
         }
-        final String value2 = mainAttributes.getValue("LavaHackVanilla");
+        String string2 = attributes.getValue("LavaHackVanilla");
         switch (Class2112.Field17606[Class1207.Method4870().ordinal()]) {
             case 1: {
-                if (value2 == null || value2.equals("false")) {
-                    Class379.Field9593.info("Found Plugin to remap!");
-                    map.put(value, file);
-                    return;
-                }
-                break;
+                if (string2 != null && !string2.equals("false")) break;
+                Field9593.info("Found Plugin to remap!");
+                map.put(string, file);
+                return;
             }
-            case 2:
+            case 2: 
             case 3: {
-                if (value2 != null && value2.equals("true")) {
-                    return;
-                }
-                break;
+                if (string2 == null || !string2.equals("true")) break;
+                return;
             }
         }
         Class1244.Method5001((URLClassLoader)classLoader, file);
-        final Class1669 class1669 = (Class1669)Class1684.Field15829.fromJson((Reader)new InputStreamReader(Objects.requireNonNull(classLoader.getResourceAsStream(value))), (Class)Class1669.class);
+        Class1669 class1669 = Class1684.Field15829.fromJson((Reader)new InputStreamReader(Objects.requireNonNull(classLoader.getResourceAsStream(string))), Class1669.class);
         if (class1669 == null) {
             throw new Class1635(jarFile.getName() + ": Found a PluginConfig, but couldn't instantiate it.");
         }
-        Class379.Field9593.info("Found PluginConfig: " + class1669.Method6438() + ", MainClass: " + class1669.Method6442() + ", Mixins: " + class1669.Method6443());
-        this.Field9597.put(value, class1669);
+        Field9593.info("Found PluginConfig: " + class1669.Method6438() + ", MainClass: " + class1669.Method6442() + ", Mixins: " + class1669.Method6443());
+        this.Field9597.put(string, class1669);
     }
-    
+
     public Map Method1850() {
         return this.Field9597;
     }
-    
+
     public Map Method1851() {
         return this.Field9596;
     }
-    
+
     public ClassLoader Method1852() {
         return this.Field9599;
     }
-    
+
     static {
         Field9595 = "kisman.cc/Plugins";
-        Field9593 = LogManager.getLogger("LavaHack Plugins");
+        Field9593 = LogManager.getLogger((String)"LavaHack Plugins");
         Field9594 = new Class379();
     }
-    
-    private static String Method1853(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x6324 ^ 0xEC));
-            }
-            return new String(value);
+
+    private static String Method1853(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 236;
+            cArray2[n] = (char)(cArray[n] ^ (0x6324 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

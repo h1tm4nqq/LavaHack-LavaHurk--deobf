@@ -1,50 +1,57 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import org.jetbrains.annotations.*;
-import java.util.*;
+import java.util.Map;
+import lavahack.client.Class158;
+import lavahack.client.Class278;
+import lavahack.client.Class769;
+import org.jetbrains.annotations.NotNull;
 
-public class Class809 extends Class158
-{
+public class Class809
+extends Class158 {
     private int Field11451;
-    
+
     public Class809() {
         super("lang");
     }
-    
+
+    @Override
     public String Method447() {
         return "";
     }
-    
+
+    @Override
     public String Method448() {
         return "lang <language>";
     }
-    
-    public void Method443(@NotNull @NotNull final String s, @NotNull @NotNull final String[] array) {
-        final Map method1471 = Class278.Method1471();
-        System.out.println(method1471);
-        final String method1472 = Class278.Method1475(method1471, array[1]);
-        if (method1472 != null) {
-            Class769.Field11262 = method1472;
-            this.Method437("Set target language to " + method1471.get(method1472));
+
+    @Override
+    public void Method443(@NotNull @NotNull String string, @NotNull @NotNull String[] stringArray) {
+        Map map = Class278.Method1471();
+        System.out.println(map);
+        String string2 = Class278.Method1475(map, stringArray[1]);
+        if (string2 != null) {
+            Class769.Field11262 = string2;
+            this.Method437("Set target language to " + (String)map.get(string2));
+            return;
         }
-        else {
-            this.Method438("Could not find language");
-        }
+        this.Method438("Could not find language");
     }
-    
-    private static String Method441(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x7D36 ^ 0x30));
-            }
-            return new String(value);
+
+    private static String Method441(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 48;
+            cArray2[n] = (char)(cArray[n] ^ (0x7D36 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

@@ -1,17 +1,21 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraftforge.fml.common.ProgressManager$ProgressBar
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.gen.Accessor
+ */
 package com.kisman.cc.mixin.mixins.accessor;
 
-import org.spongepowered.asm.mixin.*;
-import net.minecraftforge.fml.common.*;
-import org.spongepowered.asm.mixin.gen.*;
+import net.minecraftforge.fml.common.ProgressManager;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({ ProgressManager.ProgressBar.class })
-public interface AccessorProgressBar
-{
-    @Accessor("step")
-    @Accessor("step")
-    void Method739(final int p0);
+@Mixin(value={ProgressManager.ProgressBar.class})
+public interface AccessorProgressBar {
+    @Accessor(value="step")
+    @Accessor(value="step")
+    public void Method739(int var1);
 }
+

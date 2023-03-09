@@ -1,95 +1,116 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraftforge.client.event.ClientChatEvent
+ *  net.minecraftforge.common.MinecraftForge
+ *  net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+ */
 package lavahack.client;
 
-import java.util.concurrent.locks.*;
-import net.minecraftforge.common.*;
-import net.minecraftforge.client.event.*;
-import net.minecraftforge.fml.common.eventhandler.*;
-import java.util.function.*;
-import java.util.stream.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import lavahack.client.Class1393;
+import lavahack.client.Class278;
+import lavahack.client.Class42;
+import lavahack.client.Class97;
+import net.minecraftforge.client.event.ClientChatEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class Class769 extends Class42
-{
-    private static final ReentrantLock Field11260;
-    private boolean Field11261;
-    public static String Field11262;
+public class Class769
+extends Class42 {
+    private static final ReentrantLock Field11260 = new ReentrantLock();
+    private boolean Field11261 = false;
+    public static String Field11262 = null;
     private int Field11263;
-    
+
     public Class769() {
         super("Translate", Class97.Field8343);
-        this.Field11261 = false;
     }
-    
+
+    @Override
     public void Method38() {
         super.Method38();
-        if (Class769.Field11262 == null) {
+        if (Field11262 == null) {
             Class1393.Method5504().Method1886("You must select a language. Use: lang <language> command");
             this.Method22();
             return;
         }
         MinecraftForge.EVENT_BUS.register((Object)this);
     }
-    
+
+    @Override
     public void Method39() {
         super.Method39();
         MinecraftForge.EVENT_BUS.unregister((Object)this);
     }
-    
+
     @SubscribeEvent
     @SubscribeEvent
-    public void Method3203(final ClientChatEvent clientChatEvent) {
-        final String message = clientChatEvent.getMessage();
-        if (message.startsWith("/")) {
+    public void Method3203(ClientChatEvent clientChatEvent) {
+        String string = clientChatEvent.getMessage();
+        if (string.startsWith("/")) {
             return;
         }
         if (this.Field11261) {
             clientChatEvent.setCanceled(true);
             this.Field11261 = false;
         }
-        final String[] split = message.split(" ");
-        final String[] array = { null };
-        new Thread(Class769::Method3205).start();
-        new Thread(this::Method3204).start();
+        String[] stringArray = string.split(" ");
+        String[] stringArray2 = new String[]{null};
+        new Thread(() -> Class769.Method3205(stringArray, stringArray2)).start();
+        String[] stringArray3 = new String[]{""};
+        String string2 = Field11262;
+        String string3 = string;
+        new Thread(() -> this.Method3204(stringArray3, string3, stringArray2, string2)).start();
     }
-    
-    private void Method3204(final String[] array, final String s, final String[] array2, final String s2) {
-        Class769.Field11260.lock();
-        array[0] = Class278.Method1472(s, array2[0], s2);
-        if (!array[0].equals("")) {
+
+    private void Method3204(String[] stringArray, String string, String[] stringArray2, String string2) {
+        Field11260.lock();
+        stringArray[0] = Class278.Method1472(string, stringArray2[0], string2);
+        if (!stringArray[0].equals("")) {
             this.Field11261 = true;
-            Class769.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.player.sendChatMessage(array[0]);
+            Class769.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.player.sendChatMessage(stringArray[0]);
         }
-        Class769.Field11260.unlock();
+        Field11260.unlock();
     }
-    
-    private static void Method3205(final String[] array, final String[] array2) {
-        Class769.Field11260.lock();
-        final ArrayList<Object> list = new ArrayList<Object>();
-        for (int length = array.length, i = 0; i < length; ++i) {
-            list.add(Class278.Method1473(array[i]));
-        }
-        array2[0] = list.stream().collect(Collectors.groupingBy((Function<? super Object, ?>)Function.identity(), Collectors.counting())).entrySet().stream().max((Comparator<? super Object>)Map.Entry.comparingByValue()).map((Function<? super Object, ?>)Map.Entry::getKey).orElse(null);
-        Class769.Field11260.unlock();
-    }
-    
-    static {
-        Field11260 = new ReentrantLock();
-        Class769.Field11262 = null;
-    }
-    
-    private static String Method57(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x38D1 ^ 0x77));
+
+    private static void Method3205(String[] stringArray, String[] stringArray2) {
+        Field11260.lock();
+        ArrayList<String> arrayList = new ArrayList<String>();
+        String[] stringArray3 = stringArray;
+        int n = stringArray3.length;
+        int n2 = 0;
+        while (true) {
+            if (n2 >= n) {
+                stringArray2[0] = arrayList.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(null);
+                Field11260.unlock();
+                return;
             }
-            return new String(value);
+            String string = stringArray3[n2];
+            arrayList.add(Class278.Method1473(string));
+            ++n2;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+    }
+
+    private static String Method57(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 119;
+            cArray2[n] = (char)(cArray[n] ^ (0x38D1 ^ n2));
+            ++n;
+        }
+        return new String(cArray2);
     }
 }
+

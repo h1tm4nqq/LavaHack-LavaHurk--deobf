@@ -1,22 +1,27 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.mojang.authlib.GameProfile
+ *  net.minecraft.entity.player.EntityPlayer
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.gen.Accessor
+ */
 package com.kisman.cc.mixin.mixins.accessor;
 
-import org.spongepowered.asm.mixin.*;
-import net.minecraft.entity.player.*;
-import org.spongepowered.asm.mixin.gen.*;
-import com.mojang.authlib.*;
+import com.mojang.authlib.GameProfile;
+import net.minecraft.entity.player.EntityPlayer;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({ EntityPlayer.class })
-public interface AccessorEntityPlayer
-{
-    @Accessor("speedInAir")
-    @Accessor("speedInAir")
-    void Method6392(final float p0);
-    
-    @Accessor("gameProfile")
-    @Accessor("gameProfile")
-    void Method6393(final GameProfile p0);
+@Mixin(value={EntityPlayer.class})
+public interface AccessorEntityPlayer {
+    @Accessor(value="speedInAir")
+    @Accessor(value="speedInAir")
+    public void Method6392(float var1);
+
+    @Accessor(value="gameProfile")
+    @Accessor(value="gameProfile")
+    public void Method6393(GameProfile var1);
 }
+

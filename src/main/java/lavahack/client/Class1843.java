@@ -1,25 +1,25 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public class Class1843 extends Exception
-{
+public class Class1843
+extends Exception {
     private String Field16500 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     public Class1843() {
     }
-    
-    public Class1843(final String message) {
-        super(message);
+
+    public Class1843(String string) {
+        super(string);
     }
-    
-    public Class1843(final Throwable cause) {
-        super(cause);
+
+    public Class1843(Throwable throwable) {
+        super(throwable);
     }
-    
-    public Class1843(final String message, final Throwable cause) {
-        super(message, cause);
+
+    public Class1843(String string, Throwable throwable) {
+        super(string, throwable);
     }
 }
+

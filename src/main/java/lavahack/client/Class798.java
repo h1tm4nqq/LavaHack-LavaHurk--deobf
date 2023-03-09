@@ -1,10 +1,11 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public interface Class798
-{
-    Class424 Method3313(final Object[] p0, final Class[] p1);
+import lavahack.client.Class424;
+
+public interface Class798 {
+    public Class424 Method3313(Object[] var1, Class[] var2);
 }
+

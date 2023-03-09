@@ -1,19 +1,22 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.text.ITextComponent
+ */
 package lavahack.client;
 
-import com.kisman.cc.event.*;
-import net.minecraft.util.text.*;
+import com.kisman.cc.event.Class2157;
+import net.minecraft.util.text.ITextComponent;
 
-public class Class1344 extends Class2157
-{
+public class Class1344
+extends Class2157 {
     public ITextComponent Field14124;
     private int Field14125;
-    
-    public Class1344(final ITextComponent field14124) {
+
+    public Class1344(ITextComponent iTextComponent) {
         super(new Object[0]);
-        this.Field14124 = field14124;
+        this.Field14124 = iTextComponent;
     }
 }
+

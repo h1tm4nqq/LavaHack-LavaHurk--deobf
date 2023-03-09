@@ -1,19 +1,26 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraftforge.fml.common.eventhandler.EventBus
+ *  org.apache.logging.log4j.Logger
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Redirect
+ */
 package com.kisman.cc.mixin.mixins;
 
-import org.spongepowered.asm.mixin.*;
-import net.minecraftforge.fml.common.eventhandler.*;
-import org.apache.logging.log4j.*;
-import org.spongepowered.asm.mixin.injection.*;
+import net.minecraftforge.fml.common.eventhandler.EventBus;
+import org.apache.logging.log4j.Logger;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin({ EventBus.class })
-public class MixinEventBus
-{
-    @Redirect(remap = false, method = { "register(Ljava/lang/Object;)V" }, at = @At(value = "INVOKE", target = "Lorg/apache/logging/log4j/Logger;error(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V"))
-    @Redirect(remap = false, method = { "register(Ljava/lang/Object;)V" }, at = @At(value = "INVOKE", target = "Lorg/apache/logging/log4j/Logger;error(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V"))
-    private void Method2421(final Logger logger, final String s, final Object o, final Object o2) {
+@Mixin(value={EventBus.class})
+public class MixinEventBus {
+    @Redirect(remap=false, method={"register(Ljava/lang/Object;)V"}, at=@At(value="INVOKE", target="Lorg/apache/logging/log4j/Logger;error(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V"))
+    @Redirect(remap=false, method={"register(Ljava/lang/Object;)V"}, at=@At(value="INVOKE", target="Lorg/apache/logging/log4j/Logger;error(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V"))
+    private void Method2421(Logger logger, String string, Object object, Object object2) {
     }
 }
+

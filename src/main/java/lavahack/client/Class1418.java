@@ -1,14 +1,17 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public class Class1418 extends Class929
-{
+import lavahack.client.Class927;
+import lavahack.client.Class929;
+
+public class Class1418
+extends Class929 {
     private int Field14580;
-    
+
     public Class1418() {
         super(Class927.Field11929);
     }
 }
+

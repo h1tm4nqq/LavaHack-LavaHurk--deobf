@@ -1,17 +1,25 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.luaj.vm2.LuaValue
+ *  org.luaj.vm2.lib.ThreeArgFunction
+ */
 package lavahack.client;
 
-import org.luaj.vm2.lib.*;
-import org.luaj.vm2.*;
+import lavahack.client.Class1643;
+import org.luaj.vm2.LuaValue;
+import org.luaj.vm2.lib.ThreeArgFunction;
 
-class Class1499 extends ThreeArgFunction
-{
+class Class1499
+extends ThreeArgFunction {
     private int Field15037;
-    
-    public LuaValue call(final LuaValue luaValue, final LuaValue luaValue2, final LuaValue luaValue3) {
+
+    Class1499() {
+    }
+
+    public LuaValue call(LuaValue luaValue, LuaValue luaValue2, LuaValue luaValue3) {
         return Class1643.Method6380(luaValue, luaValue2, luaValue3);
     }
 }
+

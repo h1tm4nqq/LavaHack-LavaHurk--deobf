@@ -1,12 +1,14 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-public interface Class1213 extends Class1181
-{
-    void Method183(final byte[] p0);
-    
-    void Method184(final String p0, final String p1);
+import lavahack.loader.Class1181;
+
+public interface Class1213
+extends Class1181 {
+    public void Method183(byte[] var1);
+
+    public void Method184(String var1, String var2);
 }
+

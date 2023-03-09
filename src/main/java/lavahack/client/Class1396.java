@@ -1,79 +1,92 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import org.objectweb.asm.*;
-import java.util.*;
-import org.objectweb.asm.tree.*;
+import java.util.Iterator;
+import lavahack.client.Class205;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.FieldNode;
+import org.objectweb.asm.tree.MethodNode;
 
-public class Class1396
-{
+public class Class1396 {
     private String Field14325 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public static ClassNode Method5516(final byte[] array, final int... array2) {
-        final ClassNode classNode = new ClassNode();
-        new ClassReader(array).accept((ClassVisitor)classNode, Method5523(array2));
+
+    public static ClassNode Method5516(byte[] byArray, int ... nArray) {
+        ClassNode classNode = new ClassNode();
+        ClassReader classReader = new ClassReader(byArray);
+        classReader.accept(classNode, Class1396.Method5523(nArray));
         return classNode;
     }
-    
-    public static byte[] Method5517(final ClassNode classNode, final int... array) {
-        final ClassWriter classWriter = new ClassWriter(Method5523(array));
-        classNode.accept((ClassVisitor)classWriter);
+
+    public static byte[] Method5517(ClassNode classNode, int ... nArray) {
+        ClassWriter classWriter = new ClassWriter(Class1396.Method5523(nArray));
+        classNode.accept(classWriter);
         return classWriter.toByteArray();
     }
-    
-    public static byte[] Method5518(final ClassNode classNode, final int... array) {
-        final Class205 class205 = new Class205(Method5523(array));
-        classNode.accept((ClassVisitor)class205);
+
+    public static byte[] Method5518(ClassNode classNode, int ... nArray) {
+        Class205 class205 = new Class205(Class1396.Method5523(nArray));
+        classNode.accept(class205);
         return class205.toByteArray();
     }
-    
-    public static MethodNode Method5519(final ClassNode classNode, final String s, final String s2, final String s3, final String s4, final String s5) {
-        MethodNode methodNode = Method5520(classNode, s, s2);
-        if (methodNode == null) {
-            methodNode = Method5520(classNode, s3, s5);
-            if (methodNode == null) {
-                return Method5520(classNode, s4, s5);
-            }
-        }
+
+    public static MethodNode Method5519(ClassNode classNode, String string, String string2, String string3, String string4, String string5) {
+        MethodNode methodNode = Class1396.Method5520(classNode, string, string2);
+        if (methodNode != null) return methodNode;
+        methodNode = Class1396.Method5520(classNode, string3, string5);
+        if (methodNode != null) return methodNode;
+        return Class1396.Method5520(classNode, string4, string5);
+    }
+
+    public static MethodNode Method5520(ClassNode classNode, String string, String string2) {
+        MethodNode methodNode;
+        Iterator<MethodNode> iterator = classNode.methods.iterator();
+        do {
+            if (!iterator.hasNext()) return null;
+            methodNode = iterator.next();
+        } while (!methodNode.name.equals(string) || !methodNode.desc.equals(string2));
         return methodNode;
     }
-    
-    public static MethodNode Method5520(final ClassNode classNode, final String anObject, final String anObject2) {
-        for (final MethodNode methodNode : classNode.methods) {
-            if (methodNode.name.equals(anObject) && methodNode.desc.equals(anObject2)) {
-                return methodNode;
-            }
-        }
-        return null;
-    }
-    
-    public static FieldNode Method5521(final ClassNode classNode, final String... array) {
-        for (int length = array.length, i = 0; i < length; ++i) {
-            final FieldNode method5522 = Method5522(classNode, array[i]);
-            if (method5522 != null) {
-                return method5522;
-            }
-        }
-        return null;
-    }
-    
-    public static FieldNode Method5522(final ClassNode classNode, final String anObject) {
-        for (final FieldNode fieldNode : classNode.fields) {
-            if (fieldNode.name.equals(anObject)) {
+
+    public static FieldNode Method5521(ClassNode classNode, String ... stringArray) {
+        String[] stringArray2 = stringArray;
+        int n = stringArray2.length;
+        int n2 = 0;
+        while (n2 < n) {
+            String string = stringArray2[n2];
+            FieldNode fieldNode = Class1396.Method5522(classNode, string);
+            if (fieldNode != null) {
                 return fieldNode;
             }
+            ++n2;
         }
         return null;
     }
-    
-    public static int Method5523(final int... array) {
+
+    public static FieldNode Method5522(ClassNode classNode, String string) {
+        FieldNode fieldNode;
+        Iterator<FieldNode> iterator = classNode.fields.iterator();
+        do {
+            if (!iterator.hasNext()) return null;
+            fieldNode = iterator.next();
+        } while (!fieldNode.name.equals(string));
+        return fieldNode;
+    }
+
+    public static int Method5523(int ... nArray) {
         int n = 0;
-        for (int length = array.length, i = 0; i < length; ++i) {
-            n |= array[i];
+        int[] nArray2 = nArray;
+        int n2 = nArray2.length;
+        int n3 = 0;
+        while (n3 < n2) {
+            int n4 = nArray2[n3];
+            n |= n4;
+            ++n3;
         }
         return n;
     }
 }
+

@@ -1,170 +1,224 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.item.ItemStack
+ *  net.minecraft.nbt.NBTBase
+ *  net.minecraft.nbt.NBTTagCompound
+ *  net.minecraft.nbt.NBTTagList
+ *  net.minecraft.tileentity.TileEntity
+ *  net.minecraft.util.ResourceLocation
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraftforge.common.MinecraftForge
+ *  net.minecraftforge.fml.common.eventhandler.Event
+ */
 package lavahack.client;
 
-import net.minecraft.block.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.item.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.nbt.*;
-import net.minecraft.entity.*;
-import java.util.*;
-import net.minecraftforge.common.*;
-import net.minecraftforge.fml.common.eventhandler.*;
-import net.minecraft.block.state.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import lavahack.client.Class1433;
+import lavahack.client.Class153;
+import lavahack.client.Class16;
+import lavahack.client.Class1885;
+import lavahack.client.Class292;
+import lavahack.client.Class39;
+import lavahack.client.Class686;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.eventhandler.Event;
 
-public class Class1341 extends Class153
-{
+public class Class1341
+extends Class153 {
     private int Field14121;
-    
+
     @Override
-    public Class686 Method990(final NBTTagCompound nbtTagCompound) {
-        final ItemStack method1528 = Class292.Method1528(nbtTagCompound);
-        final byte[] getByteArray = nbtTagCompound.getByteArray("Blocks");
-        final byte[] getByteArray2 = nbtTagCompound.getByteArray("Data");
-        if (nbtTagCompound.hasKey("AddBlocks")) {
-            final byte[] getByteArray3 = nbtTagCompound.getByteArray("AddBlocks");
-            final byte[] array = new byte[getByteArray3.length * 2];
-            for (int i = 0; i < getByteArray3.length; ++i) {
-                array[i * 2 + 0] = (byte)(getByteArray3[i] >> 4 & 0xF);
-                array[i * 2 + 1] = (byte)(getByteArray3[i] & 0xF);
+    public Class686 Method990(NBTTagCompound nBTTagCompound) {
+        Object object;
+        Object object2;
+        int n;
+        ItemStack itemStack = Class292.Method1528(nBTTagCompound);
+        byte[] byArray = nBTTagCompound.getByteArray("Blocks");
+        byte[] byArray2 = nBTTagCompound.getByteArray("Data");
+        boolean bl = false;
+        byte[] byArray3 = null;
+        byte[] byArray4 = null;
+        if (nBTTagCompound.hasKey("AddBlocks")) {
+            bl = true;
+            byArray4 = nBTTagCompound.getByteArray("AddBlocks");
+            byArray3 = new byte[byArray4.length * 2];
+            for (n = 0; n < byArray4.length; ++n) {
+                byArray3[n * 2 + 0] = (byte)(byArray4[n] >> 4 & 0xF);
+                byArray3[n * 2 + 1] = (byte)(byArray4[n] & 0xF);
+            }
+        } else if (nBTTagCompound.hasKey("Add")) {
+            bl = true;
+            byArray3 = nBTTagCompound.getByteArray("Add");
+        }
+        n = nBTTagCompound.getShort("Width");
+        int n2 = nBTTagCompound.getShort("Length");
+        int n3 = nBTTagCompound.getShort("Height");
+        Short s = null;
+        HashMap<Short, Short> hashMap = new HashMap<Short, Short>();
+        if (nBTTagCompound.hasKey("SchematicaMapping")) {
+            object2 = nBTTagCompound.getCompoundTag("SchematicaMapping");
+            object = object2.getKeySet();
+            Iterator iterator = object.iterator();
+            while (iterator.hasNext()) {
+                String string = (String)iterator.next();
+                hashMap.put(object2.getShort(string), (short)Block.REGISTRY.getIDForObject(Block.REGISTRY.getObject((Object)new ResourceLocation(string))));
             }
         }
-        else if (nbtTagCompound.hasKey("Add")) {
-            nbtTagCompound.getByteArray("Add");
-        }
-        final short getShort = nbtTagCompound.getShort("Width");
-        final short getShort2 = nbtTagCompound.getShort("Length");
-        final short getShort3 = nbtTagCompound.getShort("Height");
-        final HashMap<Short, Short> hashMap = (HashMap<Short, Short>)new HashMap<Object, Short>();
-        if (nbtTagCompound.hasKey("SchematicaMapping")) {
-            final NBTTagCompound getCompoundTag = nbtTagCompound.getCompoundTag("SchematicaMapping");
-            for (final String s : getCompoundTag.getKeySet()) {
-                hashMap.put(getCompoundTag.getShort(s), (short)Block.REGISTRY.getIDForObject(Block.REGISTRY.getObject((Object)new ResourceLocation(s))));
-            }
-        }
-        final Class16 class16 = new Class16();
-        final Class1885 class17 = new Class1885(method1528, getShort, getShort3, getShort2);
-        for (short n = 0; n < getShort; ++n) {
-            for (short n2 = 0; n2 < getShort3; ++n2) {
-                for (short n3 = 0; n3 < getShort2; ++n3) {
-                    final int n4 = n + (n2 * getShort2 + n3) * getShort;
-                    int shortValue = (getByteArray[n4] & 0xFF) | 0x0;
-                    final int n5 = getByteArray2[n4] & 0xFF;
-                    final Short n6;
-                    if ((n6 = hashMap.get((short)shortValue)) != null) {
-                        shortValue = n6;
+        object2 = new Class16();
+        object = new Class1885(itemStack, n, n3, n2);
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n3; ++j) {
+                for (int k = 0; k < n2; ++k) {
+                    int n4 = i + (j * n2 + k) * n;
+                    int n5 = byArray[n4] & 0xFF | 0;
+                    int n6 = byArray2[n4] & 0xFF;
+                    s = (Short)hashMap.get((short)n5);
+                    if (s != null) {
+                        n5 = s.shortValue();
                     }
-                    final Block block = (Block)Block.REGISTRY.getObjectById(shortValue);
-                    class16.set(n, n2, n3);
-                    class17.Method2881(class16, block.getStateFromMeta(n5));
+                    Block block = (Block)Block.REGISTRY.getObjectById(n5);
+                    ((Class16)((Object)object2)).set(i, j, k);
+                    IBlockState iBlockState = block.getStateFromMeta(n6);
+                    object.Method2881((BlockPos)object2, iBlockState);
                 }
             }
         }
-        final NBTTagList getTagList = nbtTagCompound.getTagList("TileEntities", 10);
-        for (int j = 0; j < getTagList.tagCount(); ++j) {
-            final TileEntity method1529 = Class1433.Method5735(getTagList.getCompoundTagAt(j));
-            if (method1529 != null) {
-                class17.Method2884(method1529.getPos(), method1529);
+        NBTTagList nBTTagList = nBTTagCompound.getTagList("TileEntities", 10);
+        int n7 = 0;
+        while (n7 < nBTTagList.tagCount()) {
+            TileEntity tileEntity = Class1433.Method5735(nBTTagList.getCompoundTagAt(n7));
+            if (tileEntity != null) {
+                object.Method2884(tileEntity.getPos(), tileEntity);
             }
+            ++n7;
         }
-        return class17;
+        return object;
     }
-    
+
     @Override
-    public boolean Method991(final NBTTagCompound nbtTagCompound, final Class686 class686) {
-        final NBTTagCompound nbtTagCompound2 = new NBTTagCompound();
-        class686.Method2889().writeToNBT(nbtTagCompound2);
-        nbtTagCompound.setTag("Icon", (NBTBase)nbtTagCompound2);
-        nbtTagCompound.setShort("Width", (short)class686.Method2891());
-        nbtTagCompound.setShort("Length", (short)class686.Method2892());
-        nbtTagCompound.setShort("Height", (short)class686.Method2893());
-        final int n = class686.Method2891() * class686.Method2892() * class686.Method2893();
-        final byte[] array = new byte[n];
-        final byte[] array2 = new byte[n];
-        final byte[] array3 = new byte[n];
-        final byte[] array4 = new byte[(int)Math.ceil(n / Double.longBitsToDouble(4611686018427387904L))];
-        final Class16 class687 = new Class16();
-        final HashMap<String, Short> hashMap = new HashMap<String, Short>();
-        for (int i = 0; i < class686.Method2891(); ++i) {
-            for (int j = 0; j < class686.Method2893(); ++j) {
-                for (int k = 0; k < class686.Method2892(); ++k) {
-                    final int n2 = i + (j * class686.Method2892() + k) * class686.Method2891();
-                    final IBlockState method2880 = class686.Method2880(class687.set(i, j, k));
-                    final Block getBlock = method2880.getBlock();
-                    final int getIDForObject = Block.REGISTRY.getIDForObject((Object)getBlock);
-                    array[n2] = (byte)getIDForObject;
-                    array2[n2] = (byte)getBlock.getMetaFromState(method2880);
-                    if ((array3[n2] = (byte)(getIDForObject >> 8)) > 0) {}
-                    final String value = String.valueOf(Block.REGISTRY.getNameForObject((Object)getBlock));
-                    if (!hashMap.containsKey(value)) {
-                        hashMap.put(value, (short)getIDForObject);
+    public boolean Method991(NBTTagCompound nBTTagCompound, Class686 class686) {
+        Object object;
+        Block block2;
+        Object object2;
+        NBTTagList nBTTagList;
+        NBTTagCompound nBTTagCompound2 = new NBTTagCompound();
+        ItemStack itemStack = class686.Method2889();
+        itemStack.writeToNBT(nBTTagCompound2);
+        nBTTagCompound.setTag("Icon", (NBTBase)nBTTagCompound2);
+        nBTTagCompound.setShort("Width", (short)class686.Method2891());
+        nBTTagCompound.setShort("Length", (short)class686.Method2892());
+        nBTTagCompound.setShort("Height", (short)class686.Method2893());
+        int n = class686.Method2891() * class686.Method2892() * class686.Method2893();
+        byte[] byArray = new byte[n];
+        byte[] byArray2 = new byte[n];
+        byte[] byArray3 = new byte[n];
+        byte[] byArray4 = new byte[(int)Math.ceil((double)n / Double.longBitsToDouble(0x4000000000000000L))];
+        boolean bl = false;
+        Class16 class16 = new Class16();
+        HashMap<Object, Short> hashMap = new HashMap<Object, Short>();
+        int n2 = 0;
+        while (true) {
+            if (n2 < class686.Method2891()) {
+            } else {
+                n2 = 20;
+                nBTTagList = new NBTTagList();
+                for (TileEntity tileEntity : class686.Method2883()) {
+                    object2 = Class1433.Method5734(tileEntity);
+                    nBTTagList.appendTag((NBTBase)object2);
+                }
+                break;
+            }
+            for (int i = 0; i < class686.Method2893(); ++i) {
+                for (int j = 0; j < class686.Method2892(); ++j) {
+                    int n3 = n2 + (i * class686.Method2892() + j) * class686.Method2891();
+                    object2 = class686.Method2880(class16.set(n2, i, j));
+                    block2 = object2.getBlock();
+                    int n4 = Block.REGISTRY.getIDForObject((Object)block2);
+                    byArray[n3] = (byte)n4;
+                    byArray2[n3] = (byte)block2.getMetaFromState((IBlockState)object2);
+                    byArray3[n3] = (byte)(n4 >> 8);
+                    if (byArray3[n3] > 0) {
+                        bl = true;
                     }
+                    if (hashMap.containsKey(object = String.valueOf(Block.REGISTRY.getNameForObject((Object)block2)))) continue;
+                    hashMap.put(object, (short)n4);
                 }
             }
+            ++n2;
         }
-        final NBTTagList list = new NBTTagList();
-        final Iterator<TileEntity> iterator = class686.Method2883().iterator();
-        while (iterator.hasNext()) {
-            list.appendTag((NBTBase)Class1433.Method5734(iterator.next()));
+        for (int i = 0; i < byArray4.length; ++i) {
+            byArray4[i] = i * 2 + 1 < byArray3.length ? (byte)(byArray3[i * 2 + 0] << 4 | byArray3[i * 2 + 1]) : (byte)(byArray3[i * 2 + 0] << 4);
         }
-        for (int l = 0; l < array4.length; ++l) {
-            if (l * 2 + 1 < array3.length) {
-                array4[l] = (byte)(array3[l * 2 + 0] << 4 | array3[l * 2 + 1]);
+        NBTTagList nBTTagList2 = new NBTTagList();
+        List list = class686.Method2886();
+        for (Block block2 : list) {
+            NBTTagCompound nBTTagCompound3 = Class1433.Method5736((Entity)block2);
+            if (nBTTagCompound3 == null) continue;
+            nBTTagList2.appendTag((NBTBase)nBTTagCompound3);
+        }
+        object2 = new Class39(class686, hashMap);
+        MinecraftForge.EVENT_BUS.post((Event)object2);
+        block2 = new NBTTagCompound();
+        NBTTagCompound nBTTagCompound4 = hashMap.entrySet().iterator();
+        while (true) {
+            if (!nBTTagCompound4.hasNext()) {
+                nBTTagCompound.setString("Materials", "Alpha");
+                nBTTagCompound.setByteArray("Blocks", byArray);
+                nBTTagCompound.setByteArray("Data", byArray2);
+                nBTTagCompound.setTag("Entities", (NBTBase)nBTTagList2);
+                nBTTagCompound.setTag("TileEntities", (NBTBase)nBTTagList);
+                nBTTagCompound.setTag("SchematicaMapping", (NBTBase)block2);
+                nBTTagCompound4 = object2.Field8044;
+                if (nBTTagCompound4.isEmpty()) return true;
+                nBTTagCompound.setTag("ExtendedMetadata", (NBTBase)nBTTagCompound4);
+                return true;
             }
-            else {
-                array4[l] = (byte)(array3[l * 2 + 0] << 4);
-            }
+            object = nBTTagCompound4.next();
+            block2.setShort((String)object.getKey(), ((Short)object.getValue()).shortValue());
         }
-        final NBTTagList list2 = new NBTTagList();
-        final Iterator<Entity> iterator2 = class686.Method2886().iterator();
-        while (iterator2.hasNext()) {
-            final NBTTagCompound method2881 = Class1433.Method5736(iterator2.next());
-            if (method2881 != null) {
-                list2.appendTag((NBTBase)method2881);
-            }
-        }
-        final Class39 class688 = new Class39(class686, hashMap);
-        MinecraftForge.EVENT_BUS.post((Event)class688);
-        final NBTTagCompound nbtTagCompound3 = new NBTTagCompound();
-        for (final Map.Entry<String, Short> entry : hashMap.entrySet()) {
-            nbtTagCompound3.setShort((String)entry.getKey(), (short)entry.getValue());
-        }
-        nbtTagCompound.setString("Materials", "Alpha");
-        nbtTagCompound.setByteArray("Blocks", array);
-        nbtTagCompound.setByteArray("Data", array2);
-        nbtTagCompound.setTag("Entities", (NBTBase)list2);
-        nbtTagCompound.setTag("TileEntities", (NBTBase)list);
-        nbtTagCompound.setTag("SchematicaMapping", (NBTBase)nbtTagCompound3);
-        final NBTTagCompound field8044 = class688.Field8044;
-        if (!field8044.isEmpty()) {
-            nbtTagCompound.setTag("ExtendedMetadata", (NBTBase)field8044);
-        }
-        return true;
     }
-    
+
     @Override
     public String Method992() {
         return "schematica.format.alpha";
     }
-    
+
     @Override
     public String Method993() {
         return ".schematic";
     }
-    
-    private static String Method1001(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x47E6 ^ 0x21));
-            }
-            return new String(value);
+
+    private static String Method1001(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 33;
+            cArray2[n] = (char)(cArray[n] ^ (0x47E6 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

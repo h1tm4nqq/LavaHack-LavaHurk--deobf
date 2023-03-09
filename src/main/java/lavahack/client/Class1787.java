@@ -1,23 +1,26 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.multiplayer.ServerData
+ */
 package lavahack.client;
 
-import com.kisman.cc.event.*;
-import net.minecraft.client.multiplayer.*;
+import com.kisman.cc.event.Class2157;
+import net.minecraft.client.multiplayer.ServerData;
 
-public class Class1787 extends Class2157
-{
+public class Class1787
+extends Class2157 {
     private final ServerData Field16203;
     private String Field16204 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class1787(final ServerData field16203) {
+
+    public Class1787(ServerData serverData) {
         super(new Object[0]);
-        this.Field16203 = field16203;
+        this.Field16203 = serverData;
     }
-    
+
     public ServerData Method2533() {
         return this.Field16203;
     }
 }
+

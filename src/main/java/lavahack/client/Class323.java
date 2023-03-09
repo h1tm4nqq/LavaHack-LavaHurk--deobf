@@ -1,33 +1,41 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.function.*;
+import java.util.function.Predicate;
+import lavahack.client.Class1522;
 
-public interface Class323
-{
-    void Method1633(final Class p0);
-    
-    void Method1634(final Object p0);
-    
-    void Method1635(final Class p0);
-    
-    void Method1636(final Object p0);
-    
-    void Method1637(final Object p0);
-    
-    default void Method1638(final Object o, final Predicate... array) {
-        for (int length = array.length, i = 0; i < length; ++i) {
-            if (!array[i].test(o)) {
+public interface Class323 {
+    public void Method1633(Class var1);
+
+    public void Method1634(Object var1);
+
+    public void Method1635(Class var1);
+
+    public void Method1636(Object var1);
+
+    public void Method1637(Object var1);
+
+    default public void Method1638(Object object, Predicate ... predicateArray) {
+        Predicate[] predicateArray2 = predicateArray;
+        int n = predicateArray2.length;
+        int n2 = 0;
+        while (true) {
+            if (n2 >= n) {
+                this.Method1637(object);
                 return;
             }
+            Predicate predicate = predicateArray2[n2];
+            if (!predicate.test(object)) {
+                return;
+            }
+            ++n2;
         }
-        this.Method1637(o);
     }
-    
-    default Class323 Method1639() {
-        return (Class323)new Class1522();
+
+    public static Class323 Method1639() {
+        return new Class1522();
     }
 }
+

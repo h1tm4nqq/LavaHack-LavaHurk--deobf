@@ -1,291 +1,307 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.TypeCastException
+ *  kotlin.collections.CollectionsKt
+ *  kotlin.jvm.internal.Intrinsics
+ *  kotlin.text.Regex
+ *  net.minecraft.client.gui.GuiButton
+ *  net.minecraft.client.gui.GuiScreen
+ *  net.minecraft.client.gui.GuiTextField
+ *  org.lwjgl.input.Keyboard
+ */
 package lavahack.client;
 
-import org.lwjgl.input.*;
-import net.minecraft.client.gui.*;
-import kotlin.jvm.internal.*;
-import kotlin.text.*;
-import kotlin.collections.*;
-import kotlin.*;
-import java.util.*;
-import java.io.*;
-import org.jetbrains.annotations.*;
+import java.io.IOException;
+import java.util.Collection;
+import kotlin.Metadata;
+import kotlin.TypeCastException;
+import kotlin.collections.CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.Regex;
+import lavahack.client.Class1409;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.GuiTextField;
+import org.jetbrains.annotations.NotNull;
+import org.lwjgl.input.Keyboard;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 1, d1 = { "\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0010\f\n\u0002\b\u0006\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0001?\u0006\u0002\u0010\u0003J\u0010\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000bH\u0014J \u0010\f\u001a\u00020\t2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u0011H\u0016J\b\u0010\u0012\u001a\u00020\tH\u0016J\u0018\u0010\u0013\u001a\u00020\t2\u0006\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u000eH\u0014J \u0010\u0017\u001a\u00020\t2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0018\u001a\u00020\u000eH\u0014J\b\u0010\u0019\u001a\u00020\tH\u0016J\b\u0010\u001a\u001a\u00020\tH\u0016R\u000e\u0010\u0004\u001a\u00020\u0001X\u0082\u0004?\u0006\u0002\n\u0000R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e?\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\u0006X\u0082\u000e?\u0006\u0002\n\u0000?\u0006\u001b" }, d2 = { "Lcom/kisman/cc/features/pingbypass/gui/GuiAddPingBypass;", "Lnet/minecraft/client/gui/GuiScreen;", "parentScreenIn", "(Lnet/minecraft/client/gui/GuiScreen;)V", "parentScreen", "serverIPField", "Lnet/minecraft/client/gui/GuiTextField;", "serverPortField", "actionPerformed", "", "button", "Lnet/minecraft/client/gui/GuiButton;", "drawScreen", "mouseX", "", "mouseY", "partialTicks", "", "initGui", "keyTyped", "typedChar", "", "keyCode", "mouseClicked", "mouseButton", "onGuiClosed", "updateScreen", "kisman.cc" })
-public final class Class579 extends GuiScreen
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=1, d1={"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0010\f\n\u0002\b\u0006\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0001\u00a2\u0006\u0002\u0010\u0003J\u0010\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000bH\u0014J \u0010\f\u001a\u00020\t2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u0011H\u0016J\b\u0010\u0012\u001a\u00020\tH\u0016J\u0018\u0010\u0013\u001a\u00020\t2\u0006\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u000eH\u0014J \u0010\u0017\u001a\u00020\t2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0018\u001a\u00020\u000eH\u0014J\b\u0010\u0019\u001a\u00020\tH\u0016J\b\u0010\u001a\u001a\u00020\tH\u0016R\u000e\u0010\u0004\u001a\u00020\u0001X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\u0006X\u0082\u000e\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u001b"}, d2={"Lcom/kisman/cc/features/pingbypass/gui/GuiAddPingBypass;", "Lnet/minecraft/client/gui/GuiScreen;", "parentScreenIn", "(Lnet/minecraft/client/gui/GuiScreen;)V", "parentScreen", "serverIPField", "Lnet/minecraft/client/gui/GuiTextField;", "serverPortField", "actionPerformed", "", "button", "Lnet/minecraft/client/gui/GuiButton;", "drawScreen", "mouseX", "", "mouseY", "partialTicks", "", "initGui", "keyTyped", "typedChar", "", "keyCode", "mouseClicked", "mouseButton", "onGuiClosed", "updateScreen", "kisman.cc"})
+public final class Class579
+extends GuiScreen {
     private final GuiScreen Field10468;
     private GuiTextField Field10469;
     private GuiTextField Field10470;
     private String Field10471 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     public void updateScreen() {
-        final GuiTextField field10470 = this.Field10470;
-        if (field10470 != null) {
-            field10470.updateCursorCounter();
+        GuiTextField guiTextField = this.Field10470;
+        if (guiTextField != null) {
+            guiTextField.updateCursorCounter();
         }
-        final GuiTextField field10471 = this.Field10469;
-        if (field10471 != null) {
-            field10471.updateCursorCounter();
-        }
+        GuiTextField guiTextField2 = this.Field10469;
+        if (guiTextField2 == null) return;
+        guiTextField2.updateCursorCounter();
     }
-    
+
     public void initGui() {
-        Keyboard.enableRepeatEvents(true);
+        Keyboard.enableRepeatEvents((boolean)true);
         this.buttonList.clear();
         this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 4 + 96 + 18, "Done"));
         this.buttonList.add(new GuiButton(1, this.width / 2 - 100, this.height / 4 + 120 + 18, "Cancel"));
-        this.Field10470 = new GuiTextField(0, this.fontRenderer, this.width / 2 - 100, 66, 200, 20);
-        final GuiTextField field10470 = this.Field10470;
-        if (field10470 == null) {
+        GuiTextField guiTextField = this.Field10470 = new GuiTextField(0, this.fontRenderer, this.width / 2 - 100, 66, 200, 20);
+        if (guiTextField == null) {
             Intrinsics.throwNpe();
         }
-        field10470.setFocused(true);
-        final GuiTextField field10471 = this.Field10470;
-        if (field10471 == null) {
+        guiTextField.setFocused(true);
+        GuiTextField guiTextField2 = this.Field10470;
+        if (guiTextField2 == null) {
             Intrinsics.throwNpe();
         }
-        field10471.setText(Class1409.Field14381.Method5538());
-        this.Field10469 = new GuiTextField(1, this.fontRenderer, this.width / 2 - 100, 106, 200, 20);
-        final GuiTextField field10472 = this.Field10469;
-        if (field10472 == null) {
+        guiTextField2.setText(Class1409.Field14381.Method5538());
+        GuiTextField guiTextField3 = this.Field10469 = new GuiTextField(1, this.fontRenderer, this.width / 2 - 100, 106, 200, 20);
+        if (guiTextField3 == null) {
             Intrinsics.throwNpe();
         }
-        field10472.setMaxStringLength(128);
-        final GuiTextField field10473 = this.Field10469;
-        if (field10473 == null) {
+        guiTextField3.setMaxStringLength(128);
+        GuiTextField guiTextField4 = this.Field10469;
+        if (guiTextField4 == null) {
             Intrinsics.throwNpe();
         }
-        field10473.setText(Class1409.Field14381.Method5540());
-        final GuiButton guiButton = this.buttonList.get(0);
-        final GuiTextField field10474 = this.Field10469;
-        if (field10474 == null) {
+        guiTextField4.setText(Class1409.Field14381.Method5540());
+        GuiButton guiButton = (GuiButton)this.buttonList.get(0);
+        GuiTextField guiTextField5 = this.Field10469;
+        if (guiTextField5 == null) {
             Intrinsics.throwNpe();
         }
-        final String getText = field10474.getText();
-        Intrinsics.checkExpressionValueIsNotNull((Object)getText, "serverPortField!!.text");
-        final String s = getText;
-        final GuiButton guiButton2 = guiButton;
-        final boolean b = s.length() > 0;
+        String string = guiTextField5.getText();
+        Intrinsics.checkExpressionValueIsNotNull((Object)string, (String)"serverPortField!!.text");
+        CharSequence charSequence = string;
+        GuiButton guiButton2 = guiButton;
+        boolean bl = false;
+        boolean bl2 = charSequence.length() > 0;
         guiButton2.enabled = false;
     }
-    
+
     public void onGuiClosed() {
-        Keyboard.enableRepeatEvents(false);
+        Keyboard.enableRepeatEvents((boolean)false);
     }
-    
-    protected void keyTyped(final char c, final int n) throws IOException {
-        final GuiTextField field10470 = this.Field10470;
-        if (field10470 != null) {
-            field10470.textboxKeyTyped(c, n);
+
+    /*
+     * Unable to fully structure code
+     * Could not resolve type clashes
+     */
+    protected void keyTyped(char var1_1, int var2_2) throws IOException {
+        v0 = this.Field10470;
+        if (v0 != null) {
+            v0.textboxKeyTyped(var1_1, var2_2);
         }
-        final GuiTextField field10471 = this.Field10469;
-        if (field10471 != null) {
-            field10471.textboxKeyTyped(c, n);
+        v1 = this.Field10469;
+        if (v1 != null) {
+            v1.textboxKeyTyped(var1_1, var2_2);
         }
-        if (n == 15) {
-            final GuiTextField field10472 = this.Field10470;
-            if (field10472 != null) {
-                final GuiTextField field10473 = this.Field10470;
-                final Boolean b = (field10473 != null) ? Boolean.valueOf(field10473.isFocused()) : null;
-                if (b == null) {
+        if (var2_2 == 15) {
+            v2 = this.Field10470;
+            if (v2 != null) {
+                v3 = this.Field10470;
+                v4 = v3 != null ? Boolean.valueOf(v3.isFocused()) : null;
+                if (v4 == null) {
                     Intrinsics.throwNpe();
                 }
-                field10472.setFocused(!b);
+                v2.setFocused(v4 == false);
             }
-            final GuiTextField field10474 = this.Field10469;
-            if (field10474 != null) {
-                final GuiTextField field10475 = this.Field10469;
-                final Boolean b2 = (field10475 != null) ? Boolean.valueOf(field10475.isFocused()) : null;
-                if (b2 == null) {
+            v5 = this.Field10469;
+            if (v5 != null) {
+                v6 = this.Field10469;
+                v7 = v6 != null ? Boolean.valueOf(v6.isFocused()) : null;
+                if (v7 == null) {
                     Intrinsics.throwNpe();
                 }
-                field10474.setFocused(!b2);
+                v5.setFocused(v7 == false);
             }
         }
-        if (n == 28 || n == 156) {
-            final GuiButton value = this.buttonList.get(0);
-            Intrinsics.checkExpressionValueIsNotNull((Object)value, "buttonList[0]");
-            this.actionPerformed(value);
+        if (var2_2 == 28 || var2_2 == 156) {
+            v8 = this.buttonList.get(0);
+            Intrinsics.checkExpressionValueIsNotNull(v8, (String)"buttonList[0]");
+            this.actionPerformed((GuiButton)v8);
         }
-        if (n == 1) {
+        if (var2_2 == 1) {
             this.mc.displayGuiScreen(this.Field10468);
         }
-        final GuiButton guiButton = this.buttonList.get(0);
-        final GuiTextField field10476 = this.Field10469;
-        Boolean value2 = null;
-        Boolean b3 = null;
-        Label_0263: {
-            if (field10476 != null) {
-                final String getText = field10476.getText();
-                if (getText != null) {
-                    b3 = (value2 = (getText.length() > 0));
-                    break Label_0263;
-                }
-            }
-            b3 = (value2 = null);
+        v9 = (GuiButton)this.buttonList.get(0);
+        v10 /* !! */  = this.Field10469;
+        if (v10 /* !! */  != null && (v10 /* !! */  = v10 /* !! */ .getText()) != null) {
+            var3_3 = (CharSequence)v10 /* !! */ ;
+            var10_4 = v9;
+            var4_5 = false;
+            var11_7 = var3_3.length() > 0;
+            v9 = var10_4;
+            v11 = var11_7;
+        } else {
+            v11 = null;
         }
-        if (value2 == null) {
+        if (v11 == null) {
             Intrinsics.throwNpe();
         }
-        GuiButton guiButton7 = null;
-        boolean enabled = false;
-        Label_0634: {
-            if (b3) {
-                final GuiTextField field10477 = this.Field10469;
-                Boolean value3 = null;
-                Boolean b4 = null;
-                Label_0551: {
-                    if (field10477 != null) {
-                        final String getText2 = field10477.getText();
-                        if (getText2 != null) {
-                            final String s = getText2;
-                            final String s2 = ":";
-                            final GuiButton guiButton2 = guiButton;
-                            final Regex regex = new Regex(s2);
-                            final GuiButton guiButton3 = guiButton2;
-                            final Regex regex2 = regex;
-                            final GuiButton guiButton4 = guiButton3;
-                            final List split = regex2.split((CharSequence)s, 0);
-                            final GuiButton guiButton5 = guiButton4;
-                            final List list = split;
-                            if (list != null) {
-                                final List<String> list2 = (List<String>)list;
-                                final GuiButton guiButton6 = guiButton5;
-                                List list3 = null;
-                                Label_0449: {
-                                    if (!list2.isEmpty()) {
-                                        final ListIterator<String> listIterator = list2.listIterator(list2.size());
-                                        if (listIterator.hasPrevious()) {
-                                            if (listIterator.previous().length() == 0) {}
-                                            list3 = CollectionsKt.take((Iterable)list2, listIterator.nextIndex() + 1);
-                                            break Label_0449;
-                                        }
-                                    }
-                                    list3 = CollectionsKt.emptyList();
-                                }
-                                final List list4 = list3;
-                                guiButton7 = guiButton6;
-                                final List list5 = list4;
-                                if (list5 != null) {
-                                    final Object[] array = list5.toArray(new String[0]);
-                                    if (array == null) {
-                                        throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<T>");
-                                    }
-                                    final String[] array2 = (String[])array;
-                                    if (array2 != null) {
-                                        if (array2.length == 0) {}
-                                        b4 = (value3 = (boolean)(1 != 0));
-                                        break Label_0551;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    b4 = (value3 = null);
-                }
-                if (value3 == null) {
-                    Intrinsics.throwNpe();
-                }
-                if (b4) {
-                    final GuiTextField field10478 = this.Field10470;
-                    Boolean value4 = null;
-                    Boolean b5 = null;
-                    Label_0616: {
-                        if (field10478 != null) {
-                            final String getText3 = field10478.getText();
-                            if (getText3 != null) {
-                                b5 = (value4 = (getText3.length() > 0));
-                                break Label_0616;
-                            }
-                        }
-                        b5 = (value4 = null);
-                    }
-                    if (value4 == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    if (b5) {
-                        enabled = true;
-                        break Label_0634;
-                    }
-                }
-            }
-            enabled = false;
+        if (!v11.booleanValue()) ** GOTO lbl-1000
+        v12 = this.Field10469;
+        if (v12 == null || (v12 = v12.getText()) == null) ** GOTO lbl-1000
+        var3_3 = (CharSequence)v12;
+        var4_6 = ":";
+        var10_4 = v9;
+        var5_9 = 0;
+        var11_8 = new Regex(var4_6);
+        var4_6 = var11_8;
+        var5_9 = 0;
+        var6_12 = false;
+        var11_8 = var4_6.split((CharSequence)var3_3, var5_9);
+        v9 = var10_4;
+        v12 = var11_8;
+        if (v12 == null) ** GOTO lbl-1000
+        var3_3 = v12;
+        var10_4 = v9;
+        var4_5 = false;
+        if (!var3_3.isEmpty() && (var5_10 = var3_3.listIterator(var3_3.size())).hasPrevious()) {
+            var6_13 = (String)var5_10.previous();
+            var7_15 = false;
+            var8_16 = var6_13;
+            var9_17 = false;
+            v13 = var8_16.length() == 0;
+            v14 = CollectionsKt.take((Iterable)((Iterable)var3_3), (int)(var5_10.nextIndex() + 1));
+        } else {
+            v14 = CollectionsKt.emptyList();
         }
-        guiButton7.enabled = enabled;
-    }
-    
-    protected void actionPerformed(@NotNull @NotNull final GuiButton guiButton) throws IOException {
-        Intrinsics.checkParameterIsNotNull((Object)guiButton, "button");
-        if (guiButton.enabled) {
-            if (guiButton.id == 1) {
-                this.Field10468.confirmClicked(false, 1337);
-            }
-            else if (guiButton.id == 0) {
-                final Class1409 field14381 = Class1409.Field14381;
-                final GuiTextField field14382 = this.Field10470;
-                final String s = (field14382 != null) ? field14382.getText() : null;
-                if (s == null) {
-                    Intrinsics.throwNpe();
-                }
-                field14381.Method5539(s);
-                final Class1409 field14383 = Class1409.Field14381;
-                final GuiTextField field14384 = this.Field10469;
-                final String s2 = (field14384 != null) ? field14384.getText() : null;
-                if (s2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                field14383.Method5541(s2);
-                this.Field10468.confirmClicked(true, 1337);
-            }
+        var11_8 = v14;
+        v9 = var10_4;
+        v12 = var11_8;
+        if (v12 == null) ** GOTO lbl-1000
+        var3_3 = (Collection)v12;
+        var10_4 = v9;
+        var4_5 = false;
+        var5_11 = var3_3;
+        v15 = var5_11.toArray(new String[0]);
+        if (v15 == null) {
+            throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<T>");
         }
+        var11_8 = v15;
+        v9 = var10_4;
+        v12 = var11_8;
+        if (var11_8 != null) {
+            var3_3 = v12;
+            var10_4 = v9;
+            var4_5 = false;
+            var5_11 = var3_3;
+            var6_14 = false;
+            v16 = var5_11.length == 0;
+            var11_7 = true;
+            v9 = var10_4;
+            v17 = var11_7;
+        } else lbl-1000:
+        // 4 sources
+
+        {
+            v17 = null;
+        }
+        if (v17 == null) {
+            Intrinsics.throwNpe();
+        }
+        if (!v17.booleanValue()) ** GOTO lbl-1000
+        v18 /* !! */  = this.Field10470;
+        if (v18 /* !! */  != null && (v18 /* !! */  = v18 /* !! */ .getText()) != null) {
+            var3_3 = (CharSequence)v18 /* !! */ ;
+            var10_4 = v9;
+            var4_5 = false;
+            var11_7 = var3_3.length() > 0;
+            v9 = var10_4;
+            v19 = var11_7;
+        } else {
+            v19 = null;
+        }
+        if (v19 == null) {
+            Intrinsics.throwNpe();
+        }
+        if (v19.booleanValue()) {
+            v20 = true;
+        } else lbl-1000:
+        // 3 sources
+
+        {
+            v20 = false;
+        }
+        v9.enabled = v20;
     }
-    
-    protected void mouseClicked(final int n, final int n2, final int n3) throws IOException {
+
+    protected void actionPerformed(@NotNull @NotNull GuiButton guiButton) throws IOException {
+        Intrinsics.checkParameterIsNotNull((Object)guiButton, (String)"button");
+        if (!guiButton.enabled) return;
+        if (guiButton.id == 1) {
+            this.Field10468.confirmClicked(false, 1337);
+            return;
+        }
+        if (guiButton.id != 0) return;
+        GuiTextField guiTextField = this.Field10470;
+        String string = guiTextField != null ? guiTextField.getText() : null;
+        if (string == null) {
+            Intrinsics.throwNpe();
+        }
+        Class1409.Field14381.Method5539(string);
+        GuiTextField guiTextField2 = this.Field10469;
+        String string2 = guiTextField2 != null ? guiTextField2.getText() : null;
+        if (string2 == null) {
+            Intrinsics.throwNpe();
+        }
+        Class1409.Field14381.Method5541(string2);
+        this.Field10468.confirmClicked(true, 1337);
+    }
+
+    protected void mouseClicked(int n, int n2, int n3) throws IOException {
         super.mouseClicked(n, n2, n3);
-        final GuiTextField field10469 = this.Field10469;
-        if (field10469 != null) {
-            field10469.mouseClicked(n, n2, n3);
+        GuiTextField guiTextField = this.Field10469;
+        if (guiTextField != null) {
+            guiTextField.mouseClicked(n, n2, n3);
         }
-        final GuiTextField field10470 = this.Field10470;
-        if (field10470 != null) {
-            field10470.mouseClicked(n, n2, n3);
-        }
+        GuiTextField guiTextField2 = this.Field10470;
+        if (guiTextField2 == null) return;
+        guiTextField2.mouseClicked(n, n2, n3);
     }
-    
-    public void drawScreen(final int n, final int n2, final float n3) {
+
+    public void drawScreen(int n, int n2, float f) {
         this.drawDefaultBackground();
-        this.drawCenteredString(this.fontRenderer, "Edit PingBypass", this.width / 2, 17, 16777215);
-        this.drawString(this.fontRenderer, "Proxy-IP", this.width / 2 - 100, 53, 10526880);
-        this.drawString(this.fontRenderer, "Proxy-Port", this.width / 2 - 100, 94, 10526880);
-        final GuiTextField field10470 = this.Field10470;
-        if (field10470 != null) {
-            field10470.drawTextBox();
+        this.drawCenteredString(this.fontRenderer, "Edit PingBypass", this.width / 2, 17, 0xFFFFFF);
+        this.drawString(this.fontRenderer, "Proxy-IP", this.width / 2 - 100, 53, 0xA0A0A0);
+        this.drawString(this.fontRenderer, "Proxy-Port", this.width / 2 - 100, 94, 0xA0A0A0);
+        GuiTextField guiTextField = this.Field10470;
+        if (guiTextField != null) {
+            guiTextField.drawTextBox();
         }
-        final GuiTextField field10471 = this.Field10469;
-        if (field10471 != null) {
-            field10471.drawTextBox();
+        GuiTextField guiTextField2 = this.Field10469;
+        if (guiTextField2 != null) {
+            guiTextField2.drawTextBox();
         }
-        super.drawScreen(n, n2, n3);
+        super.drawScreen(n, n2, f);
     }
-    
-    public Class579(@NotNull @NotNull final GuiScreen field10468) {
-        Intrinsics.checkParameterIsNotNull((Object)field10468, "parentScreenIn");
-        this.Field10468 = field10468;
+
+    public Class579(@NotNull @NotNull GuiScreen guiScreen) {
+        Intrinsics.checkParameterIsNotNull((Object)guiScreen, (String)"parentScreenIn");
+        this.Field10468 = guiScreen;
     }
-    
-    private static String a(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x7A34 ^ 0xC1));
-            }
-            return new String(value);
+
+    private static String a(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 193;
+            cArray2[n] = (char)(cArray[n] ^ (0x7A34 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

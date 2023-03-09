@@ -1,31 +1,71 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.TypeCastException
+ *  kotlin.jvm.internal.Intrinsics
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.multiplayer.PlayerControllerMP
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.init.Items
+ *  net.minecraft.item.ItemAxe
+ *  net.minecraft.item.ItemStack
+ *  net.minecraft.item.ItemSword
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketAnimation
+ *  net.minecraft.network.play.client.CPacketUseEntity
+ *  net.minecraft.util.EnumHand
+ */
 package lavahack.client;
 
-import net.minecraft.entity.*;
-import org.jetbrains.annotations.*;
-import kotlin.*;
-import net.minecraft.network.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.util.*;
-import net.minecraft.network.play.client.*;
-import net.minecraft.client.network.*;
-import net.minecraft.client.multiplayer.*;
-import net.minecraft.item.*;
-import net.minecraft.init.*;
-import java.util.function.*;
-import kotlin.jvm.internal.*;
-import net.minecraft.client.*;
+import kotlin.Metadata;
+import kotlin.TypeCastException;
+import kotlin.jvm.internal.Intrinsics;
+import lavahack.client.Class1048;
+import lavahack.client.Class1144;
+import lavahack.client.Class1238;
+import lavahack.client.Class1316;
+import lavahack.client.Class135;
+import lavahack.client.Class1763;
+import lavahack.client.Class1991;
+import lavahack.client.Class1996;
+import lavahack.client.Class2160;
+import lavahack.client.Class385;
+import lavahack.client.Class394;
+import lavahack.client.Class42;
+import lavahack.client.Class44;
+import lavahack.client.Class459;
+import lavahack.client.Class669;
+import lavahack.client.Class711;
+import lavahack.client.Class97;
+import lavahack.client.Class99;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.PlayerControllerMP;
+import net.minecraft.client.network.NetHandlerPlayClient;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.client.CPacketAnimation;
+import net.minecraft.network.play.client.CPacketUseEntity;
+import net.minecraft.util.EnumHand;
+import org.jetbrains.annotations.Nullable;
 
 @Class99
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 1, d1 = { "\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\b\u0007\u0018\u0000 $2\u00020\u0001:\u0001$B\u0005?\u0006\u0002\u0010\u0002J\b\u0010\u001d\u001a\u00020\u001eH\u0002J\u0010\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020\u0018H\u0002J\b\u0010\"\u001a\u00020#H\u0016R\u0016\u0010\u0003\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0006\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\t\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u000b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\f\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\r\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u000e\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u000f\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0010\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0011\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0012\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0013\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0014\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0015\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0016\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0018\u0010\u0017\u001a\u0004\u0018\u00010\u00188\u0002X\u0083\u0004?\u0006\b\n\u0000\u0012\u0004\b\u0019\u0010\u0002R\u0016\u0010\u001a\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u001b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u001c\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000?\u0006%" }, d2 = { "Lcom/kisman/cc/features/module/combat/KillAuraRewrite;", "Lcom/kisman/cc/features/module/Module;", "()V", "ccOnlyCrits", "Lcom/kisman/cc/settings/Setting;", "kotlin.jvm.PlatformType", "checks", "Lcom/kisman/cc/settings/types/SettingGroup;", "cooldownCheck", "hit", "logic", "monsters", "packetAttack", "passive", "players", "range", "ranges", "resetCooldown", "rotation", "rotationLogic", "shieldBreaker", "swap", "swing", "targetNoStatic", "Lnet/minecraft/entity/Entity;", "targetNoStatic$annotations", "targets", "wallRange", "weapon", "getWeaponSlot", "", "isShieldActive", "", "entity", "update", "", "Companion", "kisman.cc" })
-public final class Class1180 extends Class42
-{
-    private final Class1996 Field13339;
-    private final Class44 Field13340;
-    private final Class44 Field13341;
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=1, d1={"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\b\u0007\u0018\u0000 $2\u00020\u0001:\u0001$B\u0005\u00a2\u0006\u0002\u0010\u0002J\b\u0010\u001d\u001a\u00020\u001eH\u0002J\u0010\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020\u0018H\u0002J\b\u0010\"\u001a\u00020#H\u0016R\u0016\u0010\u0003\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0006\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\t\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u000b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\f\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\r\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u000e\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u000f\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0010\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0011\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0012\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0013\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0014\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0015\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0016\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0018\u0010\u0017\u001a\u0004\u0018\u00010\u00188\u0002X\u0083\u0004\u00a2\u0006\b\n\u0000\u0012\u0004\b\u0019\u0010\u0002R\u0016\u0010\u001a\u001a\n \u0005*\u0004\u0018\u00010\u00070\u0007X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u001b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u001c\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006%"}, d2={"Lcom/kisman/cc/features/module/combat/KillAuraRewrite;", "Lcom/kisman/cc/features/module/Module;", "()V", "ccOnlyCrits", "Lcom/kisman/cc/settings/Setting;", "kotlin.jvm.PlatformType", "checks", "Lcom/kisman/cc/settings/types/SettingGroup;", "cooldownCheck", "hit", "logic", "monsters", "packetAttack", "passive", "players", "range", "ranges", "resetCooldown", "rotation", "rotationLogic", "shieldBreaker", "swap", "swing", "targetNoStatic", "Lnet/minecraft/entity/Entity;", "targetNoStatic$annotations", "targets", "wallRange", "weapon", "getWeaponSlot", "", "isShieldActive", "", "entity", "update", "", "Companion", "kisman.cc"})
+public final class Class1180
+extends Class42 {
+    private final Class1996 Field13339 = this.Method24(new Class1996(new Class44("Logic", this)));
+    private final Class44 Field13340 = this.Method23(this.Field13339.Method7405(new Class44("Swap", (Class42)this, Class711.Field11026)));
+    private final Class44 Field13341 = this.Method23(this.Field13339.Method7405(new Class44("Rotation", (Class42)this, Class135.Field8498)));
     private final Class44 Field13342;
     private final Class44 Field13343;
     private final Class44 Field13344;
@@ -50,278 +90,278 @@ public final class Class1180 extends Class42
     private static Entity Field13361;
     public static final Class1316 Field13362;
     private int Field13363;
-    
+
     @Override
     public void Method45() {
-        if (Method4754().player == null || Method4754().world == null || Method4754().player.isDead) {
+        if (Class1180.Method4754().player == null) return;
+        if (Class1180.Method4754().world == null) return;
+        if (Class1180.Method4754().player.isDead) {
             return;
         }
-        final int currentItem = Method4754().player.inventory.currentItem;
-        final Class2160 method7793 = new Class2160().Method7793();
-        final Class44 field13340 = this.Field13340;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field13340, "swap");
-        final Enum method7794 = field13340.Method341();
-        if (method7794 == null) {
+        int n = Class1180.Method4754().player.inventory.currentItem;
+        Class2160 class2160 = new Class2160().Method7793();
+        Class44 class44 = this.Field13340;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"swap");
+        Enum enum_ = class44.Method341();
+        if (enum_ == null) {
             throw new TypeCastException("null cannot be cast to non-null type com.kisman.cc.util.enums.dynamic.SwapEnum2.Swap");
         }
-        final Class711 class711 = (Class711)method7794;
-        final Class44 field13341 = this.Field13341;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field13341, "rotation");
-        final Enum method7795 = field13341.Method341();
-        if (method7795 == null) {
+        Class711 class711 = (Class711)enum_;
+        Class44 class442 = this.Field13341;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class442, (String)"rotation");
+        Enum enum_2 = class442.Method341();
+        if (enum_2 == null) {
             throw new TypeCastException("null cannot be cast to non-null type com.kisman.cc.util.enums.dynamic.RotationEnum.Rotation");
         }
-        final Class135 class712 = (Class135)method7795;
-        final int method7796 = this.Method4752();
-        final Class44 field13342 = this.Field13357;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field13342, "cooldownCheck");
-        if (field13342.Method365() && currentItem != method7796 && class711 == Class711.Field11026) {
-            final float getCooledAttackStrength = Method4754().player.getCooledAttackStrength(0.0f);
-            final Class44 field13343 = this.Field13358;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field13343, "ccOnlyCrits");
-            if (getCooledAttackStrength <= (field13343.Method365() ? Float.intBitsToFloat(1064514355) : 1.0f)) {
+        Class135 class135 = (Class135)enum_2;
+        int n2 = this.Method4752();
+        Class44 class443 = this.Field13357;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class443, (String)"cooldownCheck");
+        if (class443.Method365() && n != n2 && class711 == Class711.Field11026) {
+            float f = Class1180.Method4754().player.getCooledAttackStrength(0.0f);
+            Class44 class444 = this.Field13358;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class444, (String)"ccOnlyCrits");
+            float f2 = class444.Method365() ? Float.intBitsToFloat(0x3F733333) : 1.0f;
+            if (f <= f2) {
                 return;
             }
         }
-        final Class44 field13344 = this.Field13347;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field13344, "range");
-        final float method7797 = field13344.Method368();
-        final Class44 field13345 = this.Field13348;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field13345, "wallRange");
-        final float method7798 = field13345.Method368();
-        final Class44 field13346 = this.Field13350;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field13346, "players");
-        final boolean method7799 = field13346.Method365();
-        final Class44 field13347 = this.Field13352;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field13347, "passive");
-        final boolean method7800 = field13347.Method365();
-        final Class44 field13348 = this.Field13351;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field13348, "monsters");
-        Class1180.Field13361 = Class394.Method1925(method7797, method7798, method7799, method7800, field13348.Method365());
-        if (Class1180.Field13361 == null) {
+        Class44 class445 = this.Field13347;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class445, (String)"range");
+        float f = class445.Method368();
+        Class44 class446 = this.Field13348;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class446, (String)"wallRange");
+        float f3 = class446.Method368();
+        Class44 class447 = this.Field13350;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class447, (String)"players");
+        boolean bl = class447.Method365();
+        Class44 class448 = this.Field13352;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class448, (String)"passive");
+        boolean bl2 = class448.Method365();
+        Class44 class449 = this.Field13351;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class449, (String)"monsters");
+        Field13361 = Class394.Method1925(f, f3, bl, bl2, class449.Method365());
+        if (Field13361 == null) {
             return;
         }
-        if (currentItem == -1 || (method7796 != currentItem && class711 == Class711.Field11026)) {
+        if (n == -1) return;
+        if (n2 != n && class711 == Class711.Field11026) {
             return;
         }
-        class711.Method2972().Method1726(method7796, false);
-        final Class1763 method7801 = class712.Method929();
-        final Object[] array = new Object[2];
-        final int n = 0;
-        final Class1763 method7802 = class712.Method931();
-        final Object[] array2 = new Object[2];
-        final int n2 = 0;
-        final Entity field13349 = Class1180.Field13361;
-        array2[n2] = ((field13349 != null) ? Integer.valueOf(field13349.entityId) : null);
-        final int n3 = 1;
-        final Class44 field13350 = this.Field13342;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field13350, "rotationLogic");
-        final Enum method7803 = field13350.Method341();
-        if (method7803 == null) {
+        class711.Method2972().Method1726(n2, false);
+        Class1763 class1763 = class135.Method929();
+        Object[] objectArray = new Object[2];
+        Class1763 class17632 = class135.Method931();
+        Object[] objectArray2 = new Object[2];
+        Entity entity = Field13361;
+        objectArray2[0] = entity != null ? Integer.valueOf(entity.entityId) : null;
+        Class44 class4410 = this.Field13342;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class4410, (String)"rotationLogic");
+        Enum enum_3 = class4410.Method341();
+        if (enum_3 == null) {
             throw new TypeCastException("null cannot be cast to non-null type com.kisman.cc.util.enums.RotationLogic");
         }
-        array2[n3] = method7803;
-        array[n] = method7802.Method1726(array2);
-        array[1] = false;
-        method7801.Method1726(array);
-        final Class44 field13351 = this.Field13357;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field13351, "cooldownCheck");
-        if (field13351.Method365() && currentItem == method7796 && class711 != Class711.Field11026) {
-            final float getCooledAttackStrength2 = Method4754().player.getCooledAttackStrength(0.0f);
-            final Class44 field13352 = this.Field13358;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field13352, "ccOnlyCrits");
-            if (getCooledAttackStrength2 > (field13352.Method365() ? Float.intBitsToFloat(1064514355) : 1.0f)) {
-                final Class44 field13353 = this.Field13355;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field13353, "packetAttack");
-                if (field13353.Method365()) {
-                    final NetHandlerPlayClient connection = Method4754().player.connection;
-                    final Entity field13354 = Class1180.Field13361;
-                    if (field13354 == null) {
+        objectArray2[1] = (Class1048)enum_3;
+        objectArray[0] = class17632.Method1726(objectArray2);
+        objectArray[1] = false;
+        class1763.Method1726(objectArray);
+        Class44 class4411 = this.Field13357;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class4411, (String)"cooldownCheck");
+        if (class4411.Method365() && n == n2 && class711 != Class711.Field11026) {
+            float f4 = Class1180.Method4754().player.getCooledAttackStrength(0.0f);
+            Class44 class4412 = this.Field13358;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class4412, (String)"ccOnlyCrits");
+            float f5 = class4412.Method365() ? Float.intBitsToFloat(0x3F733333) : 1.0f;
+            if (f4 > f5) {
+                Class44 class4413 = this.Field13355;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class4413, (String)"packetAttack");
+                if (class4413.Method365()) {
+                    NetHandlerPlayClient netHandlerPlayClient = Class1180.Method4754().player.connection;
+                    Entity entity2 = Field13361;
+                    if (entity2 == null) {
                         Intrinsics.throwNpe();
                     }
-                    connection.sendPacket((Packet)new CPacketUseEntity(field13354));
-                }
-                else {
-                    final PlayerControllerMP playerController = Method4754().playerController;
-                    final EntityPlayer entityPlayer = (EntityPlayer)Method4754().player;
-                    final Entity field13355 = Class1180.Field13361;
-                    if (field13355 == null) {
+                    netHandlerPlayClient.sendPacket((Packet)new CPacketUseEntity(entity2));
+                } else {
+                    PlayerControllerMP playerControllerMP = Class1180.Method4754().playerController;
+                    EntityPlayer entityPlayer = (EntityPlayer)Class1180.Method4754().player;
+                    Entity entity3 = Field13361;
+                    if (entity3 == null) {
                         Intrinsics.throwNpe();
                     }
-                    playerController.attackEntity(entityPlayer, field13355);
+                    playerControllerMP.attackEntity(entityPlayer, entity3);
                 }
-                final Class44 field13356 = this.Field13345;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field13356, "swing");
-                final Enum method7804 = field13356.Method341();
-                if (method7804 == null) {
+                Class44 class4414 = this.Field13345;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class4414, (String)"swing");
+                Enum enum_4 = class4414.Method341();
+                if (enum_4 == null) {
                     throw new TypeCastException("null cannot be cast to non-null type com.kisman.cc.util.enums.SwingHands");
                 }
-                switch (Class669.Field10844[((Class1991)method7804).ordinal()]) {
+                switch (Class669.Field10844[((Class1991)enum_4).ordinal()]) {
                     case 1: {
-                        Method4754().player.swingArm(EnumHand.MAIN_HAND);
+                        Class1180.Method4754().player.swingArm(EnumHand.MAIN_HAND);
                         break;
                     }
                     case 2: {
-                        Method4754().player.swingArm(EnumHand.OFF_HAND);
+                        Class1180.Method4754().player.swingArm(EnumHand.OFF_HAND);
                         break;
                     }
                     case 3: {
-                        Method4754().player.connection.sendPacket((Packet)new CPacketAnimation(EnumHand.MAIN_HAND));
+                        Class1180.Method4754().player.connection.sendPacket((Packet)new CPacketAnimation(EnumHand.MAIN_HAND));
                         break;
                     }
                 }
-                final Class44 field13357 = this.Field13354;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field13357, "resetCooldown");
-                if (field13357.Method365()) {
-                    Method4754().player.resetCooldown();
+                Class44 class4415 = this.Field13354;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class4415, (String)"resetCooldown");
+                if (class4415.Method365()) {
+                    Class1180.Method4754().player.resetCooldown();
                 }
             }
         }
-        class712.Method930().Method1726(method7793, true);
-        class711.Method2972().Method1726(currentItem, true);
+        class135.Method930().Method1726(class2160, true);
+        class711.Method2972().Method1726(n, true);
     }
-    
+
     private final int Method4752() {
         int n = 0;
+        int n2 = 9;
         while (true) {
-            final ItemStack getStackInSlot = Method4754().player.inventory.getStackInSlot(n);
-            final Class44 field13344 = this.Field13344;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field13344, "shieldBreaker");
-            if (field13344.Method365()) {
-                final Entity field13345 = Class1180.Field13361;
-                if (field13345 == null) {
+            ItemStack itemStack = Class1180.Method4754().player.inventory.getStackInSlot(n);
+            Class44 class44 = this.Field13344;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"shieldBreaker");
+            if (class44.Method365()) {
+                Entity entity = Field13361;
+                if (entity == null) {
                     Intrinsics.throwNpe();
                 }
-                if (this.Method4753(field13345) && getStackInSlot.item instanceof ItemAxe) {
+                if (this.Method4753(entity) && itemStack.item instanceof ItemAxe) {
                     return n;
                 }
             }
-            final Class44 field13346 = this.Field13343;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field13346, "weapon");
-            if (field13346.Method341() != Class1144.Field13166) {
-                if (getStackInSlot.item instanceof ItemSword) {
-                    final Class44 field13347 = this.Field13343;
-                    Intrinsics.checkExpressionValueIsNotNull((Object)field13347, "weapon");
-                    if (field13347.Method341() == Class1144.Field13167) {
-                        break;
-                    }
-                    final Class44 field13348 = this.Field13343;
-                    Intrinsics.checkExpressionValueIsNotNull((Object)field13348, "weapon");
-                    if (field13348.Method341() == Class1144.Field13169) {
-                        break;
-                    }
+            Class44 class442 = this.Field13343;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class442, (String)"weapon");
+            if (class442.Method341() != Class1144.Field13166) {
+                if (itemStack.item instanceof ItemSword) {
+                    Class44 class443 = this.Field13343;
+                    Intrinsics.checkExpressionValueIsNotNull((Object)class443, (String)"weapon");
+                    if (class443.Method341() == Class1144.Field13167) return n;
+                    Class44 class444 = this.Field13343;
+                    Intrinsics.checkExpressionValueIsNotNull((Object)class444, (String)"weapon");
+                    if (class444.Method341() == Class1144.Field13169) return n;
                 }
-                if (getStackInSlot.item instanceof ItemAxe) {
-                    final Class44 field13349 = this.Field13343;
-                    Intrinsics.checkExpressionValueIsNotNull((Object)field13349, "weapon");
-                    if (field13349.Method341() == Class1144.Field13168) {
-                        break;
-                    }
-                    final Class44 field13350 = this.Field13343;
-                    Intrinsics.checkExpressionValueIsNotNull((Object)field13350, "weapon");
-                    if (field13350.Method341() == Class1144.Field13169) {
-                        break;
+                if (itemStack.item instanceof ItemAxe) {
+                    Class44 class445 = this.Field13343;
+                    Intrinsics.checkExpressionValueIsNotNull((Object)class445, (String)"weapon");
+                    if (class445.Method341() == Class1144.Field13168) return n;
+                    Class44 class446 = this.Field13343;
+                    Intrinsics.checkExpressionValueIsNotNull((Object)class446, (String)"weapon");
+                    if (class446.Method341() == Class1144.Field13169) {
+                        return n;
                     }
                 }
             }
             ++n;
         }
-        return n;
     }
-    
-    private final boolean Method4753(final Entity entity) {
-        return entity instanceof EntityPlayer && ((EntityPlayer)entity).isHandActive() && ((Intrinsics.areEqual((Object)((EntityPlayer)entity).getHeldItemMainhand().item, (Object)Items.SHIELD) && ((EntityPlayer)entity).getActiveHand() == EnumHand.MAIN_HAND) || (Intrinsics.areEqual((Object)((EntityPlayer)entity).getHeldItemOffhand().item, (Object)Items.SHIELD) && ((EntityPlayer)entity).getActiveHand() == EnumHand.OFF_HAND));
+
+    private final boolean Method4753(Entity entity) {
+        if (!(entity instanceof EntityPlayer)) return false;
+        if (!((EntityPlayer)entity).isHandActive()) return false;
+        if (Intrinsics.areEqual((Object)((EntityPlayer)entity).getHeldItemMainhand().item, (Object)Items.SHIELD)) {
+            if (((EntityPlayer)entity).getActiveHand() == EnumHand.MAIN_HAND) return true;
+        }
+        if (!Intrinsics.areEqual((Object)((EntityPlayer)entity).getHeldItemOffhand().item, (Object)Items.SHIELD)) return false;
+        if (((EntityPlayer)entity).getActiveHand() != EnumHand.OFF_HAND) return false;
+        return true;
     }
-    
+
     public Class1180() {
         super("KillAuraRewrite", "Rewrite version of KillAura", Class97.Field8338);
-        this.Field13339 = this.Method24(new Class1996(new Class44("Logic", this)));
-        this.Field13340 = this.Method23(this.Field13339.Method7405(new Class44("Swap", this, Class711.Field11026)));
-        this.Field13341 = this.Method23(this.Field13339.Method7405(new Class44("Rotation", this, Class135.Field8498)));
-        final Class1996 field13339 = this.Field13339;
-        final Class44 method313 = new Class44("Rotation Logic", this, (Enum)Class1048.Field12640).Method313(new Class1238(this));
-        Intrinsics.checkExpressionValueIsNotNull((Object)method313, "Setting(\"Rotation Logic\"\u2026e { rotation.valBoolean }");
-        this.Field13342 = this.Method23(field13339.Method7405(method313));
-        this.Field13343 = this.Method23(this.Field13339.Method7405(new Class44("Weapon", this, (Enum)Class1144.Field13167)));
-        this.Field13344 = this.Method23(this.Field13339.Method7405(new Class44("Shield Breaker", this, false)));
-        this.Field13345 = this.Method23(this.Field13339.Method7405(new Class44("Swing", this, Class1991.Field17158)));
+        Class44 class44 = new Class44("Rotation Logic", (Class42)this, Class1048.Field12640).Method313(new Class1238(this));
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"Setting(\"Rotation Logic\"\u2026e { rotation.valBoolean }");
+        this.Field13342 = this.Method23(this.Field13339.Method7405(class44));
+        this.Field13343 = this.Method23(this.Field13339.Method7405(new Class44("Weapon", (Class42)this, Class1144.Field13167)));
+        this.Field13344 = this.Method23(this.Field13339.Method7405(new Class44("Shield Breaker", (Class42)this, false)));
+        this.Field13345 = this.Method23(this.Field13339.Method7405(new Class44("Swing", (Class42)this, Class1991.Field17158)));
         this.Field13346 = this.Method24(new Class1996(new Class44("Ranges", this)));
-        this.Field13347 = this.Method23(this.Field13346.Method7405(new Class44("Range", this, Double.longBitsToDouble((long)987028919 ^ 0x401100003AD4DDB7L), 1.0, Double.longBitsToDouble((long)1846257333 ^ 0x401800006E0BA6B5L), false)));
-        this.Field13348 = this.Method23(this.Field13346.Method7405(new Class44("Wall Range", this, Double.longBitsToDouble((long)514678283 ^ 0x400800001EAD5E0BL), 1.0, Double.longBitsToDouble(4618441417868443648L), false)));
+        this.Field13347 = this.Method23(this.Field13346.Method7405(new Class44("Range", (Class42)this, Double.longBitsToDouble((long)987028919 ^ 0x401100003AD4DDB7L), 1.0, Double.longBitsToDouble((long)1846257333 ^ 0x401800006E0BA6B5L), false)));
+        this.Field13348 = this.Method23(this.Field13346.Method7405(new Class44("Wall Range", (Class42)this, Double.longBitsToDouble((long)514678283 ^ 0x400800001EAD5E0BL), 1.0, Double.longBitsToDouble(4618441417868443648L), false)));
         this.Field13349 = this.Method24(new Class1996(new Class44("Targets", this)));
-        this.Field13350 = this.Method23(this.Field13349.Method7405(new Class44("Players", this, true)));
-        this.Field13351 = this.Method23(this.Field13349.Method7405(new Class44("Monsters", this, false)));
-        this.Field13352 = this.Method23(this.Field13349.Method7405(new Class44("Passive", this, false)));
+        this.Field13350 = this.Method23(this.Field13349.Method7405(new Class44("Players", (Class42)this, true)));
+        this.Field13351 = this.Method23(this.Field13349.Method7405(new Class44("Monsters", (Class42)this, false)));
+        this.Field13352 = this.Method23(this.Field13349.Method7405(new Class44("Passive", (Class42)this, false)));
         this.Field13353 = this.Method24(new Class1996(new Class44("Hit", this)));
-        this.Field13354 = this.Method23(this.Field13353.Method7405(new Class44("Reset Cooldown", this, true)));
-        this.Field13355 = this.Method23(this.Field13353.Method7405(new Class44("Packet Attack", this, false)));
+        this.Field13354 = this.Method23(this.Field13353.Method7405(new Class44("Reset Cooldown", (Class42)this, true)));
+        this.Field13355 = this.Method23(this.Field13353.Method7405(new Class44("Packet Attack", (Class42)this, false)));
         this.Field13356 = this.Method24(new Class1996(new Class44("Checks", this)));
-        this.Field13357 = this.Method23(this.Field13356.Method7405(new Class44("Cooldown Check", this, true)));
-        final Class1996 field13340 = this.Field13356;
-        final Class44 method314 = new Class44("CC Only Crits", this, true).Method313(new Class459(this));
-        Intrinsics.checkExpressionValueIsNotNull((Object)method314, "Setting(\"CC Only Crits\",\u2026ooldownCheck.valBoolean }");
-        this.Field13358 = this.Method23(field13340.Method7405(method314));
+        this.Field13357 = this.Method23(this.Field13356.Method7405(new Class44("Cooldown Check", (Class42)this, true)));
+        Class44 class442 = new Class44("CC Only Crits", (Class42)this, true).Method313(new Class459(this));
+        Intrinsics.checkExpressionValueIsNotNull((Object)class442, (String)"Setting(\"CC Only Crits\",\u2026ooldownCheck.valBoolean }");
+        this.Field13358 = this.Method23(this.Field13356.Method7405(class442));
         this.Method44(Class385.Field9614);
-        Class1180.Field13360 = this;
+        Field13360 = this;
     }
-    
+
     static {
         Field13362 = new Class1316(null);
     }
-    
+
     public static final Minecraft Method4754() {
         return Class42.Field8052;
     }
-    
-    public static final void Method4755(final Minecraft field8052) {
-        Class42.Field8052 = field8052;
+
+    public static final void Method4755(Minecraft minecraft) {
+        Class42.Field8052 = minecraft;
     }
-    
-    public static final Class44 Method4756(final Class1180 class1180) {
+
+    public static final Class44 Method4756(Class1180 class1180) {
         return class1180.Field13341;
     }
-    
-    public static final Class44 Method4757(final Class1180 class1180) {
+
+    public static final Class44 Method4757(Class1180 class1180) {
         return class1180.Field13357;
     }
-    
+
     public static final Class1180 Method4758() {
-        return Class1180.Field13360;
+        return Field13360;
     }
-    
-    public static final void Method4759(final Class1180 field13360) {
-        Class1180.Field13360 = field13360;
+
+    public static final void Method4759(Class1180 class1180) {
+        Field13360 = class1180;
     }
-    
+
     public static final Entity Method4760() {
-        return Class1180.Field13361;
+        return Field13361;
     }
-    
-    public static final void Method4761(final Entity field13361) {
-        Class1180.Field13361 = field13361;
+
+    public static final void Method4761(Entity entity) {
+        Field13361 = entity;
     }
-    
+
     @Nullable
     @Nullable
     public static final Class1180 Method4762() {
-        Class1180.Field13362;
-        return Class1180.Field13360;
+        Class1316 class1316 = Field13362;
+        return Field13360;
     }
-    
-    public static final void Method4763(@Nullable @Nullable final Class1180 field13360) {
-        Class1180.Field13362;
-        Class1180.Field13360 = field13360;
+
+    public static final void Method4763(@Nullable @Nullable Class1180 class1180) {
+        Class1316 class1316 = Field13362;
+        Field13360 = class1180;
     }
-    
-    private static String Method57(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x2CE8 ^ 0x42));
-            }
-            return new String(value);
+
+    private static String Method57(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 66;
+            cArray2[n] = (char)(cArray[n] ^ (0x2CE8 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

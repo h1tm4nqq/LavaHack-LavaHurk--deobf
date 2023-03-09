@@ -1,139 +1,163 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.collections.CollectionsKt
+ *  kotlin.jvm.internal.Intrinsics
+ *  net.minecraftforge.client.event.RenderGameOverlayEvent$Text
+ *  net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+ */
 package lavahack.client;
 
-import kotlin.*;
-import net.minecraftforge.client.event.*;
-import org.jetbrains.annotations.*;
-import kotlin.jvm.internal.*;
-import kotlin.collections.*;
-import java.util.*;
-import com.kisman.cc.util.*;
-import net.minecraftforge.fml.common.eventhandler.*;
+import com.kisman.cc.util.Class2027;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.Metadata;
+import kotlin.collections.CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import lavahack.client.Class1178;
+import lavahack.client.Class1249;
+import lavahack.client.Class1796;
+import lavahack.client.Class1996;
+import lavahack.client.Class2047;
+import lavahack.client.Class392;
+import lavahack.client.Class42;
+import lavahack.client.Class44;
+import lavahack.client.Class695;
+import lavahack.client.Class712;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.jetbrains.annotations.NotNull;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 1, d1 = { "\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u0001:\u0001\u0012B\u0005?\u0006\u0002\u0010\u0002J\u0010\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u0011H\u0007R\u0016\u0010\u0003\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0006\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u0007\u001a\n \u0005*\u0004\u0018\u00010\b0\bX\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\t\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\u000b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\f\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004?\u0006\u0002\n\u0000R\u0016\u0010\r\u001a\n \u0005*\u0004\u0018\u00010\b0\bX\u0082\u0004?\u0006\u0002\n\u0000?\u0006\u0013" }, d2 = { "Lcom/kisman/cc/features/hud/modules/BindList;", "Lcom/kisman/cc/features/hud/HudModule;", "()V", "checkBoxes", "Lcom/kisman/cc/settings/Setting;", "kotlin.jvm.PlatformType", "colorActive", "colorG", "Lcom/kisman/cc/settings/types/SettingGroup;", "colorInactive", "hudModules", "modules", "offsets", "types", "onRender", "", "event", "Lnet/minecraftforge/client/event/RenderGameOverlayEvent$Text;", "Element", "kisman.cc" })
-public final class Class119 extends Class1249
-{
-    private final Class44 Field8414;
-    private final Class1996 Field8415;
-    private final Class44 Field8416;
-    private final Class44 Field8417;
-    private final Class44 Field8418;
-    private final Class1996 Field8419;
-    private final Class44 Field8420;
-    private final Class44 Field8421;
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=1, d1={"\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u0001:\u0001\u0012B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0010\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u0011H\u0007R\u0016\u0010\u0003\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0006\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0007\u001a\n \u0005*\u0004\u0018\u00010\b0\bX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\t\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u000b\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\f\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\r\u001a\n \u0005*\u0004\u0018\u00010\b0\bX\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0013"}, d2={"Lcom/kisman/cc/features/hud/modules/BindList;", "Lcom/kisman/cc/features/hud/HudModule;", "()V", "checkBoxes", "Lcom/kisman/cc/settings/Setting;", "kotlin.jvm.PlatformType", "colorActive", "colorG", "Lcom/kisman/cc/settings/types/SettingGroup;", "colorInactive", "hudModules", "modules", "offsets", "types", "onRender", "", "event", "Lnet/minecraftforge/client/event/RenderGameOverlayEvent$Text;", "Element", "kisman.cc"})
+public final class Class119
+extends Class1249 {
+    private final Class44 Field8414 = this.Method23(new Class44("Offsets", (Class42)this, Double.longBitsToDouble(0x4000000000000000L), 0.0, Double.longBitsToDouble((long)74781878 ^ 0x40240000047514B6L), true));
+    private final Class1996 Field8415 = this.Method24(new Class1996(new Class44("Types", this)));
+    private final Class44 Field8416 = this.Method23(this.Field8415.Method7405(new Class44("Modules", (Class42)this, true)));
+    private final Class44 Field8417 = this.Method23(this.Field8415.Method7405(new Class44("Hud Modules", (Class42)this, false)));
+    private final Class44 Field8418 = this.Method23(this.Field8415.Method7405(new Class44("Check Boxes", (Class42)this, true)));
+    private final Class1996 Field8419 = this.Method24(new Class1996(new Class44("Colors", this)));
+    private final Class44 Field8420 = this.Method23(this.Field8419.Method7405(new Class44("Active Color", (Class42)this, "Active Color", new Class2027(0, 255, 0, 255))));
+    private final Class44 Field8421 = this.Method23(this.Field8419.Method7405(new Class44("Inactive Color", (Class42)this, "Inactive Color", new Class2027(255, 0, 0, 255))));
     private String Field8422 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     @SubscribeEvent
     @SubscribeEvent
-    public final void Method850(@NotNull @NotNull final RenderGameOverlayEvent$Text renderGameOverlayEvent$Text) {
-        Intrinsics.checkParameterIsNotNull((Object)renderGameOverlayEvent$Text, "event");
-        final double method267 = this.Method267();
-        final double method268 = this.Method268();
-        final ArrayList<Object> list = new ArrayList<Object>();
-        final Class44 field8416 = this.Field8416;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field8416, "modules");
-        if (field8416.Method365()) {
-            for (final Class42 class42 : Class1796.Field16241.Field16254.Field8854) {
-                final Class1916 field8417 = Class695.Field10935;
-                final Class42 class43 = class42;
-                Intrinsics.checkExpressionValueIsNotNull((Object)class43, "module");
-                if (field8417.Method7141(class43)) {
-                    list.add(new Class392(class42.Method40() + " [" + Class695.Field10935.Method7140(class42) + ']', class42.Method35()));
-                }
+    public final void Method850(@NotNull @NotNull RenderGameOverlayEvent.Text text) {
+        Iterator iterator;
+        boolean bl;
+        Object object;
+        Object object22;
+        Object object32;
+        Intrinsics.checkParameterIsNotNull((Object)text, (String)"event");
+        double d = this.Method267();
+        double d2 = this.Method268();
+        ArrayList arrayList = new ArrayList();
+        Class44 class44 = this.Field8416;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"modules");
+        if (class44.Method365()) {
+            for (Object object32 : Class1796.Field16241.Field16254.Field8854) {
+                Class42 class42 = object32;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class42, (String)"module");
+                if (!Class695.Field10935.Method7141(class42)) continue;
+                object22 = arrayList;
+                object = new Class392(((Class42)object32).Method40() + " [" + Class695.Field10935.Method7140((Class695)object32) + ']', ((Class42)object32).Method35());
+                bl = false;
+                object22.add(object);
             }
         }
-        final Class44 field8418 = this.Field8417;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field8418, "hudModules");
-        if (field8418.Method365()) {
-            for (final Class1249 class44 : Class1796.Field16241.Field16257.Field9235) {
-                final Class1916 field8419 = Class695.Field10935;
-                final Class1249 class45 = class44;
-                Intrinsics.checkExpressionValueIsNotNull((Object)class45, "module");
-                if (field8419.Method7141(class45)) {
-                    list.add(new Class392(class44.Method40() + " [" + Class695.Field10935.Method7140(class44) + ']', class44.Method35()));
-                }
+        Class44 class442 = this.Field8417;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class442, (String)"hudModules");
+        if (class442.Method365()) {
+            iterator = Class1796.Field16241.Field16257.Field9235.iterator();
+            while (iterator.hasNext()) {
+                Object object4 = object32 = (Class1249)iterator.next();
+                Intrinsics.checkExpressionValueIsNotNull((Object)object4, (String)"module");
+                if (!Class695.Field10935.Method7141((Class695)object4)) continue;
+                object22 = arrayList;
+                object = new Class392(((Class42)object32).Method40() + " [" + Class695.Field10935.Method7140((Class695)object32) + ']', ((Class42)object32).Method35());
+                bl = false;
+                object22.add(object);
             }
         }
-        final Class44 field8420 = this.Field8418;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field8420, "checkBoxes");
-        if (field8420.Method365()) {
-            final Class2047 field8421 = Class1796.Field16241.Field16258;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field8421, "Kisman.instance.settingsManager");
-            for (final Class44 class46 : field8421.Method7570()) {
-                final Class1916 field8422 = Class695.Field10935;
-                final Class44 class47 = class46;
-                Intrinsics.checkExpressionValueIsNotNull((Object)class47, "setting");
-                if (field8422.Method7141(class47) && class46.Method386()) {
-                    final ArrayList<Object> list2 = list;
-                    final StringBuilder sb = new StringBuilder();
-                    final Class42 method269 = class46.Method358();
-                    Intrinsics.checkExpressionValueIsNotNull((Object)method269, "setting.parentMod");
-                    list2.add(new Class392(sb.append(method269.Method40()).append("->").append(class46.Method356()).append(" [").append(Class695.Field10935.Method7140(class46)).append(']').toString(), class46.Method365()));
-                }
+        Class44 class443 = this.Field8418;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class443, (String)"checkBoxes");
+        if (class443.Method365()) {
+            Class2047 class2047 = Class1796.Field16241.Field16258;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class2047, (String)"Kisman.instance.settingsManager");
+            iterator = class2047.Method7570().iterator();
+            while (iterator.hasNext()) {
+                Object object5 = object32 = (Class44)iterator.next();
+                Intrinsics.checkExpressionValueIsNotNull((Object)object5, (String)"setting");
+                if (!Class695.Field10935.Method7141((Class695)object5) || !((Class44)object32).Method386()) continue;
+                object22 = arrayList;
+                StringBuilder stringBuilder = new StringBuilder();
+                Class42 class42 = ((Class44)object32).Method358();
+                Intrinsics.checkExpressionValueIsNotNull((Object)class42, (String)"setting.parentMod");
+                object = new Class392(stringBuilder.append(class42.Method40()).append("->").append(((Class44)object32).Method356()).append(" [").append(Class695.Field10935.Method7140((Class695)object32)).append(']').toString(), ((Class44)object32).Method365());
+                bl = false;
+                object22.add(object);
             }
         }
-        CollectionsKt.sortWith((List)list, (Comparator)Class712.Field11033);
+        object32 = Class712.Field11033;
+        CollectionsKt.sortWith((List)arrayList, (Comparator)object32);
         int n = 0;
-        for (final Class392 class48 : list) {
-            final String method270 = class48.Method1910();
-            final double n2 = method267;
-            final double n3 = method268;
-            final int n4 = n;
-            final int method271 = Class1178.Method4748();
-            final Class44 field8423 = this.Field8414;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field8423, "offsets");
-            final double n5 = n3 + n4 * (method271 + field8423.Method335());
-            int n6;
-            if (class48.Method1911()) {
-                final Class44 field8424 = this.Field8420;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field8424, "colorActive");
-                final Class2027 method272 = field8424.Method339();
-                Intrinsics.checkExpressionValueIsNotNull((Object)method272, "colorActive.colour");
-                n6 = method272.Method3626();
+        for (Object object22 : (Iterable)arrayList) {
+            int n2;
+            String string = ((Class392)object22).Method1910();
+            int n3 = Class1178.Method4748();
+            Class44 class444 = this.Field8414;
+            Intrinsics.checkExpressionValueIsNotNull((Object)class444, (String)"offsets");
+            double d3 = d2 + (double)(n * (n3 + class444.Method335()));
+            if (((Class392)object22).Method1911()) {
+                Class44 class445 = this.Field8420;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class445, (String)"colorActive");
+                Class2027 class2027 = class445.Method339();
+                Intrinsics.checkExpressionValueIsNotNull((Object)class2027, (String)"colorActive.colour");
+                n2 = class2027.Method3626();
+            } else {
+                Class44 class446 = this.Field8421;
+                Intrinsics.checkExpressionValueIsNotNull((Object)class446, (String)"colorInactive");
+                Class2027 class2027 = class446.Method339();
+                Intrinsics.checkExpressionValueIsNotNull((Object)class2027, (String)"colorInactive.colour");
+                n2 = class2027.Method3626();
             }
-            else {
-                final Class44 field8425 = this.Field8421;
-                Intrinsics.checkExpressionValueIsNotNull((Object)field8425, "colorInactive");
-                final Class2027 method273 = field8425.Method339();
-                Intrinsics.checkExpressionValueIsNotNull((Object)method273, "colorInactive.colour");
-                n6 = method273.Method3626();
-            }
-            Class1178.Method4745(method270, n2, n5, n6);
+            Class1178.Method4745(string, d, d3, n2);
             ++n;
         }
-        final boolean b = !list.isEmpty();
-        this.Method273(0.0);
-        final double n7 = list.size();
-        final double n8 = Class1178.Method4748();
-        final Class44 field8426 = this.Field8414;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field8426, "offsets");
-        this.Method274(n7 * (n8 + field8426.Method335()));
+        Collection collection = arrayList;
+        Class119 class119 = this;
+        boolean bl2 = false;
+        boolean bl3 = !collection.isEmpty();
+        class119.Method273(0.0);
+        double d4 = arrayList.size();
+        double d5 = Class1178.Method4748();
+        Class44 class447 = this.Field8414;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class447, (String)"offsets");
+        this.Method274(d4 * (d5 + (double)class447.Method335()));
     }
-    
+
     public Class119() {
         super("BindList", "Bind list like Abyss", true);
-        this.Field8414 = this.Method23(new Class44("Offsets", this, Double.longBitsToDouble(4611686018427387904L), 0.0, Double.longBitsToDouble((long)74781878 ^ 0x40240000047514B6L), true));
-        this.Field8415 = this.Method24(new Class1996(new Class44("Types", this)));
-        this.Field8416 = this.Method23(this.Field8415.Method7405(new Class44("Modules", this, true)));
-        this.Field8417 = this.Method23(this.Field8415.Method7405(new Class44("Hud Modules", this, false)));
-        this.Field8418 = this.Method23(this.Field8415.Method7405(new Class44("Check Boxes", this, true)));
-        this.Field8419 = this.Method24(new Class1996(new Class44("Colors", this)));
-        this.Field8420 = this.Method23(this.Field8419.Method7405(new Class44("Active Color", this, "Active Color", new Class2027(0, 255, 0, 255))));
-        this.Field8421 = this.Method23(this.Field8419.Method7405(new Class44("Inactive Color", this, "Inactive Color", new Class2027(255, 0, 0, 255))));
     }
-    
-    private static String Method57(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x6DDC ^ 0x1C));
-            }
-            return new String(value);
+
+    private static String Method57(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 28;
+            cArray2[n] = (char)(cArray[n] ^ (0x6DDC ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

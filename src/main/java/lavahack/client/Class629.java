@@ -1,11 +1,9 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public final class Class629
-{
+public final class Class629 {
     public static final String Field10680;
     public static final String Field10681;
     public static final String Field10682;
@@ -14,7 +12,7 @@ public final class Class629
     public static final String Field10685;
     public static final String Field10686;
     private String Field10687 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     static {
         Field10686 = "schematica.command.list.noSchematics";
         Field10685 = "schematica.command.list.noSuchPage";
@@ -24,16 +22,19 @@ public final class Class629
         Field10681 = "schematica.command.list.notAvailable";
         Field10680 = "schematica.command.list.usage";
     }
-    
-    private static String Method2725(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x437B ^ 0x2B));
-            }
-            return new String(value);
+
+    private static String Method2725(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 43;
+            cArray2[n] = (char)(cArray[n] ^ (0x437B ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

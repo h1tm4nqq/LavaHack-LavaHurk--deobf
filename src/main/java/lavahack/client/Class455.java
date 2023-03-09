@@ -1,26 +1,35 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.resources.SimpleResource
+ *  net.minecraft.client.resources.data.IMetadataSection
+ *  net.minecraft.client.resources.data.MetadataSerializer
+ *  net.minecraft.util.ResourceLocation
+ */
 package lavahack.client;
 
-import net.minecraft.client.resources.*;
-import net.minecraft.util.*;
-import java.io.*;
-import net.minecraft.client.resources.data.*;
-import javax.annotation.*;
+import java.io.InputStream;
+import javax.annotation.Nullable;
+import net.minecraft.client.resources.SimpleResource;
+import net.minecraft.client.resources.data.IMetadataSection;
+import net.minecraft.client.resources.data.MetadataSerializer;
+import net.minecraft.util.ResourceLocation;
 
-public class Class455 extends SimpleResource
-{
+public class Class455
+extends SimpleResource {
     private int Field9896;
-    
-    public Class455(final String s, final ResourceLocation resourceLocation, final InputStream inputStream, final InputStream inputStream2, final MetadataSerializer metadataSerializer) {
-        super(s, resourceLocation, inputStream, inputStream2, metadataSerializer);
+
+    public Class455(String string, ResourceLocation resourceLocation, InputStream inputStream, InputStream inputStream2, MetadataSerializer metadataSerializer) {
+        super(string, resourceLocation, inputStream, inputStream2, metadataSerializer);
     }
-    
+
     @Nullable
     @Nullable
-    public IMetadataSection getMetadata(final String s) {
+    public IMetadataSection getMetadata(String string) {
         return null;
     }
 }
+

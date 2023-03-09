@@ -1,20 +1,23 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.renderer.chunk.RenderChunk
+ *  net.minecraft.util.math.BlockPos
+ */
 package lavahack.client;
 
-import net.minecraft.client.renderer.chunk.*;
-import net.minecraft.util.math.*;
+import net.minecraft.client.renderer.chunk.RenderChunk;
+import net.minecraft.util.math.BlockPos;
 
-public class Class1475
-{
+public class Class1475 {
     public RenderChunk Field14879;
     public BlockPos Field14880;
     private int Field14881;
-    
-    public Class1475(final RenderChunk field14879, final BlockPos field14880) {
-        this.Field14879 = field14879;
-        this.Field14880 = field14880;
+
+    public Class1475(RenderChunk renderChunk, BlockPos blockPos) {
+        this.Field14879 = renderChunk;
+        this.Field14880 = blockPos;
     }
 }
+

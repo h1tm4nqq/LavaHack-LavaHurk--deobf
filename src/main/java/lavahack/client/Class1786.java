@@ -1,13 +1,16 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.lang.annotation.*;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-@Target({ ElementType.METHOD })
-@Retention(RetentionPolicy.RUNTIME)
+@Target(value={ElementType.METHOD})
+@Retention(value=RetentionPolicy.RUNTIME)
 public @interface Class1786 {
-    int Method6767() default 0;
+    public int Method6767() default 0;
 }
+

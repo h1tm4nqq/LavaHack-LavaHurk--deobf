@@ -1,38 +1,59 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  mcp.MethodsReturnNonnullByDefault
+ *  net.minecraft.command.CommandBase
+ *  net.minecraft.command.ICommandSender
+ *  net.minecraft.entity.player.EntityPlayerMP
+ *  net.minecraft.server.MinecraftServer
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.Style
+ *  net.minecraft.util.text.TextFormatting
+ *  net.minecraft.util.text.event.ClickEvent
+ *  net.minecraft.util.text.event.ClickEvent$Action
+ */
 package lavahack.client;
 
-import mcp.*;
-import net.minecraft.server.*;
-import net.minecraft.command.*;
-import net.minecraft.entity.player.*;
-import javax.annotation.*;
-import net.minecraft.util.text.*;
-import net.minecraft.util.text.event.*;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.event.ClickEvent;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public abstract class Class89 extends CommandBase
-{
+public abstract class Class89
+extends CommandBase {
     private String Field8301 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     public int getRequiredPermissionLevel() {
         return 0;
     }
-    
-    public boolean checkPermission(final MinecraftServer minecraftServer, final ICommandSender commandSender) {
-        return super.checkPermission(minecraftServer, commandSender) || (commandSender instanceof EntityPlayerMP && this.getRequiredPermissionLevel() <= 0);
+
+    public boolean checkPermission(MinecraftServer minecraftServer, ICommandSender iCommandSender) {
+        if (super.checkPermission(minecraftServer, iCommandSender)) return true;
+        if (!(iCommandSender instanceof EntityPlayerMP)) return false;
+        if (this.getRequiredPermissionLevel() > 0) return false;
+        return true;
     }
-    
-    protected ITextComponent withStyle(final ITextComponent textComponent, final TextFormatting textFormatting, @Nullable @Nullable final String s) {
-        final Style style = new Style();
+
+    protected ITextComponent withStyle(ITextComponent iTextComponent, TextFormatting textFormatting, @Nullable @Nullable String string) {
+        Style style = new Style();
         style.setColor(textFormatting);
-        if (s != null) {
-            style.setClickEvent(new ClickEvent(ClickEvent$Action.RUN_COMMAND, s));
+        if (string != null) {
+            style.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, string));
         }
-        textComponent.setStyle(style);
-        return textComponent;
+        iTextComponent.setStyle(style);
+        return iTextComponent;
     }
 }
+

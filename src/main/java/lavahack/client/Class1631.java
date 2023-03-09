@@ -1,60 +1,68 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.collections.CollectionsKt
+ *  kotlin.jvm.internal.Intrinsics
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.math.BlockPos
+ */
 package lavahack.client;
 
-import kotlin.*;
-import net.minecraft.util.*;
-import org.jetbrains.annotations.*;
-import java.util.*;
-import net.minecraft.util.math.*;
-import kotlin.collections.*;
-import kotlin.jvm.internal.*;
+import java.util.List;
+import kotlin.Metadata;
+import kotlin.collections.CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import lavahack.client.Class184;
+import lavahack.client.Class1868;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.NotNull;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 1, d1 = { "\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u00c6\u0001\u0018\u00002\u00020\u0001J\u0016\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u00032\u0006\u0010\u0005\u001a\u00020\u0006H\u0016?\u0006\u0007" }, d2 = { "Lcom/kisman/cc/features/module/combat/cityboss/Cases$LeftDiagonalCase;", "Lcom/kisman/cc/features/module/combat/cityboss/Cases;", "posses", "", "Lnet/minecraft/util/math/BlockPos;", "facing", "Lnet/minecraft/util/EnumFacing;", "kisman.cc" })
-final class Class1631 extends Class1868
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=1, d1={"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u00c6\u0001\u0018\u00002\u00020\u0001J\u0016\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u00032\u0006\u0010\u0005\u001a\u00020\u0006H\u0016\u00a8\u0006\u0007"}, d2={"Lcom/kisman/cc/features/module/combat/cityboss/Cases$LeftDiagonalCase;", "Lcom/kisman/cc/features/module/combat/cityboss/Cases;", "posses", "", "Lnet/minecraft/util/math/BlockPos;", "facing", "Lnet/minecraft/util/EnumFacing;", "kisman.cc"})
+final class Class1631
+extends Class1868 {
     private String Field15618 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    @NotNull
-    @NotNull
+
     @Override
-    public List Method942(@NotNull @NotNull final EnumFacing enumFacing) {
-        Intrinsics.checkParameterIsNotNull((Object)enumFacing, "facing");
-        final BlockPos[] array = new BlockPos[4];
-        final int n = 0;
-        final BlockPos offset = BlockPos.ORIGIN.offset(enumFacing);
-        Intrinsics.checkExpressionValueIsNotNull((Object)offset, "BlockPos.ORIGIN.offset(facing)");
-        array[n] = offset;
-        final int n2 = 1;
-        final BlockPos offset2 = BlockPos.ORIGIN.offset(enumFacing).offset(Class184.Method1116(enumFacing));
-        Intrinsics.checkExpressionValueIsNotNull((Object)offset2, "BlockPos.ORIGIN.offset(f\u2026ng).offset(facing.left())");
-        array[n2] = offset2;
-        final int n3 = 2;
-        final BlockPos offset3 = BlockPos.ORIGIN.offset(enumFacing).offset(Class184.Method1116(enumFacing)).offset(enumFacing);
-        Intrinsics.checkExpressionValueIsNotNull((Object)offset3, "BlockPos.ORIGIN.offset(f\u2026ng.left()).offset(facing)");
-        array[n3] = offset3;
-        final int n4 = 3;
-        final BlockPos up = BlockPos.ORIGIN.offset(enumFacing).offset(Class184.Method1116(enumFacing)).offset(enumFacing).up();
-        Intrinsics.checkExpressionValueIsNotNull((Object)up, "BlockPos.ORIGIN.offset(f\u2026ft()).offset(facing).up()");
-        array[n4] = up;
-        return CollectionsKt.listOf((Object[])array);
+    @NotNull
+    @NotNull
+    public List Method942(@NotNull @NotNull EnumFacing enumFacing) {
+        Intrinsics.checkParameterIsNotNull((Object)enumFacing, (String)"facing");
+        Object[] objectArray = new BlockPos[4];
+        BlockPos blockPos = BlockPos.ORIGIN.offset(enumFacing);
+        Intrinsics.checkExpressionValueIsNotNull((Object)blockPos, (String)"BlockPos.ORIGIN.offset(facing)");
+        objectArray[0] = blockPos;
+        BlockPos blockPos2 = BlockPos.ORIGIN.offset(enumFacing).offset(Class184.Method1116(enumFacing));
+        Intrinsics.checkExpressionValueIsNotNull((Object)blockPos2, (String)"BlockPos.ORIGIN.offset(f\u2026ng).offset(facing.left())");
+        objectArray[1] = blockPos2;
+        BlockPos blockPos3 = BlockPos.ORIGIN.offset(enumFacing).offset(Class184.Method1116(enumFacing)).offset(enumFacing);
+        Intrinsics.checkExpressionValueIsNotNull((Object)blockPos3, (String)"BlockPos.ORIGIN.offset(f\u2026ng.left()).offset(facing)");
+        objectArray[2] = blockPos3;
+        BlockPos blockPos4 = BlockPos.ORIGIN.offset(enumFacing).offset(Class184.Method1116(enumFacing)).offset(enumFacing).up();
+        Intrinsics.checkExpressionValueIsNotNull((Object)blockPos4, (String)"BlockPos.ORIGIN.offset(f\u2026ft()).offset(facing).up()");
+        objectArray[3] = blockPos4;
+        return CollectionsKt.listOf((Object[])objectArray);
     }
-    
-    Class1631(final String s, final int n) {
-        super(s, n, null);
+
+    Class1631(String string, int n) {
     }
-    
-    private static String Method950(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x2FBE ^ 0xF2));
-            }
-            return new String(value);
+
+    private static String Method950(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 242;
+            cArray2[n] = (char)(cArray[n] ^ (0x2FBE ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

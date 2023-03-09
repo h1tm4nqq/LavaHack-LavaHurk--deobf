@@ -1,56 +1,90 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.settings.KeyBinding
+ *  net.minecraft.command.ICommand
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.math.MathHelper
+ *  net.minecraft.util.math.RayTraceResult
+ *  net.minecraftforge.client.ClientCommandHandler
+ *  net.minecraftforge.common.MinecraftForge
+ *  net.minecraftforge.common.config.Property
+ *  net.minecraftforge.fml.client.config.GuiConfigEntries$NumberSliderEntry
+ *  net.minecraftforge.fml.client.registry.ClientRegistry
+ */
 package lavahack.client;
 
-import net.minecraft.util.*;
-import net.minecraft.client.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.util.math.*;
-import net.minecraftforge.common.config.*;
-import net.minecraftforge.fml.client.config.*;
-import net.minecraftforge.fml.client.registry.*;
-import net.minecraft.client.settings.*;
-import net.minecraftforge.common.*;
-import net.minecraftforge.client.*;
-import net.minecraft.command.*;
-import java.io.*;
+import java.io.File;
+import lavahack.client.Class1200;
+import lavahack.client.Class1479;
+import lavahack.client.Class153;
+import lavahack.client.Class1531;
+import lavahack.client.Class1583;
+import lavahack.client.Class16;
+import lavahack.client.Class1650;
+import lavahack.client.Class2101;
+import lavahack.client.Class244;
+import lavahack.client.Class32;
+import lavahack.client.Class373;
+import lavahack.client.Class415;
+import lavahack.client.Class430;
+import lavahack.client.Class542;
+import lavahack.client.Class686;
+import lavahack.client.Class718;
+import lavahack.client.Class864;
+import lavahack.client.Class934;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.command.ICommand;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraftforge.client.ClientCommandHandler;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Property;
+import net.minecraftforge.fml.client.config.GuiConfigEntries;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 
-public class Class46 extends Class1650
-{
-    public static boolean Field8117;
-    public static boolean Field8118;
-    public static final Class1531 Field8119;
-    public static EnumFacing Field8120;
-    public static int Field8121;
-    public static Class1479 Field8122;
-    public static final Class16 Field8123;
-    public static final Class16 Field8124;
-    public static final Class16 Field8125;
-    public static final Class16 Field8126;
-    public static EnumFacing Field8127;
-    public static EnumFacing Field8128;
-    public static RayTraceResult Field8129;
-    private static final Minecraft Field8130;
+public class Class46
+extends Class1650 {
+    public static boolean Field8117 = false;
+    public static boolean Field8118 = false;
+    public static final Class1531 Field8119 = new Class1531();
+    public static EnumFacing Field8120 = null;
+    public static int Field8121 = 0;
+    public static Class1479 Field8122 = null;
+    public static final Class16 Field8123 = new Class16();
+    public static final Class16 Field8124 = new Class16();
+    public static final Class16 Field8125 = new Class16();
+    public static final Class16 Field8126 = new Class16();
+    public static EnumFacing Field8127 = EnumFacing.UP;
+    public static EnumFacing Field8128 = EnumFacing.UP;
+    public static RayTraceResult Field8129 = null;
+    private static final Minecraft Field8130 = Minecraft.getMinecraft();
     private String Field8131 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public static void Method421(final EntityPlayer entityPlayer, final float n) {
-        Class46.Field8119.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf = entityPlayer.lastTickPosX + (entityPlayer.posX - entityPlayer.lastTickPosX) * n;
-        Class46.Field8119.UCke3Pxmf8CbZfsSMaRi6TdDNfLAgjjV = entityPlayer.lastTickPosY + (entityPlayer.posY - entityPlayer.lastTickPosY) * n;
-        Class46.Field8119.Field15157 = entityPlayer.lastTickPosZ + (entityPlayer.posZ - entityPlayer.lastTickPosZ) * n;
-        Class46.Field8120 = Method422(entityPlayer);
-        Class46.Field8121 = (MathHelper.floor(entityPlayer.rotationYaw / Float.intBitsToFloat(1119092736)) & 0x3);
+
+    public static void Method421(EntityPlayer entityPlayer, float f) {
+        Class46.Field8119.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf = entityPlayer.lastTickPosX + (entityPlayer.posX - entityPlayer.lastTickPosX) * (double)f;
+        Class46.Field8119.UCke3Pxmf8CbZfsSMaRi6TdDNfLAgjjV = entityPlayer.lastTickPosY + (entityPlayer.posY - entityPlayer.lastTickPosY) * (double)f;
+        Class46.Field8119.Field15157 = entityPlayer.lastTickPosZ + (entityPlayer.posZ - entityPlayer.lastTickPosZ) * (double)f;
+        Field8120 = Class46.Method422(entityPlayer);
+        Field8121 = MathHelper.floor((float)(entityPlayer.rotationYaw / Float.intBitsToFloat(1119092736))) & 3;
     }
-    
-    private static EnumFacing Method422(final EntityPlayer entityPlayer) {
+
+    private static EnumFacing Method422(EntityPlayer entityPlayer) {
         if (entityPlayer.rotationPitch > Float.intBitsToFloat(1110704128)) {
             return EnumFacing.DOWN;
         }
         if (entityPlayer.rotationPitch < Float.intBitsToFloat(-1036779520)) {
             return EnumFacing.UP;
         }
-        switch (MathHelper.floor(entityPlayer.rotationYaw / Double.longBitsToDouble(4636033603912859648L) + Double.longBitsToDouble((long)1611648091 ^ 0x3FE00000600FCC5BL)) & 0x3) {
+        switch (MathHelper.floor((double)((double)entityPlayer.rotationYaw / Double.longBitsToDouble(4636033603912859648L) + Double.longBitsToDouble((long)1611648091 ^ 0x3FE00000600FCC5BL))) & 3) {
             case 0: {
                 return EnumFacing.SOUTH;
             }
@@ -63,12 +97,10 @@ public class Class46 extends Class1650
             case 3: {
                 return EnumFacing.EAST;
             }
-            default: {
-                return null;
-            }
         }
+        return null;
     }
-    
+
     public static void Method423() {
         Class46.Field8125.Field7895 = Math.min(Class46.Field8123.Field7895, Class46.Field8124.Field7895);
         Class46.Field8125.Field7896 = Math.min(Class46.Field8123.Field7896, Class46.Field8124.Field7896);
@@ -77,85 +109,81 @@ public class Class46 extends Class1650
         Class46.Field8126.Field7896 = Math.max(Class46.Field8123.Field7896, Class46.Field8124.Field7896);
         Class46.Field8126.Field7897 = Math.max(Class46.Field8123.Field7897, Class46.Field8124.Field7897);
     }
-    
-    public static void Method424(final Class16 class16) {
+
+    public static void Method424(Class16 class16) {
         class16.Field7895 = (int)Math.floor(Class46.Field8119.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf);
         class16.Field7896 = (int)Math.floor(Class46.Field8119.UCke3Pxmf8CbZfsSMaRi6TdDNfLAgjjV);
         class16.Field7897 = (int)Math.floor(Class46.Field8119.Field15157);
-        switch (Class46.Field8121) {
+        switch (Field8121) {
             case 0: {
                 --class16.Field7895;
                 ++class16.Field7897;
-                break;
+                return;
             }
             case 1: {
                 --class16.Field7895;
                 --class16.Field7897;
-                break;
+                return;
             }
             case 2: {
                 ++class16.Field7895;
                 --class16.Field7897;
-                break;
+                return;
             }
             case 3: {
                 ++class16.Field7895;
                 ++class16.Field7897;
-                break;
+                return;
             }
         }
     }
-    
-    public static void Method425(final Class1479 class1479) {
-        if (class1479 != null) {
-            final Class16 field14896 = class1479.Field14896;
-            field14896.Field7895 = (int)Math.floor(Class46.Field8119.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf);
-            field14896.Field7896 = (int)Math.floor(Class46.Field8119.UCke3Pxmf8CbZfsSMaRi6TdDNfLAgjjV);
-            field14896.Field7897 = (int)Math.floor(Class46.Field8119.Field15157);
-            switch (Class46.Field8121) {
-                case 0: {
-                    final Class16 class1480 = field14896;
-                    class1480.Field7895 -= class1479.getWidth();
-                    final Class16 class1481 = field14896;
-                    ++class1481.Field7897;
-                    break;
-                }
-                case 1: {
-                    final Class16 class1482 = field14896;
-                    class1482.Field7895 -= class1479.getWidth();
-                    final Class16 class1483 = field14896;
-                    class1483.Field7897 -= class1479.getLength();
-                    break;
-                }
-                case 2: {
-                    final Class16 class1484 = field14896;
-                    ++class1484.Field7895;
-                    final Class16 class1485 = field14896;
-                    class1485.Field7897 -= class1479.getLength();
-                    break;
-                }
-                case 3: {
-                    final Class16 class1486 = field14896;
-                    ++class1486.Field7895;
-                    final Class16 class1487 = field14896;
-                    ++class1487.Field7897;
-                    break;
-                }
+
+    public static void Method425(Class1479 class1479) {
+        if (class1479 == null) return;
+        Class16 class16 = class1479.Field14896;
+        class16.Field7895 = (int)Math.floor(Class46.Field8119.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf);
+        class16.Field7896 = (int)Math.floor(Class46.Field8119.UCke3Pxmf8CbZfsSMaRi6TdDNfLAgjjV);
+        class16.Field7897 = (int)Math.floor(Class46.Field8119.Field15157);
+        switch (Field8121) {
+            case 0: {
+                class16.Field7895 -= class1479.getWidth();
+                ++class16.Field7897;
+                return;
+            }
+            case 1: {
+                class16.Field7895 -= class1479.getWidth();
+                class16.Field7897 -= class1479.getLength();
+                return;
+            }
+            case 2: {
+                ++class16.Field7895;
+                class16.Field7897 -= class1479.getLength();
+                return;
+            }
+            case 3: {
+                ++class16.Field7895;
+                ++class16.Field7897;
+                return;
             }
         }
     }
-    
+
     public void Method426() {
-        final Property[] array = { Class32.Field8000, Class32.Field8003, Class32.Field8004, Class32.Field8005, Class32.Field8006, Class32.Field8007 };
-        for (int length = array.length, i = 0; i < length; ++i) {
-            array[i].setConfigEntryClass((Class)GuiConfigEntries$NumberSliderEntry.class);
+        Property[] propertyArray;
+        for (Property property : propertyArray = new Property[]{Class32.Field8000, Class32.Field8003, Class32.Field8004, Class32.Field8005, Class32.Field8006, Class32.Field8007}) {
+            property.setConfigEntryClass(GuiConfigEntries.NumberSliderEntry.class);
         }
-        final KeyBinding[] field9573 = Class373.Field9573;
-        for (int length2 = field9573.length, j = 0; j < length2; ++j) {
-            ClientRegistry.registerKeyBinding(field9573[j]);
+        Property[] propertyArray2 = Class373.Field9573;
+        int n = propertyArray2.length;
+        int n2 = 0;
+        while (n2 < n) {
+            Property property;
+            property = propertyArray2[n2];
+            ClientRegistry.registerKeyBinding((KeyBinding)property);
+            ++n2;
         }
     }
-    
+
     public void Method427() {
         MinecraftForge.EVENT_BUS.register((Object)Class373.Field9563);
         MinecraftForge.EVENT_BUS.register((Object)Class1200.Field13444);
@@ -167,81 +195,74 @@ public class Class46 extends Class1650
         MinecraftForge.EVENT_BUS.register((Object)new Class864());
         ClientCommandHandler.instance.registerCommand((ICommand)new Class244());
     }
-    
+
     public void Method428() {
         this.Method413();
     }
-    
+
+    @Override
     public File Method411() {
         return Class2101.Field17562;
     }
-    
+
+    @Override
     public void Method413() {
         super.Method413();
         Class415.Field9718.Method2010(true);
         this.Method414();
-        Class46.Field8117 = false;
-        Class46.Field8119.Method5849(0.0, 0.0, 0.0);
-        Class46.Field8120 = null;
-        Class46.Field8121 = 0;
-        Class46.Field8123.set(0, 0, 0);
-        Class46.Field8124.set(0, 0, 0);
-        Method423();
+        Field8117 = false;
+        Field8119.Method5849(0.0, 0.0, 0.0);
+        Field8120 = null;
+        Field8121 = 0;
+        Field8123.set(0, 0, 0);
+        Field8124.set(0, 0, 0);
+        Class46.Method423();
     }
-    
+
+    @Override
     public void Method414() {
-        Class46.Field8122 = null;
+        Field8122 = null;
         Class934.Field11944.setWorldAndLoadRenderers(null);
-        Class415.Field9718.Method2016((Class1479)null);
+        Class415.Field9718.Method2016(null);
     }
-    
-    public boolean Method417(final EntityPlayer entityPlayer, final File file, final String s) {
-        final Class686 method995 = Class153.Method995(file, s);
-        if (method995 == null) {
+
+    @Override
+    public boolean Method417(EntityPlayer entityPlayer, File file, String string) {
+        Class686 class686 = Class153.Method995(file, string);
+        if (class686 == null) {
             return false;
         }
-        final Class1479 class1479 = new Class1479(method995);
-        Class542.Field10314.debug("Loaded {} [w:{},h:{},l:{}]", (Object)s, (Object)class1479.getWidth(), (Object)class1479.getHeight(), (Object)class1479.getLength());
-        Class46.Field8122 = class1479;
+        Class1479 class1479 = new Class1479(class686);
+        Class542.Field10314.debug("Loaded {} [w:{},h:{},l:{}]", (Object)string, (Object)class1479.getWidth(), (Object)class1479.getHeight(), (Object)class1479.getLength());
+        Field8122 = class1479;
         Class934.Field11944.setWorldAndLoadRenderers(class1479);
         Class415.Field9718.Method2016(class1479);
-        return class1479.Field14897 = true;
+        class1479.Field14897 = true;
+        return true;
     }
-    
-    public boolean Method418(final EntityPlayer entityPlayer) {
+
+    @Override
+    public boolean Method418(EntityPlayer entityPlayer) {
         return false;
     }
-    
-    public File Method419(final EntityPlayer entityPlayer, final boolean b) {
+
+    @Override
+    public File Method419(EntityPlayer entityPlayer, boolean bl) {
         return Class32.Field7990;
     }
-    
-    static {
-        Class46.Field8117 = false;
-        Class46.Field8118 = false;
-        Field8119 = new Class1531();
-        Class46.Field8120 = null;
-        Class46.Field8121 = 0;
-        Class46.Field8122 = null;
-        Field8123 = new Class16();
-        Field8124 = new Class16();
-        Field8125 = new Class16();
-        Field8126 = new Class16();
-        Class46.Field8127 = EnumFacing.UP;
-        Class46.Field8128 = EnumFacing.UP;
-        Class46.Field8129 = null;
-        Field8130 = Minecraft.getMinecraft();
-    }
-    
-    private static String Method420(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x7FE6 ^ 0xC1));
-            }
-            return new String(value);
+
+    private static String Method420(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 193;
+            cArray2[n] = (char)(cArray[n] ^ (0x7FE6 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

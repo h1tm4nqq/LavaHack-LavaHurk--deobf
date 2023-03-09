@@ -1,33 +1,43 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.luaj.vm2.LuaValue
+ *  org.luaj.vm2.lib.LibFunction
+ */
 package lavahack.client;
 
-import org.luaj.vm2.lib.*;
-import org.luaj.vm2.*;
+import lavahack.client.Class126;
+import lavahack.client.Class1779;
+import org.luaj.vm2.LuaValue;
+import org.luaj.vm2.lib.LibFunction;
 
-public class Class1792 extends LibFunction implements Class126
-{
+public class Class1792
+extends LibFunction
+implements Class126 {
     private String Field16223 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public LuaValue leqS0IyKEB621E1SrHdAcHHAUjScjmKi(final LuaValue luaValue, final LuaValue luaValue2, final LuaValue luaValue3, final LuaValue luaValue4, final LuaValue luaValue5, final LuaValue luaValue6) {
-        return (LuaValue)userdataOf((Object)new Class1779(luaValue.todouble(), luaValue2.todouble(), luaValue3.todouble(), luaValue4.todouble(), luaValue5.todouble(), luaValue6.todouble()));
+
+    public LuaValue leqS0IyKEB621E1SrHdAcHHAUjScjmKi(LuaValue luaValue, LuaValue luaValue2, LuaValue luaValue3, LuaValue luaValue4, LuaValue luaValue5, LuaValue luaValue6) {
+        return Class1792.userdataOf((Object)new Class1779(luaValue.todouble(), luaValue2.todouble(), luaValue3.todouble(), luaValue4.todouble(), luaValue5.todouble(), luaValue6.todouble()));
     }
-    
+
+    @Override
     public String Method856() {
         return "box";
     }
-    
-    private static String a(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x4542 ^ 0xB7));
-            }
-            return new String(value);
+
+    private static String a(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 183;
+            cArray2[n] = (char)(cArray[n] ^ (0x4542 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

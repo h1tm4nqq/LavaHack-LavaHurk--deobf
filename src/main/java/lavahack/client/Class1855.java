@@ -1,33 +1,42 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.luaj.vm2.LuaValue
+ *  org.luaj.vm2.lib.OneArgFunction
+ *  org.luaj.vm2.lib.jse.CoerceJavaToLua
+ */
 package lavahack.client;
 
-import org.luaj.vm2.lib.*;
-import org.luaj.vm2.*;
-import org.luaj.vm2.lib.jse.*;
+import lavahack.client.Class1147;
+import org.luaj.vm2.LuaValue;
+import org.luaj.vm2.lib.OneArgFunction;
+import org.luaj.vm2.lib.jse.CoerceJavaToLua;
 
-public class Class1855 extends OneArgFunction
-{
+public class Class1855
+extends OneArgFunction {
     private int Field16544;
-    
-    public LuaValue call(final LuaValue luaValue) {
+
+    public LuaValue call(LuaValue luaValue) {
         if (!luaValue.isstring()) {
             throw new IllegalArgumentException("Invalid arguments.");
         }
-        return CoerceJavaToLua.coerce((Object)new Class1147(luaValue.toString()));
+        Class1147 class1147 = new Class1147(luaValue.toString());
+        return CoerceJavaToLua.coerce((Object)class1147);
     }
-    
-    private static String a(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x5B99 ^ 0x18));
-            }
-            return new String(value);
+
+    private static String a(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 24;
+            cArray2[n] = (char)(cArray[n] ^ (0x5B99 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

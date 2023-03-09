@@ -1,18 +1,17 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-import java.util.*;
+import java.util.Iterator;
 
-public interface Class1181
-{
-    Iterator Method179();
-    
-    String Method180(final String p0);
-    
-    boolean Method181(final String p0);
-    
-    byte[] Method182();
+public interface Class1181 {
+    public Iterator Method179();
+
+    public String Method180(String var1);
+
+    public boolean Method181(String var1);
+
+    public byte[] Method182();
 }
+

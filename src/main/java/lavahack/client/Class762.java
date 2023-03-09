@@ -1,12 +1,14 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public interface Class762 extends Class672
-{
-    void Method3147(final Class672 p0);
-    
-    void Method3148(final Class672 p0);
+import lavahack.client.Class672;
+
+public interface Class762
+extends Class672 {
+    public void Method3147(Class672 var1);
+
+    public void Method3148(Class672 var1);
 }
+

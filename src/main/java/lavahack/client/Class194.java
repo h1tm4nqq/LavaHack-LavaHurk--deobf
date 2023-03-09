@@ -1,35 +1,263 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraftforge.common.MinecraftForge
+ *  net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+ *  net.minecraftforge.fml.common.gameevent.TickEvent$ClientTickEvent
+ */
 package lavahack.client;
 
-import net.minecraftforge.common.*;
-import java.lang.annotation.*;
-import java.util.*;
-import java.util.function.*;
-import net.minecraftforge.fml.common.gameevent.*;
-import net.minecraftforge.fml.common.eventhandler.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import lavahack.client.Class1008;
+import lavahack.client.Class1016;
+import lavahack.client.Class1018;
+import lavahack.client.Class1021;
+import lavahack.client.Class1022;
+import lavahack.client.Class1035;
+import lavahack.client.Class1043;
+import lavahack.client.Class1056;
+import lavahack.client.Class1071;
+import lavahack.client.Class1075;
+import lavahack.client.Class1076;
+import lavahack.client.Class1082;
+import lavahack.client.Class1084;
+import lavahack.client.Class1089;
+import lavahack.client.Class109;
+import lavahack.client.Class1092;
+import lavahack.client.Class1096;
+import lavahack.client.Class1097;
+import lavahack.client.Class1098;
+import lavahack.client.Class1104;
+import lavahack.client.Class1112;
+import lavahack.client.Class1116;
+import lavahack.client.Class1119;
+import lavahack.client.Class1124;
+import lavahack.client.Class1125;
+import lavahack.client.Class1126;
+import lavahack.client.Class1133;
+import lavahack.client.Class1153;
+import lavahack.client.Class1161;
+import lavahack.client.Class1167;
+import lavahack.client.Class1175;
+import lavahack.client.Class1180;
+import lavahack.client.Class1192;
+import lavahack.client.Class1194;
+import lavahack.client.Class1203;
+import lavahack.client.Class1219;
+import lavahack.client.Class1224;
+import lavahack.client.Class1227;
+import lavahack.client.Class1229;
+import lavahack.client.Class1259;
+import lavahack.client.Class1281;
+import lavahack.client.Class1287;
+import lavahack.client.Class1288;
+import lavahack.client.Class1289;
+import lavahack.client.Class1294;
+import lavahack.client.Class1299;
+import lavahack.client.Class1308;
+import lavahack.client.Class131;
+import lavahack.client.Class132;
+import lavahack.client.Class133;
+import lavahack.client.Class1337;
+import lavahack.client.Class1347;
+import lavahack.client.Class136;
+import lavahack.client.Class1379;
+import lavahack.client.Class1386;
+import lavahack.client.Class1391;
+import lavahack.client.Class1401;
+import lavahack.client.Class1409;
+import lavahack.client.Class1411;
+import lavahack.client.Class1416;
+import lavahack.client.Class142;
+import lavahack.client.Class1425;
+import lavahack.client.Class1437;
+import lavahack.client.Class1447;
+import lavahack.client.Class1448;
+import lavahack.client.Class1485;
+import lavahack.client.Class1488;
+import lavahack.client.Class1497;
+import lavahack.client.Class1502;
+import lavahack.client.Class1506;
+import lavahack.client.Class1526;
+import lavahack.client.Class1534;
+import lavahack.client.Class1540;
+import lavahack.client.Class1541;
+import lavahack.client.Class1555;
+import lavahack.client.Class1573;
+import lavahack.client.Class1653;
+import lavahack.client.Class1657;
+import lavahack.client.Class1660;
+import lavahack.client.Class1676;
+import lavahack.client.Class1686;
+import lavahack.client.Class1687;
+import lavahack.client.Class1699;
+import lavahack.client.Class170;
+import lavahack.client.Class1733;
+import lavahack.client.Class1742;
+import lavahack.client.Class1747;
+import lavahack.client.Class1751;
+import lavahack.client.Class1766;
+import lavahack.client.Class1768;
+import lavahack.client.Class1777;
+import lavahack.client.Class1778;
+import lavahack.client.Class1783;
+import lavahack.client.Class1791;
+import lavahack.client.Class1796;
+import lavahack.client.Class1805;
+import lavahack.client.Class1809;
+import lavahack.client.Class1810;
+import lavahack.client.Class1812;
+import lavahack.client.Class1819;
+import lavahack.client.Class1821;
+import lavahack.client.Class1831;
+import lavahack.client.Class185;
+import lavahack.client.Class1850;
+import lavahack.client.Class186;
+import lavahack.client.Class1860;
+import lavahack.client.Class1874;
+import lavahack.client.Class1877;
+import lavahack.client.Class1905;
+import lavahack.client.Class1909;
+import lavahack.client.Class1910;
+import lavahack.client.Class1913;
+import lavahack.client.Class1925;
+import lavahack.client.Class196;
+import lavahack.client.Class1969;
+import lavahack.client.Class1970;
+import lavahack.client.Class1971;
+import lavahack.client.Class1973;
+import lavahack.client.Class198;
+import lavahack.client.Class1998;
+import lavahack.client.Class2;
+import lavahack.client.Class2016;
+import lavahack.client.Class2055;
+import lavahack.client.Class2061;
+import lavahack.client.Class2063;
+import lavahack.client.Class2081;
+import lavahack.client.Class2108;
+import lavahack.client.Class2128;
+import lavahack.client.Class2134;
+import lavahack.client.Class2137;
+import lavahack.client.Class214;
+import lavahack.client.Class2144;
+import lavahack.client.Class2154;
+import lavahack.client.Class2165;
+import lavahack.client.Class2170;
+import lavahack.client.Class2173;
+import lavahack.client.Class220;
+import lavahack.client.Class225;
+import lavahack.client.Class227;
+import lavahack.client.Class240;
+import lavahack.client.Class252;
+import lavahack.client.Class27;
+import lavahack.client.Class279;
+import lavahack.client.Class318;
+import lavahack.client.Class331;
+import lavahack.client.Class344;
+import lavahack.client.Class38;
+import lavahack.client.Class389;
+import lavahack.client.Class40;
+import lavahack.client.Class412;
+import lavahack.client.Class413;
+import lavahack.client.Class418;
+import lavahack.client.Class42;
+import lavahack.client.Class423;
+import lavahack.client.Class436;
+import lavahack.client.Class454;
+import lavahack.client.Class461;
+import lavahack.client.Class465;
+import lavahack.client.Class469;
+import lavahack.client.Class472;
+import lavahack.client.Class486;
+import lavahack.client.Class496;
+import lavahack.client.Class500;
+import lavahack.client.Class505;
+import lavahack.client.Class514;
+import lavahack.client.Class517;
+import lavahack.client.Class52;
+import lavahack.client.Class523;
+import lavahack.client.Class535;
+import lavahack.client.Class547;
+import lavahack.client.Class550;
+import lavahack.client.Class569;
+import lavahack.client.Class575;
+import lavahack.client.Class576;
+import lavahack.client.Class58;
+import lavahack.client.Class589;
+import lavahack.client.Class59;
+import lavahack.client.Class592;
+import lavahack.client.Class598;
+import lavahack.client.Class600;
+import lavahack.client.Class604;
+import lavahack.client.Class621;
+import lavahack.client.Class624;
+import lavahack.client.Class639;
+import lavahack.client.Class653;
+import lavahack.client.Class665;
+import lavahack.client.Class67;
+import lavahack.client.Class677;
+import lavahack.client.Class679;
+import lavahack.client.Class683;
+import lavahack.client.Class696;
+import lavahack.client.Class697;
+import lavahack.client.Class709;
+import lavahack.client.Class731;
+import lavahack.client.Class740;
+import lavahack.client.Class742;
+import lavahack.client.Class747;
+import lavahack.client.Class748;
+import lavahack.client.Class761;
+import lavahack.client.Class769;
+import lavahack.client.Class778;
+import lavahack.client.Class791;
+import lavahack.client.Class831;
+import lavahack.client.Class843;
+import lavahack.client.Class848;
+import lavahack.client.Class853;
+import lavahack.client.Class858;
+import lavahack.client.Class869;
+import lavahack.client.Class895;
+import lavahack.client.Class896;
+import lavahack.client.Class903;
+import lavahack.client.Class908;
+import lavahack.client.Class915;
+import lavahack.client.Class940;
+import lavahack.client.Class943;
+import lavahack.client.Class945;
+import lavahack.client.Class952;
+import lavahack.client.Class962;
+import lavahack.client.Class965;
+import lavahack.client.Class968;
+import lavahack.client.Class97;
+import lavahack.client.Class972;
+import lavahack.client.Class975;
+import lavahack.client.Class982;
+import lavahack.client.Class988;
+import lavahack.client.Class99;
+import lavahack.client.Class991;
+import lavahack.client.Class997;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-public class Class194
-{
-    public List Field8854;
-    public List Field8855;
+public class Class194 {
+    public List Field8854 = new ArrayList();
+    public List Field8855 = new ArrayList();
     private String Field8856 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     public Class194() {
-        this.Field8854 = new ArrayList();
-        this.Field8855 = new ArrayList();
-        final Class884 field16286 = Class1796.Field16241.Field16286;
-        ++field16286.Field11713;
+        ++Class1796.Field16241.Field16286.Field11713;
     }
-    
+
     public void Method1160() {
         MinecraftForge.EVENT_BUS.register((Object)this);
         Class1796.Field16242.Method715(new Class279("Module Manager"));
-        this.Method1161((Class42)new Class1203());
+        this.Method1161(new Class1203());
         this.Method1161(new Class240());
-        this.Method1161((Class42)new Class1742());
+        this.Method1161(new Class1742());
         this.Method1161(new Class653());
         this.Method1161(Class731.Field11106);
         this.Method1161(new Class598());
@@ -37,103 +265,103 @@ public class Class194
         this.Method1161(new Class962());
         this.Method1161(new Class436());
         this.Method1161(new Class59());
-        this.Method1161((Class42)new Class1016());
-        this.Method1161((Class42)new Class1448());
+        this.Method1161(new Class1016());
+        this.Method1161(new Class1448());
         this.Method1161(new Class988());
-        this.Method1161((Class42)new Class133());
-        this.Method1161((Class42)new Class1506());
-        this.Method1161((Class42)new Class1018());
+        this.Method1161(new Class133());
+        this.Method1161(new Class1506());
+        this.Method1161(new Class1018());
         this.Method1161(new Class2173());
         this.Method1161(new Class2154());
-        this.Method1161((Class42)new Class1076());
-        this.Method1161((Class42)new Class1167());
+        this.Method1161(new Class1076());
+        this.Method1161(new Class1167());
         this.Method1161(new Class2055());
         this.Method1161(new Class1971());
-        this.Method1161((Class42)new Class1502());
-        this.Method1161((Class42)new Class1097());
+        this.Method1161(new Class1502());
+        this.Method1161(new Class1097());
         this.Method1161(new Class220());
         this.Method1161(new Class469());
-        this.Method1161((Class42)new Class1425());
+        this.Method1161(new Class1425());
         this.Method1161(new Class915());
         this.Method1161(new Class677());
-        this.Method1161((Class42)Class1161.Field13248);
-        this.Method1161((Class42)new Class1751());
+        this.Method1161(Class1161.Field13248);
+        this.Method1161(new Class1751());
         this.Method1161(new Class423());
-        this.Method1161((Class42)new Class1021());
-        this.Method1161((Class42)new Class1229());
+        this.Method1161(new Class1021());
+        this.Method1161(new Class1229());
         this.Method1161(new Class697());
-        this.Method1161((Class42)new Class1791());
+        this.Method1161(new Class1791());
         this.Method1161(new Class465());
-        this.Method1161((Class42)new Class1905());
-        this.Method1161((Class42)new Class1401());
-        this.Method1161((Class42)new Class1071());
-        this.Method1161((Class42)Class1497.Field15034);
+        this.Method1161(new Class1905());
+        this.Method1161(new Class1401());
+        this.Method1161(new Class1071());
+        this.Method1161(Class1497.Field15034);
         this.Method1161(new Class418());
         this.Method1161(new Class604());
         this.Method1161(new Class535());
         this.Method1161(new Class225());
-        this.Method1161((Class42)new Class1416());
-        this.Method1161((Class42)new Class1092());
+        this.Method1161(new Class1416());
+        this.Method1161(new Class1092());
         this.Method1161(new Class52());
         this.Method1161(new Class908());
-        this.Method1161((Class42)new Class185());
-        this.Method1161((Class42)new Class1124());
+        this.Method1161(new Class185());
+        this.Method1161(new Class1124());
         this.Method1161(new Class389());
-        this.Method1161((Class42)new Class1488());
+        this.Method1161(new Class1488());
         this.Method1161(new Class952());
-        this.Method1161((Class42)new Class1386());
+        this.Method1161(new Class1386());
         this.Method1161(new Class791());
-        this.Method1161((Class42)Class1082.Field12832);
-        this.Method1161((Class42)new Class1660());
-        this.Method1161((Class42)new Class1526());
-        this.Method1161((Class42)new Class132());
-        this.Method1161((Class42)new Class1573());
-        this.Method1161((Class42)new Class1043());
-        this.Method1161((Class42)new Class1153());
-        this.Method1161((Class42)new Class1180());
-        this.Method1161((Class42)new Class1308());
-        this.Method1161((Class42)new Class1541());
+        this.Method1161(Class1082.Field12832);
+        this.Method1161(new Class1660());
+        this.Method1161(new Class1526());
+        this.Method1161(new Class132());
+        this.Method1161(new Class1573());
+        this.Method1161(new Class1043());
+        this.Method1161(new Class1153());
+        this.Method1161(new Class1180());
+        this.Method1161(new Class1308());
+        this.Method1161(new Class1541());
         this.Method1161(new Class2137());
-        this.Method1161((Class42)new Class1281());
+        this.Method1161(new Class1281());
         this.Method1161(new Class600());
-        this.Method1161((Class42)new Class1925());
-        this.Method1161((Class42)new Class1411());
-        this.Method1161((Class42)new Class1008());
-        this.Method1161((Class42)new Class186());
+        this.Method1161(new Class1925());
+        this.Method1161(new Class1411());
+        this.Method1161(new Class1008());
+        this.Method1161(new Class186());
         this.Method1161(new Class344());
-        this.Method1161((Class42)new Class131());
-        this.Method1161((Class42)Class1783.Field16200);
-        this.Method1161((Class42)new Class1259());
+        this.Method1161(new Class131());
+        this.Method1161(Class1783.Field16200);
+        this.Method1161(new Class1259());
         this.Method1161(new Class903());
-        this.Method1161((Class42)Class1831.Field16465);
-        this.Method1161((Class42)new Class1687());
+        this.Method1161(Class1831.Field16465);
+        this.Method1161(new Class1687());
         this.Method1161(new Class472());
         this.Method1161(new Class547());
-        this.Method1161((Class42)Class1119.Field13034);
-        this.Method1161((Class42)new Class1768());
-        this.Method1161((Class42)Class1534.Field15169);
+        this.Method1161(Class1119.Field13034);
+        this.Method1161(new Class1768());
+        this.Method1161(Class1534.Field15169);
         this.Method1161(new Class997());
-        this.Method1161((Class42)Class1409.Field14381);
+        this.Method1161(Class1409.Field14381);
         this.Method1161(new Class778());
         this.Method1161(new Class227());
-        this.Method1161((Class42)new Class1194());
+        this.Method1161(new Class1194());
         this.Method1161(new Class576());
-        this.Method1161((Class42)Class1337.Field14113);
+        this.Method1161(Class1337.Field14113);
         this.Method1161(new Class318());
-        this.Method1161((Class42)new Class109());
-        this.Method1161((Class42)new Class1075());
+        this.Method1161(new Class109());
+        this.Method1161(new Class1075());
         this.Method1161(new Class461());
-        this.Method1161((Class42)new Class1819());
+        this.Method1161(new Class1819());
         this.Method1161(new Class831());
-        this.Method1161((Class42)new Class1379());
-        this.Method1161((Class42)new Class142());
+        this.Method1161(new Class1379());
+        this.Method1161(new Class142());
         this.Method1161(new Class486());
         this.Method1161(new Class40());
-        this.Method1161((Class42)new Class1219());
+        this.Method1161(new Class1219());
         this.Method1161(new Class517());
-        this.Method1161((Class42)new Class1850());
+        this.Method1161(new Class1850());
         this.Method1161(new Class968());
-        this.Method1161((Class42)new Class1821());
+        this.Method1161(new Class1821());
         this.Method1161(new Class58());
         this.Method1161(new Class742());
         this.Method1161(new Class214());
@@ -141,184 +369,188 @@ public class Class194
         this.Method1161(new Class2134());
         this.Method1161(new Class592());
         this.Method1161(new Class2061());
-        this.Method1161((Class42)new Class1112());
-        this.Method1161((Class42)new Class1733());
+        this.Method1161(new Class1112());
+        this.Method1161(new Class1733());
         this.Method1161(new Class589());
         this.Method1161(new Class982());
-        this.Method1161((Class42)new Class1810());
-        this.Method1161((Class42)new Class1125());
-        this.Method1161((Class42)new Class1877());
-        this.Method1161((Class42)new Class1391());
-        this.Method1161((Class42)new Class1289());
+        this.Method1161(new Class1810());
+        this.Method1161(new Class1125());
+        this.Method1161(new Class1877());
+        this.Method1161(new Class1391());
+        this.Method1161(new Class1289());
         this.Method1161(new Class569());
-        this.Method1161((Class42)new Class1035());
+        this.Method1161(new Class1035());
         this.Method1161(new Class761());
         this.Method1161(new Class2144());
         this.Method1161(new Class2063());
-        this.Method1161((Class42)new Class1447());
+        this.Method1161(new Class1447());
         this.Method1161(new Class2170());
         this.Method1161(new Class965());
-        this.Method1161((Class42)new Class1913());
+        this.Method1161(new Class1913());
         this.Method1161(new Class940());
         this.Method1161(new Class975());
         this.Method1161(new Class505());
         this.Method1161(new Class514());
         this.Method1161(new Class869());
         this.Method1161(new Class843());
-        this.Method1161((Class42)new Class1192());
+        this.Method1161(new Class1192());
         this.Method1161(new Class523());
-        this.Method1161((Class42)new Class1910());
-        this.Method1161((Class42)new Class1126());
+        this.Method1161(new Class1910());
+        this.Method1161(new Class1126());
         this.Method1161(new Class621());
         this.Method1161(new Class2165());
-        this.Method1161((Class42)Class1540.Field15191);
+        this.Method1161(Class1540.Field15191);
         this.Method1161(new Class683());
         this.Method1161(new Class896());
-        this.Method1161((Class42)new Class1175());
-        this.Method1161((Class42)new Class136());
-        this.Method1161((Class42)new Class1812());
+        this.Method1161(new Class1175());
+        this.Method1161(new Class136());
+        this.Method1161(new Class1812());
         this.Method1161(new Class67());
         this.Method1161(new Class679());
-        this.Method1161((Class42)new Class1294());
-        this.Method1161((Class42)new Class1555());
-        this.Method1161((Class42)new Class1133());
+        this.Method1161(new Class1294());
+        this.Method1161(new Class1555());
+        this.Method1161(new Class1133());
         this.Method1161(new Class1969());
         this.Method1161(new Class331());
-        this.Method1161((Class42)Class1909.Field16809);
-        this.Method1161((Class42)new Class1022());
+        this.Method1161(Class1909.Field16809);
+        this.Method1161(new Class1022());
         this.Method1161(new Class27());
-        this.Method1161((Class42)new Class1299());
+        this.Method1161(new Class1299());
         this.Method1161(new Class412());
         this.Method1161(new Class747());
         this.Method1161(new Class895());
-        this.Method1161((Class42)new Class1809());
+        this.Method1161(new Class1809());
         this.Method1161(new Class2108());
         this.Method1161(new Class1970());
         this.Method1161(new Class858());
         this.Method1161(new Class252());
-        this.Method1161((Class42)new Class1288());
+        this.Method1161(new Class1288());
         this.Method1161(new Class696());
-        this.Method1161((Class42)new Class1805());
-        this.Method1161((Class42)new Class1860());
+        this.Method1161(new Class1805());
+        this.Method1161(new Class1860());
         this.Method1161(new Class2128());
-        this.Method1161((Class42)new Class1347());
-        this.Method1161((Class42)new Class1116());
-        this.Method1161((Class42)new Class1874());
+        this.Method1161(new Class1347());
+        this.Method1161(new Class1116());
+        this.Method1161(new Class1874());
         this.Method1161(new Class413());
         this.Method1161(new Class2());
-        this.Method1161((Class42)new Class1777());
+        this.Method1161(new Class1777());
         this.Method1161(new Class740());
         this.Method1161(new Class575());
-        this.Method1161((Class42)new Class1485());
-        this.Method1161((Class42)new Class1747());
-        this.Method1161((Class42)new Class1699());
-        this.Method1161((Class42)new Class170());
-        this.Method1161((Class42)new Class1437());
+        this.Method1161(new Class1485());
+        this.Method1161(new Class1747());
+        this.Method1161(new Class1699());
+        this.Method1161(new Class170());
+        this.Method1161(new Class1437());
         this.Method1161(new Class945());
         this.Method1161(new Class454());
         this.Method1161(new Class2016());
-        this.Method1161((Class42)new Class1653());
+        this.Method1161(new Class1653());
         this.Method1161(new Class665());
         this.Method1161(new Class624());
-        this.Method1161((Class42)new Class1098());
+        this.Method1161(new Class1098());
         this.Method1161(new Class709());
-        this.Method1161((Class42)new Class1778());
-        this.Method1161((Class42)new Class1104());
+        this.Method1161(new Class1778());
+        this.Method1161(new Class1104());
         this.Method1161(new Class848());
-        this.Method1161((Class42)new Class1227());
+        this.Method1161(new Class1227());
         this.Method1161(new Class853());
         this.Method1161(new Class972());
         this.Method1161(new Class991());
-        this.Method1161((Class42)new Class1287());
+        this.Method1161(new Class1287());
         this.Method1161(new Class943());
-        this.Method1161((Class42)new Class1056());
+        this.Method1161(new Class1056());
         this.Method1161(new Class496());
         this.Method1161(new Class748());
-        this.Method1161((Class42)new Class1686());
+        this.Method1161(new Class1686());
         this.Method1161(new Class1973());
         this.Method1161(new Class198());
         this.Method1161(new Class500());
         this.Method1161(new Class1998());
-        this.Method1161((Class42)new Class1224());
-        this.Method1161((Class42)new Class1766());
+        this.Method1161(new Class1224());
+        this.Method1161(new Class1766());
         this.Method1161(new Class639());
         this.Method1161(new Class2081());
-        this.Method1161((Class42)new Class1676());
+        this.Method1161(new Class1676());
         this.Method1161(new Class769());
-        this.Method1161((Class42)new Class1084());
-        this.Method1161((Class42)new Class1657());
+        this.Method1161(new Class1084());
+        this.Method1161(new Class1657());
         this.Method1161(new Class38());
     }
-    
-    private void Method1161(final Class42 class42) {
+
+    private void Method1161(Class42 class42) {
         this.Field8854.add(class42);
         Class1796.Field16243.info("Registering " + class42.Method40() + " module!");
-        if (class42.getClass().isAnnotationPresent(Class99.class)) {
-            this.Field8855.add(class42);
-        }
+        if (!class42.getClass().isAnnotationPresent(Class99.class)) return;
+        this.Field8855.add(class42);
     }
-    
-    public Class42 Method1162(final String anotherString) {
-        for (final Class42 class42 : this.Field8854) {
-            if (class42.Method40().equalsIgnoreCase(anotherString)) {
-                return class42;
-            }
-        }
-        return null;
+
+    public Class42 Method1162(String string) {
+        Class42 class42;
+        Iterator iterator = this.Field8854.iterator();
+        do {
+            if (!iterator.hasNext()) return null;
+        } while (!(class42 = (Class42)iterator.next()).Method40().equalsIgnoreCase(string));
+        return class42;
     }
-    
-    public Class42 Method1163(final String anotherString, final boolean b, final boolean b2) {
-        for (final Class42 class42 : this.Field8854) {
-            if ((b2 || !(class42 instanceof Class1096)) && (b || !(class42 instanceof Class1089)) && class42.Method40().equalsIgnoreCase(anotherString)) {
-                return class42;
-            }
-        }
-        return null;
+
+    public Class42 Method1163(String string, boolean bl, boolean bl2) {
+        Class42 class42;
+        Iterator iterator = this.Field8854.iterator();
+        do {
+            if (!iterator.hasNext()) return null;
+            class42 = (Class42)iterator.next();
+        } while (!bl2 && class42 instanceof Class1096 || !bl && class42 instanceof Class1089 || !class42.Method40().equalsIgnoreCase(string));
+        return class42;
     }
-    
-    public ArrayList Method1164(final Class97 class97) {
-        final ArrayList<Class42> list = new ArrayList<Class42>();
-        for (final Class42 e : this.Field8854) {
-            if (e.Method41() == class97) {
-                list.add(e);
-            }
+
+    public ArrayList Method1164(Class97 class97) {
+        ArrayList<Class42> arrayList = new ArrayList<Class42>();
+        Iterator iterator = this.Field8854.iterator();
+        while (iterator.hasNext()) {
+            Class42 class42 = (Class42)iterator.next();
+            if (class42.Method41() != class97) continue;
+            arrayList.add(class42);
         }
-        return list;
+        return arrayList;
     }
-    
+
     public ArrayList Method1165() {
-        final ArrayList<Object> list = new ArrayList<Object>();
-        this.Field8854.stream().filter(Class42::Method35).forEach(list::add);
-        return list;
+        ArrayList arrayList = new ArrayList();
+        this.Field8854.stream().filter(Class42::Method35).forEach(arrayList::add);
+        return arrayList;
     }
-    
+
     @SubscribeEvent
     @SubscribeEvent
-    public void Method1166(final TickEvent$ClientTickEvent tickEvent$ClientTickEvent) {
-        for (final Class42 class42 : this.Field8854) {
-            if (class42.Method35()) {
-                class42.Method45();
-            }
+    public void Method1166(TickEvent.ClientTickEvent clientTickEvent) {
+        Iterator iterator = this.Field8854.iterator();
+        while (iterator.hasNext()) {
+            Class42 class42 = (Class42)iterator.next();
+            if (!class42.Method35()) continue;
+            class42.Method45();
         }
     }
-    
-    public void Method1167(final char c, final int n, final Class42 class42) {
-        if (class42.Method35()) {
-            class42.Method48();
-            class42.Method49(n);
-            class42.Method50(c, n);
-        }
+
+    public void Method1167(char c, int n, Class42 class42) {
+        if (!class42.Method35()) return;
+        class42.Method48();
+        class42.Method49(n);
+        class42.Method50(c, n);
     }
-    
-    private static String Method1168(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x67B4 ^ 0xF4));
-            }
-            return new String(value);
+
+    private static String Method1168(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 244;
+            cArray2[n] = (char)(cArray[n] ^ (0x67B4 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

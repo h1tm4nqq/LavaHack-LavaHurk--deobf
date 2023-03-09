@@ -1,14 +1,14 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public class Class889 extends Exception
-{
+public class Class889
+extends Exception {
     private int Field11732;
-    
-    public Class889(final String format, final Object... args) {
-        super(String.format(format, args));
+
+    public Class889(String string, Object ... objectArray) {
+        super(String.format(string, objectArray));
     }
 }
+

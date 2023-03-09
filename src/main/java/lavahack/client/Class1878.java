@@ -1,14 +1,16 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.*;
+import java.util.List;
+import lavahack.client.Class1728;
+import lavahack.client.Class2129;
+import lavahack.client.Class630;
 
-public interface Class1878
-{
-    Class1728 Method1312(final Class630 p0, final Class2129 p1);
-    
-    Class1728 Method1313(final Class630 p0, final List p1);
+public interface Class1878 {
+    public Class1728 Method1312(Class630 var1, Class2129 var2);
+
+    public Class1728 Method1313(Class630 var1, List var2);
 }
+

@@ -1,72 +1,90 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-public class Class1726 implements Class1720
-{
+import lavahack.loader.Class1720;
+import lavahack.loader.Class1926;
+import lavahack.loader.Class902;
+import lavahack.loader.Class939;
+
+public class Class1726
+implements Class1720 {
     private int Field15928;
-    
-    public void Method6571(final Class1926 class1926) throws Class902 {
+
+    @Override
+    public void Method6571(Class1926 class1926) throws Class902 {
     }
-    
-    public void Method6572(final Class1926 class1926) {
+
+    @Override
+    public void Method6572(Class1926 class1926) {
     }
-    
-    public boolean Method6573(final String s) {
+
+    @Override
+    public boolean Method6573(String string) {
         return true;
     }
-    
-    public boolean Method6574(final String s) {
+
+    @Override
+    public boolean Method6574(String string) {
         return true;
     }
-    
-    public void Method6575(final Class1926 class1926) throws Class902 {
-        if (class1926.Method77() || class1926.Method78() || class1926.Method79()) {
-            throw new Class939("bad rsv RSV1: " + class1926.Method77() + " RSV2: " + class1926.Method78() + " RSV3: " + class1926.Method79());
-        }
+
+    @Override
+    public void Method6575(Class1926 class1926) throws Class902 {
+        if (class1926.Method77()) throw new Class939("bad rsv RSV1: " + class1926.Method77() + " RSV2: " + class1926.Method78() + " RSV3: " + class1926.Method79());
+        if (class1926.Method78()) throw new Class939("bad rsv RSV1: " + class1926.Method77() + " RSV2: " + class1926.Method78() + " RSV3: " + class1926.Method79());
+        if (!class1926.Method79()) return;
+        throw new Class939("bad rsv RSV1: " + class1926.Method77() + " RSV2: " + class1926.Method78() + " RSV3: " + class1926.Method79());
     }
-    
+
+    @Override
     public String Method6576() {
         return "";
     }
-    
+
+    @Override
     public String Method6577() {
         return "";
     }
-    
+
+    @Override
     public Class1720 Method6578() {
-        return (Class1720)new Class1726();
+        return new Class1726();
     }
-    
+
+    @Override
     public void Method6579() {
     }
-    
+
     @Override
     public String toString() {
         return this.getClass().getSimpleName();
     }
-    
-    @Override
+
     public int hashCode() {
         return this.getClass().hashCode();
     }
-    
-    @Override
-    public boolean equals(final Object o) {
-        return this == o || (o != null && this.getClass() == o.getClass());
+
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null) return false;
+        if (this.getClass() != object.getClass()) return false;
+        return true;
     }
-    
-    private static String Method6597(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x1749 ^ 0xBF));
-            }
-            return new String(value);
+
+    private static String Method6597(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 191;
+            cArray2[n] = (char)(cArray[n] ^ (0x1749 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

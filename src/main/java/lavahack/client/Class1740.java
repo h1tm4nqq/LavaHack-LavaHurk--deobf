@@ -1,103 +1,107 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.TextComponentTranslation
+ */
 package lavahack.client;
 
-import net.minecraft.client.*;
-import net.minecraft.util.text.*;
+import lavahack.client.Class1393;
+import lavahack.client.Class42;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 
-public abstract class Class1740
-{
-    final Minecraft Field15981;
-    Class Field15982;
+public abstract class Class1740 {
+    final Minecraft Field15981 = Minecraft.getMinecraft();
+    Class Field15982 = null;
     private String Field15983 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class1740() {
-        this.Field15981 = Minecraft.getMinecraft();
-        this.Field15982 = null;
+
+    void Method1871(Class clazz) {
+        this.Field15982 = clazz;
     }
-    
-    void Method1871(final Class field15982) {
-        this.Field15982 = field15982;
-    }
-    
+
     final String Method1872() {
-        final Class42 class42 = Class1393.Field14314.get(this.Field15982);
-        if (class42 == null) {
-            return "null";
-        }
-        return class42.Method40();
+        Class42 class42 = (Class42)Class1393.Field14314.get(this.Field15982);
+        if (class42 != null) return class42.Method40();
+        return "null";
     }
-    
+
     final String Method1873() {
         return this.Field15982.getSimpleName();
     }
-    
-    public final void Method1874(final ITextComponent textComponent) {
+
+    public final void Method1874(ITextComponent iTextComponent) {
         if (this.Field15981.player == null) {
             return;
         }
-        this.Field15981.ingameGUI.getChatGUI().printChatMessage(textComponent);
+        this.Field15981.ingameGUI.getChatGUI().printChatMessage(iTextComponent);
     }
-    
-    public final void Method1875(final String s) {
-        this.Method1874((ITextComponent)new TextComponentTranslation(s, new Object[0]));
+
+    public final void Method1875(String string) {
+        this.Method1874((ITextComponent)new TextComponentTranslation(string, new Object[0]));
     }
-    
-    public void Method1876(final String format, final Object... args) {
-        this.Method1882(String.format(format, args));
+
+    public void Method1876(String string, Object ... objectArray) {
+        this.Method1882(String.format(string, objectArray));
     }
-    
-    public void Method1877(final String format, final Object... args) {
-        this.Method1886(String.format(format, args));
+
+    public void Method1877(String string, Object ... objectArray) {
+        this.Method1886(String.format(string, objectArray));
     }
-    
-    public void Method1878(final String format, final Object... args) {
-        this.Method1888(String.format(format, args));
+
+    public void Method1878(String string, Object ... objectArray) {
+        this.Method1888(String.format(string, objectArray));
     }
-    
-    public void Method1879(final String format, final Object... args) {
-        this.Method1890(String.format(format, args));
+
+    public void Method1879(String string, Object ... objectArray) {
+        this.Method1890(String.format(string, objectArray));
     }
-    
-    public void Method1880(final String format, final Object... args) {
-        this.Method1892(String.format(format, args));
+
+    public void Method1880(String string, Object ... objectArray) {
+        this.Method1892(String.format(string, objectArray));
     }
-    
-    public abstract void Method1881(final ITextComponent p0);
-    
-    public abstract void Method1882(final String p0);
-    
-    public abstract void Method1883(final String p0, final Class42 p1);
-    
-    public abstract void Method1884(final ITextComponent p0, final Class42 p1);
-    
-    public abstract void Method1885(final ITextComponent p0);
-    
-    public abstract void Method1886(final String p0);
-    
-    public abstract void Method1887(final ITextComponent p0);
-    
-    public abstract void Method1888(final String p0);
-    
-    public abstract void Method1889(final ITextComponent p0);
-    
-    public abstract void Method1890(final String p0);
-    
-    public abstract void Method1891(final ITextComponent p0);
-    
-    public abstract void Method1892(final String p0);
-    
-    private static String Method1893(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x767E ^ 0x15));
-            }
-            return new String(value);
+
+    public abstract void Method1881(ITextComponent var1);
+
+    public abstract void Method1882(String var1);
+
+    public abstract void Method1883(String var1, Class42 var2);
+
+    public abstract void Method1884(ITextComponent var1, Class42 var2);
+
+    public abstract void Method1885(ITextComponent var1);
+
+    public abstract void Method1886(String var1);
+
+    public abstract void Method1887(ITextComponent var1);
+
+    public abstract void Method1888(String var1);
+
+    public abstract void Method1889(ITextComponent var1);
+
+    public abstract void Method1890(String var1);
+
+    public abstract void Method1891(ITextComponent var1);
+
+    public abstract void Method1892(String var1);
+
+    private static String Method1893(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 21;
+            cArray2[n] = (char)(cArray[n] ^ (0x767E ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

@@ -1,33 +1,26 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public enum Class1704
-{
-    Field15887("Single", 0), 
-    Field15888("All", 1);
-    
-    private static final Class1704[] Field15889;
+public enum Class1704 {
+    Field15887,
+    Field15888;
+
     private String Field15890 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    private Class1704(final String name, final int ordinal) {
-    }
-    
-    static {
-        Field15889 = new Class1704[] { Class1704.Field15887, Class1704.Field15888 };
-    }
-    
-    private static String Method6531(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x6571 ^ 0x51));
-            }
-            return new String(value);
+
+    private static String Method6531(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 81;
+            cArray2[n] = (char)(cArray[n] ^ (0x6571 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

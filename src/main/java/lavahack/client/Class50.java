@@ -1,25 +1,29 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.tileentity.TileEntity
+ */
 package lavahack.client;
 
-import net.minecraft.tileentity.*;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.tileentity.TileEntity;
 
-public class Class50 extends Exception
-{
+public class Class50
+extends Exception {
     private int Field8145;
-    
-    public Class50(final String message, final Throwable cause) {
-        super(message, cause);
+
+    public Class50(String string, Throwable throwable) {
+        super(string, throwable);
     }
-    
-    public Class50(final TileEntity obj, final Throwable cause) {
-        super(String.valueOf(obj), cause);
+
+    public Class50(TileEntity tileEntity, Throwable throwable) {
+        super(String.valueOf(tileEntity), throwable);
     }
-    
-    public Class50(final Entity obj, final Throwable cause) {
-        super(String.valueOf(obj), cause);
+
+    public Class50(Entity entity, Throwable throwable) {
+        super(String.valueOf(entity), throwable);
     }
 }
+

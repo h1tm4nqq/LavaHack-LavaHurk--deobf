@@ -1,13 +1,16 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.resources.IResource
+ */
 package lavahack.client;
 
-import net.minecraft.client.resources.*;
+import lavahack.client.Class1980;
+import net.minecraft.client.resources.IResource;
 
 @FunctionalInterface
-public interface Class1535
-{
-    IResource Method3676() throws Class1980;
+public interface Class1535 {
+    public IResource Method3676() throws Class1980;
 }
+

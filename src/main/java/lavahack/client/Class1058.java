@@ -1,28 +1,32 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.Entity
+ */
 package lavahack.client;
 
-import net.minecraft.entity.*;
-import java.util.*;
+import java.util.List;
+import lavahack.client.Class1247;
+import lavahack.client.Class793;
+import net.minecraft.entity.Entity;
 
-abstract class Class1058
-{
+abstract class Class1058 {
     private String Field12677 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     private Class1058() {
     }
-    
-    public abstract List Method2271(final Class1247 p0, final Entity p1);
-    
-    public abstract List Method2272(final Entity p0);
-    
-    public abstract List Method2273(final Entity p0);
-    
-    public abstract List Method2274(final Entity p0);
-    
-    Class1058(final Class793 class793) {
+
+    public abstract List Method2271(Class1247 var1, Entity var2);
+
+    public abstract List Method2272(Entity var1);
+
+    public abstract List Method2273(Entity var1);
+
+    public abstract List Method2274(Entity var1);
+
+    Class1058(Class793 class793) {
         this();
     }
 }
+

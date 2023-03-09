@@ -1,25 +1,27 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.math.AxisAlignedBB
+ */
 package lavahack.client;
 
-import net.minecraft.util.math.*;
-import java.awt.*;
+import java.awt.Color;
+import lavahack.client.Class450;
+import lavahack.client.Class815;
+import net.minecraft.util.math.AxisAlignedBB;
 
-enum Class98
-{
+final class Class98
+extends Class450 {
     private String Field8351 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    Class98(final String s, final int n) {
-    }
-    
-    void Method809(final AxisAlignedBB axisAlignedBB, final Color color, final Color color2, final boolean b, final Object... array) {
-        if (b) {
+
+    @Override
+    void Method809(AxisAlignedBB axisAlignedBB, Color color, Color color2, boolean bl, Object ... objectArray) {
+        if (bl) {
             Class815.Method3460(axisAlignedBB, color, color2);
+            return;
         }
-        else {
-            Class815.Method3456(axisAlignedBB, color);
-        }
+        Class815.Method3456(axisAlignedBB, color);
     }
 }
+

@@ -1,108 +1,129 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.jvm.internal.Intrinsics
+ *  net.minecraft.block.Block
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.server.SPacketBlockChange
+ *  net.minecraft.network.play.server.SPacketRespawn
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.math.ChunkPos
+ */
 package lavahack.client;
 
-import kotlin.*;
-import kotlin.jvm.internal.*;
-import net.minecraft.network.play.server.*;
-import net.minecraft.network.*;
-import net.minecraft.util.math.*;
-import java.util.*;
-import net.minecraft.block.state.*;
-import net.minecraft.block.*;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
+import lavahack.client.Class1101;
+import lavahack.client.Class1393;
+import lavahack.client.Class1740;
+import lavahack.client.Class254;
+import lavahack.client.Class44;
+import lavahack.client.Class504;
+import lavahack.client.Class544;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.SPacketBlockChange;
+import net.minecraft.network.play.server.SPacketRespawn;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 3, d1 = { "\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\u000e\u0010\u0002\u001a\n \u0004*\u0004\u0018\u00010\u00030\u0003H\n?\u0006\u0002\b\u0005" }, d2 = { "<anonymous>", "", "it", "Lcom/kisman/cc/event/events/PacketEvent$Receive;", "kotlin.jvm.PlatformType", "invoke" })
-final class Class657 implements Class254
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=3, d1={"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\u000e\u0010\u0002\u001a\n \u0004*\u0004\u0018\u00010\u00030\u0003H\n\u00a2\u0006\u0002\b\u0005"}, d2={"<anonymous>", "", "it", "Lcom/kisman/cc/event/events/PacketEvent$Receive;", "kotlin.jvm.PlatformType", "invoke"})
+final class Class657
+implements Class254 {
     final Class504 Field10807;
     private String Field10808 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public void Method979(final Object o) {
-        this.Method2831((Class544)o);
+
+    @Override
+    public void Method979(Object object) {
+        this.Method2831((Class544)object);
     }
-    
-    public final void Method2831(final Class544 class544) {
+
+    public final void Method2831(Class544 class544) {
         if (Class504.Method2331(this.Field10807) == null) {
             return;
         }
-        Intrinsics.checkExpressionValueIsNotNull((Object)class544, "it");
-        final Packet method982 = class544.Method982();
-        if (method982 instanceof SPacketBlockChange) {
-            String str = "unknown";
-            if (Intrinsics.areEqual((Object)((SPacketBlockChange)method982).getBlockPosition(), (Object)Class504.Method2333(this.Field10807))) {
-                str = "heartbeat";
-                final Class1101 method983 = Class504.Method2331(this.Field10807);
-                if (method983 == null) {
+        Class544 class5442 = class544;
+        Intrinsics.checkExpressionValueIsNotNull((Object)class5442, (String)"it");
+        Packet packet = class5442.Method982();
+        if (packet instanceof SPacketBlockChange) {
+            String string = "unknown";
+            if (Intrinsics.areEqual((Object)((SPacketBlockChange)packet).getBlockPosition(), (Object)Class504.Method2333(this.Field10807))) {
+                string = "heartbeat";
+                Class1101 class1101 = Class504.Method2331(this.Field10807);
+                if (class1101 == null) {
                     Intrinsics.throwNpe();
                 }
-                method983.Method4504();
-            }
-            else {
-                final BlockPos getBlockPosition = ((SPacketBlockChange)method982).getBlockPosition();
-                Intrinsics.checkExpressionValueIsNotNull((Object)getBlockPosition, "packet.blockPosition");
-                if (getBlockPosition.getY() != 0) {
+                class1101.Method4504();
+            } else {
+                BlockPos blockPos = ((SPacketBlockChange)packet).getBlockPosition();
+                Intrinsics.checkExpressionValueIsNotNull((Object)blockPos, (String)"packet.blockPosition");
+                if (blockPos.getY() != 0) {
                     return;
                 }
-                final Class1101 method984 = Class504.Method2331(this.Field10807);
-                if (method984 == null) {
+                Class1101 class1101 = Class504.Method2331(this.Field10807);
+                if (class1101 == null) {
                     Intrinsics.throwNpe();
                 }
-                for (final ChunkPos chunkPos : method984.Method4498()) {
-                    if (Intrinsics.areEqual((Object)chunkPos.getBlock(0, 0, 0), (Object)((SPacketBlockChange)method982).getBlockPosition())) {
-                        final Class1101 method985 = Class504.Method2331(this.Field10807);
-                        if (method985 == null) {
-                            Intrinsics.throwNpe();
-                        }
-                        final ChunkPos chunkPos2 = chunkPos;
-                        Intrinsics.checkExpressionValueIsNotNull((Object)chunkPos2, "chunk");
-                        method985.Method4507(chunkPos2);
-                        str = "primary chunk";
-                        break;
+                for (ChunkPos chunkPos : class1101.Method4498()) {
+                    if (!Intrinsics.areEqual((Object)chunkPos.getBlock(0, 0, 0), (Object)((SPacketBlockChange)packet).getBlockPosition())) continue;
+                    Class1101 class11012 = Class504.Method2331(this.Field10807);
+                    if (class11012 == null) {
+                        Intrinsics.throwNpe();
                     }
+                    ChunkPos chunkPos2 = chunkPos;
+                    Intrinsics.checkExpressionValueIsNotNull((Object)chunkPos2, (String)"chunk");
+                    class11012.Method4507(chunkPos2);
+                    string = "primary chunk";
+                    break;
                 }
             }
-            final Class44 method986 = this.Field10807.Method2320();
-            Intrinsics.checkExpressionValueIsNotNull((Object)method986, "this.debug");
-            if (method986.Method365()) {
-                final Class1740 method987 = Class1393.Method5506();
-                final StringBuilder append = new StringBuilder().append(str).append(' ').append(((SPacketBlockChange)method982).getBlockPosition().toString()).append(" -> ");
-                final IBlockState blockState = ((SPacketBlockChange)method982).blockState;
-                Intrinsics.checkExpressionValueIsNotNull((Object)blockState, "packet.blockState");
-                final Block getBlock = blockState.getBlock();
-                Intrinsics.checkExpressionValueIsNotNull((Object)getBlock, "packet.blockState.block");
-                method987.Method1886(append.append(getBlock.getLocalizedName()).toString());
-            }
+            Class44 class44 = this.Field10807.Method2320();
+            Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"this.debug");
+            if (!class44.Method365()) return;
+            Class1740 class1740 = Class1393.Method5506();
+            StringBuilder stringBuilder = new StringBuilder().append(string).append(' ').append(((SPacketBlockChange)packet).getBlockPosition().toString()).append(" -> ");
+            IBlockState iBlockState = ((SPacketBlockChange)packet).blockState;
+            Intrinsics.checkExpressionValueIsNotNull((Object)iBlockState, (String)"packet.blockState");
+            Block block = iBlockState.getBlock();
+            Intrinsics.checkExpressionValueIsNotNull((Object)block, (String)"packet.blockState.block");
+            class1740.Method1886(stringBuilder.append(block.getLocalizedName()).toString());
+            return;
         }
-        else if (method982 instanceof SPacketRespawn) {
-            final Class1101 method988 = Class504.Method2331(this.Field10807);
-            if (method988 == null) {
-                Intrinsics.throwNpe();
-            }
-            if (method988.Method4500() != ((SPacketRespawn)method982).getDimensionID()) {
-                final Class1101 method989 = Class504.Method2331(this.Field10807);
-                if (method989 == null) {
-                    Intrinsics.throwNpe();
-                }
-                method989.Method4505(((SPacketRespawn)method982).getDimensionID());
-            }
+        if (!(packet instanceof SPacketRespawn)) return;
+        Class1101 class1101 = Class504.Method2331(this.Field10807);
+        if (class1101 == null) {
+            Intrinsics.throwNpe();
         }
+        if (class1101.Method4500() == ((SPacketRespawn)packet).getDimensionID()) return;
+        Class1101 class11013 = Class504.Method2331(this.Field10807);
+        if (class11013 == null) {
+            Intrinsics.throwNpe();
+        }
+        class11013.Method4505(((SPacketRespawn)packet).getDimensionID());
     }
-    
-    Class657(final Class504 field10807) {
-        this.Field10807 = field10807;
+
+    Class657(Class504 class504) {
+        this.Field10807 = class504;
     }
-    
-    private static String Method2832(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0xD56 ^ 0xC2));
-            }
-            return new String(value);
+
+    private static String Method2832(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 194;
+            cArray2[n] = (char)(cArray[n] ^ (0xD56 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

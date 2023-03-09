@@ -1,171 +1,209 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  lavahack.client.aHsp7hHIuzANEyruZeiq3e1ocuEjb7cC$leqS0IyKEB621E1SrHdAcHHAUjScjmKi
+ *  net.minecraft.block.Block
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.multiplayer.WorldClient
+ *  net.minecraft.client.renderer.BufferBuilder
+ *  net.minecraft.client.renderer.OpenGlHelper
+ *  net.minecraft.client.renderer.RenderGlobal
+ *  net.minecraft.client.renderer.chunk.ChunkCompileTaskGenerator
+ *  net.minecraft.client.renderer.chunk.ChunkCompileTaskGenerator$Status
+ *  net.minecraft.client.renderer.chunk.CompiledChunk
+ *  net.minecraft.client.renderer.chunk.RenderChunk
+ *  net.minecraft.client.renderer.chunk.VisGraph
+ *  net.minecraft.client.renderer.vertex.DefaultVertexFormats
+ *  net.minecraft.client.renderer.vertex.VertexBuffer
+ *  net.minecraft.util.BlockRenderLayer
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.math.BlockPos$MutableBlockPos
+ *  net.minecraft.world.ChunkCache
+ *  net.minecraft.world.World
+ */
 package lavahack.client;
 
-import net.minecraft.client.renderer.vertex.*;
-import net.minecraft.world.*;
-import net.minecraft.client.renderer.chunk.*;
-import net.minecraft.client.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.client.multiplayer.*;
-import net.minecraft.client.renderer.*;
-import java.util.*;
-import net.minecraft.block.state.*;
-import net.minecraft.block.*;
+import lavahack.client.Class1479;
+import lavahack.client.Class2094;
+import lavahack.client.Class2162;
+import lavahack.client.Class32;
+import lavahack.client.Class87;
+import lavahack.client.aHsp7hHIuzANEyruZeiq3e1ocuEjb7cC;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderGlobal;
+import net.minecraft.client.renderer.chunk.ChunkCompileTaskGenerator;
+import net.minecraft.client.renderer.chunk.CompiledChunk;
+import net.minecraft.client.renderer.chunk.RenderChunk;
+import net.minecraft.client.renderer.chunk.VisGraph;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.vertex.VertexBuffer;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ChunkCache;
+import net.minecraft.world.World;
 
-public class Class1467 extends RenderChunk
-{
-    private final VertexBuffer Field14854;
+public class Class1467
+extends RenderChunk {
+    private final VertexBuffer Field14854 = OpenGlHelper.useVbo() ? new VertexBuffer(DefaultVertexFormats.POSITION_COLOR) : null;
     private String Field14855 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class1467(final World world, final RenderGlobal renderGlobal, final int n) {
+
+    public Class1467(World world, RenderGlobal renderGlobal, int n) {
         super(world, renderGlobal, n);
-        this.Field14854 = (OpenGlHelper.useVbo() ? new VertexBuffer(DefaultVertexFormats.POSITION_COLOR) : null);
     }
-    
-    public VertexBuffer getVertexBufferByLayer(final int n) {
+
+    public VertexBuffer getVertexBufferByLayer(int n) {
         return this.Field14854;
     }
-    
-    public void rebuildChunk(final float n, final float n2, final float n3, final ChunkCompileTaskGenerator chunkCompileTaskGenerator) {
-        final Class2094 class2094 = new Class2094();
-        final BlockPos getPosition = this.getPosition();
-        final BlockPos add = getPosition.add(15, 15, 15);
-        final BlockPos add2 = getPosition.add(-1, -1, -1);
-        final BlockPos add3 = add.add(1, 1, 1);
+
+    public void rebuildChunk(float f, float f2, float f3, ChunkCompileTaskGenerator chunkCompileTaskGenerator) {
+        Class2094 class2094 = new Class2094();
+        BlockPos blockPos = this.getPosition();
+        BlockPos blockPos2 = blockPos.add(15, 15, 15);
+        BlockPos blockPos3 = blockPos.add(-1, -1, -1);
+        BlockPos blockPos4 = blockPos2.add(1, 1, 1);
         chunkCompileTaskGenerator.getLock().lock();
-        final Class1479 class2095 = (Class1479)this.getWorld();
-        if (chunkCompileTaskGenerator.getStatus() != ChunkCompileTaskGenerator$Status.COMPILING) {
+        Class1479 class1479 = (Class1479)this.getWorld();
+        if (chunkCompileTaskGenerator.getStatus() != ChunkCompileTaskGenerator.Status.COMPILING) {
             chunkCompileTaskGenerator.getLock().unlock();
             return;
         }
-        if (getPosition.getX() < 0 || getPosition.getZ() < 0 || getPosition.getX() >= class2095.getWidth() || getPosition.getZ() >= class2095.getLength()) {
+        if (blockPos.getX() < 0 || blockPos.getZ() < 0 || blockPos.getX() >= class1479.getWidth() || blockPos.getZ() >= class1479.getLength()) {
             chunkCompileTaskGenerator.setCompiledChunk(CompiledChunk.DUMMY);
             chunkCompileTaskGenerator.getLock().unlock();
             return;
         }
-        final ChunkCache chunkCache = new ChunkCache(this.getWorld(), add2, add3, 1);
+        ChunkCache chunkCache = new ChunkCache(this.getWorld(), blockPos3, blockPos4, 1);
         chunkCompileTaskGenerator.setCompiledChunk((CompiledChunk)class2094);
         chunkCompileTaskGenerator.getLock().unlock();
-        final VisGraph visGraph = new VisGraph();
+        VisGraph visGraph = new VisGraph();
         if (!chunkCache.isEmpty()) {
-            ++Class1467.renderChunksUpdated;
-            final WorldClient world = Minecraft.getMinecraft().world;
-            final BlockRenderLayer translucent = BlockRenderLayer.TRANSLUCENT;
-            final BufferBuilder getWorldRendererByLayer = chunkCompileTaskGenerator.getRegionRenderCacheBuilder().getWorldRendererByLayer(translucent);
+            IBlockState iBlockState;
+            int n;
+            int n2;
+            int n3;
+            ++renderChunksUpdated;
+            WorldClient worldClient = Minecraft.getMinecraft().world;
+            BlockRenderLayer blockRenderLayer = BlockRenderLayer.TRANSLUCENT;
+            BufferBuilder bufferBuilder = chunkCompileTaskGenerator.getRegionRenderCacheBuilder().getWorldRendererByLayer(blockRenderLayer);
             Class2162.setStaticDelta(Class32.Field7979);
-            final aHsp7hHIuzANEyruZeiq3e1ocuEjb7cC$leqS0IyKEB621E1SrHdAcHHAUjScjmKi[][][] array = new aHsp7hHIuzANEyruZeiq3e1ocuEjb7cC$leqS0IyKEB621E1SrHdAcHHAUjScjmKi[18][18][18];
-            final BlockPos$MutableBlockPos blockPos$MutableBlockPos = new BlockPos$MutableBlockPos();
-            for (final BlockPos$MutableBlockPos blockPos$MutableBlockPos2 : BlockPos.getAllInBoxMutable(add2, add3)) {
-                if (class2095.isInside((BlockPos)blockPos$MutableBlockPos2)) {
-                    if (!class2095.Field14898.Method1104(class2095, blockPos$MutableBlockPos2.getY())) {
-                        continue;
-                    }
-                    final int n4 = blockPos$MutableBlockPos2.getX() - add2.getX();
-                    final int n5 = blockPos$MutableBlockPos2.getY() - add2.getY();
-                    final int n6 = blockPos$MutableBlockPos2.getZ() - add2.getZ();
-                    final IBlockState getBlockState = class2095.getBlockState((BlockPos)blockPos$MutableBlockPos2);
-                    getBlockState.getBlock();
-                    if (getBlockState.isOpaqueCube()) {
-                        visGraph.setOpaqueCube((BlockPos)blockPos$MutableBlockPos2);
-                    }
-                    blockPos$MutableBlockPos.setPos(blockPos$MutableBlockPos2.getX() + class2095.Field14896.getX(), blockPos$MutableBlockPos2.getY() + class2095.Field14896.getY(), blockPos$MutableBlockPos2.getZ() + class2095.Field14896.getZ());
-                    final Block getBlock = ((World)world).getBlockState((BlockPos)blockPos$MutableBlockPos).getBlock();
-                    final boolean isAirBlock = class2095.isAirBlock((BlockPos)blockPos$MutableBlockPos2);
-                    final boolean b = ((World)world).isAirBlock((BlockPos)blockPos$MutableBlockPos) || Class32.Method265(getBlock);
-                    if (Class32.Field7978) {}
-                    if (!Class32.Field7977 || isAirBlock) {
-                        continue;
-                    }
-                    array[n4][n5][n6] = (aHsp7hHIuzANEyruZeiq3e1ocuEjb7cC$leqS0IyKEB621E1SrHdAcHHAUjScjmKi)Class87.Field8296;
+            aHsp7hHIuzANEyruZeiq3e1ocuEjb7cC.leqS0IyKEB621E1SrHdAcHHAUjScjmKi[][][] leqS0IyKEB621E1SrHdAcHHAUjScjmKiArray = new aHsp7hHIuzANEyruZeiq3e1ocuEjb7cC.leqS0IyKEB621E1SrHdAcHHAUjScjmKi[18][18][18];
+            BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
+            for (BlockPos.MutableBlockPos mutableBlockPos2 : BlockPos.getAllInBoxMutable((BlockPos)blockPos3, (BlockPos)blockPos4)) {
+                boolean bl;
+                if (!class1479.isInside((BlockPos)mutableBlockPos2) || !class1479.Field14898.Method1104(class1479, mutableBlockPos2.getY())) continue;
+                n3 = mutableBlockPos2.getX() - blockPos3.getX();
+                n2 = mutableBlockPos2.getY() - blockPos3.getY();
+                n = mutableBlockPos2.getZ() - blockPos3.getZ();
+                iBlockState = class1479.getBlockState((BlockPos)mutableBlockPos2);
+                Block block = iBlockState.getBlock();
+                if (iBlockState.isOpaqueCube()) {
+                    visGraph.setOpaqueCube((BlockPos)mutableBlockPos2);
                 }
-            }
-            for (final BlockPos$MutableBlockPos blockPos$MutableBlockPos3 : BlockPos.getAllInBoxMutable(getPosition, add)) {
-                final int n7 = blockPos$MutableBlockPos3.getX() - add2.getX();
-                final int n8 = blockPos$MutableBlockPos3.getY() - add2.getY();
-                final int n9 = blockPos$MutableBlockPos3.getZ() - add2.getZ();
-                final Class87 class2096 = (Class87)array[n7][n8][n9];
-                if (class2096 != null) {
-                    if (!class2094.isLayerStarted(translucent)) {
-                        class2094.setLayerStarted(translucent);
-                        this.preRenderBlocks(getWorldRendererByLayer, getPosition);
-                    }
-                    Class2162.drawCuboid(getWorldRendererByLayer, (BlockPos)blockPos$MutableBlockPos3, this.getSides((Class87[][][])array, n7, n8, n9), 0x3F000000 | class2096.Field8297);
-                    class2094.setLayerUsed(translucent);
+                mutableBlockPos.setPos(mutableBlockPos2.getX() + class1479.Field14896.getX(), mutableBlockPos2.getY() + class1479.Field14896.getY(), mutableBlockPos2.getZ() + class1479.Field14896.getZ());
+                IBlockState iBlockState2 = worldClient.getBlockState((BlockPos)mutableBlockPos);
+                Block block2 = iBlockState2.getBlock();
+                boolean bl2 = class1479.isAirBlock((BlockPos)mutableBlockPos2);
+                boolean bl3 = bl = worldClient.isAirBlock((BlockPos)mutableBlockPos) || Class32.Method265(block2);
+                if (Class32.Field7978) {
                 }
+                if (!Class32.Field7977) continue;
+                if (bl2) continue;
+                leqS0IyKEB621E1SrHdAcHHAUjScjmKiArray[n3][n2][n] = Class87.Field8296;
             }
-            if (class2094.isLayerStarted(translucent)) {
-                this.postRenderBlocks(translucent, n, n2, n3, getWorldRendererByLayer, class2094);
+            for (BlockPos.MutableBlockPos mutableBlockPos2 : BlockPos.getAllInBoxMutable((BlockPos)blockPos, (BlockPos)blockPos2)) {
+                n3 = mutableBlockPos2.getX() - blockPos3.getX();
+                iBlockState = leqS0IyKEB621E1SrHdAcHHAUjScjmKiArray[n3][n2 = mutableBlockPos2.getY() - blockPos3.getY()][n = mutableBlockPos2.getZ() - blockPos3.getZ()];
+                if (iBlockState == null) continue;
+                if (!class2094.isLayerStarted(blockRenderLayer)) {
+                    class2094.setLayerStarted(blockRenderLayer);
+                    this.preRenderBlocks(bufferBuilder, blockPos);
+                }
+                int n4 = this.getSides((Class87[][][])leqS0IyKEB621E1SrHdAcHHAUjScjmKiArray, n3, n2, n);
+                Class2162.drawCuboid(bufferBuilder, (BlockPos)mutableBlockPos2, n4, 0x3F000000 | iBlockState.Field8297);
+                class2094.setLayerUsed(blockRenderLayer);
+            }
+            if (class2094.isLayerStarted(blockRenderLayer)) {
+                this.postRenderBlocks(blockRenderLayer, f, f2, f3, bufferBuilder, class2094);
             }
         }
         class2094.setVisibility(visGraph.computeVisibility());
     }
-    
-    private int getSides(final Class87[][][] array, final int i, final int j, final int k) {
-        if (i <= 0 || i >= 17) {
-            throw new IndexOutOfBoundsException("x cannot be in padding: " + i);
+
+    private int getSides(Class87[][][] class87Array, int n, int n2, int n3) {
+        if (n <= 0) throw new IndexOutOfBoundsException("x cannot be in padding: " + n);
+        if (n >= 17) {
+            throw new IndexOutOfBoundsException("x cannot be in padding: " + n);
         }
-        if (j <= 0 || j >= 17) {
-            throw new IndexOutOfBoundsException("y cannot be in padding: " + j);
+        if (n2 <= 0) throw new IndexOutOfBoundsException("y cannot be in padding: " + n2);
+        if (n2 >= 17) {
+            throw new IndexOutOfBoundsException("y cannot be in padding: " + n2);
         }
-        if (k <= 0 || k >= 17) {
-            throw new IndexOutOfBoundsException("z cannot be in padding: " + k);
+        if (n3 <= 0) throw new IndexOutOfBoundsException("z cannot be in padding: " + n3);
+        if (n3 >= 17) {
+            throw new IndexOutOfBoundsException("z cannot be in padding: " + n3);
         }
-        int n = 0;
-        final Class87 class87 = array[i][j][k];
-        if (array[i][j - 1][k] != class87) {
-            n |= 0x1;
+        int n4 = 0;
+        Class87 class87 = class87Array[n][n2][n3];
+        if (class87Array[n][n2 - 1][n3] != class87) {
+            n4 |= 1;
         }
-        if (array[i][j + 1][k] != class87) {
-            n |= 0x2;
+        if (class87Array[n][n2 + 1][n3] != class87) {
+            n4 |= 2;
         }
-        if (array[i][j][k - 1] != class87) {
-            n |= 0x4;
+        if (class87Array[n][n2][n3 - 1] != class87) {
+            n4 |= 4;
         }
-        if (array[i][j][k + 1] != class87) {
-            n |= 0x8;
+        if (class87Array[n][n2][n3 + 1] != class87) {
+            n4 |= 8;
         }
-        if (array[i - 1][j][k] != class87) {
-            n |= 0x10;
+        if (class87Array[n - 1][n2][n3] != class87) {
+            n4 |= 0x10;
         }
-        if (array[i + 1][j][k] != class87) {
-            n |= 0x20;
-        }
-        return n;
+        if (class87Array[n + 1][n2][n3] == class87) return n4;
+        n4 |= 0x20;
+        return n4;
     }
-    
-    private void postRenderBlocks(final BlockRenderLayer blockRenderLayer, final float n, final float n2, final float n3, final BufferBuilder bufferBuilder, final CompiledChunk compiledChunk) {
+
+    private void postRenderBlocks(BlockRenderLayer blockRenderLayer, float f, float f2, float f3, BufferBuilder bufferBuilder, CompiledChunk compiledChunk) {
         if (blockRenderLayer == BlockRenderLayer.TRANSLUCENT && !compiledChunk.isLayerEmpty(blockRenderLayer)) {
-            bufferBuilder.sortVertexData(n, n2, n3);
+            bufferBuilder.sortVertexData(f, f2, f3);
             compiledChunk.setState(bufferBuilder.getVertexState());
         }
         bufferBuilder.finishDrawing();
     }
-    
-    public void preRenderBlocks(final BufferBuilder bufferBuilder, final BlockPos blockPos) {
+
+    public void preRenderBlocks(BufferBuilder bufferBuilder, BlockPos blockPos) {
         bufferBuilder.begin(7, DefaultVertexFormats.POSITION_COLOR);
         bufferBuilder.setTranslation((double)(-blockPos.getX()), (double)(-blockPos.getY()), (double)(-blockPos.getZ()));
     }
-    
+
     public void deleteGlResources() {
         super.deleteGlResources();
-        if (this.Field14854 != null) {
-            this.Field14854.deleteGlBuffers();
-        }
+        if (this.Field14854 == null) return;
+        this.Field14854.deleteGlBuffers();
     }
-    
-    private static String a(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x1832 ^ 0x63));
-            }
-            return new String(value);
+
+    private static String a(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 99;
+            cArray2[n] = (char)(cArray[n] ^ (0x1832 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

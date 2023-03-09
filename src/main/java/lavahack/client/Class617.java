@@ -1,47 +1,73 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  lavahack.client.OP4La13R7rceTBm7QSP7XXXyRxZD1Op3$leqS0IyKEB621E1SrHdAcHHAUjScjmKi
+ */
 package lavahack.client;
 
-public enum Class617
-{
-    Field10633("ALL", 0, "schematica.gui.all"), 
-    Field10634("SINGLE_LAYER", 1, "schematica.gui.layers"), 
-    Field10635("ALL_BELOW", 2, "schematica.gui.below");
-    
+import lavahack.client.Class1479;
+import lavahack.client.Class179;
+import lavahack.client.Class188;
+import lavahack.client.Class190;
+import lavahack.client.OP4La13R7rceTBm7QSP7XXXyRxZD1Op3;
+
+public abstract class Class617
+extends Enum {
+    public static final /* enum */ Class617 Field10633 = new Class179("schematica.gui.all");
+    public static final /* enum */ Class617 Field10634 = new Class190("schematica.gui.layers");
+    public static final /* enum */ Class617 Field10635 = new Class188("schematica.gui.below");
     public final String Field10636;
-    private static final Class617[] Field10637;
+    private static final Class617[] Field10637 = new Class617[]{Field10633, Field10634, Field10635};
     private int Field10638;
-    
-    public abstract boolean Method1104(final Class1479 p0, final int p1);
-    
-    private Class617(final String name, final int ordinal, final String field10636) {
-        this.Field10636 = field10636;
+
+    public static Class617[] values() {
+        return (OP4La13R7rceTBm7QSP7XXXyRxZD1Op3.leqS0IyKEB621E1SrHdAcHHAUjScjmKi[])Field10637.clone();
     }
-    
-    public static Class617 Method1105(final Class617 class617) {
-        final Class617[] values = values();
-        return values[(class617.ordinal() + 1) % values.length];
+
+    public static Class617 valueOf(String string) {
+        return Enum.valueOf(Class617.class, string);
     }
-    
-    Class617(final String s, final int n, final String s2, final Class144 class144) {
-        this(s, n, s2);
+
+    public abstract boolean Method1104(Class1479 var1, int var2);
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    private Class617() {
+        void var3_1;
+        void var2_-1;
+        void var1_-1;
+        this.Field10636 = var3_1;
     }
-    
-    static {
-        Field10637 = new Class617[] { Class617.Field10633, Class617.Field10634, Class617.Field10635 };
+
+    public static Class617 Method1105(Class617 class617) {
+        Class617[] class617Array = Class617.values();
+        return class617Array[(class617.ordinal() + 1) % class617Array.length];
     }
-    
-    private static String Method1106(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x1F43 ^ 0xB4));
-            }
-            return new String(value);
+
+    /*
+     * WARNING - void declaration
+     */
+    Class617() {
+        this((String)var1_-1, (int)class144, (String)var3_2);
+        void var3_2;
+        void var1_-1;
+    }
+
+    private static String Method1106(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 180;
+            cArray2[n] = (char)(cArray[n] ^ (0x1F43 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

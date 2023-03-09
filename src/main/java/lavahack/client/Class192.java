@@ -1,110 +1,125 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.gui.ScaledResolution
+ *  net.minecraft.client.renderer.ActiveRenderInfo
+ *  net.minecraft.client.renderer.GLAllocation
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.util.math.Vec3d
+ *  net.minecraftforge.client.event.RenderWorldLastEvent
+ *  net.minecraftforge.common.MinecraftForge
+ *  net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+ *  org.lwjgl.opengl.GL11
+ *  org.lwjgl.util.vector.Matrix4f
+ *  org.lwjgl.util.vector.Vector4f
+ */
 package lavahack.client;
 
-import net.minecraft.client.*;
-import net.minecraft.util.math.*;
-import net.minecraftforge.common.*;
-import net.minecraftforge.client.event.*;
-import net.minecraftforge.fml.common.eventhandler.*;
-import net.minecraft.client.renderer.*;
-import org.lwjgl.opengl.*;
-import java.nio.*;
-import net.minecraft.client.gui.*;
-import org.lwjgl.util.vector.*;
+import java.nio.FloatBuffer;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.ActiveRenderInfo;
+import net.minecraft.client.renderer.GLAllocation;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.vector.Matrix4f;
+import org.lwjgl.util.vector.Vector4f;
 
-public class Class192
-{
-    private final Minecraft Field8847;
-    private final Matrix4f Field8848;
-    private final Matrix4f Field8849;
-    Vec3d Field8850;
+public class Class192 {
+    private final Minecraft Field8847 = Minecraft.getMinecraft();
+    private final Matrix4f Field8848 = new Matrix4f();
+    private final Matrix4f Field8849 = new Matrix4f();
+    Vec3d Field8850 = new Vec3d(0.0, 0.0, 0.0);
     private int Field8851;
-    
+
     public Class192() {
-        this.Field8847 = Minecraft.getMinecraft();
-        this.Field8848 = new Matrix4f();
-        this.Field8849 = new Matrix4f();
-        this.Field8850 = new Vec3d(0.0, 0.0, 0.0);
         MinecraftForge.EVENT_BUS.register((Object)this);
     }
-    
-    public static Vec3d Method1152(final Vec3d vec3d, final Vec3d vec3d2) {
+
+    public static Vec3d Method1152(Vec3d vec3d, Vec3d vec3d2) {
         return vec3d.add(-vec3d2.x, -vec3d2.y, -vec3d2.z);
     }
-    
+
     @SubscribeEvent
     @SubscribeEvent
-    public void Method1153(final RenderWorldLastEvent renderWorldLastEvent) {
+    public void Method1153(RenderWorldLastEvent renderWorldLastEvent) {
         if (this.Field8847.renderViewEntity == null) {
             return;
         }
-        final Vec3d projectViewFromEntity = ActiveRenderInfo.projectViewFromEntity(this.Field8847.renderViewEntity, (double)this.Field8847.getRenderPartialTicks());
-        final Vec3d cameraPosition = ActiveRenderInfo.getCameraPosition();
+        Vec3d vec3d = ActiveRenderInfo.projectViewFromEntity((Entity)this.Field8847.renderViewEntity, (double)this.Field8847.getRenderPartialTicks());
+        Vec3d vec3d2 = ActiveRenderInfo.getCameraPosition();
         this.Method1154(this.Field8848, 2982);
         this.Method1154(this.Field8849, 2983);
-        this.Field8850 = projectViewFromEntity.add(cameraPosition);
+        this.Field8850 = vec3d.add(vec3d2);
     }
-    
-    public void Method1154(final Matrix4f matrix4f, final int n) {
-        final FloatBuffer createDirectFloatBuffer = GLAllocation.createDirectFloatBuffer(16);
-        GL11.glGetFloat(n, createDirectFloatBuffer);
-        matrix4f.load(createDirectFloatBuffer);
+
+    public void Method1154(Matrix4f matrix4f, int n) {
+        FloatBuffer floatBuffer = GLAllocation.createDirectFloatBuffer((int)16);
+        GL11.glGetFloat((int)n, (FloatBuffer)floatBuffer);
+        matrix4f.load(floatBuffer);
     }
-    
-    public Vec3d Method1155(final Vec3d vec3d) {
-        final Vector4f method1157 = this.Method1157(vec3d);
-        final ScaledResolution scaledResolution = new ScaledResolution(this.Field8847);
-        final int getScaledWidth = scaledResolution.getScaledWidth();
-        final int getScaledHeight = scaledResolution.getScaledHeight();
-        method1157.x = getScaledWidth / 2.0f + (Float.intBitsToFloat(1056964608) * method1157.x * getScaledWidth + Float.intBitsToFloat(1056964608));
-        method1157.y = getScaledHeight / 2.0f - (Float.intBitsToFloat(1056964608) * method1157.y * getScaledHeight + Float.intBitsToFloat(1056964608));
-        return new Vec3d((double)method1157.x, (double)method1157.y, this.Method1159(method1157, getScaledWidth, getScaledHeight) ? 0.0 : Double.longBitsToDouble(-4616189618054758400L));
+
+    public Vec3d Method1155(Vec3d vec3d) {
+        Vector4f vector4f = this.Method1157(vec3d);
+        ScaledResolution scaledResolution = new ScaledResolution(this.Field8847);
+        int n = scaledResolution.getScaledWidth();
+        int n2 = scaledResolution.getScaledHeight();
+        vector4f.x = (float)n / 2.0f + (Float.intBitsToFloat(0x3F000000) * vector4f.x * (float)n + Float.intBitsToFloat(0x3F000000));
+        vector4f.y = (float)n2 / 2.0f - (Float.intBitsToFloat(0x3F000000) * vector4f.y * (float)n2 + Float.intBitsToFloat(0x3F000000));
+        double d = this.Method1159(vector4f, n, n2) ? 0.0 : Double.longBitsToDouble(-4616189618054758400L);
+        return new Vec3d((double)vector4f.x, (double)vector4f.y, d);
     }
-    
-    public Vec3d Method1156(final Vec3d vec3d) {
-        final Vector4f method1157 = this.Method1157(vec3d);
-        final int displayWidth = this.Field8847.displayWidth;
-        final int displayHeight = this.Field8847.displayHeight;
-        method1157.x = displayWidth / 2.0f + (Float.intBitsToFloat(1056964608) * method1157.x * displayWidth + Float.intBitsToFloat(1056964608));
-        method1157.y = displayHeight / 2.0f - (Float.intBitsToFloat(1056964608) * method1157.y * displayHeight + Float.intBitsToFloat(1056964608));
-        return new Vec3d((double)method1157.x, (double)method1157.y, this.Method1159(method1157, displayWidth, displayHeight) ? 0.0 : Double.longBitsToDouble(-4616189618054758400L));
+
+    public Vec3d Method1156(Vec3d vec3d) {
+        Vector4f vector4f = this.Method1157(vec3d);
+        int n = this.Field8847.displayWidth;
+        int n2 = this.Field8847.displayHeight;
+        vector4f.x = (float)n / 2.0f + (Float.intBitsToFloat(0x3F000000) * vector4f.x * (float)n + Float.intBitsToFloat(0x3F000000));
+        vector4f.y = (float)n2 / 2.0f - (Float.intBitsToFloat(0x3F000000) * vector4f.y * (float)n2 + Float.intBitsToFloat(0x3F000000));
+        double d = this.Method1159(vector4f, n, n2) ? 0.0 : Double.longBitsToDouble(-4616189618054758400L);
+        return new Vec3d((double)vector4f.x, (double)vector4f.y, d);
     }
-    
-    public Vector4f Method1157(final Vec3d vec3d) {
-        final Vec3d subtract = this.Field8850.subtract(vec3d);
-        final Vector4f vector4f = new Vector4f((float)subtract.x, (float)subtract.y, (float)subtract.z, 1.0f);
+
+    public Vector4f Method1157(Vec3d vec3d) {
+        Vec3d vec3d2 = this.Field8850.subtract(vec3d);
+        Vector4f vector4f = new Vector4f((float)vec3d2.x, (float)vec3d2.y, (float)vec3d2.z, 1.0f);
         this.Method1158(vector4f, this.Field8848);
         this.Method1158(vector4f, this.Field8849);
         if (vector4f.w > 0.0f) {
-            final Vector4f vector4f2 = vector4f;
-            vector4f2.x *= Float.intBitsToFloat(-943501312);
-            final Vector4f vector4f3 = vector4f;
-            vector4f3.y *= Float.intBitsToFloat(-943501312);
+            vector4f.x *= Float.intBitsToFloat(-943501312);
+            vector4f.y *= Float.intBitsToFloat(-943501312);
+            return vector4f;
         }
-        else {
-            final float n = 1.0f / vector4f.w;
-            final Vector4f vector4f4 = vector4f;
-            vector4f4.x *= n;
-            final Vector4f vector4f5 = vector4f;
-            vector4f5.y *= n;
-        }
+        float f = 1.0f / vector4f.w;
+        vector4f.x *= f;
+        vector4f.y *= f;
         return vector4f;
     }
-    
-    public void Method1158(final Vector4f vector4f, final Matrix4f matrix4f) {
-        final float x = vector4f.x;
-        final float y = vector4f.y;
-        final float z = vector4f.z;
-        vector4f.x = x * matrix4f.m00 + y * matrix4f.m10 + z * matrix4f.m20 + matrix4f.m30;
-        vector4f.y = x * matrix4f.m01 + y * matrix4f.m11 + z * matrix4f.m21 + matrix4f.m31;
-        vector4f.z = x * matrix4f.m02 + y * matrix4f.m12 + z * matrix4f.m22 + matrix4f.m32;
-        vector4f.w = x * matrix4f.m03 + y * matrix4f.m13 + z * matrix4f.m23 + matrix4f.m33;
+
+    public void Method1158(Vector4f vector4f, Matrix4f matrix4f) {
+        float f = vector4f.x;
+        float f2 = vector4f.y;
+        float f3 = vector4f.z;
+        vector4f.x = f * matrix4f.m00 + f2 * matrix4f.m10 + f3 * matrix4f.m20 + matrix4f.m30;
+        vector4f.y = f * matrix4f.m01 + f2 * matrix4f.m11 + f3 * matrix4f.m21 + matrix4f.m31;
+        vector4f.z = f * matrix4f.m02 + f2 * matrix4f.m12 + f3 * matrix4f.m22 + matrix4f.m32;
+        vector4f.w = f * matrix4f.m03 + f2 * matrix4f.m13 + f3 * matrix4f.m23 + matrix4f.m33;
     }
-    
-    public boolean Method1159(final Vector4f vector4f, final int n, final int n2) {
-        return 0.0 <= vector4f.x && vector4f.x <= (double)n && 0.0 <= vector4f.y && vector4f.y <= (double)n2;
+
+    public boolean Method1159(Vector4f vector4f, int n, int n2) {
+        if (!(0.0 <= (double)vector4f.x)) return false;
+        if (!((double)vector4f.x <= (double)n)) return false;
+        if (!(0.0 <= (double)vector4f.y)) return false;
+        if (!((double)vector4f.y <= (double)n2)) return false;
+        return true;
     }
 }
+

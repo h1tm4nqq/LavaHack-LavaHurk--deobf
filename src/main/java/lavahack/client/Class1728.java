@@ -1,65 +1,69 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.nio.*;
-import java.util.*;
-import java.net.*;
-import javax.net.ssl.*;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.util.Collection;
+import javax.net.ssl.SSLSession;
+import lavahack.client.Class1234;
+import lavahack.client.Class1260;
+import lavahack.client.Class1609;
+import lavahack.client.Class2129;
+import lavahack.client.Class927;
 
-public interface Class1728
-{
-    void Method537(final int p0, final String p1);
-    
-    void Method538(final int p0);
-    
-    void Method539();
-    
-    void Method540(final int p0, final String p1);
-    
-    void Method541(final String p0);
-    
-    void Method542(final ByteBuffer p0);
-    
-    void Method543(final byte[] p0);
-    
-    void Method544(final Class1260 p0);
-    
-    void Method545(final Collection p0);
-    
-    void Method546();
-    
-    void Method547(final Class927 p0, final ByteBuffer p1, final boolean p2);
-    
-    boolean Method548();
-    
-    InetSocketAddress Method549();
-    
-    InetSocketAddress Method550();
-    
-    boolean Method551();
-    
-    boolean Method552();
-    
-    boolean Method553();
-    
-    boolean Method554();
-    
-    Class2129 Method555();
-    
-    Class1609 Method556();
-    
-    String Method557();
-    
-    void Method558(final Object p0);
-    
-    Object Method559();
-    
-    boolean Method560();
-    
-    SSLSession Method561() throws IllegalArgumentException;
-    
-    Class1234 Method562();
+public interface Class1728 {
+    public void Method537(int var1, String var2);
+
+    public void Method538(int var1);
+
+    public void Method539();
+
+    public void Method540(int var1, String var2);
+
+    public void Method541(String var1);
+
+    public void Method542(ByteBuffer var1);
+
+    public void Method543(byte[] var1);
+
+    public void Method544(Class1260 var1);
+
+    public void Method545(Collection var1);
+
+    public void Method546();
+
+    public void Method547(Class927 var1, ByteBuffer var2, boolean var3);
+
+    public boolean Method548();
+
+    public InetSocketAddress Method549();
+
+    public InetSocketAddress Method550();
+
+    public boolean Method551();
+
+    public boolean Method552();
+
+    public boolean Method553();
+
+    public boolean Method554();
+
+    public Class2129 Method555();
+
+    public Class1609 Method556();
+
+    public String Method557();
+
+    public void Method558(Object var1);
+
+    public Object Method559();
+
+    public boolean Method560();
+
+    public SSLSession Method561() throws IllegalArgumentException;
+
+    public Class1234 Method562();
 }
+

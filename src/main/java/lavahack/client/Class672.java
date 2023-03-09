@@ -1,47 +1,47 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.*;
-import java.util.function.*;
+import java.util.Arrays;
+import lavahack.client.Class1320;
+import lavahack.client.Class618;
 
-public interface Class672
-{
-    void Method705(final Class1320 p0);
-    
-    void Method706(final Class618 p0);
-    
-    default void Method707(final Class1320... array) {
-        Arrays.stream(array).forEach(this::Method705);
+public interface Class672 {
+    public void Method705(Class1320 var1);
+
+    public void Method706(Class618 var1);
+
+    default public void Method707(Class1320 ... class1320Array) {
+        Arrays.stream(class1320Array).forEach(this::Method705);
     }
-    
-    default void Method708(final Iterable iterable) {
+
+    default public void Method708(Iterable iterable) {
         iterable.forEach(this::Method705);
     }
-    
-    default void Method709(final Class618... array) {
-        Arrays.stream(array).forEach(this::Method706);
+
+    default public void Method709(Class618 ... class618Array) {
+        Arrays.stream(class618Array).forEach(this::Method706);
     }
-    
-    void Method710(final Class1320 p0);
-    
-    void Method711(final Class618 p0);
-    
-    default void Method712(final Class1320... array) {
-        Arrays.stream(array).forEach(this::Method710);
+
+    public void Method710(Class1320 var1);
+
+    public void Method711(Class618 var1);
+
+    default public void Method712(Class1320 ... class1320Array) {
+        Arrays.stream(class1320Array).forEach(this::Method710);
     }
-    
-    default void Method713(final Iterable iterable) {
+
+    default public void Method713(Iterable iterable) {
         iterable.forEach(this::Method710);
     }
-    
-    default void Method714(final Class618... array) {
-        Arrays.stream(array).forEach(this::Method711);
+
+    default public void Method714(Class618 ... class618Array) {
+        Arrays.stream(class618Array).forEach(this::Method711);
     }
-    
-    void Method715(final Object p0);
-    
-    void Method716(final Object p0);
+
+    public void Method715(Object var1);
+
+    public void Method716(Object var1);
 }
+

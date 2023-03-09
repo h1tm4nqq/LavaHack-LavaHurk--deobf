@@ -1,11 +1,9 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-public final class Class1576
-{
+public final class Class1576 {
     public static final String Field15347;
     public static final String Field15348;
     public static final String Field15349;
@@ -54,7 +52,7 @@ public final class Class1576
     public static final String Field15392;
     public static final String Field15393;
     private int Field15394;
-    
+
     static {
         Field15393 = "schematica.config";
         Field15392 = "Amount of storage provided per-player for schematics on the server.";
@@ -104,16 +102,19 @@ public final class Class1576
         Field15348 = "Dump all block states on startup.";
         Field15347 = "dumpBlockList";
     }
-    
-    private static String Method6214(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x39D7 ^ 0x42));
-            }
-            return new String(value);
+
+    private static String Method6214(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 66;
+            cArray2[n] = (char)(cArray[n] ^ (0x39D7 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

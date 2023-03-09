@@ -1,97 +1,123 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  io.netty.util.concurrent.GenericFutureListener
+ *  kotlin.Metadata
+ *  kotlin.TypeCastException
+ *  kotlin.jvm.internal.Intrinsics
+ *  kotlin.text.StringsKt
+ *  net.minecraft.client.gui.GuiMainMenu
+ *  net.minecraft.client.gui.GuiScreen
+ *  net.minecraft.client.multiplayer.GuiConnecting
+ *  net.minecraft.network.INetHandler
+ *  net.minecraft.network.NetworkManager
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.handshake.client.C00Handshake
+ *  net.minecraft.network.play.server.SPacketDisconnect
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.TextComponentString
+ */
 package lavahack.client;
 
-import net.minecraft.network.handshake.client.*;
-import net.minecraft.util.text.*;
-import net.minecraft.network.play.server.*;
-import io.netty.util.concurrent.*;
-import kotlin.*;
-import com.kisman.cc.mixin.mixins.accessor.*;
-import kotlin.jvm.internal.*;
-import kotlin.text.*;
-import net.minecraft.network.*;
-import com.kisman.cc.util.*;
-import net.minecraft.client.gui.*;
-import net.minecraft.client.*;
-import net.minecraft.client.multiplayer.*;
+import com.kisman.cc.mixin.mixins.accessor.AccessorC00Handshake;
+import com.kisman.cc.util.Class2142;
+import io.netty.util.concurrent.GenericFutureListener;
+import kotlin.Metadata;
+import kotlin.TypeCastException;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt;
+import lavahack.client.Class1340;
+import lavahack.client.Class1524;
+import lavahack.client.Class218;
+import lavahack.client.Class737;
+import lavahack.client.Class875;
+import net.minecraft.client.gui.GuiMainMenu;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.multiplayer.GuiConnecting;
+import net.minecraft.network.INetHandler;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.handshake.client.C00Handshake;
+import net.minecraft.network.play.server.SPacketDisconnect;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 3, d1 = { "\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n?\u0006\u0002\b\u0002" }, d2 = { "<anonymous>", "", "run" })
-final class Class1936 implements Runnable
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=3, d1={"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n\u00a2\u0006\u0002\b\u0002"}, d2={"<anonymous>", "", "run"})
+final class Class1936
+implements Runnable {
     final NetworkManager Field16972;
     final C00Handshake Field16973;
     private int Field16974;
-    
+
     @Override
     public final void run() {
+        Object object;
         if (Class218.Field8954.Method1254()) {
-            final TextComponentString textComponentString = new TextComponentString("This PingBypass is currently in use1");
-            this.Field16972.sendPacket((Packet)new SPacketDisconnect((ITextComponent)textComponentString), (GenericFutureListener)new Class875(this, textComponentString), new GenericFutureListener[0]);
+            object = new TextComponentString("This PingBypass is currently in use1");
+            this.Field16972.sendPacket((Packet)new SPacketDisconnect((ITextComponent)object), (GenericFutureListener)new Class875(this, (TextComponentString)object), new GenericFutureListener[0]);
         }
         Class218.Field8954.Method1255(true);
         Class218.Field8954.Method1257(this.Field16972);
         if (this.Field16973 != null) {
-            final C00Handshake field16973 = this.Field16973;
-            if (field16973 == null) {
+            C00Handshake c00Handshake = this.Field16973;
+            if (c00Handshake == null) {
                 throw new TypeCastException("null cannot be cast to non-null type com.kisman.cc.mixin.mixins.accessor.AccessorC00Handshake");
             }
-            if (((AccessorC00Handshake)field16973).Method1992() != null) {
+            if (((AccessorC00Handshake)c00Handshake).Method1992() != null) {
                 Class1340.Method5396("Joining other server...");
-                final C00Handshake field16974 = this.Field16973;
-                if (field16974 == null) {
+                C00Handshake c00Handshake2 = this.Field16973;
+                if (c00Handshake2 == null) {
                     throw new TypeCastException("null cannot be cast to non-null type com.kisman.cc.mixin.mixins.accessor.AccessorC00Handshake");
                 }
-                final String method1992;
-                final String s = method1992 = ((AccessorC00Handshake)field16974).Method1992();
-                Intrinsics.checkExpressionValueIsNotNull((Object)method1992, "ipRaw");
-                final String s2 = StringsKt.contains$default((CharSequence)method1992, (CharSequence)"\u0000FML\u0000", false, 2, (Object)null) ? StringsKt.split$default((CharSequence)s, new String[] { "\u0000" }, false, 0, 6, (Object)null).get(0) : s;
-                final C00Handshake field16975 = this.Field16973;
-                if (field16975 == null) {
+                Object object2 = object = ((AccessorC00Handshake)c00Handshake2).Method1992();
+                Intrinsics.checkExpressionValueIsNotNull((Object)object2, (String)"ipRaw");
+                Object object3 = StringsKt.contains$default((CharSequence)((CharSequence)object2), (CharSequence)"\u0000FML\u0000", (boolean)false, (int)2, null) ? (String)StringsKt.split$default((CharSequence)((CharSequence)object), (String[])new String[]{"\u0000"}, (boolean)false, (int)0, (int)6, null).get(0) : object;
+                C00Handshake c00Handshake3 = this.Field16973;
+                if (c00Handshake3 == null) {
                     throw new TypeCastException("null cannot be cast to non-null type com.kisman.cc.mixin.mixins.accessor.AccessorC00Handshake");
                 }
-                ((AccessorC00Handshake)field16975).Method1993();
+                int n = ((AccessorC00Handshake)c00Handshake3).Method1993();
                 this.Field16972.setNetHandler((INetHandler)new Class737(this.Field16972));
-                final Minecraft field16976 = Class2142.Field17803;
-                GuiScreen currentScreen;
-                if ((currentScreen = Class2142.Field17803.currentScreen) == null) {
-                    currentScreen = (GuiScreen)new GuiMainMenu();
+                GuiScreen guiScreen = Class2142.Field17803.currentScreen;
+                if (guiScreen == null) {
+                    guiScreen = (GuiScreen)new GuiMainMenu();
                 }
-                final Minecraft field16977 = Class2142.Field17803;
-                final String s3 = s2;
-                final C00Handshake field16978 = this.Field16973;
-                if (field16978 == null) {
+                C00Handshake c00Handshake4 = this.Field16973;
+                if (c00Handshake4 == null) {
                     throw new TypeCastException("null cannot be cast to non-null type com.kisman.cc.mixin.mixins.accessor.AccessorC00Handshake");
                 }
-                field16976.displayGuiScreen((GuiScreen)new GuiConnecting(currentScreen, field16977, s3, ((AccessorC00Handshake)field16978).Method1993()));
+                Class2142.Field17803.displayGuiScreen((GuiScreen)new GuiConnecting(guiScreen, Class2142.Field17803, (String)object3, ((AccessorC00Handshake)c00Handshake4).Method1993()));
                 return;
             }
         }
-        if (Class2142.Field17803.world == null || Class2142.Field17803.player == null) {
-            this.Field16972.setNetHandler((INetHandler)new Class1524(this.Field16972));
-        }
-        else {
+        if (Class2142.Field17803.world != null && Class2142.Field17803.player != null) {
             this.Field16972.setNetHandler((INetHandler)new Class737(this.Field16972));
-            final ServerData currentServerData = Class2142.Field17803.currentServerData;
+            object = Class2142.Field17803.currentServerData;
+            return;
         }
+        this.Field16972.setNetHandler((INetHandler)new Class1524(this.Field16972));
     }
-    
-    Class1936(final NetworkManager field16972, final C00Handshake field16973) {
-        this.Field16972 = field16972;
-        this.Field16973 = field16973;
+
+    Class1936(NetworkManager networkManager, C00Handshake c00Handshake) {
+        this.Field16972 = networkManager;
+        this.Field16973 = c00Handshake;
     }
-    
-    private static String Method7198(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0xC8 ^ 0xB));
-            }
-            return new String(value);
+
+    private static String Method7198(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 11;
+            cArray2[n] = (char)(cArray[n] ^ (0xC8 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

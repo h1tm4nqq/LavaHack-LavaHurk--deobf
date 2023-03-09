@@ -1,385 +1,559 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.Pair
+ *  kotlin.TuplesKt
+ *  kotlin.TypeCastException
+ *  kotlin.collections.CollectionsKt
+ *  kotlin.collections.MapsKt
+ *  kotlin.io.FilesKt
+ *  kotlin.jvm.internal.Intrinsics
+ *  kotlin.text.StringsKt
+ */
 package lavahack.client;
 
-import kotlin.jvm.internal.*;
-import java.io.*;
-import org.jetbrains.annotations.*;
-import kotlin.io.*;
-import java.nio.charset.*;
-import kotlin.text.*;
-import kotlin.*;
-import kotlin.collections.*;
-import java.util.*;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import kotlin.Metadata;
+import kotlin.Pair;
+import kotlin.TuplesKt;
+import kotlin.TypeCastException;
+import kotlin.collections.CollectionsKt;
+import kotlin.collections.MapsKt;
+import kotlin.io.FilesKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt;
+import lavahack.client.Class1560;
+import lavahack.client.Class1797;
+import org.jetbrains.annotations.NotNull;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 1, d1 = { "\u0000&\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\u0010$\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\b\u00c6\u0002\u0018\u00002\u00020\u0001:\u0002\u0010\u0011B\u0007\b\u0002?\u0006\u0002\u0010\u0002J,\u0010\u0003\u001a \u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00060\u0005\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u00070\u00042\u0006\u0010\b\u001a\u00020\tJ\u001a\u0010\n\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u00072\u0006\u0010\u000b\u001a\u00020\tJ\u001a\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u00072\u0006\u0010\r\u001a\u00020\tJ\u0011\u0010\u000e\u001a\u00020\u00062\u0006\u0010\u000f\u001a\u00020\u0006H\u0082\b?\u0006\u0012" }, d2 = { "Lcom/kisman/cc/features/catlua/mapping/MappingsGenerator;", "", "()V", "generateClassMappings", "Lkotlin/Pair;", "", "", "", "classFile", "Ljava/io/File;", "generateFieldMappings", "fieldFile", "generateMethodMappings", "methodFile", "unquote", "s", "ClassMapping", "FieldMapping", "kisman.cc" })
-public final class Class416
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=1, d1={"\u0000&\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\u0010$\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\b\u00c6\u0002\u0018\u00002\u00020\u0001:\u0002\u0010\u0011B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002J,\u0010\u0003\u001a \u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00060\u0005\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u00070\u00042\u0006\u0010\b\u001a\u00020\tJ\u001a\u0010\n\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u00072\u0006\u0010\u000b\u001a\u00020\tJ\u001a\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u00072\u0006\u0010\r\u001a\u00020\tJ\u0011\u0010\u000e\u001a\u00020\u00062\u0006\u0010\u000f\u001a\u00020\u0006H\u0082\b\u00a8\u0006\u0012"}, d2={"Lcom/kisman/cc/features/catlua/mapping/MappingsGenerator;", "", "()V", "generateClassMappings", "Lkotlin/Pair;", "", "", "", "classFile", "Ljava/io/File;", "generateFieldMappings", "fieldFile", "generateMethodMappings", "methodFile", "unquote", "s", "ClassMapping", "FieldMapping", "kisman.cc"})
+public final class Class416 {
     public static final Class416 Field9727;
     private int Field9728;
-    
-    private final String Method2034(final String s) {
-        final int beginIndex = 1;
-        final int endIndex = s.length() - 1;
-        if (s == null) {
+
+    private final String Method2034(String string) {
+        boolean bl = false;
+        String string2 = string;
+        int n = 1;
+        int n2 = string.length() - 1;
+        boolean bl2 = false;
+        String string3 = string2;
+        if (string3 == null) {
             throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
         }
-        final String substring = s.substring(beginIndex, endIndex);
-        Intrinsics.checkExpressionValueIsNotNull((Object)substring, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-        return substring;
+        String string4 = string3.substring(n, n2);
+        Intrinsics.checkExpressionValueIsNotNull((Object)string4, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+        return string4;
     }
-    
+
     @NotNull
     @NotNull
-    public final Pair Method2035(@NotNull @NotNull final File file) {
-        Intrinsics.checkParameterIsNotNull((Object)file, "classFile");
-        final List mutableList = CollectionsKt.toMutableList((Collection)FilesKt.readLines$default(file, (Charset)null, 1, (Object)null));
-        mutableList.remove(0);
-        final ArrayList<Object> list = new ArrayList<Object>();
-        final Iterator<Object> iterator = ((List<Object>)mutableList).iterator();
-        while (iterator.hasNext()) {
-            final List split$default = StringsKt.split$default((CharSequence)iterator.next(), new String[] { "," }, false, 0, 6, (Object)null);
-            final Class416 field9727 = Class416.Field9727;
-            final String s = split$default.get(0);
-            final int beginIndex = 1;
-            final int endIndex = s.length() - 1;
-            final String s2 = s;
-            if (s2 == null) {
+    public final Pair Method2035(@NotNull @NotNull File file) {
+        Object object;
+        boolean bl;
+        Object object2;
+        List<Object> list;
+        Object object32;
+        Intrinsics.checkParameterIsNotNull((Object)file, (String)"classFile");
+        List list2 = CollectionsKt.toMutableList((Collection)FilesKt.readLines$default((File)file, null, (int)1, null));
+        list2.remove(0);
+        boolean bl2 = false;
+        List list3 = new ArrayList();
+        Iterable iterable = list2;
+        boolean bl3 = false;
+        for (Object object32 : iterable) {
+            String string;
+            String string2 = (String)object32;
+            boolean bl4 = false;
+            list = StringsKt.split$default((CharSequence)string2, (String[])new String[]{","}, (boolean)false, (int)0, (int)6, null);
+            object2 = Field9727;
+            Object object4 = (String)list.get(0);
+            boolean bl5 = false;
+            Object object5 = object4;
+            int n = 1;
+            int n2 = ((String)object4).length() - 1;
+            int n3 = 0;
+            String string3 = object5;
+            if (string3 == null) {
                 throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
             }
-            final String substring = s2.substring(beginIndex, endIndex);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final String s3 = substring;
-            final Class416 field9728 = Class416.Field9727;
-            final String s4 = split$default.get(1);
-            final int beginIndex2 = 1;
-            final int endIndex2 = s4.length() - 1;
-            final String s5 = s4;
-            if (s5 == null) {
+            Intrinsics.checkExpressionValueIsNotNull((Object)string3.substring(n, n2), (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object4 = Field9727;
+            Object object6 = (String)list.get(1);
+            boolean bl6 = false;
+            String string4 = object6;
+            n2 = 1;
+            n3 = ((String)object6).length() - 1;
+            int n4 = 0;
+            String string5 = string4;
+            if (string5 == null) {
                 throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
             }
-            final String substring2 = s5.substring(beginIndex2, endIndex2);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring2, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final String s6 = substring2;
-            final Class416 field9729 = Class416.Field9727;
-            final String s7 = split$default.get(4);
-            final int beginIndex3 = 1;
-            final int endIndex3 = s7.length() - 1;
-            final String s8 = s7;
-            if (s8 == null) {
+            String string6 = string5.substring(n2, n3);
+            Intrinsics.checkExpressionValueIsNotNull((Object)string6, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object2 = string6;
+            object6 = Field9727;
+            String string7 = (String)list.get(4);
+            n = 0;
+            Object object7 = string7;
+            n3 = 1;
+            n4 = string7.length() - 1;
+            boolean bl7 = false;
+            String string8 = object7;
+            if (string8 == null) {
                 throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
             }
-            final String substring3 = s8.substring(beginIndex3, endIndex3);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring3, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final boolean b = Integer.parseInt(substring3) == 0;
-            for (final Class1560 class1560 : list) {
-                if (Intrinsics.areEqual((Object)class1560.Method6143(), (Object)s3) && (class1560.Method6144() == null || class1560.Method6146() == null)) {
-                    class1560.Method6147(s6);
-                }
+            String string9 = string8.substring(n3, n4);
+            Intrinsics.checkExpressionValueIsNotNull((Object)string9, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object6 = string9;
+            boolean bl8 = false;
+            bl = Integer.parseInt((String)object6) == 0;
+            bl5 = false;
+            object5 = list3;
+            n = 0;
+            object7 = object5.iterator();
+            while (object7.hasNext()) {
+                Object e = object7.next();
+                Class1560 class1560 = (Class1560)e;
+                bl7 = false;
+                if (!Intrinsics.areEqual((Object)class1560.Method6143(), (Object)string) || class1560.Method6144() != null && class1560.Method6146() != null) continue;
+                bl5 = true;
+                class1560.Method6147((String)object2);
             }
-            list.add(new Class1560(s3, (String)null, s6));
+            list3.add(new Class1560(string, null, (String)object2));
         }
-        final ArrayList<Object> list2 = list;
-        final ArrayList<Object> list3 = new ArrayList<Object>();
-        for (final Class1560 class1561 : list2) {
-            if (class1561.Method6144() == null && class1561.Method6146() != null) {
+        iterable = list3;
+        bl3 = false;
+        Object object8 = iterable;
+        object32 = new ArrayList();
+        boolean bl9 = false;
+        Iterator iterator = object8.iterator();
+        while (iterator.hasNext()) {
+            boolean bl10;
+            list = iterator.next();
+            object2 = (Class1560)((Object)list);
+            bl = false;
+            if (((Class1560)object2).Method6144() == null && ((Class1560)object2).Method6146() != null) {
+                bl10 = true;
                 continue;
             }
+            bl10 = false;
         }
-        final ArrayList<Object> list5;
-        final ArrayList<String> list4 = new ArrayList<String>(CollectionsKt.collectionSizeOrDefault((Iterable)(list5 = list3), 10));
-        for (final Class1560 next : list5) {
-            final ArrayList<String> list6 = list4;
-            final Class1560 class1562 = next;
-            final ArrayList<String> list7 = list6;
-            final String method6146 = class1562.Method6146();
-            if (method6146 == null) {
+        Collection<Object> collection = (List)object32;
+        iterable = collection;
+        bl3 = false;
+        object8 = iterable;
+        object32 = new ArrayList(CollectionsKt.collectionSizeOrDefault((Iterable)iterable, (int)10));
+        bl9 = false;
+        iterator = object8.iterator();
+        while (iterator.hasNext()) {
+            list = iterator.next();
+            object2 = (Class1560)((Object)list);
+            collection = object32;
+            bl = false;
+            if (((Class1560)object2).Method6146() == null) {
                 Intrinsics.throwNpe();
             }
-            list7.add(method6146);
+            collection.add(object);
         }
-        final ArrayList<String> list8 = list4;
-        final ArrayList<Object> list9 = list;
-        final ArrayList<String> list10 = list8;
-        final Iterable<Class1560> iterable = (Iterable<Class1560>)list9;
-        final ArrayList<Object> list11 = new ArrayList<Object>();
-        for (final Class1560 class1563 : iterable) {
-            if (class1563.Method6144() != null && class1563.Method6146() != null) {
+        collection = (List)object32;
+        iterable = list3;
+        bl3 = false;
+        object8 = iterable;
+        object32 = new ArrayList();
+        bl9 = false;
+        iterator = object8.iterator();
+        while (iterator.hasNext()) {
+            boolean bl11;
+            list = iterator.next();
+            object2 = (Class1560)((Object)list);
+            bl = false;
+            if (((Class1560)object2).Method6144() != null && ((Class1560)object2).Method6146() != null) {
+                bl11 = true;
                 continue;
             }
+            bl11 = false;
         }
-        final ArrayList<Object> list12 = list11;
-        final ArrayList<String> list13 = list10;
-        final ArrayList<Object> list14 = list12;
-        final ArrayList<String> list15 = list13;
-        final ArrayList<Object> list16 = list14;
-        final ArrayList<Pair> list17 = new ArrayList<Pair>(CollectionsKt.collectionSizeOrDefault((Iterable)list14, 10));
-        for (final Class1560 next2 : list16) {
-            final ArrayList<Pair> list18 = list17;
-            final Class1560 class1564 = next2;
-            final ArrayList<Pair> list19 = list18;
-            final String method6147 = class1564.Method6146();
-            if (method6147 == null) {
+        object = (List)object32;
+        iterable = (Iterable)object;
+        bl3 = false;
+        object8 = iterable;
+        object32 = new ArrayList(CollectionsKt.collectionSizeOrDefault((Iterable)iterable, (int)10));
+        bl9 = false;
+        iterator = object8.iterator();
+        while (true) {
+            if (!iterator.hasNext()) {
+                object = (List)object32;
+                Map map = MapsKt.toMap((Iterable)((Iterable)object));
+                Collection<Object> collection2 = collection;
+                return new Pair(collection2, (Object)map);
+            }
+            list = iterator.next();
+            object2 = (Class1560)((Object)list);
+            object = object32;
+            bl = false;
+            String string = ((Class1560)object2).Method6146();
+            if (string == null) {
                 Intrinsics.throwNpe();
             }
-            final String method6148 = class1564.Method6144();
-            if (method6148 == null) {
+            String string10 = ((Class1560)object2).Method6144();
+            if (string10 == null) {
                 Intrinsics.throwNpe();
             }
-            list19.add(TuplesKt.to((Object)method6147, (Object)method6148));
+            Pair pair = TuplesKt.to((Object)string, (Object)string10);
+            object.add(pair);
         }
-        return new Pair((Object)list15, (Object)MapsKt.toMap((Iterable)list17));
     }
-    
+
     @NotNull
     @NotNull
-    public final Map Method2036(@NotNull @NotNull final File file) {
-        Intrinsics.checkParameterIsNotNull((Object)file, "fieldFile");
-        final List mutableList = CollectionsKt.toMutableList((Collection)FilesKt.readLines$default(file, (Charset)null, 1, (Object)null));
-        mutableList.remove(0);
-        final ArrayList<Object> list = new ArrayList<Object>();
-        final Iterator<Object> iterator = ((List<Object>)mutableList).iterator();
-        while (iterator.hasNext()) {
-            final List split$default = StringsKt.split$default((CharSequence)iterator.next(), new String[] { "," }, false, 0, 6, (Object)null);
-            final Class416 field9727 = Class416.Field9727;
-            final String s = split$default.get(1);
-            final int beginIndex = 1;
-            final int endIndex = s.length() - 1;
-            final String s2 = s;
-            if (s2 == null) {
+    public final Map Method2036(@NotNull @NotNull File file) {
+        Object object;
+        List<Object> list;
+        Object object22;
+        Intrinsics.checkParameterIsNotNull((Object)file, (String)"fieldFile");
+        List list2 = CollectionsKt.toMutableList((Collection)FilesKt.readLines$default((File)file, null, (int)1, null));
+        list2.remove(0);
+        boolean bl = false;
+        List list3 = new ArrayList();
+        Iterable iterable = list2;
+        boolean bl2 = false;
+        for (Object object22 : iterable) {
+            String string;
+            String string2 = (String)object22;
+            boolean bl3 = false;
+            list = StringsKt.split$default((CharSequence)string2, (String[])new String[]{","}, (boolean)false, (int)0, (int)6, null);
+            object = Field9727;
+            Object object3 = (String)list.get(1);
+            boolean bl4 = false;
+            Object object4 = object3;
+            int n = 1;
+            int n2 = ((String)object3).length() - 1;
+            int n3 = 0;
+            String string3 = object4;
+            if (string3 == null) {
                 throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
             }
-            final String substring = s2.substring(beginIndex, endIndex);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final String s3 = substring;
-            final Class416 field9728 = Class416.Field9727;
-            final String s4 = split$default.get(5);
-            final int beginIndex2 = 1;
-            final int endIndex2 = s4.length() - 1;
-            final String s5 = s4;
-            if (s5 == null) {
+            Intrinsics.checkExpressionValueIsNotNull((Object)string3.substring(n, n2), (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object3 = Field9727;
+            Object object5 = (String)list.get(5);
+            boolean bl5 = false;
+            String string4 = object5;
+            n2 = 1;
+            n3 = ((String)object5).length() - 1;
+            int n4 = 0;
+            String string5 = string4;
+            if (string5 == null) {
                 throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
             }
-            final String substring2 = s5.substring(beginIndex2, endIndex2);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring2, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final String s6 = substring2;
-            final Class416 field9729 = Class416.Field9727;
-            final String s7 = split$default.get(2);
-            final int beginIndex3 = 1;
-            final int endIndex3 = s7.length() - 1;
-            final String s8 = s7;
-            if (s8 == null) {
+            String string6 = string5.substring(n2, n3);
+            Intrinsics.checkExpressionValueIsNotNull((Object)string6, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object = string6;
+            object5 = Field9727;
+            object4 = (String)list.get(2);
+            boolean bl6 = false;
+            String string7 = object4;
+            n3 = 1;
+            n4 = ((String)object4).length() - 1;
+            int n5 = 0;
+            String string8 = string7;
+            if (string8 == null) {
                 throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
             }
-            final String substring3 = s8.substring(beginIndex3, endIndex3);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring3, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final String str = substring3;
-            final Class416 field9730 = Class416.Field9727;
-            final String s9 = split$default.get(6);
-            final int beginIndex4 = 1;
-            final int endIndex4 = s9.length() - 1;
-            final String s10 = s9;
-            if (s10 == null) {
+            String string9 = string8.substring(n3, n4);
+            Intrinsics.checkExpressionValueIsNotNull((Object)string9, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object3 = string9;
+            object4 = Field9727;
+            String string10 = (String)list.get(6);
+            boolean bl7 = false;
+            String string11 = string10;
+            n4 = 1;
+            n5 = string10.length() - 1;
+            int n6 = 0;
+            String string12 = string11;
+            if (string12 == null) {
                 throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
             }
-            final String substring4 = s10.substring(beginIndex4, endIndex4);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring4, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final String string = substring4 + '.' + str;
-            final Class416 field9731 = Class416.Field9727;
-            final String s11 = split$default.get(8);
-            final int beginIndex5 = 1;
-            final int endIndex5 = s11.length() - 1;
-            final String s12 = s11;
-            if (s12 == null) {
+            String string13 = string12.substring(n4, n5);
+            Intrinsics.checkExpressionValueIsNotNull((Object)string13, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object5 = string13;
+            object4 = (String)object5 + '.' + (String)object3;
+            Object object6 = Field9727;
+            string11 = (String)list.get(8);
+            n4 = 0;
+            String string14 = string11;
+            n6 = 1;
+            int n7 = string11.length() - 1;
+            boolean bl8 = false;
+            String string15 = string14;
+            if (string15 == null) {
                 throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
             }
-            final String substring5 = s12.substring(beginIndex5, endIndex5);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring5, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final boolean b = Integer.parseInt(substring5) == 0;
-            for (final Class1797 class1797 : list) {
-                if (Intrinsics.areEqual((Object)class1797.Method6797(), (Object)s6) && Intrinsics.areEqual((Object)class1797.Method6796(), (Object)s3)) {
-                    class1797.Method6801(string);
-                }
+            String string16 = string15.substring(n6, n7);
+            Intrinsics.checkExpressionValueIsNotNull((Object)string16, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object6 = string16;
+            boolean bl9 = false;
+            n = Integer.parseInt((String)object6) == 0 ? 1 : 0;
+            n2 = 0;
+            Iterable iterable2 = list3;
+            n4 = 0;
+            for (Object e : iterable2) {
+                Class1797 class1797 = (Class1797)e;
+                bl8 = false;
+                if (!Intrinsics.areEqual((Object)class1797.Method6797(), (Object)object) || !Intrinsics.areEqual((Object)class1797.Method6796(), (Object)string)) continue;
+                n2 = 1;
+                class1797.Method6801((String)object4);
             }
-            list.add(new Class1797(s3, s6, (String)null, string));
+            list3.add(new Class1797(string, (String)object, null, (String)object4));
         }
-        final ArrayList<Object> list2 = list;
-        final ArrayList<Object> list3 = new ArrayList<Object>();
-        for (final Class1797 class1798 : list2) {
-            if (class1798.Method6798() != null && class1798.Method6800() != null) {
-                final String method6798 = class1798.Method6798();
-                if (method6798 == null) {
+        iterable = list3;
+        bl2 = false;
+        Object object7 = iterable;
+        object22 = new ArrayList();
+        boolean bl10 = false;
+        Iterator iterator = object7.iterator();
+        while (iterator.hasNext()) {
+            boolean bl11;
+            list = iterator.next();
+            object = (Class1797)((Object)list);
+            boolean bl12 = false;
+            if (((Class1797)object).Method6798() != null && ((Class1797)object).Method6800() != null) {
+                String string = ((Class1797)object).Method6798();
+                if (string == null) {
                     Intrinsics.throwNpe();
                 }
-                final String s13 = StringsKt.split$default((CharSequence)method6798, new String[] { "." }, false, 0, 6, (Object)null).get(1);
-                final String method6799 = class1798.Method6800();
-                if (method6799 == null) {
+                String string17 = (String)StringsKt.split$default((CharSequence)string, (String[])new String[]{"."}, (boolean)false, (int)0, (int)6, null).get(1);
+                String string18 = ((Class1797)object).Method6800();
+                if (string18 == null) {
                     Intrinsics.throwNpe();
                 }
-                if (Intrinsics.areEqual((Object)s13, (Object)StringsKt.split$default((CharSequence)method6799, new String[] { "." }, false, 0, 6, (Object)null).get(1)) ^ true) {
+                if (Intrinsics.areEqual((Object)string17, (Object)((String)StringsKt.split$default((CharSequence)string18, (String[])new String[]{"."}, (boolean)false, (int)0, (int)6, null).get(1))) ^ true) {
+                    bl11 = true;
                     continue;
                 }
-                continue;
             }
+            bl11 = false;
         }
-        final ArrayList<Object> list5;
-        final ArrayList<Pair> list4 = new ArrayList<Pair>(CollectionsKt.collectionSizeOrDefault((Iterable)(list5 = list3), 10));
-        for (final Class1797 next : list5) {
-            final ArrayList<Pair> list6 = list4;
-            final Class1797 class1799 = next;
-            final ArrayList<Pair> list7 = list6;
-            final String method6800 = class1799.Method6800();
-            if (method6800 == null) {
-                Intrinsics.throwNpe();
-            }
-            final String method6801 = class1799.Method6798();
-            if (method6801 == null) {
-                Intrinsics.throwNpe();
-            }
-            list7.add(TuplesKt.to((Object)method6800, (Object)method6801));
-        }
-        return MapsKt.toSortedMap(MapsKt.toMap((Iterable)list4));
-    }
-    
-    @NotNull
-    @NotNull
-    public final Map Method2037(@NotNull @NotNull final File file) {
-        Intrinsics.checkParameterIsNotNull((Object)file, "methodFile");
-        final List mutableList = CollectionsKt.toMutableList((Collection)FilesKt.readLines$default(file, (Charset)null, 1, (Object)null));
-        mutableList.remove(0);
-        final ArrayList<Object> list = new ArrayList<Object>();
-        final Iterator<Object> iterator = ((List<Object>)mutableList).iterator();
+        iterable = (List)object22;
+        bl2 = false;
+        object7 = iterable;
+        object22 = new ArrayList(CollectionsKt.collectionSizeOrDefault((Iterable)iterable, (int)10));
+        bl10 = false;
+        iterator = object7.iterator();
         while (iterator.hasNext()) {
-            final List split$default = StringsKt.split$default((CharSequence)iterator.next(), new String[] { "," }, false, 0, 6, (Object)null);
-            final Class416 field9727 = Class416.Field9727;
-            final String s = split$default.get(1);
-            final int beginIndex = 1;
-            final int endIndex = s.length() - 1;
-            final String s2 = s;
-            if (s2 == null) {
-                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            list = iterator.next();
+            object = (Class1797)((Object)list);
+            Object object8 = object22;
+            boolean bl13 = false;
+            String string = ((Class1797)object).Method6800();
+            if (string == null) {
+                Intrinsics.throwNpe();
             }
-            final String substring = s2.substring(beginIndex, endIndex);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final String s3 = substring;
-            final Class416 field9728 = Class416.Field9727;
-            final String s4 = split$default.get(5);
-            final int beginIndex2 = 1;
-            final int endIndex2 = s4.length() - 1;
-            final String s5 = s4;
-            if (s5 == null) {
-                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            String string19 = ((Class1797)object).Method6798();
+            if (string19 == null) {
+                Intrinsics.throwNpe();
             }
-            final String substring2 = s5.substring(beginIndex2, endIndex2);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring2, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final String s6 = substring2;
-            final Class416 field9729 = Class416.Field9727;
-            final String s7 = split$default.get(2);
-            final int beginIndex3 = 1;
-            final int endIndex3 = s7.length() - 1;
-            final String s8 = s7;
-            if (s8 == null) {
-                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-            }
-            final String substring3 = s8.substring(beginIndex3, endIndex3);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring3, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final String str = substring3;
-            final Class416 field9730 = Class416.Field9727;
-            final String s9 = split$default.get(4);
-            final int beginIndex4 = 1;
-            final int endIndex4 = s9.length() - 1;
-            final String s10 = s9;
-            if (s10 == null) {
-                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-            }
-            final String substring4 = s10.substring(beginIndex4, endIndex4);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring4, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final String str2 = substring4;
-            final Class416 field9731 = Class416.Field9727;
-            final String s11 = split$default.get(6);
-            final int beginIndex5 = 1;
-            final int endIndex5 = s11.length() - 1;
-            final String s12 = s11;
-            if (s12 == null) {
-                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-            }
-            final String substring5 = s12.substring(beginIndex5, endIndex5);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring5, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final String string = substring5 + '.' + str + '.' + str2;
-            final Class416 field9732 = Class416.Field9727;
-            final String s13 = split$default.get(8);
-            final int beginIndex6 = 1;
-            final int endIndex6 = s13.length() - 1;
-            final String s14 = s13;
-            if (s14 == null) {
-                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-            }
-            final String substring6 = s14.substring(beginIndex6, endIndex6);
-            Intrinsics.checkExpressionValueIsNotNull((Object)substring6, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
-            final boolean b = Integer.parseInt(substring6) == 0;
-            for (final Class1797 class1797 : list) {
-                if (Intrinsics.areEqual((Object)class1797.Method6797(), (Object)s6) && Intrinsics.areEqual((Object)class1797.Method6796(), (Object)s3)) {
-                    class1797.Method6801(string);
-                }
-            }
-            list.add(new Class1797(s3, s6, (String)null, string));
+            Pair pair = TuplesKt.to((Object)string, (Object)string19);
+            object8.add((Pair)pair);
         }
-        final ArrayList<Object> list2 = list;
-        final ArrayList<Object> list3 = new ArrayList<Object>();
-        for (final Class1797 class1798 : list2) {
-            if (class1798.Method6798() != null && class1798.Method6800() != null) {
-                final String method6798 = class1798.Method6798();
-                if (method6798 == null) {
+        return MapsKt.toSortedMap((Map)MapsKt.toMap((Iterable)((List)object22)));
+    }
+
+    @NotNull
+    @NotNull
+    public final Map Method2037(@NotNull @NotNull File file) {
+        Object object;
+        List<Object> list;
+        Object object22;
+        Intrinsics.checkParameterIsNotNull((Object)file, (String)"methodFile");
+        List list2 = CollectionsKt.toMutableList((Collection)FilesKt.readLines$default((File)file, null, (int)1, null));
+        list2.remove(0);
+        boolean bl = false;
+        List list3 = new ArrayList();
+        Iterable iterable = list2;
+        boolean bl2 = false;
+        for (Object object22 : iterable) {
+            String string;
+            String string2 = (String)object22;
+            boolean bl3 = false;
+            list = StringsKt.split$default((CharSequence)string2, (String[])new String[]{","}, (boolean)false, (int)0, (int)6, null);
+            object = Field9727;
+            Object object3 = (String)list.get(1);
+            boolean bl4 = false;
+            Object object4 = object3;
+            int n = 1;
+            int n2 = ((String)object3).length() - 1;
+            int n3 = 0;
+            String string3 = object4;
+            if (string3 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            Intrinsics.checkExpressionValueIsNotNull((Object)string3.substring(n, n2), (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object3 = Field9727;
+            Object object5 = (String)list.get(5);
+            boolean bl5 = false;
+            String string4 = object5;
+            n2 = 1;
+            n3 = ((String)object5).length() - 1;
+            int n4 = 0;
+            String string5 = string4;
+            if (string5 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            String string6 = string5.substring(n2, n3);
+            Intrinsics.checkExpressionValueIsNotNull((Object)string6, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object = string6;
+            object5 = Field9727;
+            object4 = (String)list.get(2);
+            boolean bl6 = false;
+            String string7 = object4;
+            n3 = 1;
+            n4 = ((String)object4).length() - 1;
+            int n5 = 0;
+            String string8 = string7;
+            if (string8 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            String string9 = string8.substring(n3, n4);
+            Intrinsics.checkExpressionValueIsNotNull((Object)string9, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object3 = string9;
+            object4 = Field9727;
+            Object object6 = (String)list.get(4);
+            boolean bl7 = false;
+            String string10 = object6;
+            n4 = 1;
+            n5 = ((String)object6).length() - 1;
+            int n6 = 0;
+            String string11 = string10;
+            if (string11 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            String string12 = string11.substring(n4, n5);
+            Intrinsics.checkExpressionValueIsNotNull((Object)string12, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object5 = string12;
+            object6 = Field9727;
+            String string13 = (String)list.get(6);
+            boolean bl8 = false;
+            String string14 = string13;
+            n5 = 1;
+            n6 = string13.length() - 1;
+            int n7 = 0;
+            String string15 = string14;
+            if (string15 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            String string16 = string15.substring(n5, n6);
+            Intrinsics.checkExpressionValueIsNotNull((Object)string16, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object4 = string16;
+            object6 = (String)object4 + '.' + (String)object3 + '.' + (String)object5;
+            Object object7 = Field9727;
+            string14 = (String)list.get(8);
+            n5 = 0;
+            String string17 = string14;
+            n7 = 1;
+            int n8 = string14.length() - 1;
+            boolean bl9 = false;
+            String string18 = string17;
+            if (string18 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            String string19 = string18.substring(n7, n8);
+            Intrinsics.checkExpressionValueIsNotNull((Object)string19, (String)"(this as java.lang.Strin\u2026ing(startIndex, endIndex)");
+            object7 = string19;
+            boolean bl10 = false;
+            n2 = Integer.parseInt((String)object7) == 0 ? 1 : 0;
+            n3 = 0;
+            Iterable iterable2 = list3;
+            n5 = 0;
+            for (Object e : iterable2) {
+                Class1797 class1797 = (Class1797)e;
+                bl9 = false;
+                if (!Intrinsics.areEqual((Object)class1797.Method6797(), (Object)object) || !Intrinsics.areEqual((Object)class1797.Method6796(), (Object)string)) continue;
+                n3 = 1;
+                class1797.Method6801((String)object6);
+            }
+            list3.add(new Class1797(string, (String)object, null, (String)object6));
+        }
+        iterable = list3;
+        bl2 = false;
+        Object object8 = iterable;
+        object22 = new ArrayList();
+        boolean bl11 = false;
+        Iterator iterator = object8.iterator();
+        while (iterator.hasNext()) {
+            boolean bl12;
+            list = iterator.next();
+            object = (Class1797)((Object)list);
+            boolean bl13 = false;
+            if (((Class1797)object).Method6798() != null && ((Class1797)object).Method6800() != null) {
+                String string = ((Class1797)object).Method6798();
+                if (string == null) {
                     Intrinsics.throwNpe();
                 }
-                final String s15 = StringsKt.split$default((CharSequence)method6798, new String[] { "." }, false, 0, 6, (Object)null).get(1);
-                final String method6799 = class1798.Method6800();
-                if (method6799 == null) {
+                String string20 = (String)StringsKt.split$default((CharSequence)string, (String[])new String[]{"."}, (boolean)false, (int)0, (int)6, null).get(1);
+                String string21 = ((Class1797)object).Method6800();
+                if (string21 == null) {
                     Intrinsics.throwNpe();
                 }
-                if (Intrinsics.areEqual((Object)s15, (Object)StringsKt.split$default((CharSequence)method6799, new String[] { "." }, false, 0, 6, (Object)null).get(1)) ^ true) {
+                if (Intrinsics.areEqual((Object)string20, (Object)((String)StringsKt.split$default((CharSequence)string21, (String[])new String[]{"."}, (boolean)false, (int)0, (int)6, null).get(1))) ^ true) {
+                    bl12 = true;
                     continue;
                 }
-                continue;
             }
+            bl12 = false;
         }
-        final ArrayList<Object> list5;
-        final ArrayList<Pair> list4 = new ArrayList<Pair>(CollectionsKt.collectionSizeOrDefault((Iterable)(list5 = list3), 10));
-        for (final Class1797 next : list5) {
-            final ArrayList<Pair> list6 = list4;
-            final Class1797 class1799 = next;
-            final ArrayList<Pair> list7 = list6;
-            final String method6800 = class1799.Method6800();
-            if (method6800 == null) {
+        iterable = (List)object22;
+        bl2 = false;
+        object8 = iterable;
+        object22 = new ArrayList(CollectionsKt.collectionSizeOrDefault((Iterable)iterable, (int)10));
+        bl11 = false;
+        iterator = object8.iterator();
+        while (iterator.hasNext()) {
+            list = iterator.next();
+            object = (Class1797)((Object)list);
+            Object object9 = object22;
+            boolean bl14 = false;
+            String string = ((Class1797)object).Method6800();
+            if (string == null) {
                 Intrinsics.throwNpe();
             }
-            final String method6801 = class1799.Method6798();
-            if (method6801 == null) {
+            String string22 = ((Class1797)object).Method6798();
+            if (string22 == null) {
                 Intrinsics.throwNpe();
             }
-            list7.add(TuplesKt.to((Object)method6800, (Object)method6801));
+            Pair pair = TuplesKt.to((Object)string, (Object)string22);
+            object9.add((Pair)pair);
         }
-        return MapsKt.toSortedMap(MapsKt.toMap((Iterable)list4));
+        return MapsKt.toSortedMap((Map)MapsKt.toMap((Iterable)((List)object22)));
     }
-    
+
     private Class416() {
     }
-    
+
     static {
-        Field9727 = new Class416();
+        Class416 class416;
+        Field9727 = class416 = new Class416();
     }
-    
-    private static String Method2038(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x35BF ^ 0xCC));
-            }
-            return new String(value);
+
+    private static String Method2038(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 204;
+            cArray2[n] = (char)(cArray[n] ^ (0x35BF ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

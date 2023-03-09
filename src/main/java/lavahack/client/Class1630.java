@@ -1,18 +1,24 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.luaj.vm2.LuaValue
+ *  org.luaj.vm2.lib.ZeroArgFunction
+ *  org.luaj.vm2.lib.jse.CoerceJavaToLua
+ */
 package lavahack.client;
 
-import org.luaj.vm2.lib.*;
-import org.luaj.vm2.*;
-import org.luaj.vm2.lib.jse.*;
+import lavahack.client.Class442;
+import org.luaj.vm2.LuaValue;
+import org.luaj.vm2.lib.ZeroArgFunction;
+import org.luaj.vm2.lib.jse.CoerceJavaToLua;
 
-public class Class1630 extends ZeroArgFunction
-{
+public class Class1630
+extends ZeroArgFunction {
     private int Field15617;
-    
+
     public LuaValue call() {
         return CoerceJavaToLua.coerce((Object)new Class442());
     }
 }
+

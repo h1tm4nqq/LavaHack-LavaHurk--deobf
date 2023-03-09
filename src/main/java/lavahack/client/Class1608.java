@@ -1,22 +1,22 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.nio.channels.*;
-import java.io.*;
-import java.nio.*;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.ByteChannel;
 
-public interface Class1608 extends ByteChannel
-{
-    boolean Method2482();
-    
-    void Method2483() throws IOException;
-    
-    boolean Method2484();
-    
-    int Method2485(final ByteBuffer p0) throws IOException;
-    
-    boolean Method2486();
+public interface Class1608
+extends ByteChannel {
+    public boolean Method2482();
+
+    public void Method2483() throws IOException;
+
+    public boolean Method2484();
+
+    public int Method2485(ByteBuffer var1) throws IOException;
+
+    public boolean Method2486();
 }
+

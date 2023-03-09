@@ -1,13 +1,16 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.apache.logging.log4j.LogManager
+ *  org.apache.logging.log4j.Logger
+ */
 package lavahack.client;
 
-import org.apache.logging.log4j.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class Class14
-{
+public class Class14 {
     public static final String Field7883;
     public static final String Field7884;
     public static final String Field7885;
@@ -17,7 +20,7 @@ public class Class14
     public static final String Field7889;
     public static Logger Field7890;
     private int Field7891;
-    
+
     static {
         Field7889 = "com.kisman.cc.features.schematica.core.proxy.ClientProxy";
         Field7888 = "com.kisman.cc.features.schematica.core.proxy.ServerProxy";
@@ -26,18 +29,21 @@ public class Class14
         Field7885 = "${version_lunatriuscore}";
         Field7884 = "LunatriusCore";
         Field7883 = "lunatriuscore";
-        Class14.Field7890 = LogManager.getLogger("lunatriuscore");
+        Field7890 = LogManager.getLogger((String)"lunatriuscore");
     }
-    
-    private static String Method157(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x5437 ^ 0xB1));
-            }
-            return new String(value);
+
+    private static String Method157(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 177;
+            cArray2[n] = (char)(cArray[n] ^ (0x5437 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

@@ -1,138 +1,168 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import org.objectweb.asm.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import lavahack.client.Class149;
+import lavahack.client.Class1790;
+import org.objectweb.asm.Handle;
+import org.objectweb.asm.Type;
 
-public class Class1722
-{
+public class Class1722 {
     private String Field15921 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public static String Method6582(final String s, final String s2, final String s3, final Class1790 class1790) {
-        final String method6583 = Method6583(s, s2, s3, class1790);
-        return (method6583 == null) ? s2 : method6583;
+
+    public static String Method6582(String string, String string2, String string3, Class1790 class1790) {
+        String string4;
+        String string5 = Class1722.Method6583(string, string2, string3, class1790);
+        if (string5 == null) {
+            string4 = string2;
+            return string4;
+        }
+        string4 = string5;
+        return string4;
     }
-    
-    private static String Method6583(final String anObject, final String s, final String anObject2, final Class1790 class1790) {
-        final List<Class149> list = class1790.Method6771().get(s);
+
+    private static String Method6583(String string, String string2, String string3, Class1790 class1790) {
+        List list = (List)class1790.Method6771().get(string2);
         if (list == null) {
             return null;
         }
         if (list.size() == 1) {
-            return list.get(0).Method988();
+            return ((Class149)list.get(0)).Method988();
         }
-        double d2 = 0.0;
-        Class149 class1791 = null;
-        for (final Class149 class1792 : list) {
-            double d3 = 0.0;
-            if (class1792.Method989().equals(anObject2)) {
-                ++d3;
+        double d = 0.0;
+        Class149 class149 = null;
+        for (Class149 class1492 : list) {
+            double d2 = 0.0;
+            if (class1492.Method989().equals(string3)) {
+                d2 += 1.0;
             }
-            if (class1792.Method987().equals(anObject)) {
-                ++d3;
+            if (class1492.Method987().equals(string)) {
+                d2 += 1.0;
             }
-            if (s.contains("_" + class1792.Method988())) {
-                d3 += Double.longBitsToDouble(4602678819172646912L);
+            if (string2.contains("_" + class1492.Method988())) {
+                d2 += Double.longBitsToDouble(4602678819172646912L);
             }
-            if (class1791 != null) {
-                Double.compare(d3, d2);
+            if (class149 != null) {
+                Double.compare(d2, d);
+                continue;
             }
-            else {
-                d2 = d3;
-                class1791 = class1792;
-            }
+            d = d2;
+            class149 = class1492;
         }
-        return (class1791 == null) ? null : class1791.Method988();
+        if (class149 == null) {
+            return null;
+        }
+        String string4 = class149.Method988();
+        return string4;
     }
-    
-    public static List Method6584(final List list, final Class1790 class1790) {
+
+    public static List Method6584(List list, Class1790 class1790) {
         if (list == null) {
             return null;
         }
-        final ArrayList<String> list2 = new ArrayList<String>(list.size());
-        for (String s : list) {
-            if (s instanceof String) {
-                final String s2 = s;
-                if (s2.startsWith("[")) {
-                    s = Method6589(s2, class1790);
-                }
-                else {
-                    s = class1790.Method6769().getOrDefault(s2, s2);
-                }
+        ArrayList arrayList = new ArrayList(list.size());
+        Iterator iterator = list.iterator();
+        while (iterator.hasNext()) {
+            Object object = iterator.next();
+            if (object instanceof String) {
+                String string = (String)object;
+                object = string.startsWith("[") ? Class1722.Method6589(string, class1790) : class1790.Method6769().getOrDefault(string, string);
             }
-            list2.add(s);
+            arrayList.add(object);
         }
-        return list2;
+        return arrayList;
     }
-    
-    public static Handle Method6585(final Handle handle, final Class1790 class1790) {
-        final String name = handle.getName();
-        final String owner = handle.getOwner();
-        final String desc = handle.getDesc();
-        String method6583 = Method6583(owner, name, desc, class1790);
-        if (method6583 == null) {
-            method6583 = class1790.Method6770().getOrDefault(handle.getName(), handle.getName());
+
+    public static Handle Method6585(Handle handle, Class1790 class1790) {
+        String string;
+        String string2 = handle.getName();
+        String string3 = handle.getOwner();
+        string2 = Class1722.Method6583(string3, string2, string = handle.getDesc(), class1790);
+        if (string2 == null) {
+            string2 = class1790.Method6770().getOrDefault(handle.getName(), handle.getName());
         }
-        return new Handle(handle.getTag(), (String)class1790.Method6769().getOrDefault(owner, owner), method6583, Method6589(desc, class1790), handle.isInterface());
+        string3 = class1790.Method6769().getOrDefault(string3, string3);
+        string = Class1722.Method6589(string, class1790);
+        return new Handle(handle.getTag(), string3, string2, string, handle.isInterface());
     }
-    
-    public static Type Method6586(final Type type, final Class1790 class1790) {
-        return Type.getType(Method6589(type.getDescriptor(), class1790));
+
+    public static Type Method6586(Type type, Class1790 class1790) {
+        return Type.getType(Class1722.Method6589(type.getDescriptor(), class1790));
     }
-    
-    public static String[] Method6587(final String s) {
-        final int lastIndex = s.lastIndexOf("/");
-        return new String[] { s.substring(0, lastIndex), s.substring(lastIndex + 1) };
+
+    public static String[] Method6587(String string) {
+        int n = string.lastIndexOf("/");
+        String string2 = string.substring(0, n);
+        String string3 = string.substring(n + 1);
+        return new String[]{string2, string3};
     }
-    
-    public static String[] Method6588(final String s) {
-        final String[] split = s.split("(\\()");
-        final int lastIndex = split[0].lastIndexOf("/");
-        return new String[] { split[0].substring(0, lastIndex), split[0].substring(lastIndex + 1), "(" + split[1] };
+
+    public static String[] Method6588(String string) {
+        String[] stringArray = string.split("(\\()");
+        int n = stringArray[0].lastIndexOf("/");
+        String string2 = stringArray[0].substring(0, n);
+        String string3 = stringArray[0].substring(n + 1);
+        String string4 = "(" + stringArray[1];
+        return new String[]{string2, string3, string4};
     }
-    
-    public static String Method6589(final String s, final Class1790 class1790) {
-        return Method6592(s, class1790, Method6591(s, ';'));
+
+    public static String Method6589(String string, Class1790 class1790) {
+        Set set = Class1722.Method6591(string, ';');
+        return Class1722.Method6592(string, class1790, set);
     }
-    
-    public static String Method6590(final String s, final Class1790 class1790) {
-        return Method6592(s, class1790, Method6591(s, '<', ';'));
+
+    public static String Method6590(String string, Class1790 class1790) {
+        Set set = Class1722.Method6591(string, '<', ';');
+        return Class1722.Method6592(string, class1790, set);
     }
-    
-    private static Set Method6591(final String s, final char... array) {
-        final HashSet set = new HashSet();
-        final StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < s.length(); ++i) {
-            if (s.charAt(i) == 'L') {}
-        }
-        return set;
-    }
-    
-    private static String Method6592(final String s, final Class1790 class1790, final Set set) {
-        String replace = s;
-        for (final String target : set) {
-            final String substring = target.substring(0, target.length() - 1);
-            final String substring2 = target.substring(target.length() - 1);
-            final String str = class1790.Method6769().get(substring);
-            if (str != null) {
-                replace = replace.replace(target, str + substring2);
+
+    private static Set Method6591(String string, char ... cArray) {
+        boolean bl = false;
+        HashSet hashSet = new HashSet();
+        StringBuilder stringBuilder = new StringBuilder();
+        int n = 0;
+        while (n < string.length()) {
+            char c = string.charAt(n);
+            if (c == 'L') {
+                bl = true;
             }
+            ++n;
         }
-        return replace;
+        return hashSet;
     }
-    
-    private static String Method6593(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x5483 ^ 0x86));
-            }
-            return new String(value);
+
+    private static String Method6592(String string, Class1790 class1790, Set set) {
+        String string2 = string;
+        Iterator iterator = set.iterator();
+        while (iterator.hasNext()) {
+            String string3 = (String)iterator.next();
+            String string4 = string3.substring(0, string3.length() - 1);
+            String string5 = string3.substring(string3.length() - 1);
+            String string6 = (String)class1790.Method6769().get(string4);
+            if (string6 == null) continue;
+            string2 = string2.replace(string3, string6 + string5);
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return string2;
+    }
+
+    private static String Method6593(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 134;
+            cArray2[n] = (char)(cArray[n] ^ (0x5483 ^ n2));
+            ++n;
+        }
+        return new String(cArray2);
     }
 }
+

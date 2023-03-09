@@ -1,78 +1,71 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  lavahack.client.n99vo51pDQ2rDvMRD3zMHbq8IgyrL5D9
+ *  net.minecraft.block.Block
+ */
 package lavahack.client;
 
-import net.minecraft.block.*;
-import net.minecraft.init.*;
+import lavahack.client.Class572;
+import lavahack.client.Class573;
+import lavahack.client.n99vo51pDQ2rDvMRD3zMHbq8IgyrL5D9;
+import net.minecraft.block.Block;
 
-public enum Class1072
-{
-    Field12727("Torch", 0) {
-        private String Field10443 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-        
-        Class573(final String s, final int n) {
-        }
-        
-        @Override
-        public Class1072 Method2519() {
-            return Class573.Block;
-        }
-        
-        @Override
-        public Block Method2520() {
-            return Blocks.REDSTONE_TORCH;
-        }
-    }, 
-    Field12728("Block", 1) {
-        private int Field10442;
-        
-        Class572(final String s, final int n) {
-        }
-        
-        @Override
-        public Class1072 Method2519() {
-            return Class572.Torch;
-        }
-        
-        @Override
-        public Block Method2520() {
-            return Blocks.REDSTONE_BLOCK;
-        }
-    };
-    
-    private static final Class1072[] Field12729;
+public class Class1072
+extends Enum {
+    public static final /* enum */ Class1072 Field12727 = new Class573();
+    public static final /* enum */ Class1072 Field12728 = new Class572();
+    private static final Class1072[] Field12729 = new Class1072[]{Field12727, Field12728};
     private String Field12730 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    private Class1072(final String name, final int ordinal) {
+
+    public static Class1072[] values() {
+        return (n99vo51pDQ2rDvMRD3zMHbq8IgyrL5D9[])Field12729.clone();
     }
-    
+
+    public static Class1072 valueOf(String string) {
+        return Enum.valueOf(Class1072.class, string);
+    }
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    private Class1072() {
+        void var2_-1;
+        void var1_-1;
+    }
+
     public Class1072 Method2519() {
         return null;
     }
-    
+
     public Block Method2520() {
         return null;
     }
-    
-    Class1072(final String s, final int n, final Class573 class1072) {
-        this(s, n);
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    Class1072() {
+        this((String)var1_-1, (int)var2_1);
+        void var2_1;
+        void var1_-1;
     }
-    
-    static {
-        Field12729 = new Class1072[] { Class1072.Field12727, Class1072.Field12728 };
-    }
-    
-    private static String Method2521(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x1EAD ^ 0x97));
-            }
-            return new String(value);
+
+    private static String Method2521(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 151;
+            cArray2[n] = (char)(cArray[n] ^ (0x1EAD ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

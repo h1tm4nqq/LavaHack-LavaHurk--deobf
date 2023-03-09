@@ -1,66 +1,76 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  lavahack.client.exalTBqSufwHR1VdwyK23X5QNwSlzh5j$YlFSugLHQAjzunVBKfamPjSRsvHTy3jf
+ *  net.minecraft.util.math.AxisAlignedBB
+ */
 package lavahack.client;
 
-import net.minecraft.util.math.*;
-import java.awt.*;
+import java.awt.Color;
+import lavahack.client.Class100;
+import lavahack.client.Class101;
+import lavahack.client.Class98;
+import lavahack.client.exalTBqSufwHR1VdwyK23X5QNwSlzh5j;
+import net.minecraft.util.math.AxisAlignedBB;
 
-public enum Class450
-{
-    Field9873("BOX", 0) {
-        private String Field8351 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-        
-        Class98(final String s, final int n) {
-        }
-        
-        @Override
-        void Method809(final AxisAlignedBB axisAlignedBB, final Color color, final Color color2, final boolean b, final Object... array) {
-            if (b) {
-                Class815.Method3460(axisAlignedBB, color, color2);
-            }
-            else {
-                Class815.Method3456(axisAlignedBB, color);
-            }
-        }
-    }, 
-    Field9874("OUTLINE", 1), 
-    Field9875("WIRE", 2);
-    
-    private static final Class450[] Field9876;
+public abstract class Class450
+extends Enum {
+    public static final /* enum */ Class450 Field9873 = new Class98();
+    public static final /* enum */ Class450 Field9874 = new Class100();
+    public static final /* enum */ Class450 Field9875 = new Class101();
+    private static final Class450[] Field9876 = new Class450[]{Field9873, Field9874, Field9875};
     private int Field9877;
-    
-    private Class450(final String name, final int ordinal) {
+
+    public static Class450[] values() {
+        return (exalTBqSufwHR1VdwyK23X5QNwSlzh5j.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf[])Field9876.clone();
     }
-    
-    abstract void Method809(final AxisAlignedBB p0, final Color p1, final Color p2, final boolean p3, final Object... p4);
-    
-    public void Method810(final AxisAlignedBB axisAlignedBB, final Color color, final Object... array) {
-        this.Method809(axisAlignedBB, color, color, false, array);
+
+    public static Class450 valueOf(String string) {
+        return Enum.valueOf(Class450.class, string);
     }
-    
-    public void Method811(final AxisAlignedBB axisAlignedBB, final Color color, final Color color2, final Object... array) {
-        this.Method809(axisAlignedBB, color, color2, true, array);
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    private Class450() {
+        void var2_-1;
+        void var1_-1;
     }
-    
-    Class450(final String s, final int n, final Class1951 class1951) {
-        this(s, n);
+
+    abstract void Method809(AxisAlignedBB var1, Color var2, Color var3, boolean var4, Object ... var5);
+
+    public void Method810(AxisAlignedBB axisAlignedBB, Color color, Object ... objectArray) {
+        this.Method809(axisAlignedBB, color, color, false, objectArray);
     }
-    
-    static {
-        Field9876 = new Class450[] { Class450.Field9873, Class450.Field9874, Class450.Field9875 };
+
+    public void Method811(AxisAlignedBB axisAlignedBB, Color color, Color color2, Object ... objectArray) {
+        this.Method809(axisAlignedBB, color, color2, true, objectArray);
     }
-    
-    private static String Method812(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x2D84 ^ 0x26));
-            }
-            return new String(value);
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    Class450() {
+        this((String)var1_-1, (int)var2_1);
+        void var2_1;
+        void var1_-1;
+    }
+
+    private static String Method812(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 38;
+            cArray2[n] = (char)(cArray[n] ^ (0x2D84 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

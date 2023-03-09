@@ -1,22 +1,41 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.apache.logging.log4j.LogManager
+ *  org.apache.logging.log4j.Logger
+ */
 package lavahack.client;
 
-import java.nio.*;
-import org.apache.logging.log4j.*;
-import java.util.concurrent.*;
-import java.util.*;
-import javax.net.ssl.*;
-import java.io.*;
-import java.nio.channels.*;
-import java.net.*;
+import java.io.EOFException;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.SocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.ByteChannel;
+import java.nio.channels.SelectableChannel;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.SocketChannel;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
+import javax.net.ssl.SSLEngine;
+import javax.net.ssl.SSLEngineResult;
+import javax.net.ssl.SSLException;
+import javax.net.ssl.SSLSession;
+import lavahack.client.Class1608;
+import lavahack.client.Class1784;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class Class566 implements ByteChannel, Class1608, Class1784
-{
+public class Class566
+implements ByteChannel,
+Class1608,
+Class1784 {
     protected static ByteBuffer Field10402;
-    private final Logger Field10403;
+    private final Logger Field10403 = LogManager.getLogger(Class566.class);
     protected ExecutorService Field10404;
     protected List Field10405;
     protected ByteBuffer Field10406;
@@ -27,50 +46,46 @@ public class Class566 implements ByteChannel, Class1608, Class1784
     protected SSLEngine Field10411;
     protected SSLEngineResult Field10412;
     protected SSLEngineResult Field10413;
-    protected int Field10414;
-    private byte[] Field10415;
+    protected int Field10414 = 0;
+    private byte[] Field10415 = null;
     static final boolean Field10416;
     private String Field10417 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class566(final SocketChannel field10409, final SSLEngine field10410, final ExecutorService field10411, final SelectionKey field10412) throws IOException {
-        this.Field10403 = LogManager.getLogger((Class)Class566.class);
-        this.Field10414 = 0;
-        this.Field10415 = null;
-        if (field10409 == null || field10410 == null || field10411 == null) {
+
+    public Class566(SocketChannel socketChannel, SSLEngine sSLEngine, ExecutorService executorService, SelectionKey selectionKey) throws IOException {
+        if (socketChannel == null) throw new IllegalArgumentException("parameter must not be null");
+        if (sSLEngine == null) throw new IllegalArgumentException("parameter must not be null");
+        if (executorService == null) {
             throw new IllegalArgumentException("parameter must not be null");
         }
-        this.Field10409 = field10409;
-        this.Field10411 = field10410;
-        this.Field10404 = field10411;
-        final SSLEngineResult sslEngineResult = new SSLEngineResult(SSLEngineResult.Status.BUFFER_UNDERFLOW, field10410.getHandshakeStatus(), 0, 0);
-        this.Field10413 = sslEngineResult;
-        this.Field10412 = sslEngineResult;
+        this.Field10409 = socketChannel;
+        this.Field10411 = sSLEngine;
+        this.Field10404 = executorService;
+        this.Field10412 = this.Field10413 = new SSLEngineResult(SSLEngineResult.Status.BUFFER_UNDERFLOW, sSLEngine.getHandshakeStatus(), 0, 0);
         this.Field10405 = new ArrayList(3);
-        if (field10412 != null) {
-            field10412.interestOps(field10412.interestOps() | 0x4);
-            this.Field10410 = field10412;
+        if (selectionKey != null) {
+            selectionKey.interestOps(selectionKey.interestOps() | 4);
+            this.Field10410 = selectionKey;
         }
-        this.Method2493(field10410.getSession());
-        this.Field10409.write(this.Method2490(Class566.Field10402));
+        this.Method2493(sSLEngine.getSession());
+        this.Field10409.write(this.Method2490(Field10402));
         this.Method2489();
     }
-    
-    private void Method2488(final Future future) {
+
+    private void Method2488(Future future) {
         future.get();
     }
-    
+
     private synchronized void Method2489() throws IOException {
         if (this.Field10411.getHandshakeStatus() == SSLEngineResult.HandshakeStatus.NOT_HANDSHAKING) {
             return;
         }
         if (!this.Field10405.isEmpty()) {
-            final Iterator<Future> iterator = (Iterator<Future>)this.Field10405.iterator();
+            Iterator iterator = this.Field10405.iterator();
             while (iterator.hasNext()) {
-                final Future future = iterator.next();
+                Future future = (Future)iterator.next();
                 if (!future.isDone()) {
-                    if (this.Method2486()) {
-                        this.Method2488(future);
-                    }
+                    if (!this.Method2486()) return;
+                    this.Method2488(future);
                     return;
                 }
                 iterator.remove();
@@ -79,7 +94,8 @@ public class Class566 implements ByteChannel, Class1608, Class1784
         if (this.Field10411.getHandshakeStatus() == SSLEngineResult.HandshakeStatus.NEED_UNWRAP) {
             if (!this.Method2486() || this.Field10412.getStatus() == SSLEngineResult.Status.BUFFER_UNDERFLOW) {
                 this.Field10408.compact();
-                if (this.Field10409.read(this.Field10408) == -1) {
+                int n = this.Field10409.read(this.Field10408);
+                if (n == -1) {
                     throw new IOException("connection closed unexpectedly by peer");
                 }
                 this.Field10408.flip();
@@ -93,63 +109,62 @@ public class Class566 implements ByteChannel, Class1608, Class1784
         }
         this.Method2492();
         if (this.Field10405.isEmpty() || this.Field10411.getHandshakeStatus() == SSLEngineResult.HandshakeStatus.NEED_WRAP) {
-            this.Field10409.write(this.Method2490(Class566.Field10402));
+            this.Field10409.write(this.Method2490(Field10402));
             if (this.Field10413.getHandshakeStatus() == SSLEngineResult.HandshakeStatus.FINISHED) {
                 this.Method2493(this.Field10411.getSession());
                 return;
             }
         }
-        if (!Class566.Field10416 && this.Field10411.getHandshakeStatus() == SSLEngineResult.HandshakeStatus.NOT_HANDSHAKING) {
+        if (!Field10416 && this.Field10411.getHandshakeStatus() == SSLEngineResult.HandshakeStatus.NOT_HANDSHAKING) {
             throw new AssertionError();
         }
         this.Field10414 = 1;
     }
-    
-    private synchronized ByteBuffer Method2490(final ByteBuffer src) throws SSLException {
+
+    private synchronized ByteBuffer Method2490(ByteBuffer byteBuffer) throws SSLException {
         this.Field10407.compact();
-        this.Field10413 = this.Field10411.wrap(src, this.Field10407);
+        this.Field10413 = this.Field10411.wrap(byteBuffer, this.Field10407);
         this.Field10407.flip();
         return this.Field10407;
     }
-    
+
     private synchronized ByteBuffer Method2491() throws SSLException {
+        int n;
         if (this.Field10412.getStatus() == SSLEngineResult.Status.CLOSED && this.Field10411.getHandshakeStatus() == SSLEngineResult.HandshakeStatus.NOT_HANDSHAKING) {
             this.close();
         }
-        int remaining;
         do {
-            remaining = this.Field10406.remaining();
+            n = this.Field10406.remaining();
             this.Field10412 = this.Field10411.unwrap(this.Field10408, this.Field10406);
-        } while (this.Field10412.getStatus() == SSLEngineResult.Status.OK && (remaining != this.Field10406.remaining() || this.Field10411.getHandshakeStatus() == SSLEngineResult.HandshakeStatus.NEED_UNWRAP));
+        } while (this.Field10412.getStatus() == SSLEngineResult.Status.OK && (n != this.Field10406.remaining() || this.Field10411.getHandshakeStatus() == SSLEngineResult.HandshakeStatus.NEED_UNWRAP));
         this.Field10406.flip();
         return this.Field10406;
     }
-    
+
     protected void Method2492() {
-        Runnable delegatedTask;
-        while ((delegatedTask = this.Field10411.getDelegatedTask()) != null) {
-            this.Field10405.add(this.Field10404.submit(delegatedTask));
+        Runnable runnable;
+        while ((runnable = this.Field10411.getDelegatedTask()) != null) {
+            this.Field10405.add(this.Field10404.submit(runnable));
         }
     }
-    
-    protected void Method2493(final SSLSession sslSession) {
+
+    protected void Method2493(SSLSession sSLSession) {
         this.Method2503();
-        final int packetBufferSize = sslSession.getPacketBufferSize();
-        final int max = Math.max(sslSession.getApplicationBufferSize(), packetBufferSize);
+        int n = sSLSession.getPacketBufferSize();
+        int n2 = Math.max(sSLSession.getApplicationBufferSize(), n);
         if (this.Field10406 == null) {
-            this.Field10406 = ByteBuffer.allocate(max);
-            this.Field10407 = ByteBuffer.allocate(packetBufferSize);
-            this.Field10408 = ByteBuffer.allocate(packetBufferSize);
-        }
-        else {
-            if (this.Field10406.capacity() != max) {
-                this.Field10406 = ByteBuffer.allocate(max);
+            this.Field10406 = ByteBuffer.allocate(n2);
+            this.Field10407 = ByteBuffer.allocate(n);
+            this.Field10408 = ByteBuffer.allocate(n);
+        } else {
+            if (this.Field10406.capacity() != n2) {
+                this.Field10406 = ByteBuffer.allocate(n2);
             }
-            if (this.Field10407.capacity() != packetBufferSize) {
-                this.Field10407 = ByteBuffer.allocate(packetBufferSize);
+            if (this.Field10407.capacity() != n) {
+                this.Field10407 = ByteBuffer.allocate(n);
             }
-            if (this.Field10408.capacity() != packetBufferSize) {
-                this.Field10408 = ByteBuffer.allocate(packetBufferSize);
+            if (this.Field10408.capacity() != n) {
+                this.Field10408 = ByteBuffer.allocate(n);
             }
         }
         if (this.Field10406.remaining() != 0 && this.Field10403.isTraceEnabled()) {
@@ -166,47 +181,45 @@ public class Class566 implements ByteChannel, Class1608, Class1784
         this.Field10407.flip();
         ++this.Field10414;
     }
-    
-    public int write(final ByteBuffer byteBuffer) throws IOException {
+
+    @Override
+    public int write(ByteBuffer byteBuffer) throws IOException {
         if (!this.Method2496()) {
             this.Method2489();
             return 0;
         }
-        final int write = this.Field10409.write(this.Method2490(byteBuffer));
-        if (this.Field10413.getStatus() == SSLEngineResult.Status.CLOSED) {
-            throw new EOFException("Connection is closed");
-        }
-        return write;
+        int n = this.Field10409.write(this.Method2490(byteBuffer));
+        if (this.Field10413.getStatus() != SSLEngineResult.Status.CLOSED) return n;
+        throw new EOFException("Connection is closed");
     }
-    
-    public int read(final ByteBuffer byteBuffer) throws IOException {
+
+    @Override
+    public int read(ByteBuffer byteBuffer) throws IOException {
         this.Method2504();
         while (byteBuffer.hasRemaining()) {
+            int n;
             if (!this.Method2496()) {
                 if (this.Method2486()) {
                     while (!this.Method2496()) {
                         this.Method2489();
                     }
-                }
-                else {
+                } else {
                     this.Method2489();
                     if (!this.Method2496()) {
                         return 0;
                     }
                 }
             }
-            final int method2494 = this.Method2494(byteBuffer);
-            if (method2494 != 0) {
-                return method2494;
+            if ((n = this.Method2494(byteBuffer)) != 0) {
+                return n;
             }
-            if (!Class566.Field10416 && this.Field10406.position() != 0) {
+            if (!Field10416 && this.Field10406.position() != 0) {
                 throw new AssertionError();
             }
             this.Field10406.clear();
             if (!this.Field10408.hasRemaining()) {
                 this.Field10408.clear();
-            }
-            else {
+            } else {
                 this.Field10408.compact();
             }
             if ((this.Method2486() || this.Field10412.getStatus() == SSLEngineResult.Status.BUFFER_UNDERFLOW) && this.Field10409.read(this.Field10408) == -1) {
@@ -214,16 +227,14 @@ public class Class566 implements ByteChannel, Class1608, Class1784
             }
             this.Field10408.flip();
             this.Method2491();
-            final int method2495 = this.Method2502(this.Field10406, byteBuffer);
-            if (method2495 == 0 && this.Method2486()) {
-                continue;
-            }
-            return method2495;
+            int n2 = this.Method2502(this.Field10406, byteBuffer);
+            if (n2 != 0) return n2;
+            if (!this.Method2486()) return n2;
         }
         return 0;
     }
-    
-    private int Method2494(final ByteBuffer byteBuffer) throws SSLException {
+
+    private int Method2494(ByteBuffer byteBuffer) throws SSLException {
         if (this.Field10406.hasRemaining()) {
             return this.Method2502(this.Field10406, byteBuffer);
         }
@@ -231,129 +242,148 @@ public class Class566 implements ByteChannel, Class1608, Class1784
             this.Field10406.clear();
         }
         this.Method2504();
-        if (this.Field10408.hasRemaining()) {
-            this.Method2491();
-            final int method2502 = this.Method2502(this.Field10406, byteBuffer);
-            if (this.Field10412.getStatus() == SSLEngineResult.Status.CLOSED) {
-                return -1;
-            }
-            if (method2502 > 0) {
-                return method2502;
-            }
+        if (!this.Field10408.hasRemaining()) return 0;
+        this.Method2491();
+        int n = this.Method2502(this.Field10406, byteBuffer);
+        if (this.Field10412.getStatus() == SSLEngineResult.Status.CLOSED) {
+            return -1;
         }
-        return 0;
+        if (n <= 0) return 0;
+        return n;
     }
-    
+
     public boolean Method2495() {
         return this.Field10409.isConnected();
     }
-    
+
+    @Override
     public void close() throws IOException {
         this.Field10411.closeOutbound();
         this.Field10411.getSession().invalidate();
         if (this.Field10409.isOpen()) {
-            this.Field10409.write(this.Method2490(Class566.Field10402));
+            this.Field10409.write(this.Method2490(Field10402));
         }
         this.Field10409.close();
     }
-    
+
     private boolean Method2496() {
-        final SSLEngineResult.HandshakeStatus handshakeStatus = this.Field10411.getHandshakeStatus();
-        return handshakeStatus == SSLEngineResult.HandshakeStatus.FINISHED || handshakeStatus == SSLEngineResult.HandshakeStatus.NOT_HANDSHAKING;
+        SSLEngineResult.HandshakeStatus handshakeStatus = this.Field10411.getHandshakeStatus();
+        if (handshakeStatus == SSLEngineResult.HandshakeStatus.FINISHED) return true;
+        if (handshakeStatus == SSLEngineResult.HandshakeStatus.NOT_HANDSHAKING) return true;
+        return false;
     }
-    
-    public SelectableChannel Method2497(final boolean block) throws IOException {
-        return this.Field10409.configureBlocking(block);
+
+    public SelectableChannel Method2497(boolean bl) throws IOException {
+        return this.Field10409.configureBlocking(bl);
     }
-    
-    public boolean Method2498(final SocketAddress socketAddress) throws IOException {
+
+    public boolean Method2498(SocketAddress socketAddress) throws IOException {
         return this.Field10409.connect(socketAddress);
     }
-    
+
     public boolean Method2499() throws IOException {
         return this.Field10409.finishConnect();
     }
-    
+
     public Socket Method2500() {
         return this.Field10409.socket();
     }
-    
+
     public boolean Method2501() {
         return this.Field10411.isInboundDone();
     }
-    
+
+    @Override
     public boolean isOpen() {
         return this.Field10409.isOpen();
     }
-    
+
+    @Override
     public boolean Method2482() {
-        return this.Field10407.hasRemaining() || !this.Method2496();
+        if (this.Field10407.hasRemaining()) return true;
+        if (!this.Method2496()) return true;
+        return false;
     }
-    
+
+    @Override
     public void Method2483() throws IOException {
         this.write(this.Field10407);
     }
-    
+
+    @Override
     public boolean Method2484() {
-        return this.Field10415 != null || this.Field10406.hasRemaining() || (this.Field10408.hasRemaining() && this.Field10412.getStatus() != SSLEngineResult.Status.BUFFER_UNDERFLOW && this.Field10412.getStatus() != SSLEngineResult.Status.CLOSED);
+        if (this.Field10415 != null) return true;
+        if (this.Field10406.hasRemaining()) return true;
+        if (!this.Field10408.hasRemaining()) return false;
+        if (this.Field10412.getStatus() == SSLEngineResult.Status.BUFFER_UNDERFLOW) return false;
+        if (this.Field10412.getStatus() == SSLEngineResult.Status.CLOSED) return false;
+        return true;
     }
-    
-    public int Method2485(final ByteBuffer byteBuffer) throws SSLException {
+
+    @Override
+    public int Method2485(ByteBuffer byteBuffer) throws SSLException {
         return this.Method2494(byteBuffer);
     }
-    
-    private int Method2502(final ByteBuffer src, final ByteBuffer byteBuffer) {
-        final int remaining = src.remaining();
-        final int remaining2 = byteBuffer.remaining();
-        if (remaining > remaining2) {
-            final int min = Math.min(remaining, remaining2);
-            for (int i = 0; i < min; ++i) {
-                byteBuffer.put(src.get());
-            }
-            return min;
+
+    private int Method2502(ByteBuffer byteBuffer, ByteBuffer byteBuffer2) {
+        int n;
+        int n2 = byteBuffer.remaining();
+        if (n2 <= (n = byteBuffer2.remaining())) {
+            byteBuffer2.put(byteBuffer);
+            return n2;
         }
-        byteBuffer.put(src);
-        return remaining;
+        int n3 = Math.min(n2, n);
+        int n4 = 0;
+        while (n4 < n3) {
+            byteBuffer2.put(byteBuffer.get());
+            ++n4;
+        }
+        return n3;
     }
-    
+
+    @Override
     public boolean Method2486() {
         return this.Field10409.isBlocking();
     }
-    
+
+    @Override
     public SSLEngine Method2487() {
         return this.Field10411;
     }
-    
+
     private void Method2503() {
-        if (this.Field10408 != null && this.Field10408.remaining() > 0) {
-            this.Field10415 = new byte[this.Field10408.remaining()];
-            this.Field10408.get(this.Field10415);
-        }
+        if (this.Field10408 == null) return;
+        if (this.Field10408.remaining() <= 0) return;
+        int n = this.Field10408.remaining();
+        this.Field10415 = new byte[n];
+        this.Field10408.get(this.Field10415);
     }
-    
+
     private void Method2504() {
-        if (this.Field10415 != null) {
-            this.Field10408.clear();
-            this.Field10408.put(this.Field10415);
-            this.Field10408.flip();
-            this.Field10415 = null;
-        }
+        if (this.Field10415 == null) return;
+        this.Field10408.clear();
+        this.Field10408.put(this.Field10415);
+        this.Field10408.flip();
+        this.Field10415 = null;
     }
-    
+
     static {
         Field10416 = !Class566.class.desiredAssertionStatus();
-        Class566.Field10402 = ByteBuffer.allocate(0);
+        Field10402 = ByteBuffer.allocate(0);
     }
-    
-    private static String Method2505(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x38F7 ^ 0x99));
-            }
-            return new String(value);
+
+    private static String Method2505(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 153;
+            cArray2[n] = (char)(cArray[n] ^ (0x38F7 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

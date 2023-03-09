@@ -1,44 +1,46 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.function.*;
-import java.util.*;
+import java.util.Locale;
+import java.util.function.Function;
+import lavahack.client.Class182;
 
-public enum Class467
-{
-    Field9942("PERCENT", 0, n -> String.format(Locale.ENGLISH, "%.1f%%", n.floatValue())), 
-    Field9943("TIME", 1, n2 -> Class182.Field8796.Method1102(n2.longValue())), 
-    Field9944("DECIMAL", 2, n3 -> String.format(Locale.ENGLISH, "%.4f", n3.floatValue())), 
-    Field9945("INTEGER", 3, n4 -> Long.toString(n4.longValue()));
-    
+public enum Class467 {
+    Field9942(number -> String.format(Locale.ENGLISH, "%.1f%%", Float.valueOf(number.floatValue()))),
+    Field9943(number -> Class182.Field8796.Method1102(number.longValue())),
+    Field9944(number -> String.format(Locale.ENGLISH, "%.4f", Float.valueOf(number.floatValue()))),
+    Field9945(number -> Long.toString(number.longValue()));
+
     private Function Field9946;
-    private static final Class467[] Field9947;
     private int Field9948;
-    
-    private Class467(final String name, final int ordinal, final Function field9946) {
-        this.Field9946 = field9946;
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    private Class467() {
+        void var3_1;
+        this.Field9946 = var3_1;
     }
-    
+
     public Function Method2190() {
         return this.Field9946;
     }
-    
-    static {
-        Field9947 = new Class467[] { Class467.Field9942, Class467.Field9943, Class467.Field9944, Class467.Field9945 };
-    }
-    
-    private static String Method2195(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x25DB ^ 0xE5));
-            }
-            return new String(value);
+
+    private static String Method2195(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 229;
+            cArray2[n] = (char)(cArray[n] ^ (0x25DB ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

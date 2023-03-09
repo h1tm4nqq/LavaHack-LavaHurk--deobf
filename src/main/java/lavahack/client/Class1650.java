@@ -1,121 +1,158 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.tileentity.TileEntity
+ *  net.minecraft.util.math.AxisAlignedBB
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.world.World
+ */
 package lavahack.client;
 
-import java.io.*;
-import net.minecraft.world.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
-import net.minecraft.block.state.*;
-import net.minecraft.block.*;
-import net.minecraft.tileentity.*;
-import java.util.*;
-import net.minecraft.entity.player.*;
-import javax.annotation.*;
+import java.io.File;
+import java.util.Iterator;
+import java.util.List;
+import javax.annotation.Nullable;
+import lavahack.client.Class1079;
+import lavahack.client.Class1433;
+import lavahack.client.Class16;
+import lavahack.client.Class1885;
+import lavahack.client.Class2025;
+import lavahack.client.Class292;
+import lavahack.client.Class32;
+import lavahack.client.Class542;
+import lavahack.client.Class686;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
-public abstract class Class1650
-{
-    public boolean Field15669;
-    public boolean Field15670;
+public abstract class Class1650 {
+    public boolean Field15669 = true;
+    public boolean Field15670 = true;
     private String Field15671 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class1650() {
-        this.Field15669 = true;
-        this.Field15670 = true;
-    }
-    
+
     public void Method410() {
-        if (!Class32.Field7990.exists() && !Class32.Field7990.mkdirs()) {
-            Class542.Field10314.warn("Could not create schematic directory [{}]!", (Object)Class32.Field7990.getAbsolutePath());
-        }
+        if (Class32.Field7990.exists()) return;
+        if (Class32.Field7990.mkdirs()) return;
+        Class542.Field10314.warn("Could not create schematic directory [{}]!", (Object)Class32.Field7990.getAbsolutePath());
     }
-    
+
     public abstract File Method411();
-    
-    public File Method412(final String child) {
-        final File file = new File(this.Method411(), child);
-        if (!file.exists() && !file.mkdirs()) {
-            Class542.Field10314.error("Could not create directory [{}]!", (Object)file.getAbsolutePath());
-        }
-        return file.getCanonicalFile();
+
+    public File Method412(String string) {
+        File file = this.Method411();
+        File file2 = new File(file, string);
+        if (file2.exists()) return file2.getCanonicalFile();
+        if (file2.mkdirs()) return file2.getCanonicalFile();
+        Class542.Field10314.error("Could not create directory [{}]!", (Object)file2.getAbsolutePath());
+        return file2.getCanonicalFile();
     }
-    
+
     public void Method413() {
         this.Field15669 = true;
         this.Field15670 = true;
     }
-    
+
     public void Method414() {
     }
-    
-    public void Method415(final Class686 class686, final World world, final int n, final int n2, final int n3, final int n4, final int n5, final int n6, final int n7, final int n8) {
-        final Class16 class687 = new Class16();
-        final Class16 class688 = new Class16();
-        final int n9 = (n3 < n << 4) ? 0 : (n3 & 0xF);
-        final int n10 = (n4 > (n << 4) + 15) ? 15 : (n4 & 0xF);
-        final int n11 = (n7 < n2 << 4) ? 0 : (n7 & 0xF);
-        final int n12 = (n8 > (n2 << 4) + 15) ? 15 : (n8 & 0xF);
-        for (int i = n9; i <= n10; ++i) {
-            for (int j = n11; j <= n12; ++j) {
-                for (int k = n5; k <= n6; ++k) {
-                    final int n13 = i | n << 4;
-                    final int n14 = j | n2 << 4;
-                    final int n15 = n13 - n3;
-                    final int n16 = k - n5;
-                    final int n17 = n14 - n7;
-                    class687.set(n13, k, n14);
-                    class688.set(n15, n16, n17);
-                    final IBlockState getBlockState = world.getBlockState((BlockPos)class687);
-                    final Block getBlock = getBlockState.getBlock();
-                    if (class686.Method2881((BlockPos)class688, getBlockState) && getBlock.hasTileEntity(getBlockState)) {
-                        final TileEntity getTileEntity = world.getTileEntity((BlockPos)class687);
-                        if (getTileEntity != null) {
-                            class686.Method2884((BlockPos)class688, Class1433.Method5731(getTileEntity, n3, n5, n7));
-                        }
-                    }
+
+    public void Method415(Class686 class686, World world, int n, int n2, int n3, int n4, int n5, int n6, int n7, int n8) {
+        IBlockState iBlockState;
+        int n9;
+        int n10;
+        int n11;
+        int n12;
+        Class16 class16 = new Class16();
+        Class16 class162 = new Class16();
+        int n13 = n3 < n << 4 ? 0 : n3 & 0xF;
+        int n14 = n4 > (n << 4) + 15 ? 15 : n4 & 0xF;
+        int n15 = n7 < n2 << 4 ? 0 : n7 & 0xF;
+        int n16 = n8 > (n2 << 4) + 15 ? 15 : n8 & 0xF;
+        for (n12 = n13; n12 <= n14; ++n12) {
+            for (n11 = n15; n11 <= n16; ++n11) {
+                for (n10 = n5; n10 <= n6; ++n10) {
+                    TileEntity tileEntity;
+                    n9 = n12 | n << 4;
+                    int n17 = n11 | n2 << 4;
+                    int n18 = n9 - n3;
+                    int n19 = n10 - n5;
+                    int n20 = n17 - n7;
+                    class16.set(n9, n10, n17);
+                    class162.set(n18, n19, n20);
+                    iBlockState = world.getBlockState((BlockPos)class16);
+                    Block block = iBlockState.getBlock();
+                    boolean bl = class686.Method2881(class162, iBlockState);
+                    if (!bl || !block.hasTileEntity(iBlockState) || (tileEntity = world.getTileEntity((BlockPos)class16)) == null) continue;
+                    TileEntity tileEntity2 = Class1433.Method5731(tileEntity, n3, n5, n7);
+                    class686.Method2884(class162, tileEntity2);
                 }
             }
         }
-        final Iterator iterator = world.getEntitiesWithinAABB((Class)Entity.class, new AxisAlignedBB((double)(n9 | n << 4), (double)n5, (double)(n11 | n2 << 4), (double)((n10 | n << 4) + 1), (double)(n6 + 1), (double)((n12 | n2 << 4) + 1))).iterator();
+        n12 = n13 | n << 4;
+        n11 = n15 | n2 << 4;
+        n10 = n14 | n << 4;
+        n9 = n16 | n2 << 4;
+        AxisAlignedBB axisAlignedBB = new AxisAlignedBB((double)n12, (double)n5, (double)n11, (double)(n10 + 1), (double)(n6 + 1), (double)(n9 + 1));
+        List list = world.getEntitiesWithinAABB(Entity.class, axisAlignedBB);
+        Iterator iterator = list.iterator();
         while (iterator.hasNext()) {
-            class686.Method2887(Class1433.Method5733((Entity)iterator.next(), n3, n5, n7));
+            Entity entity = (Entity)iterator.next();
+            iBlockState = Class1433.Method5733(entity, n3, n5, n7);
+            class686.Method2887((Entity)iBlockState);
         }
     }
-    
-    public boolean Method416(final EntityPlayer entityPlayer, final File parent, String child, final World world, @Nullable @Nullable final String s, final BlockPos blockPos, final BlockPos blockPos2) {
-        String s2 = "";
-        final String[] split = child.split(";");
-        if (split.length == 2) {
-            s2 = split[0];
-            child = split[1];
+
+    public boolean Method416(EntityPlayer entityPlayer, File file, String string, World world, @Nullable @Nullable String string2, BlockPos blockPos, BlockPos blockPos2) {
+        String string3 = "";
+        String[] stringArray = string.split(";");
+        if (stringArray.length == 2) {
+            string3 = stringArray[0];
+            string = stringArray[1];
         }
-        final int min = Math.min(blockPos.getX(), blockPos2.getX());
-        final int max = Math.max(blockPos.getX(), blockPos2.getX());
-        final int min2 = Math.min(blockPos.getY(), blockPos2.getY());
-        final int max2 = Math.max(blockPos.getY(), blockPos2.getY());
-        final int min3 = Math.min(blockPos.getZ(), blockPos2.getZ());
-        final int max3 = Math.max(blockPos.getZ(), blockPos2.getZ());
-        Class2025.Field17312.Method7491(new Class1079((Class686)new Class1885(Class292.Method1527(s2), (short)(Math.abs(max - min) + 1), (short)(Math.abs(max2 - min2) + 1), (short)(Math.abs(max3 - min3) + 1), entityPlayer.getName()), entityPlayer, world, new File(parent, child), s, min, max, min2, max2, min3, max3));
+        int n = Math.min(blockPos.getX(), blockPos2.getX());
+        int n2 = Math.max(blockPos.getX(), blockPos2.getX());
+        int n3 = Math.min(blockPos.getY(), blockPos2.getY());
+        int n4 = Math.max(blockPos.getY(), blockPos2.getY());
+        int n5 = Math.min(blockPos.getZ(), blockPos2.getZ());
+        int n6 = Math.max(blockPos.getZ(), blockPos2.getZ());
+        short s = (short)(Math.abs(n2 - n) + 1);
+        short s2 = (short)(Math.abs(n4 - n3) + 1);
+        short s3 = (short)(Math.abs(n6 - n5) + 1);
+        Class1885 class1885 = new Class1885(Class292.Method1527(string3), s, s2, s3, entityPlayer.getName());
+        Class1079 class1079 = new Class1079(class1885, entityPlayer, world, new File(file, string), string2, n, n2, n3, n4, n5, n6);
+        Class2025.Field17312.Method7491(class1079);
         return true;
     }
-    
-    public abstract boolean Method417(final EntityPlayer p0, final File p1, final String p2);
-    
-    public abstract boolean Method418(final EntityPlayer p0);
-    
-    public abstract File Method419(final EntityPlayer p0, final boolean p1);
-    
-    private static String Method420(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x4AA5 ^ 0x37));
-            }
-            return new String(value);
+
+    public abstract boolean Method417(EntityPlayer var1, File var2, String var3);
+
+    public abstract boolean Method418(EntityPlayer var1);
+
+    public abstract File Method419(EntityPlayer var1, boolean var2);
+
+    private static String Method420(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 55;
+            cArray2[n] = (char)(cArray[n] ^ (0x4AA5 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

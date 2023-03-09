@@ -1,24 +1,30 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.init.Blocks
+ */
 package lavahack.client;
 
-import net.minecraft.block.*;
-import net.minecraft.init.*;
+import lavahack.client.Class1072;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 
-enum Class572
-{
+final class Class572
+extends Class1072 {
     private int Field10442;
-    
-    Class572(final String s, final int n) {
-    }
-    
+
+    @Override
     public Class1072 Method2519() {
-        return Class572.Torch;
+        return Torch;
     }
-    
+
+    @Override
     public Block Method2520() {
         return Blocks.REDSTONE_BLOCK;
     }
 }
+

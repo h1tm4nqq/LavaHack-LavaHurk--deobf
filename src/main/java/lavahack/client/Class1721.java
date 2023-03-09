@@ -1,50 +1,55 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.jvm.internal.Intrinsics
+ */
 package lavahack.client;
 
-import java.util.function.*;
-import kotlin.*;
-import kotlin.jvm.internal.*;
+import java.util.function.Supplier;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
+import lavahack.client.Class1444;
+import lavahack.client.Class44;
+import lavahack.client.Class55;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 3, d1 = { "\u0000\b\n\u0000\n\u0002\u0010\u000b\n\u0000\u0010\u0000\u001a\u00020\u0001H\n?\u0006\u0002\b\u0002" }, d2 = { "<anonymous>", "", "get" })
-final class Class1721 implements Supplier
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=3, d1={"\u0000\b\n\u0000\n\u0002\u0010\u000b\n\u0000\u0010\u0000\u001a\u00020\u0001H\n\u00a2\u0006\u0002\b\u0002"}, d2={"<anonymous>", "", "get"})
+final class Class1721
+implements Supplier {
     final Class1444 Field15919;
     private int Field15920;
-    
-    @Override
+
     public Object get() {
         return this.Method6580();
     }
-    
+
     public final boolean Method6580() {
-        final Class44 method5757 = this.Field15919.Method5757();
-        Intrinsics.checkExpressionValueIsNotNull((Object)method5757, "mode");
-        if (method5757.Method341().equals(Class55.Field8170)) {
-            final Boolean value = this.Field15919.Method5765().get();
-            Intrinsics.checkExpressionValueIsNotNull((Object)value, "visible.get()");
-            if (value) {
-                return true;
-            }
-        }
-        return false;
+        Class44 class44 = this.Field15919.Method5757();
+        Intrinsics.checkExpressionValueIsNotNull((Object)class44, (String)"mode");
+        if (!class44.Method341().equals((Object)Class55.Field8170)) return false;
+        Object t = this.Field15919.Method5765().get();
+        Intrinsics.checkExpressionValueIsNotNull(t, (String)"visible.get()");
+        if ((Boolean)t == false) return false;
+        return true;
     }
-    
-    Class1721(final Class1444 field15919) {
-        this.Field15919 = field15919;
+
+    Class1721(Class1444 class1444) {
+        this.Field15919 = class1444;
     }
-    
-    private static String Method6581(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x1F70 ^ 0xFC));
-            }
-            return new String(value);
+
+    private static String Method6581(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 252;
+            cArray2[n] = (char)(cArray[n] ^ (0x1F70 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

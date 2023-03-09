@@ -1,58 +1,68 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.*;
+import java.util.Iterator;
+import lavahack.client.Class158;
+import lavahack.client.Class848;
 
-public class Class1627 extends Class158
-{
+public class Class1627
+extends Class158 {
     private int Field15606;
-    
+
     public Class1627() {
         super("antispam");
     }
-    
-    public void Method443(final String s, final String[] array) {
-        if (array[0].equalsIgnoreCase("add")) {
-            Class848.Field11583.Field11584.add(array[1]);
-            this.Method437(array[1] + " added to AntiSpammer list");
+
+    @Override
+    public void Method443(String string, String[] stringArray) {
+        if (stringArray[0].equalsIgnoreCase("add")) {
+            Class848.Field11583.Field11584.add(stringArray[1]);
+            this.Method437(stringArray[1] + " added to AntiSpammer list");
+            return;
         }
-        else if (array[0].equalsIgnoreCase("remove")) {
-            Class848.Field11583.Field11584.remove(array[1]);
-            this.Method437(array[1] + " removed from AntiSpammer list");
+        if (stringArray[0].equalsIgnoreCase("remove")) {
+            Class848.Field11583.Field11584.remove(stringArray[1]);
+            this.Method437(stringArray[1] + " removed from AntiSpammer list");
+            return;
         }
-        else if (array[0].equalsIgnoreCase("clear")) {
+        if (stringArray[0].equalsIgnoreCase("clear")) {
             Class848.Field11583.Field11584.clear();
             this.Method437("AntiSpammer list has been cleared");
+            return;
         }
-        else if (array[0].equalsIgnoreCase("list")) {
-            this.Method439("AntiSpammer list:");
-            final Iterator<String> iterator = Class848.Field11583.Field11584.iterator();
-            while (iterator.hasNext()) {
-                this.Method439((String)iterator.next());
-            }
+        if (!stringArray[0].equalsIgnoreCase("list")) return;
+        this.Method439("AntiSpammer list:");
+        Iterator iterator = Class848.Field11583.Field11584.iterator();
+        while (iterator.hasNext()) {
+            String string2 = (String)iterator.next();
+            this.Method439(string2);
         }
     }
-    
+
+    @Override
     public String Method447() {
         return "null";
     }
-    
+
+    @Override
     public String Method448() {
         return "antispam <add/remove/list>";
     }
-    
-    private static String Method441(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x388E ^ 0xA4));
-            }
-            return new String(value);
+
+    private static String Method441(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 164;
+            cArray2[n] = (char)(cArray[n] ^ (0x388E ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

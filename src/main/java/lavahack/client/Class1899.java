@@ -1,39 +1,46 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.concurrent.*;
-import java.nio.channels.*;
-import javax.net.ssl.*;
-import java.io.*;
+import java.io.IOException;
+import java.nio.channels.ByteChannel;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.SocketChannel;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLEngine;
+import lavahack.client.Class1313;
+import lavahack.client.Class566;
 
-public class Class1899 extends Class1313
-{
+public class Class1899
+extends Class1313 {
     private final String[] Field16737;
     private final String[] Field16738;
     private String Field16739 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class1899(final SSLContext sslContext, final String[] array, final String[] array2) {
-        this(sslContext, Executors.newSingleThreadScheduledExecutor(), array, array2);
+
+    public Class1899(SSLContext sSLContext, String[] stringArray, String[] stringArray2) {
+        this(sSLContext, Executors.newSingleThreadScheduledExecutor(), stringArray, stringArray2);
     }
-    
-    public Class1899(final SSLContext sslContext, final ExecutorService executorService, final String[] field16737, final String[] field16738) {
-        super(sslContext, executorService);
-        this.Field16737 = field16737;
-        this.Field16738 = field16738;
+
+    public Class1899(SSLContext sSLContext, ExecutorService executorService, String[] stringArray, String[] stringArray2) {
+        super(sSLContext, executorService);
+        this.Field16737 = stringArray;
+        this.Field16738 = stringArray2;
     }
-    
-    public ByteChannel Method1316(final SocketChannel socketChannel, final SelectionKey selectionKey) throws IOException {
-        final SSLEngine sslEngine = this.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.createSSLEngine();
+
+    @Override
+    public ByteChannel Method1316(SocketChannel socketChannel, SelectionKey selectionKey) throws IOException {
+        SSLEngine sSLEngine = this.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.createSSLEngine();
         if (this.Field16737 != null) {
-            sslEngine.setEnabledProtocols(this.Field16737);
+            sSLEngine.setEnabledProtocols(this.Field16737);
         }
         if (this.Field16738 != null) {
-            sslEngine.setEnabledCipherSuites(this.Field16738);
+            sSLEngine.setEnabledCipherSuites(this.Field16738);
         }
-        sslEngine.setUseClientMode(false);
-        return new Class566(socketChannel, sslEngine, this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf, selectionKey);
+        sSLEngine.setUseClientMode(false);
+        return new Class566(socketChannel, sSLEngine, this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf, selectionKey);
     }
 }
+

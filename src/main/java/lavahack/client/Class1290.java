@@ -1,72 +1,85 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.block.properties.IProperty
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.util.text.TextFormatting
+ */
 package lavahack.client;
 
-import net.minecraft.block.state.*;
-import net.minecraft.block.properties.*;
-import java.util.*;
-import net.minecraft.util.text.*;
-import com.google.common.collect.*;
-import net.minecraft.block.*;
+import com.google.common.collect.ImmutableSet;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import net.minecraft.block.Block;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.text.TextFormatting;
 
-public class Class1290
-{
+public class Class1290 {
     private String Field13888 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public static IProperty Method5239(final IBlockState blockState, final String anObject) {
-        for (final IProperty property : blockState.getPropertyKeys()) {
-            if (property.getName().equals(anObject)) {
-                return property;
-            }
-        }
-        return null;
+
+    public static IProperty Method5239(IBlockState iBlockState, String string) {
+        IProperty iProperty;
+        Iterator iterator = iBlockState.getPropertyKeys().iterator();
+        do {
+            if (!iterator.hasNext()) return null;
+        } while (!(iProperty = (IProperty)iterator.next()).getName().equals(string));
+        return iProperty;
     }
-    
-    public static Comparable Method5240(final IBlockState obj, final String str) {
-        final IProperty method5239 = Method5239(obj, str);
-        if (method5239 == null) {
-            throw new IllegalArgumentException(str + " does not exist in " + obj);
-        }
-        return obj.getValue(method5239);
+
+    public static Comparable Method5240(IBlockState iBlockState, String string) {
+        IProperty iProperty = Class1290.Method5239(iBlockState, string);
+        if (iProperty != null) return iBlockState.getValue(iProperty);
+        throw new IllegalArgumentException(string + " does not exist in " + iBlockState);
     }
-    
-    public static List Method5241(final IBlockState blockState) {
-        final ArrayList<String> list = new ArrayList<String>();
-        for (final Map.Entry<IProperty, V> entry : blockState.getProperties().entrySet()) {
-            final IProperty property = entry.getKey();
-            final Comparable comparable = (Comparable)entry.getValue();
-            String str = comparable.toString();
+
+    public static List Method5241(IBlockState iBlockState) {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        Iterator iterator = ((ImmutableSet)iBlockState.getProperties().entrySet()).iterator();
+        while (iterator.hasNext()) {
+            Map.Entry entry = (Map.Entry)iterator.next();
+            IProperty iProperty = (IProperty)entry.getKey();
+            Comparable comparable = (Comparable)entry.getValue();
+            String string = comparable.toString();
             if (Boolean.TRUE.equals(comparable)) {
-                str = TextFormatting.GREEN + str + TextFormatting.RESET;
+                string = TextFormatting.GREEN + string + TextFormatting.RESET;
+            } else if (Boolean.FALSE.equals(comparable)) {
+                string = TextFormatting.RED + string + TextFormatting.RESET;
             }
-            else if (Boolean.FALSE.equals(comparable)) {
-                str = TextFormatting.RED + str + TextFormatting.RESET;
-            }
-            list.add(property.getName() + ": " + str);
+            arrayList.add(iProperty.getName() + ": " + string);
         }
-        return list;
+        return arrayList;
     }
-    
-    public static boolean Method5242(final IBlockState blockState, final IBlockState blockState2) {
-        if (blockState == blockState2) {
+
+    public static boolean Method5242(IBlockState iBlockState, IBlockState iBlockState2) {
+        Block block;
+        if (iBlockState == iBlockState2) {
             return true;
         }
-        final Block getBlock = blockState.getBlock();
-        final Block getBlock2 = blockState2.getBlock();
-        return getBlock == getBlock2 && getBlock.getMetaFromState(blockState) == getBlock2.getMetaFromState(blockState2);
+        Block block2 = iBlockState.getBlock();
+        if (block2 != (block = iBlockState2.getBlock())) return false;
+        if (block2.getMetaFromState(iBlockState) != block.getMetaFromState(iBlockState2)) return false;
+        return true;
     }
-    
-    private static String Method5243(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x79FC ^ 0x6C));
-            }
-            return new String(value);
+
+    private static String Method5243(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 108;
+            cArray2[n] = (char)(cArray[n] ^ (0x79FC ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

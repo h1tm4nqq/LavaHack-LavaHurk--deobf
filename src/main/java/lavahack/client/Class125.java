@@ -1,23 +1,26 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.Entity
+ */
 package lavahack.client;
 
-import com.kisman.cc.event.*;
-import net.minecraft.entity.*;
+import com.kisman.cc.event.Class2157;
+import net.minecraft.entity.Entity;
 
-public class Class125 extends Class2157
-{
+public class Class125
+extends Class2157 {
     private final Entity Field8435;
     private int Field8436;
-    
-    public Class125(final Entity field8435) {
+
+    public Class125(Entity entity) {
         super(new Object[0]);
-        this.Field8435 = field8435;
+        this.Field8435 = entity;
     }
-    
+
     public Entity Method855() {
         return this.Field8435;
     }
 }
+

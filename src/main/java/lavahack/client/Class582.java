@@ -1,58 +1,73 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.jvm.internal.Intrinsics
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.entity.Entity
+ */
 package lavahack.client;
 
-import kotlin.*;
-import net.minecraft.client.*;
-import net.minecraft.entity.*;
-import kotlin.jvm.internal.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
+import lavahack.client.Class1269;
+import lavahack.client.Class1432;
+import lavahack.client.Class1745;
+import lavahack.client.Class2007;
+import lavahack.client.Class2145;
+import lavahack.client.Class818;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 3, d1 = { "\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n?\u0006\u0002\b\u0002" }, d2 = { "<anonymous>", "", "run" })
-final class Class582 implements Runnable
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=3, d1={"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n\u00a2\u0006\u0002\b\u0002"}, d2={"<anonymous>", "", "run"})
+final class Class582
+implements Runnable {
     final Class818 Field10481;
     final Minecraft Field10482;
     private int Field10483;
-    
+
     @Override
     public final void run() {
-        final ArrayList<Entity> list = new ArrayList<Entity>();
-        for (final Entity e : this.Field10482.world.loadedEntityList) {
-            if (Intrinsics.areEqual((Object)e, (Object)this.Field10482.player)) {
-                continue;
+        ArrayList<Entity> arrayList = new ArrayList<Entity>();
+        Iterator iterator = this.Field10482.world.loadedEntityList.iterator();
+        while (true) {
+            Class2145 class2145;
+            if (!iterator.hasNext()) {
+                this.Field10482.addScheduledTask((Runnable)new Class1432(this, arrayList));
+                return;
             }
-            final Class818 field10481 = this.Field10481;
-            final Class2007 field10482 = Class2007.Field17206;
-            final Class2156 field10483 = Class1269.Field13736;
-            final Entity entity = e;
-            Intrinsics.checkExpressionValueIsNotNull((Object)entity, "entity");
-            final Class2145 method3483;
-            final Class2145 class2145 = method3483 = Class818.Method3483(field10481, field10482, field10483.Method7776(entity));
-            if (((method3483 != null) ? method3483.Method7723() : null) == null || class2145.Method7723().Method341() == Class1745.Field16010) {
-                continue;
-            }
-            list.add(e);
+            Entity entity = (Entity)iterator.next();
+            if (Intrinsics.areEqual((Object)entity, (Object)this.Field10482.player)) continue;
+            Entity entity2 = entity;
+            Intrinsics.checkExpressionValueIsNotNull((Object)entity2, (String)"entity");
+            Class2145 class21452 = class2145 = Class818.Method3483(this.Field10481, Class2007.Field17206, Class1269.Field13736.Method7776(entity2));
+            if ((class21452 != null ? class21452.Method7723() : null) == null || class2145.Method7723().Method341() == Class1745.Field16010) continue;
+            arrayList.add(entity);
         }
-        this.Field10482.addScheduledTask((Runnable)new Class1432(this, (ArrayList)list));
     }
-    
-    Class582(final Class818 field10481, final Minecraft field10482) {
-        this.Field10481 = field10481;
-        this.Field10482 = field10482;
+
+    Class582(Class818 class818, Minecraft minecraft) {
+        this.Field10481 = class818;
+        this.Field10482 = minecraft;
     }
-    
-    private static String Method2532(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x2A2A ^ 0xFE));
-            }
-            return new String(value);
+
+    private static String Method2532(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 254;
+            cArray2[n] = (char)(cArray[n] ^ (0x2A2A ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

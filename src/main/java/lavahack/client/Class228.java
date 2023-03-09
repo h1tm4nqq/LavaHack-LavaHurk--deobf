@@ -1,13 +1,19 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraftforge.common.MinecraftForge
+ */
 package lavahack.client;
 
-import net.minecraftforge.common.*;
+import java.lang.invoke.LambdaMetafactory;
+import lavahack.client.Class1320;
+import lavahack.client.Class1644;
+import lavahack.client.Class1796;
+import lavahack.client.Class1859;
+import net.minecraftforge.common.MinecraftForge;
 
-public class Class228
-{
+public class Class228 {
     public static final int Field8995;
     public static final int Field8996;
     public static final int Field8997;
@@ -15,55 +21,69 @@ public class Class228
     public static final int Field8999;
     private static final Class1644[] Field9000;
     private int Field9001;
-    
-    public static void Method1290(final Class1859 class1859, final Object o) {
-        for (int method6953 = class1859.Method6953(), i = 0; i < 32 - Integer.numberOfLeadingZeros(method6953); ++i) {}
+
+    public static void Method1290(Class1859 class1859, Object object) {
+        int n = class1859.Method6953();
+        int n2 = 0;
+        while (n2 < 32 - Integer.numberOfLeadingZeros(n)) {
+            int cfr_ignored_0 = n2 & 1;
+            ++n2;
+        }
     }
-    
-    public static void Method1291(final Class1859 class1859, final Object o) {
-        for (int method6953 = class1859.Method6953(), i = 0; i < 32 - Integer.numberOfLeadingZeros(method6953); ++i) {}
+
+    public static void Method1291(Class1859 class1859, Object object) {
+        int n = class1859.Method6953();
+        int n2 = 0;
+        while (n2 < 32 - Integer.numberOfLeadingZeros(n)) {
+            int cfr_ignored_0 = n2 & 1;
+            ++n2;
+        }
     }
-    
-    private static void Method1292(final Object o, final boolean b) {
-        if (!(o instanceof Class1320)) {
-            Class1796.Field16243.warn("[SubscribeMode] " + o.getClass().getName() + " is not a Listenable and will not be processed!");
+
+    private static void Method1292(Object object, boolean bl) {
+        if (!(object instanceof Class1320)) {
+            Class1796.Field16243.warn("[SubscribeMode] " + object.getClass().getName() + " is not a Listenable and will not be processed!");
             return;
         }
-        if (b) {
-            Class1796.Field16242.Method710((Class1320)o);
+        if (bl) {
+            Class1796.Field16242.Method710((Class1320)object);
             return;
         }
-        Class1796.Field16242.Method705((Class1320)o);
+        Class1796.Field16242.Method705((Class1320)object);
     }
-    
-    private static void Method1293(final Object o, final boolean b) {
-        if (b) {
-            MinecraftForge.EVENT_BUS.unregister(o);
+
+    private static void Method1293(Object object, boolean bl) {
+        if (bl) {
+            MinecraftForge.EVENT_BUS.unregister(object);
             return;
         }
-        MinecraftForge.EVENT_BUS.register(o);
+        MinecraftForge.EVENT_BUS.register(object);
     }
-    
+
     static {
         Field8999 = 3;
         Field8998 = 3;
         Field8997 = 2;
         Field8996 = 1;
         Field8995 = 0;
-        (Field9000 = new Class1644[3])[0] = Class228::UCke3Pxmf8CbZfsSMaRi6TdDNfLAgjjV;
+        Field9000 = new Class1644[3];
+        Class228.Field9000[0] = (Class1644)LambdaMetafactory.metafactory(null, null, null, (Ljava/lang/Object;Z)V, UCke3Pxmf8CbZfsSMaRi6TdDNfLAgjjV(java.lang.Object boolean ), (Ljava/lang/Object;Z)V)();
         Class228.Field9000[1] = Class228::Method1293;
         Class228.Field9000[2] = Class228::Method1292;
     }
-    
-    private static String Method1294(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x4DC9 ^ 0xE3));
-            }
-            return new String(value);
+
+    private static String Method1294(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 227;
+            cArray2[n] = (char)(cArray[n] ^ (0x4DC9 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

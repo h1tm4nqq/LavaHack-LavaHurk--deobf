@@ -1,21 +1,22 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.lang.reflect.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import lavahack.client.Class750;
 
-public class Class1760 implements Class750
-{
+public class Class1760
+implements Class750 {
     private String Field16056 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     @Override
-    public Object Method3132(final Class clazz) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        final Constructor<Object> declaredConstructor = clazz.getDeclaredConstructor((Class<?>[])new Class[0]);
-        if (!declaredConstructor.isAccessible()) {
-            declaredConstructor.setAccessible(true);
-        }
-        return declaredConstructor.newInstance(new Object[0]);
+    public Object Method3132(Class clazz) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        Constructor constructor = clazz.getDeclaredConstructor(new Class[0]);
+        if (constructor.isAccessible()) return constructor.newInstance(new Object[0]);
+        constructor.setAccessible(true);
+        return constructor.newInstance(new Object[0]);
     }
 }
+

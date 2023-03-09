@@ -1,28 +1,30 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-public interface Class1720
-{
-    void Method6571(final Class1926 p0) throws Class902;
-    
-    void Method6572(final Class1926 p0);
-    
-    boolean Method6573(final String p0);
-    
-    boolean Method6574(final String p0);
-    
-    void Method6575(final Class1926 p0) throws Class902;
-    
-    String Method6576();
-    
-    String Method6577();
-    
-    Class1720 Method6578();
-    
-    void Method6579();
-    
-    String toString();
+import lavahack.loader.Class1926;
+import lavahack.loader.Class902;
+
+public interface Class1720 {
+    public void Method6571(Class1926 var1) throws Class902;
+
+    public void Method6572(Class1926 var1);
+
+    public boolean Method6573(String var1);
+
+    public boolean Method6574(String var1);
+
+    public void Method6575(Class1926 var1) throws Class902;
+
+    public String Method6576();
+
+    public String Method6577();
+
+    public Class1720 Method6578();
+
+    public void Method6579();
+
+    public String toString();
 }
+

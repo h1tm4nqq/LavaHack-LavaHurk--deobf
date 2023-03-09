@@ -1,83 +1,87 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.gui.GuiSlot
+ *  net.minecraft.client.renderer.Tessellator
+ */
 package lavahack.client;
 
-import net.minecraft.client.gui.*;
-import net.minecraft.client.*;
-import net.minecraft.client.renderer.*;
-import org.apache.commons.io.*;
+import lavahack.client.Class156;
+import lavahack.client.Class2042;
+import lavahack.client.Class483;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiSlot;
+import net.minecraft.client.renderer.Tessellator;
+import org.apache.commons.io.FilenameUtils;
 
-public class Class2083 extends GuiSlot
-{
-    private final Minecraft Field17513;
+public class Class2083
+extends GuiSlot {
+    private final Minecraft Field17513 = Minecraft.getMinecraft();
     private final Class483 Field17514;
-    protected int Field17515;
-    private long Field17516;
+    protected int Field17515 = -1;
+    private long Field17516 = 0L;
     private int Field17517;
-    
-    public Class2083(final Class483 field17514) {
-        super(Minecraft.getMinecraft(), field17514.width, field17514.height, 16, field17514.height - 40, 24);
-        this.Field17513 = Minecraft.getMinecraft();
-        this.Field17515 = -1;
-        this.Field17516 = 0L;
-        this.Field17514 = field17514;
+
+    public Class2083(Class483 class483) {
+        super(Minecraft.getMinecraft(), class483.width, class483.height, 16, class483.height - 40, 24);
+        this.Field17514 = class483;
     }
-    
+
     protected int getSize() {
         return this.Field17514.Field10017.size();
     }
-    
-    protected void elementClicked(final int field17515, final boolean b, final int n, final int n2) {
-        final boolean b2 = Minecraft.getSystemTime() - this.Field17516 < 500L;
+
+    protected void elementClicked(int n, boolean bl, int n2, int n3) {
+        boolean bl2 = Minecraft.getSystemTime() - this.Field17516 < 500L;
         this.Field17516 = Minecraft.getSystemTime();
-        final Class156 class156 = this.Field17514.Field10017.get(field17515);
+        Class156 class156 = (Class156)this.Field17514.Field10017.get(n);
         if (class156.Method1052()) {
             this.Field17514.Method2239(class156.Method1049());
             this.Field17515 = -1;
-        }
-        else {
-            this.Field17515 = field17515;
-        }
-    }
-    
-    protected boolean isSelected(final int n) {
-        return n == this.Field17515;
-    }
-    
-    protected void drawBackground() {
-    }
-    
-    protected void drawContainerBackground(final Tessellator tessellator) {
-    }
-    
-    protected void drawSlot(final int n, final int n2, final int n3, final int n4, final int n5, final int n6, final float n7) {
-        if (n < 0 || n >= this.Field17514.Field10017.size()) {
             return;
         }
-        final Class156 class156 = this.Field17514.Field10017.get(n);
-        final String method1049 = class156.Method1049();
-        String s;
-        if (class156.Method1052()) {
-            s = method1049 + "/";
-        }
-        else {
-            s = FilenameUtils.getBaseName(method1049);
-        }
-        Class2042.Method7538(this.Field17513.renderEngine, class156.Method1053(), n2, n3);
-        this.Field17514.drawString(this.Field17513.fontRenderer, s, n2 + 24, n3 + 6, 16777215);
+        this.Field17515 = n;
     }
-    
-    private static String a(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x2BE1 ^ 0x36));
-            }
-            return new String(value);
+
+    protected boolean isSelected(int n) {
+        if (n != this.Field17515) return false;
+        return true;
+    }
+
+    protected void drawBackground() {
+    }
+
+    protected void drawContainerBackground(Tessellator tessellator) {
+    }
+
+    protected void drawSlot(int n, int n2, int n3, int n4, int n5, int n6, float f) {
+        if (n < 0) return;
+        if (n >= this.Field17514.Field10017.size()) {
+            return;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        Class156 class156 = (Class156)this.Field17514.Field10017.get(n);
+        String string = class156.Method1049();
+        string = class156.Method1052() ? string + "/" : FilenameUtils.getBaseName(string);
+        Class2042.Method7538(this.Field17513.renderEngine, class156.Method1053(), n2, n3);
+        this.Field17514.drawString(this.Field17513.fontRenderer, string, n2 + 24, n3 + 6, 0xFFFFFF);
+    }
+
+    private static String a(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 54;
+            cArray2[n] = (char)(cArray[n] ^ (0x2BE1 ^ n2));
+            ++n;
+        }
+        return new String(cArray2);
     }
 }
+

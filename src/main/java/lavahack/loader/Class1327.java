@@ -1,13 +1,23 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-import java.nio.*;
+import java.nio.ByteBuffer;
+import lavahack.loader.Class1252;
+import lavahack.loader.Class1350;
+import lavahack.loader.Class1462;
+import lavahack.loader.Class1683;
+import lavahack.loader.Class1753;
+import lavahack.loader.Class1864;
+import lavahack.loader.Class1926;
+import lavahack.loader.Class213;
+import lavahack.loader.Class492;
+import lavahack.loader.Class7;
+import lavahack.loader.Class902;
 
-public abstract class Class1327 implements Class1926
-{
+public abstract class Class1327
+implements Class1926 {
     private boolean Field14077;
     private Class1753 Field14078;
     private ByteBuffer Field14079;
@@ -16,11 +26,11 @@ public abstract class Class1327 implements Class1926
     private boolean Field14082;
     private boolean Field14083;
     private String Field14084 = "TheKisDevs & LavaHack Development owns you";
-    
+
     public abstract void Method84() throws Class902;
-    
-    public Class1327(final Class1753 field14078) {
-        this.Field14078 = field14078;
+
+    public Class1327(Class1753 class1753) {
+        this.Field14078 = class1753;
         this.Field14079 = Class492.Method2280();
         this.Field14077 = true;
         this.Field14080 = false;
@@ -28,101 +38,105 @@ public abstract class Class1327 implements Class1926
         this.Field14082 = false;
         this.Field14083 = false;
     }
-    
+
     @Override
     public boolean Method77() {
         return this.Field14081;
     }
-    
+
     @Override
     public boolean Method78() {
         return this.Field14082;
     }
-    
+
     @Override
     public boolean Method79() {
         return this.Field14083;
     }
-    
+
     @Override
     public boolean Method76() {
         return this.Field14077;
     }
-    
+
     @Override
     public Class1753 Method81() {
         return this.Field14078;
     }
-    
+
     @Override
     public boolean Method80() {
         return this.Field14080;
     }
-    
+
     @Override
     public ByteBuffer Method82() {
         return this.Field14079;
     }
-    
+
     @Override
-    public void Method83(final Class1926 class1926) {
-        final ByteBuffer method82 = class1926.Method82();
+    public void Method83(Class1926 class1926) {
+        ByteBuffer byteBuffer = class1926.Method82();
         if (this.Field14079 == null) {
-            this.Field14079 = ByteBuffer.allocate(method82.remaining());
-            method82.mark();
-            this.Field14079.put(method82);
-            method82.reset();
-        }
-        else {
-            method82.mark();
+            this.Field14079 = ByteBuffer.allocate(byteBuffer.remaining());
+            byteBuffer.mark();
+            this.Field14079.put(byteBuffer);
+            byteBuffer.reset();
+        } else {
+            byteBuffer.mark();
             this.Field14079.position(this.Field14079.limit());
             this.Field14079.limit(this.Field14079.capacity());
-            if (method82.remaining() > this.Field14079.remaining()) {
-                final ByteBuffer allocate = ByteBuffer.allocate(method82.remaining() + this.Field14079.capacity());
+            if (byteBuffer.remaining() > this.Field14079.remaining()) {
+                ByteBuffer byteBuffer2 = ByteBuffer.allocate(byteBuffer.remaining() + this.Field14079.capacity());
                 this.Field14079.flip();
-                allocate.put(this.Field14079);
-                allocate.put(method82);
-                this.Field14079 = allocate;
-            }
-            else {
-                this.Field14079.put(method82);
+                byteBuffer2.put(this.Field14079);
+                byteBuffer2.put(byteBuffer);
+                this.Field14079 = byteBuffer2;
+            } else {
+                this.Field14079.put(byteBuffer);
             }
             this.Field14079.rewind();
-            method82.reset();
+            byteBuffer.reset();
         }
         this.Field14077 = class1926.Method76();
     }
-    
-    @Override
+
     public String toString() {
-        return "Framedata{ opcode:" + this.Method81() + ", fin:" + this.Method76() + ", rsv1:" + this.Method77() + ", rsv2:" + this.Method78() + ", rsv3:" + this.Method79() + ", payload length:[pos:" + this.Field14079.position() + ", len:" + this.Field14079.remaining() + "], payload:" + ((this.Field14079.remaining() > 1000) ? "(too big to display)" : new String(this.Field14079.array())) + '}';
+        String string;
+        StringBuilder stringBuilder = new StringBuilder().append("Framedata{ opcode:").append((Object)this.Method81()).append(", fin:").append(this.Method76()).append(", rsv1:").append(this.Method77()).append(", rsv2:").append(this.Method78()).append(", rsv3:").append(this.Method79()).append(", payload length:[pos:").append(this.Field14079.position()).append(", len:").append(this.Field14079.remaining()).append("], payload:");
+        if (this.Field14079.remaining() > 1000) {
+            string = "(too big to display)";
+            return stringBuilder.append(string).append('}').toString();
+        }
+        string = new String(this.Field14079.array());
+        return stringBuilder.append(string).append('}').toString();
     }
-    
-    public void Method85(final ByteBuffer field14079) {
-        this.Field14079 = field14079;
+
+    public void Method85(ByteBuffer byteBuffer) {
+        this.Field14079 = byteBuffer;
     }
-    
-    public void Method86(final boolean field14077) {
-        this.Field14077 = field14077;
+
+    public void Method86(boolean bl) {
+        this.Field14077 = bl;
     }
-    
-    public void Method87(final boolean field14081) {
-        this.Field14081 = field14081;
+
+    public void Method87(boolean bl) {
+        this.Field14081 = bl;
     }
-    
-    public void Method88(final boolean field14082) {
-        this.Field14082 = field14082;
+
+    public void Method88(boolean bl) {
+        this.Field14082 = bl;
     }
-    
-    public void Method89(final boolean field14083) {
-        this.Field14083 = field14083;
+
+    public void Method89(boolean bl) {
+        this.Field14083 = bl;
     }
-    
-    public void Method90(final boolean field14080) {
-        this.Field14080 = field14080;
+
+    public void Method90(boolean bl) {
+        this.Field14080 = bl;
     }
-    
-    public static Class1327 Method91(final Class1753 class1753) {
+
+    public static Class1327 Method91(Class1753 class1753) {
         if (class1753 == null) {
             throw new IllegalArgumentException("Supplied opcode cannot be null");
         }
@@ -131,7 +145,7 @@ public abstract class Class1327 implements Class1926
                 return new Class1683();
             }
             case 2: {
-                return (Class1327)new Class1252();
+                return new Class1252();
             }
             case 3: {
                 return new Class213();
@@ -145,38 +159,67 @@ public abstract class Class1327 implements Class1926
             case 6: {
                 return new Class1462();
             }
-            default: {
-                throw new IllegalArgumentException("Supplied opcode is invalid");
-            }
         }
+        throw new IllegalArgumentException("Supplied opcode is invalid");
     }
-    
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) {
+
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-        if (o == null || this.getClass() != o.getClass()) {
+        if (object == null) return false;
+        if (this.getClass() != object.getClass()) {
             return false;
         }
-        final Class1327 class1327 = (Class1327)o;
-        return this.Field14077 == class1327.Field14077 && this.Field14080 == class1327.Field14080 && this.Field14081 == class1327.Field14081 && this.Field14082 == class1327.Field14082 && this.Field14083 == class1327.Field14083 && this.Field14078 == class1327.Field14078 && ((this.Field14079 != null) ? this.Field14079.equals(class1327.Field14079) : (class1327.Field14079 == null));
-    }
-    
-    @Override
-    public int hashCode() {
-        return 31 * (31 * (31 * (31 * (31 * (31 * (this.Field14077 ? 1 : 0) + this.Field14078.hashCode()) + ((this.Field14079 != null) ? this.Field14079.hashCode() : 0)) + (this.Field14080 ? 1 : 0)) + (this.Field14081 ? 1 : 0)) + (this.Field14082 ? 1 : 0)) + (this.Field14083 ? 1 : 0);
-    }
-    
-    private static String Method92(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x5ACC ^ 0xCD));
-            }
-            return new String(value);
+        Class1327 class1327 = (Class1327)object;
+        if (this.Field14077 != class1327.Field14077) {
+            return false;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        if (this.Field14080 != class1327.Field14080) {
+            return false;
+        }
+        if (this.Field14081 != class1327.Field14081) {
+            return false;
+        }
+        if (this.Field14082 != class1327.Field14082) {
+            return false;
+        }
+        if (this.Field14083 != class1327.Field14083) {
+            return false;
+        }
+        if (this.Field14078 != class1327.Field14078) {
+            return false;
+        }
+        if (this.Field14079 != null) {
+            boolean bl = this.Field14079.equals(class1327.Field14079);
+            return bl;
+        }
+        if (class1327.Field14079 != null) return false;
+        return true;
+    }
+
+    public int hashCode() {
+        int n = this.Field14077 ? 1 : 0;
+        n = 31 * n + this.Field14078.hashCode();
+        n = 31 * n + (this.Field14079 != null ? this.Field14079.hashCode() : 0);
+        n = 31 * n + (this.Field14080 ? 1 : 0);
+        n = 31 * n + (this.Field14081 ? 1 : 0);
+        n = 31 * n + (this.Field14082 ? 1 : 0);
+        return 31 * n + (this.Field14083 ? 1 : 0);
+    }
+
+    private static String Method92(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 205;
+            cArray2[n] = (char)(cArray[n] ^ (0x5ACC ^ n2));
+            ++n;
+        }
+        return new String(cArray2);
     }
 }
+

@@ -1,26 +1,26 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-import java.nio.*;
+import java.nio.ByteBuffer;
+import lavahack.loader.Class1753;
 
-public interface Class1926
-{
-    boolean Method76();
-    
-    boolean Method77();
-    
-    boolean Method78();
-    
-    boolean Method79();
-    
-    boolean Method80();
-    
-    Class1753 Method81();
-    
-    ByteBuffer Method82();
-    
-    void Method83(final Class1926 p0);
+public interface Class1926 {
+    public boolean Method76();
+
+    public boolean Method77();
+
+    public boolean Method78();
+
+    public boolean Method79();
+
+    public boolean Method80();
+
+    public Class1753 Method81();
+
+    public ByteBuffer Method82();
+
+    public void Method83(Class1926 var1);
 }
+

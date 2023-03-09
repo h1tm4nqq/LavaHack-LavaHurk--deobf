@@ -1,52 +1,53 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.net.*;
-import java.nio.channels.*;
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 
-public class Class530
-{
+public class Class530 {
     private String Field10239 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public static void Method2409(final URL url, final URL url2) throws IOException {
-        final ReadableByteChannel channel = Channels.newChannel(url.openStream());
-        final Object o = null;
-        final FileOutputStream fileOutputStream = new FileOutputStream(url2.getFile());
-        final Object o2 = null;
-        fileOutputStream.getChannel().transferFrom(channel, 0L, Long.MAX_VALUE);
+
+    public static void Method2409(URL uRL, URL uRL2) throws IOException {
+        ReadableByteChannel readableByteChannel = Channels.newChannel(uRL.openStream());
+        Object var3_3 = null;
+        FileOutputStream fileOutputStream = new FileOutputStream(uRL2.getFile());
+        Object var5_5 = null;
+        fileOutputStream.getChannel().transferFrom(readableByteChannel, 0L, Long.MAX_VALUE);
         if (fileOutputStream != null) {
-            if (o2 != null) {
+            if (var5_5 != null) {
                 fileOutputStream.close();
-            }
-            else {
+            } else {
                 fileOutputStream.close();
             }
         }
-        if (channel != null) {
-            if (o != null) {
-                channel.close();
-            }
-            else {
-                channel.close();
-            }
+        if (readableByteChannel == null) return;
+        if (var3_3 != null) {
+            readableByteChannel.close();
+            return;
         }
+        readableByteChannel.close();
     }
-    
-    public static byte[] Method2410(final InputStream inputStream) throws IOException {
-        final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        Method2411(inputStream, byteArrayOutputStream);
+
+    public static byte[] Method2410(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        Class530.Method2411(inputStream, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
     }
-    
-    public static void Method2411(final InputStream inputStream, final OutputStream outputStream) throws IOException {
-        final byte[] array = new byte[1024];
-        int read;
-        while ((read = inputStream.read(array)) != -1) {
-            outputStream.write(array, 0, read);
+
+    public static void Method2411(InputStream inputStream, OutputStream outputStream) throws IOException {
+        int n;
+        byte[] byArray = new byte[1024];
+        while ((n = inputStream.read(byArray)) != -1) {
+            outputStream.write(byArray, 0, n);
         }
     }
 }
+

@@ -1,147 +1,134 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.jar.*;
-import java.util.*;
-import java.net.*;
+import java.net.JarURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Set;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import lavahack.client.Class1655;
+import lavahack.client.Class1695;
+import lavahack.client.Class1807;
 
-class Class1020 extends Class1807
-{
+class Class1020
+extends Class1807 {
     private final Class Field12433;
     private int Field12434;
-    
-    Class1020(final ClassLoader classLoader, final Class field12433, final Set set) {
+
+    Class1020(ClassLoader classLoader, Class clazz, Set set) {
         super(classLoader, set);
-        this.Field12433 = field12433;
+        this.Field12433 = clazz;
     }
-    
+
     @Override
-    List Method2962(final String s) {
-        return this.Method4136(s, false);
+    List Method2962(String string) {
+        return this.Method4136(string, false);
     }
-    
+
     @Override
-    List Method2963(final String s) {
-        return this.Method4136(s, true);
+    List Method2963(String string) {
+        return this.Method4136(string, true);
     }
-    
-    private List Method4136(final String s, final boolean b) {
-        final ArrayList list = new ArrayList();
-        final Class1695 class1695 = (Class1695)this.Method2967(s);
+
+    private List Method4136(String string, boolean bl) {
+        ArrayList arrayList = new ArrayList();
+        Class1695 class1695 = (Class1695)this.Method2967(string);
         if (class1695 == null) {
-            return list;
+            return arrayList;
         }
-        final JarFile method6502 = class1695.Method6502();
-        if (method6502 == null) {
-            return list;
+        JarFile jarFile = class1695.Method6502();
+        if (jarFile == null) {
+            return arrayList;
         }
-        this.Method4137(s, method6502, list, b);
-        return list;
+        this.Method4137(string, jarFile, arrayList, bl);
+        return arrayList;
     }
-    
-    private void Method4137(final String s, final JarFile jarFile, final List list, final boolean b) {
-        final Enumeration<JarEntry> entries = jarFile.entries();
-        JarEntry jarEntry;
-        while (entries.hasMoreElements() && (jarEntry = entries.nextElement()) != null) {
-            final String name = jarEntry.getName();
-            if (!name.endsWith(".class")) {
+
+    private void Method4137(String string, JarFile jarFile, List list, boolean bl) {
+        Enumeration<JarEntry> enumeration = jarFile.entries();
+        while (enumeration.hasMoreElements()) {
+            Object object;
+            Object object2;
+            Class<?> clazz;
+            JarEntry jarEntry = enumeration.nextElement();
+            if (jarEntry == null) return;
+            String string2 = jarEntry.getName();
+            if (!string2.endsWith(".class")) continue;
+            string2 = string2.replace('/', '.').substring(0, string2.length() - 6);
+            if (bl) {
+                if (!string2.startsWith(string)) continue;
+                clazz = Class.forName(string2);
+                if (this.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.contains(string2) || !this.Method2961((object2 = this.vl3icpcdb9cWvH39NKe3weWQwVdWO7AV.Method3132(clazz)).getClass(), this.Field12433) || !this.Method2960(object = object2)) continue;
+                list.add(object);
                 continue;
             }
-            final String substring = name.replace('/', '.').substring(0, name.length() - 6);
-            if (b) {
-                if (!substring.startsWith(s)) {
-                    continue;
-                }
-                final Class<?> forName = Class.forName(substring);
-                if (this.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.contains(substring)) {
-                    continue;
-                }
-                final Object method3132 = this.vl3icpcdb9cWvH39NKe3weWQwVdWO7AV.Method3132(forName);
-                if (!this.Method2961(method3132.getClass(), this.Field12433)) {
-                    continue;
-                }
-                final Object o = method3132;
-                if (!this.Method2960(o)) {
-                    continue;
-                }
-                list.add(o);
-            }
-            else {
-                if (!substring.startsWith(s)) {
-                    continue;
-                }
-                if (substring.lastIndexOf(46) > s.length()) {
-                    continue;
-                }
-                final Class<?> forName2 = Class.forName(substring);
-                if (this.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.contains(substring)) {
-                    continue;
-                }
-                final Object method3133 = this.vl3icpcdb9cWvH39NKe3weWQwVdWO7AV.Method3132(forName2);
-                if (!this.Method2961(method3133.getClass(), this.Field12433)) {
-                    continue;
-                }
-                final Object o2 = method3133;
-                if (!this.Method2960(o2)) {
-                    continue;
-                }
-                list.add(o2);
-            }
+            if (!string2.startsWith(string) || string2.lastIndexOf(46) > string.length()) continue;
+            clazz = Class.forName(string2);
+            if (this.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.contains(string2) || !this.Method2961((object2 = this.vl3icpcdb9cWvH39NKe3weWQwVdWO7AV.Method3132(clazz)).getClass(), this.Field12433) || !this.Method2960(object = object2)) continue;
+            list.add(object);
         }
     }
-    
+
     @Override
-    Class1655 Method2964(final Class clazz) {
+    Class1655 Method2964(Class clazz) {
         return this.Method2965(clazz.getName());
     }
-    
+
     @Override
-    Class1655 Method2965(final String name) {
-        Class.forName(name, false, this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf);
-        final URL resource = this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf.getResource(this.Method2953(name));
-        if (resource == null) {
+    Class1655 Method2965(String string) {
+        Class.forName(string, false, this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf);
+        String string2 = this.Method2953(string);
+        URL uRL = this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf.getResource(string2);
+        if (uRL == null) {
             return null;
         }
-        return this.Method2956((JarURLConnection)resource.openConnection());
+        JarURLConnection jarURLConnection = (JarURLConnection)uRL.openConnection();
+        return this.Method2956(jarURLConnection);
     }
-    
+
     @Override
-    Class1655 Method2966(final Package package1) {
-        return this.Method2967(package1.getName());
+    Class1655 Method2966(Package package_) {
+        return this.Method2967(package_.getName());
     }
-    
+
     @Override
-    Class1655 Method2967(final String name) {
-        if (Package.getPackage(name) == null) {
+    Class1655 Method2967(String string) {
+        if (Package.getPackage(string) == null) {
             return null;
         }
-        final URL resource = this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf.getResource(this.Method2954(name));
-        if (resource == null) {
+        String string2 = this.Method2954(string);
+        URL uRL = this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf.getResource(string2);
+        if (uRL == null) {
             return null;
         }
-        return this.Method2956((JarURLConnection)resource.openConnection());
+        JarURLConnection jarURLConnection = (JarURLConnection)uRL.openConnection();
+        return this.Method2956(jarURLConnection);
     }
-    
+
     @Override
-    Class1655 Method2968(final String name) {
-        if (this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf.getResource(name) == null) {
-            return null;
-        }
-        return this.Method2957(name);
+    Class1655 Method2968(String string) {
+        URL uRL = this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf.getResource(string);
+        if (uRL != null) return this.Method2957(string);
+        return null;
     }
-    
-    private static String Method2969(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x19B7 ^ 0x9A));
-            }
-            return new String(value);
+
+    private static String Method2969(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 154;
+            cArray2[n] = (char)(cArray[n] ^ (0x19B7 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

@@ -1,14 +1,16 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.Entity
+ */
 package lavahack.client;
 
-import com.kisman.cc.event.*;
-import net.minecraft.entity.*;
+import com.kisman.cc.event.Class2157;
+import net.minecraft.entity.Entity;
 
-public class Class1773 extends Class2157
-{
+public class Class1773
+extends Class2157 {
     public Entity Field16126;
     public double Field16127;
     public double Field16128;
@@ -16,14 +18,15 @@ public class Class1773 extends Class2157
     public double Field16130;
     public String Field16131;
     private String Field16132 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class1773(final Entity field16126, final double field16127, final double field16128, final double field16129, final String field16130, final double field16131) {
+
+    public Class1773(Entity entity, double d, double d2, double d3, String string, double d4) {
         super(new Object[0]);
-        this.Field16126 = field16126;
-        this.Field16127 = field16127;
-        this.Field16128 = field16128;
-        this.Field16129 = field16129;
-        this.Field16131 = field16130;
-        this.Field16130 = field16131;
+        this.Field16126 = entity;
+        this.Field16127 = d;
+        this.Field16128 = d2;
+        this.Field16129 = d3;
+        this.Field16131 = string;
+        this.Field16130 = d4;
     }
 }
+

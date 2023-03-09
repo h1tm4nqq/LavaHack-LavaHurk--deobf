@@ -1,40 +1,51 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.text.TextFormatting
+ *  net.minecraftforge.client.event.RenderGameOverlayEvent$Text
+ *  net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+ */
 package lavahack.client;
 
-import net.minecraftforge.client.event.*;
-import net.minecraft.util.text.*;
-import net.minecraftforge.fml.common.eventhandler.*;
+import lavahack.client.Class1178;
+import lavahack.client.Class1249;
+import lavahack.client.Class451;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class Class463 extends Class1249
-{
-    private final Class451 Field9924;
+public class Class463
+extends Class1249 {
+    private final Class451 Field9924 = this.Method275();
     private String Field9925 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     public Class463() {
         super("ServerIp", "", true);
-        this.Field9924 = this.Method275();
     }
-    
+
     @SubscribeEvent
     @SubscribeEvent
-    public void Method2176(final RenderGameOverlayEvent$Text renderGameOverlayEvent$Text) {
-        this.Method273((double)Class1178.Method4741("Server: " + (Class463.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.isSingleplayer() ? "SingePlayer" : Class463.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.getCurrentServerData().serverIP.toLowerCase())));
-        this.Method274((double)Class1178.Method4748());
-        Class1178.Method4745("Server: " + TextFormatting.GRAY + (Class463.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.isSingleplayer() ? "SingePlayer" : Class463.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.getCurrentServerData().serverIP.toLowerCase()), this.Method267(), this.Method268(), this.Field9924.Method2151().Method3626());
+    public void Method2176(RenderGameOverlayEvent.Text text) {
+        this.Method273(Class1178.Method4741("Server: " + (leqS0IyKEB621E1SrHdAcHHAUjScjmKi.isSingleplayer() ? "SingePlayer" : Class463.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.getCurrentServerData().serverIP.toLowerCase())));
+        this.Method274(Class1178.Method4748());
+        Class1178.Method4745("Server: " + TextFormatting.GRAY + (leqS0IyKEB621E1SrHdAcHHAUjScjmKi.isSingleplayer() ? "SingePlayer" : Class463.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.getCurrentServerData().serverIP.toLowerCase()), this.Method267(), this.Method268(), this.Field9924.Method2151().Method3626());
     }
-    
-    private static String Method57(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x192C ^ 0xD1));
-            }
-            return new String(value);
+
+    private static String Method57(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 209;
+            cArray2[n] = (char)(cArray[n] ^ (0x192C ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

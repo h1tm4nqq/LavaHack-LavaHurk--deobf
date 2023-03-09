@@ -1,13 +1,15 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.state.IBlockState
+ */
 package lavahack.client;
 
-import java.util.*;
-import net.minecraft.block.state.*;
+import java.util.List;
+import net.minecraft.block.state.IBlockState;
 
-public interface Class1521
-{
-    List Method6049(final List p0, final IBlockState p1);
+public interface Class1521 {
+    public List Method6049(List var1, IBlockState var2);
 }
+

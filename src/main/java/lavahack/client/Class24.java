@@ -1,12 +1,12 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import org.objectweb.asm.tree.*;
+import lavahack.client.Class1790;
+import org.objectweb.asm.tree.ClassNode;
 
-public interface Class24
-{
-    void Method193(final ClassNode p0, final Class1790 p1);
+public interface Class24 {
+    public void Method193(ClassNode var1, Class1790 var2);
 }
+

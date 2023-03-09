@@ -1,35 +1,34 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.*;
+import java.util.UUID;
 
-public final class Class1725
-{
+public final class Class1725 {
     private final String Field15925;
     private final UUID Field15926;
     private String Field15927 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class1725(final String field15925, final UUID field15926) {
-        this.Field15925 = field15925;
-        this.Field15926 = field15926;
+
+    public Class1725(String string, UUID uUID) {
+        this.Field15925 = string;
+        this.Field15926 = uUID;
     }
-    
-    public Class1725(final String s, final String name) {
-        this(s, UUID.fromString(name));
+
+    public Class1725(String string, String string2) {
+        this(string, UUID.fromString(string2));
     }
-    
+
     public String Method6594() {
         return this.Field15925;
     }
-    
+
     public UUID Method6595() {
         return this.Field15926;
     }
-    
+
     public String Method6596() {
         return this.Field15926.toString();
     }
 }
+

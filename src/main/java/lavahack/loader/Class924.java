@@ -1,75 +1,88 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-import java.util.regex.*;
+import java.util.regex.Pattern;
+import lavahack.loader.Class919;
 
-public class Class924 implements Class919
-{
-    private static final Pattern Field11918;
-    private static final Pattern Field11919;
+public class Class924
+implements Class919 {
+    private static final Pattern Field11918 = Pattern.compile(" ");
+    private static final Pattern Field11919 = Pattern.compile(",");
     private final String Field11920;
     private String Field11921 = "TheKisDevs & LavaHack Development owns you";
-    
-    public Class924(final String field11920) {
-        if (field11920 == null) {
+
+    public Class924(String string) {
+        if (string == null) {
             throw new IllegalArgumentException();
         }
-        this.Field11920 = field11920;
+        this.Field11920 = string;
     }
-    
-    public boolean Method3832(final String input) {
+
+    @Override
+    public boolean Method3832(String string) {
+        String[] stringArray;
         if ("".equals(this.Field11920)) {
             return true;
         }
-        final String[] split = Class924.Field11919.split(Class924.Field11918.matcher(input).replaceAll(""));
-        for (int length = split.length, i = 0; i < length; ++i) {
-            if (this.Field11920.equals(split[i])) {
+        String string2 = Field11918.matcher(string).replaceAll("");
+        String[] stringArray2 = stringArray = Field11919.split(string2);
+        int n = stringArray2.length;
+        int n2 = 0;
+        while (n2 < n) {
+            String string3 = stringArray2[n2];
+            if (this.Field11920.equals(string3)) {
                 return true;
             }
+            ++n2;
         }
         return false;
     }
-    
+
+    @Override
     public String Method3833() {
         return this.Field11920;
     }
-    
+
+    @Override
     public Class919 Method3834() {
-        return (Class919)new Class924(this.Method3833());
+        return new Class924(this.Method3833());
     }
-    
+
     @Override
     public String toString() {
         return this.Method3833();
     }
-    
-    @Override
-    public boolean equals(final Object o) {
-        return this == o || (o != null && this.getClass() == o.getClass() && this.Field11920.equals(((Class924)o).Field11920));
+
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null) return false;
+        if (this.getClass() != object.getClass()) {
+            return false;
+        }
+        Class924 class924 = (Class924)object;
+        return this.Field11920.equals(class924.Field11920);
     }
-    
-    @Override
+
     public int hashCode() {
         return this.Field11920.hashCode();
     }
-    
-    static {
-        Field11918 = Pattern.compile(" ");
-        Field11919 = Pattern.compile(",");
-    }
-    
-    private static String Method3845(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x1190 ^ 0xAB));
-            }
-            return new String(value);
+
+    private static String Method3845(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 171;
+            cArray2[n] = (char)(cArray[n] ^ (0x1190 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

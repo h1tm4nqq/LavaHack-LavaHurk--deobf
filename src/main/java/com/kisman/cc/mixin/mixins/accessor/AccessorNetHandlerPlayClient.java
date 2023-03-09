@@ -1,26 +1,31 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.mojang.authlib.GameProfile
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.gen.Accessor
+ */
 package com.kisman.cc.mixin.mixins.accessor;
 
-import org.spongepowered.asm.mixin.*;
-import net.minecraft.client.network.*;
-import org.spongepowered.asm.mixin.gen.*;
-import com.mojang.authlib.*;
+import com.mojang.authlib.GameProfile;
+import net.minecraft.client.network.NetHandlerPlayClient;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({ NetHandlerPlayClient.class })
-public interface AccessorNetHandlerPlayClient
-{
-    @Accessor("doneLoadingTerrain")
-    @Accessor("doneLoadingTerrain")
-    boolean Method5234();
-    
-    @Accessor("doneLoadingTerrain")
-    @Accessor("doneLoadingTerrain")
-    void Method5235(final boolean p0);
-    
-    @Accessor("profile")
-    @Accessor("profile")
-    void Method5236(final GameProfile p0);
+@Mixin(value={NetHandlerPlayClient.class})
+public interface AccessorNetHandlerPlayClient {
+    @Accessor(value="doneLoadingTerrain")
+    @Accessor(value="doneLoadingTerrain")
+    public boolean Method5234();
+
+    @Accessor(value="doneLoadingTerrain")
+    @Accessor(value="doneLoadingTerrain")
+    public void Method5235(boolean var1);
+
+    @Accessor(value="profile")
+    @Accessor(value="profile")
+    public void Method5236(GameProfile var1);
 }
+

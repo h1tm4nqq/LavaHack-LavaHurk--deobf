@@ -1,34 +1,100 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.util.text.TextFormatting
+ *  net.minecraftforge.common.MinecraftForge
+ *  net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+ *  net.minecraftforge.fml.common.gameevent.InputEvent
+ *  net.minecraftforge.fml.common.gameevent.InputEvent$KeyInputEvent
+ *  org.apache.logging.log4j.LogManager
+ *  org.apache.logging.log4j.Logger
+ *  org.lwjgl.input.Keyboard
+ *  org.lwjgl.input.Mouse
+ *  org.lwjgl.opengl.Display
+ */
 package lavahack.client;
 
-import net.minecraft.entity.player.*;
-import net.minecraft.client.*;
-import com.kisman.cc.loader.*;
-import org.lwjgl.opengl.*;
-import net.minecraftforge.common.*;
-import net.minecraft.client.gui.*;
-import java.io.*;
-import net.minecraft.util.text.*;
-import java.util.*;
-import net.minecraftforge.fml.common.eventhandler.*;
-import net.minecraftforge.fml.common.gameevent.*;
-import org.lwjgl.input.*;
-import java.nio.file.*;
-import java.nio.file.attribute.*;
-import java.awt.*;
-import java.net.*;
-import java.util.function.*;
-import sun.misc.*;
-import java.lang.reflect.*;
-import org.apache.commons.lang3.*;
-import com.kisman.cc.event.*;
-import org.apache.logging.log4j.*;
+import com.kisman.cc.event.Class1561;
+import com.kisman.cc.event.Class1817;
+import com.kisman.cc.loader.LavaHackInterface;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Paths;
+import java.nio.file.attribute.FileAttribute;
+import java.util.HashMap;
+import java.util.Iterator;
+import lavahack.client.Class1000;
+import lavahack.client.Class1013;
+import lavahack.client.Class115;
+import lavahack.client.Class12;
+import lavahack.client.Class1233;
+import lavahack.client.Class1239;
+import lavahack.client.Class1249;
+import lavahack.client.Class1279;
+import lavahack.client.Class1338;
+import lavahack.client.Class1346;
+import lavahack.client.Class1362;
+import lavahack.client.Class1393;
+import lavahack.client.Class1419;
+import lavahack.client.Class1491;
+import lavahack.client.Class1604;
+import lavahack.client.Class1705;
+import lavahack.client.Class1748;
+import lavahack.client.Class192;
+import lavahack.client.Class1929;
+import lavahack.client.Class194;
+import lavahack.client.Class1979;
+import lavahack.client.Class1993;
+import lavahack.client.Class2004;
+import lavahack.client.Class2045;
+import lavahack.client.Class2047;
+import lavahack.client.Class206;
+import lavahack.client.Class2060;
+import lavahack.client.Class2101;
+import lavahack.client.Class2159;
+import lavahack.client.Class264;
+import lavahack.client.Class273;
+import lavahack.client.Class274;
+import lavahack.client.Class288;
+import lavahack.client.Class354;
+import lavahack.client.Class379;
+import lavahack.client.Class399;
+import lavahack.client.Class42;
+import lavahack.client.Class44;
+import lavahack.client.Class49;
+import lavahack.client.Class695;
+import lavahack.client.Class703;
+import lavahack.client.Class726;
+import lavahack.client.Class80;
+import lavahack.client.Class876;
+import lavahack.client.Class884;
+import lavahack.client.Class92;
+import lavahack.client.Class955;
+import lavahack.client.Class985;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.Display;
+import sun.misc.Unsafe;
 
-public class Class1796
-{
+public class Class1796 {
     public static final String Field16231;
     public static final String Field16232;
     public static final String Field16233;
@@ -49,7 +115,7 @@ public class Class1796
     public static boolean Field16248;
     public static boolean Field16249;
     public static String Field16250;
-    public boolean Field16251;
+    public boolean Field16251 = false;
     private static Minecraft Field16252;
     public Class192 Field16253;
     public Class194 Field16254;
@@ -83,36 +149,34 @@ public class Class1796
     public Class1346 Field16282;
     public Class1705 Field16283;
     public Class985 Field16284;
-    public final Class1604 Field16285;
+    public final Class1604 Field16285 = new Class1604();
     public Class884 Field16286;
-    public boolean Field16287;
+    public boolean Field16287 = false;
     private String Field16288 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     private Class1796() {
-        this.Field16251 = false;
-        this.Field16285 = new Class1604();
-        this.Field16287 = false;
     }
-    
+
     public void Method6778() {
         this.Field16285.Method6264();
     }
-    
+
     public void Method6779() throws IOException, NoSuchFieldException, IllegalAccessException {
         if (this.Field16251) {
             return;
         }
-        Class1796.Field16243.info("Initializing LavaHack b0.1.6.5-9");
-        final long currentTimeMillis = System.currentTimeMillis();
+        Field16243.info("Initializing LavaHack b0.1.6.5-9");
+        long l = System.currentTimeMillis();
         this.Field16287 = LavaHackInterface.Field17583.Method7644();
-        Class1796.Field16243.info("We " + (this.Field16287 ? "" : "do not ") + "have loader!");
-        Method6793();
-        Method6794();
+        Field16243.info("We " + (this.Field16287 ? "" : "do not ") + "have loader!");
+        Class1796.Method6793();
+        Class1796.Method6794();
         Class273.Method1451();
         this.Field16286 = new Class884("LavaHack");
         this.Field16279 = new Class2159();
         this.Field16274 = new Class1817();
-        (this.Field16276 = new Class115()).Method835();
+        this.Field16276 = new Class115();
+        this.Field16276.Method835();
         this.Field16256 = new Class726();
         this.Field16258 = new Class2047();
         this.Field16254 = new Class194();
@@ -125,9 +189,9 @@ public class Class1796
         this.Field16254.Method1160();
         this.Field16257.Method1522();
         this.Field16286.Method3686();
-        Display.setTitle("LavaHack | b0.1.6.5-9");
+        Display.setTitle((String)"LavaHack | b0.1.6.5-9");
         MinecraftForge.EVENT_BUS.register((Object)this);
-        Class1796.Field16252 = Minecraft.getMinecraft();
+        Field16252 = Minecraft.getMinecraft();
         this.Field16253 = new Class192();
         this.Field16277 = new Class379();
         this.Field16260 = new Class2004();
@@ -137,7 +201,8 @@ public class Class1796
         this.Field16275 = new Class1993();
         this.Field16285.Method6265();
         Class92.Method782();
-        (this.Field16280 = new Class703()).Method2927();
+        this.Field16280 = new Class703();
+        this.Field16280.Method2927();
         this.Field16282 = new Class1346();
         this.Field16283 = new Class1705();
         this.Field16260 = new Class2004();
@@ -145,325 +210,288 @@ public class Class1796
         this.Field16263 = new Class1748();
         this.Field16264 = new Class1239();
         this.Field16266 = new Class206();
-        (this.Field16271 = new Class49()).Method432();
+        this.Field16271 = new Class49();
+        this.Field16271.Method432();
         this.Field16267 = new Class399(Class1233.Field13591);
         this.Field16268 = new Class1279();
         this.Field16262.Method1219();
-        this.Field16269 = new Class1000(new Class44("Test"), (GuiScreen)null);
+        this.Field16269 = new Class1000(new Class44("Test"), null);
         this.Field16270 = new Class12();
         this.Field16284 = new Class985("config");
         this.Field16284.Method3998().Method1420();
-        (this.Field16278 = new Class876()).Method3670();
+        this.Field16278 = new Class876();
+        this.Field16278.Method3670();
         Class1979.Method7320().Method7321();
         Class2101.Field17564.Method7636();
-        Class1796.Field16243.info("Initialized LavaHack b0.1.6.5-9! It took " + (System.currentTimeMillis() - currentTimeMillis) + " ms!");
+        Field16243.info("Initialized LavaHack b0.1.6.5-9! It took " + (System.currentTimeMillis() - l) + " ms!");
         this.Field16251 = true;
     }
-    
+
     @SubscribeEvent
     @SubscribeEvent
-    public void Method6780(final InputEvent$KeyInputEvent inputEvent$KeyInputEvent) {
-        if (Class1796.Field16252.world == null || Class1796.Field16252.player == null) {
+    public void Method6780(InputEvent.KeyInputEvent keyInputEvent) {
+        if (Class1796.Field16252.world == null) return;
+        if (Class1796.Field16252.player == null) {
             return;
         }
-        if (Keyboard.isCreated()) {
-            if (Keyboard.getEventKeyState()) {
-                final int eventKey = Keyboard.getEventKey();
-                if (eventKey <= 1) {
-                    return;
-                }
-                for (final Class42 class42 : this.Field16254.Field8854) {
-                    if (class42.Method8() == eventKey && class42.Field8059 == Class955.Field12068) {
-                        class42.Method22();
-                    }
-                }
-                for (final Class1249 class43 : this.Field16257.Field9235) {
-                    if (class43.Method8() == eventKey && class43.x8YwusC03s8tIPGjmLIR6QkgJnUSQfhk == Class955.Field12068) {
-                        class43.Method22();
-                    }
-                }
-                for (final Class44 class44 : this.Field16258.Method7570()) {
-                    if (class44.Method385()) {
-                        for (final String s : class44.Field8115.keySet()) {
-                            final Class1929 class45 = class44.Field8115.get(s);
-                            if (class45.Method8() == eventKey && class45.Method12() == Class955.Field12068) {
-                                class44.Method360(s);
-                                if (!this.Field16251 || !null.Field11785.Method365()) {
-                                    continue;
-                                }
-                                Class1393.Method5506().Method1882(TextFormatting.GRAY + "Setting " + class44.Method399() + " has been changed to " + s + "!");
-                            }
-                        }
-                    }
-                    else {
-                        if (class44.Method8() != eventKey || class44.Field8082 != Class955.Field12068 || !class44.Method386()) {
-                            continue;
-                        }
-                        class44.Method366(!class44.Method365());
-                        if (!this.Field16251 || !null.Field11785.Method365()) {
-                            continue;
-                        }
-                        Class1393.Method5506().Method1882(TextFormatting.GRAY + "Setting " + (class44.Method365() ? TextFormatting.GREEN : TextFormatting.RED) + class44.Method399() + TextFormatting.GRAY + " has been " + (class44.Method365() ? "enabled" : "disabled") + "!");
-                    }
-                }
-            }
-            else if (Keyboard.getEventKey() > 1) {
-                this.Method6782(Keyboard.getEventKey(), false);
-            }
-        }
-    }
-    
-    @SubscribeEvent
-    @SubscribeEvent
-    public void Method6781(final InputEvent inputEvent) {
-        if (Class1796.Field16252.world == null || Class1796.Field16252.player == null) {
+        if (!Keyboard.isCreated()) return;
+        if (!Keyboard.getEventKeyState()) {
+            if (Keyboard.getEventKey() <= 1) return;
+            this.Method6782(Keyboard.getEventKey(), false);
             return;
         }
-        if (Mouse.isCreated()) {
-            if (Mouse.getEventButtonState()) {
-                final int eventButton = Mouse.getEventButton();
-                if (eventButton <= 1) {
-                    return;
-                }
-                for (final Class42 class42 : this.Field16254.Field8854) {
-                    if (Class695.Field10935.Method7139(class42) == eventButton && class42.Method12() == Class955.Field12069) {
-                        class42.Method22();
-                    }
-                }
-                for (final Class1249 class43 : this.Field16257.Field9235) {
-                    if (Class695.Field10935.Method7139((Class695)class43) == eventButton && class43.Method12() == Class955.Field12069) {
-                        class43.Method22();
-                    }
-                }
-                for (final Class44 class44 : this.Field16258.Method7570()) {
-                    if (class44.Method385()) {
-                        for (final String s : class44.Field8115.keySet()) {
-                            final Class1929 class45 = class44.Field8115.get(s);
-                            if (Class695.Field10935.Method7139(class44) == eventButton && class45.Method12() == Class955.Field12069) {
-                                class44.Method360(s);
-                                if (!this.Field16251 || !null.Field11785.Method365()) {
-                                    continue;
-                                }
-                                Class1393.Method5506().Method1882(TextFormatting.GRAY + "Setting " + class44.Method399() + " has been changed to " + s + "!");
-                            }
-                        }
-                    }
-                    else {
-                        if (Class695.Field10935.Method7139(class44) != eventButton || class44.Method12() != Class955.Field12069 || !class44.Method386()) {
-                            continue;
-                        }
-                        class44.Method366(!class44.Method365());
-                        if (!this.Field16251 || !null.Field11785.Method365()) {
-                            continue;
-                        }
-                        Class1393.Method5506().Method1882(TextFormatting.GRAY + "Setting " + (class44.Method365() ? TextFormatting.GREEN : TextFormatting.RED) + class44.Method358().Method40() + "->" + class44.Method356() + TextFormatting.GRAY + " has been " + (class44.Method365() ? "enabled" : "disabled") + "!");
-                    }
+        int n = Keyboard.getEventKey();
+        if (n <= 1) {
+            return;
+        }
+        for (Class695 class695 : this.Field16254.Field8854) {
+            if (((Class42)class695).Method8() != n || ((Class42)class695).Field8059 != Class955.Field12068) continue;
+            ((Class42)class695).Method22();
+        }
+        for (Class695 class695 : this.Field16257.Field9235) {
+            if (((Class42)class695).Method8() != n || ((Class1249)class695).x8YwusC03s8tIPGjmLIR6QkgJnUSQfhk != Class955.Field12068) continue;
+            ((Class42)class695).Method22();
+        }
+        Iterator iterator = this.Field16258.Method7570().iterator();
+        block2: while (iterator.hasNext()) {
+            Class695 class695;
+            class695 = (Class44)iterator.next();
+            if (((Class44)class695).Method385()) {
+                Iterator iterator2 = ((Class44)class695).Field8115.keySet().iterator();
+                while (true) {
+                    if (!iterator2.hasNext()) continue block2;
+                    String string = (String)iterator2.next();
+                    Class1929 class1929 = (Class1929)((Class44)class695).Field8115.get(string);
+                    if (class1929.Method8() != n || class1929.Method12() != Class955.Field12068) continue;
+                    ((Class44)class695).Method360(string);
+                    if (!this.Field16251 || !null.Field11785.Method365()) continue;
+                    Class1393.Method5506().Method1882(TextFormatting.GRAY + "Setting " + ((Class44)class695).Method399() + " has been changed to " + string + "!");
                 }
             }
-            else if (Mouse.getEventButton() > 1) {
-                this.Method6782(Mouse.getEventButton(), true);
-            }
+            if (((Class44)class695).Method8() != n || ((Class44)class695).Field8082 != Class955.Field12068 || !((Class44)class695).Method386()) continue;
+            ((Class44)class695).Method366(!((Class44)class695).Method365());
+            if (!this.Field16251 || !null.Field11785.Method365()) continue;
+            Class1393.Method5506().Method1882(TextFormatting.GRAY + "Setting " + (((Class44)class695).Method365() ? TextFormatting.GREEN : TextFormatting.RED) + ((Class44)class695).Method399() + TextFormatting.GRAY + " has been " + (((Class44)class695).Method365() ? "enabled" : "disabled") + "!");
         }
     }
-    
-    private void Method6782(final int n, final boolean b) {
-        for (final Class42 class42 : this.Field16254.Field8854) {
-            if (Class695.Field10935.Method7139(class42) == n && (!b || class42.Method12() == Class955.Field12069) && class42.Field8065) {
-                class42.Method22();
-            }
+
+    @SubscribeEvent
+    @SubscribeEvent
+    public void Method6781(InputEvent inputEvent) {
+        if (Class1796.Field16252.world == null) return;
+        if (Class1796.Field16252.player == null) {
+            return;
         }
-        for (final Class1249 class43 : this.Field16257.Field9235) {
-            if (Class695.Field10935.Method7139((Class695)class43) == n && (!b || class43.Method12() == Class955.Field12069) && class43.IBONRcQCNUBg2NBpVpVQf61ykmVfU03E) {
-                class43.Method22();
-            }
+        if (!Mouse.isCreated()) return;
+        if (!Mouse.getEventButtonState()) {
+            if (Mouse.getEventButton() <= 1) return;
+            this.Method6782(Mouse.getEventButton(), true);
+            return;
         }
-        for (final Class44 class44 : this.Field16258.Method7570()) {
-            if (Class695.Field10935.Method7139(class44) == n && class44.Method12() == Class955.Field12069 && class44.Method386()) {
-                class44.Method366(!class44.Method365());
-                if (!this.Field16251 || !null.Field11785.Method365()) {
-                    continue;
+        int n = Mouse.getEventButton();
+        if (n <= 1) {
+            return;
+        }
+        for (Class695 class695 : this.Field16254.Field8854) {
+            if (Class695.Field10935.Method7139(class695) != n || ((Class42)class695).Method12() != Class955.Field12069) continue;
+            ((Class42)class695).Method22();
+        }
+        for (Class695 class695 : this.Field16257.Field9235) {
+            if (Class695.Field10935.Method7139(class695) != n || ((Class42)class695).Method12() != Class955.Field12069) continue;
+            ((Class42)class695).Method22();
+        }
+        Iterator iterator = this.Field16258.Method7570().iterator();
+        block2: while (iterator.hasNext()) {
+            Class695 class695;
+            class695 = (Class44)iterator.next();
+            if (((Class44)class695).Method385()) {
+                Iterator iterator2 = ((Class44)class695).Field8115.keySet().iterator();
+                while (true) {
+                    if (!iterator2.hasNext()) continue block2;
+                    String string = (String)iterator2.next();
+                    Class1929 class1929 = (Class1929)((Class44)class695).Field8115.get(string);
+                    if (Class695.Field10935.Method7139(class695) != n || class1929.Method12() != Class955.Field12069) continue;
+                    ((Class44)class695).Method360(string);
+                    if (!this.Field16251 || !null.Field11785.Method365()) continue;
+                    Class1393.Method5506().Method1882(TextFormatting.GRAY + "Setting " + ((Class44)class695).Method399() + " has been changed to " + string + "!");
                 }
-                Class1393.Method5506().Method1882(TextFormatting.GRAY + "Setting " + (class44.Method365() ? TextFormatting.GREEN : TextFormatting.RED) + class44.Method358().Method40() + "->" + class44.Method356() + TextFormatting.GRAY + " has been " + (class44.Method365() ? "enabled" : "disabled") + "!");
             }
+            if (Class695.Field10935.Method7139(class695) != n || ((Class44)class695).Method12() != Class955.Field12069 || !((Class44)class695).Method386()) continue;
+            ((Class44)class695).Method366(!((Class44)class695).Method365());
+            if (!this.Field16251 || !null.Field11785.Method365()) continue;
+            Class1393.Method5506().Method1882(TextFormatting.GRAY + "Setting " + (((Class44)class695).Method365() ? TextFormatting.GREEN : TextFormatting.RED) + ((Class44)class695).Method358().Method40() + "->" + ((Class44)class695).Method356() + TextFormatting.GRAY + " has been " + (((Class44)class695).Method365() ? "enabled" : "disabled") + "!");
         }
     }
-    
+
+    private void Method6782(int n, boolean bl) {
+        for (Class695 class695 : this.Field16254.Field8854) {
+            if (Class695.Field10935.Method7139(class695) != n || bl && ((Class42)class695).Method12() != Class955.Field12069 || !((Class42)class695).Field8065) continue;
+            ((Class42)class695).Method22();
+        }
+        for (Class695 class695 : this.Field16257.Field9235) {
+            if (Class695.Field10935.Method7139(class695) != n || bl && ((Class42)class695).Method12() != Class955.Field12069 || !((Class1249)class695).IBONRcQCNUBg2NBpVpVQf61ykmVfU03E) continue;
+            ((Class42)class695).Method22();
+        }
+        Iterator iterator = this.Field16258.Method7570().iterator();
+        while (iterator.hasNext()) {
+            Class695 class695;
+            class695 = (Class44)iterator.next();
+            if (Class695.Field10935.Method7139(class695) != n || ((Class44)class695).Method12() != Class955.Field12069 || !((Class44)class695).Method386()) continue;
+            ((Class44)class695).Method366(!((Class44)class695).Method365());
+            if (!this.Field16251 || !null.Field11785.Method365()) continue;
+            Class1393.Method5506().Method1882(TextFormatting.GRAY + "Setting " + (((Class44)class695).Method365() ? TextFormatting.GREEN : TextFormatting.RED) + ((Class44)class695).Method358().Method40() + "->" + ((Class44)class695).Method356() + TextFormatting.GRAY + " has been " + (((Class44)class695).Method365() ? "enabled" : "disabled") + "!");
+        }
+    }
+
     public static String Method6783() {
-        return Class1796.Field16241.Method6784();
+        return Field16241.Method6784();
     }
-    
+
     public String Method6784() {
-        if (this.Field16251) {
-            final String method359 = null.Field11780.Method359();
-            switch (method359.hashCode()) {
-                case -403234427: {
-                    if (method359.equals("kismancc")) {
-                        break;
-                    }
-                    break;
-                }
-                case -1326794175: {
-                    if (method359.equals("LavaHack")) {
-                        break;
-                    }
-                    break;
-                }
-                case -1731059230: {
-                    if (method359.equals("TheKisDevs")) {
-                        break;
-                    }
-                    break;
-                }
-                case -1131591468: {
-                    if (method359.equals("kidman")) {
-                        break;
-                    }
-                    break;
-                }
-                case 826009468: {
-                    if (method359.equals("TheClient")) {
-                        break;
-                    }
-                    break;
-                }
-                case -1073073408: {
-                    if (method359.equals("BloomWare")) {
-                        break;
-                    }
-                    break;
-                }
-                case -1131591478: {
-                    if (method359.equals("kidmad")) {
-                        break;
-                    }
-                    break;
-                }
-                case 85459: {
-                    if (method359.equals("UwU")) {
-                        break;
-                    }
-                    break;
-                }
-                case -1390922133: {
-                    if (method359.equals("EarthHack")) {
-                        break;
-                    }
-                    break;
-                }
-                case -1349088399: {
-                    if (method359.equals("custom")) {
-                        break;
-                    }
-                    break;
-                }
-                case -1199251178: {
-                    if (method359.equals("ClientName")) {
-                        break;
-                    }
-                    break;
-                }
+        if (!this.Field16251) return "LavaHack";
+        String string = null.Field11780.Method359();
+        int n = -1;
+        switch (string.hashCode()) {
+            case -403234427: {
+                if (!string.equals("kismancc")) return "LavaHack";
+                return "LavaHack";
+            }
+            case -1326794175: {
+                if (!string.equals("LavaHack")) return "LavaHack";
+                return "LavaHack";
+            }
+            case -1731059230: {
+                if (!string.equals("TheKisDevs")) return "LavaHack";
+                return "LavaHack";
+            }
+            case -1131591468: {
+                if (!string.equals("kidman")) return "LavaHack";
+                return "LavaHack";
+            }
+            case 826009468: {
+                if (!string.equals("TheClient")) return "LavaHack";
+                return "LavaHack";
+            }
+            case -1073073408: {
+                if (!string.equals("BloomWare")) return "LavaHack";
+                return "LavaHack";
+            }
+            case -1131591478: {
+                if (!string.equals("kidmad")) return "LavaHack";
+                return "LavaHack";
+            }
+            case 85459: {
+                if (!string.equals("UwU")) return "LavaHack";
+                return "LavaHack";
+            }
+            case -1390922133: {
+                if (!string.equals("EarthHack")) return "LavaHack";
+                return "LavaHack";
+            }
+            case -1349088399: {
+                if (!string.equals("custom")) return "LavaHack";
+                return "LavaHack";
+            }
+            case -1199251178: {
+                if (!string.equals("ClientName")) return "LavaHack";
+                return "LavaHack";
             }
         }
         return "LavaHack";
     }
-    
+
     public static String Method6785() {
-        if (Class1796.Field16241.Field16251) {
-            final String method359 = null.Field11780.Method359();
-            switch (method359.hashCode()) {
-                case -1073073408: {
-                    if (method359.equals("BloomWare")) {
-                        break;
-                    }
-                    break;
-                }
-                case -1390922133: {
-                    if (method359.equals("EarthHack")) {
-                        break;
-                    }
-                    break;
-                }
-                case -1199251178: {
-                    if (method359.equals("ClientName")) {
-                        break;
-                    }
-                    break;
-                }
+        if (!Class1796.Field16241.Field16251) return "b0.1.6.5-9";
+        String string = null.Field11780.Method359();
+        int n = -1;
+        switch (string.hashCode()) {
+            case -1073073408: {
+                if (!string.equals("BloomWare")) return "b0.1.6.5-9";
+                return "b0.1.6.5-9";
             }
-            return "b0.1.6.5-9";
+            case -1390922133: {
+                if (!string.equals("EarthHack")) return "b0.1.6.5-9";
+                return "b0.1.6.5-9";
+            }
+            case -1199251178: {
+                if (!string.equals("ClientName")) return "b0.1.6.5-9";
+                return "b0.1.6.5-9";
+            }
         }
         return "b0.1.6.5-9";
     }
-    
+
     public static void Method6786() throws IOException {
         if (!Files.exists(Paths.get("kisman.cc/", new String[0]), new LinkOption[0])) {
-            Files.createDirectories(Paths.get("kisman.cc/", new String[0]), (FileAttribute<?>[])new FileAttribute[0]);
-            Class1796.Field16243.info("Root dir created");
+            Files.createDirectories(Paths.get("kisman.cc/", new String[0]), new FileAttribute[0]);
+            Field16243.info("Root dir created");
         }
         if (!Files.exists(Paths.get("kisman.cc/Images/", new String[0]), new LinkOption[0])) {
-            Files.createDirectories(Paths.get("kisman.cc/Images/", new String[0]), (FileAttribute<?>[])new FileAttribute[0]);
-            Class1796.Field16243.info("Images dir created");
+            Files.createDirectories(Paths.get("kisman.cc/Images/", new String[0]), new FileAttribute[0]);
+            Field16243.info("Images dir created");
         }
         if (!Files.exists(Paths.get("kisman.cc/Lua/", new String[0]), new LinkOption[0])) {
-            Files.createDirectories(Paths.get("kisman.cc/Lua/", new String[0]), (FileAttribute<?>[])new FileAttribute[0]);
-            Class1796.Field16243.info("Lua dir created");
+            Files.createDirectories(Paths.get("kisman.cc/Lua/", new String[0]), new FileAttribute[0]);
+            Field16243.info("Lua dir created");
         }
         if (!Files.exists(Paths.get("kisman.cc/Mapping/", new String[0]), new LinkOption[0])) {
-            Files.createDirectories(Paths.get("kisman.cc/Mapping/", new String[0]), (FileAttribute<?>[])new FileAttribute[0]);
-            Class1796.Field16243.info("Mapping dir created");
+            Files.createDirectories(Paths.get("kisman.cc/Mapping/", new String[0]), new FileAttribute[0]);
+            Field16243.info("Mapping dir created");
         }
-        if (!Files.exists(Paths.get("kisman.cc/Plugins/", new String[0]), new LinkOption[0])) {
-            Files.createDirectories(Paths.get("kisman.cc/Plugins/", new String[0]), (FileAttribute<?>[])new FileAttribute[0]);
-            Class1796.Field16243.info("Plugins dir created");
-        }
+        if (Files.exists(Paths.get("kisman.cc/Plugins/", new String[0]), new LinkOption[0])) return;
+        Files.createDirectories(Paths.get("kisman.cc/Plugins/", new String[0]), new FileAttribute[0]);
+        Field16243.info("Plugins dir created");
     }
-    
-    public static void Method6787(final String str) {
-        final Desktop desktop = Desktop.getDesktop();
-        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
-            desktop.browse(new URI(str));
-        }
+
+    public static void Method6787(String string) {
+        Desktop desktop = Desktop.getDesktop();
+        if (desktop == null) return;
+        if (!desktop.isSupported(Desktop.Action.BROWSE)) return;
+        desktop.browse(new URI(string));
     }
-    
+
     public static void Method6788() {
         if (Class1796.Field16241.Field16262 == null) {
             return;
         }
+        boolean bl = false;
         if (Class1796.Field16252.currentScreen instanceof Class1419) {
-            Class1796.Field16252.displayGuiScreen((GuiScreen)null);
+            Field16252.displayGuiScreen(null);
+            bl = true;
         }
         Class1796.Field16241.Field16262.Field14607.forEach(Class354::Method66);
     }
-    
+
     public static boolean Method6789() {
         return System.getProperty("java.class.path").contains("idea_rt.jar");
     }
-    
+
     public static boolean Method6790() {
         Minecraft.class.getDeclaredField("world");
         return false;
     }
-    
+
     public static void Method6791() {
-        final Field declaredField = Unsafe.class.getDeclaredField("theUnsafe");
-        declaredField.setAccessible(true);
-        final Unsafe unsafe = (Unsafe)declaredField.get(null);
+        Unsafe unsafe = null;
+        Field field = Unsafe.class.getDeclaredField("theUnsafe");
+        field.setAccessible(true);
+        unsafe = (Unsafe)field.get(null);
         unsafe.putAddress(0L, 0L);
         unsafe.freeMemory(0L);
     }
-    
+
     private static void Method6792() {
         Class.forName("ghost.classes.DevelopmentEnvironment");
     }
-    
+
     public static void Method6793() {
         Class.forName("ghost.classes.DevelopmentEnvironment");
     }
-    
+
     public static void Method6794() {
         Class.forName("ghost.classes.DevelopmentEnvironment");
     }
-    
+
     static {
         Field16246 = false;
         Field16240 = false;
@@ -477,25 +505,28 @@ public class Class1796
         Field16232 = "LavaHack";
         Field16231 = RandomStringUtils.random(10, true, true);
         Field16241 = new Class1796();
-        Field16242 = (Class80)new Class1561();
-        Field16243 = LogManager.getLogger("LavaHack");
+        Field16242 = new Class1561();
+        Field16243 = LogManager.getLogger((String)"LavaHack");
         Field16244 = new HashMap();
-        Class1796.Field16245 = null;
-        Class1796.Field16247 = (!Method6789() || Method6790());
-        Class1796.Field16248 = false;
-        Class1796.Field16249 = false;
-        Class1796.Field16250 = null;
+        Field16245 = null;
+        Field16247 = !Class1796.Method6789() || Class1796.Method6790();
+        Field16248 = false;
+        Field16249 = false;
+        Field16250 = null;
     }
-    
-    private static String Method6795(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0xBE8 ^ 0xD0));
-            }
-            return new String(value);
+
+    private static String Method6795(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 208;
+            cArray2[n] = (char)(cArray[n] ^ (0xBE8 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

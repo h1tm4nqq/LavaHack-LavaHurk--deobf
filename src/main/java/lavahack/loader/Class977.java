@@ -1,43 +1,51 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-import java.nio.*;
-import java.net.*;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import lavahack.loader.Class1181;
+import lavahack.loader.Class1236;
+import lavahack.loader.Class1333;
+import lavahack.loader.Class1683;
+import lavahack.loader.Class1926;
+import lavahack.loader.Class1966;
+import lavahack.loader.Class26;
+import lavahack.loader.Class359;
+import lavahack.loader.Class902;
 
-public interface Class977
-{
-    Class1333 Method2659(final Class1966 p0, final Class26 p1, final Class359 p2) throws Class902;
-    
-    void Method2660(final Class1966 p0, final Class359 p1, final Class1236 p2) throws Class902;
-    
-    void Method2661(final Class1966 p0, final Class359 p1) throws Class902;
-    
-    void Method2662(final Class1966 p0, final String p1);
-    
-    void Method2663(final Class1966 p0, final ByteBuffer p1);
-    
-    void Method2664(final Class1966 p0, final Class1181 p1);
-    
-    void Method2665(final Class1966 p0, final int p1, final String p2, final boolean p3);
-    
-    void Method2666(final Class1966 p0, final int p1, final String p2, final boolean p3);
-    
-    void Method2667(final Class1966 p0, final int p1, final String p2);
-    
-    void Method2668(final Class1966 p0, final Exception p1);
-    
-    void Method2669(final Class1966 p0, final Class1926 p1);
-    
-    Class1683 Method2670(final Class1966 p0);
-    
-    void Method2671(final Class1966 p0, final Class1926 p1);
-    
-    void Method2672(final Class1966 p0);
-    
-    InetSocketAddress Method2673(final Class1966 p0);
-    
-    InetSocketAddress Method2674(final Class1966 p0);
+public interface Class977 {
+    public Class1333 Method2659(Class1966 var1, Class26 var2, Class359 var3) throws Class902;
+
+    public void Method2660(Class1966 var1, Class359 var2, Class1236 var3) throws Class902;
+
+    public void Method2661(Class1966 var1, Class359 var2) throws Class902;
+
+    public void Method2662(Class1966 var1, String var2);
+
+    public void Method2663(Class1966 var1, ByteBuffer var2);
+
+    public void Method2664(Class1966 var1, Class1181 var2);
+
+    public void Method2665(Class1966 var1, int var2, String var3, boolean var4);
+
+    public void Method2666(Class1966 var1, int var2, String var3, boolean var4);
+
+    public void Method2667(Class1966 var1, int var2, String var3);
+
+    public void Method2668(Class1966 var1, Exception var2);
+
+    public void Method2669(Class1966 var1, Class1926 var2);
+
+    public Class1683 Method2670(Class1966 var1);
+
+    public void Method2671(Class1966 var1, Class1926 var2);
+
+    public void Method2672(Class1966 var1);
+
+    public InetSocketAddress Method2673(Class1966 var1);
+
+    public InetSocketAddress Method2674(Class1966 var1);
 }
+

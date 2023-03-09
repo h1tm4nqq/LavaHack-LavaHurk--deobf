@@ -1,50 +1,56 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.item.ItemStack
+ *  net.minecraft.tileentity.TileEntity
+ *  net.minecraft.util.math.BlockPos
+ */
 package lavahack.client;
 
-import net.minecraft.util.math.*;
-import net.minecraft.block.state.*;
-import net.minecraft.tileentity.*;
-import java.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.item.*;
-import javax.annotation.*;
+import java.util.List;
+import javax.annotation.Nonnull;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
 
-public interface Class686
-{
-    IBlockState Method2880(final BlockPos p0);
-    
-    boolean Method2881(final BlockPos p0, final IBlockState p1);
-    
-    TileEntity Method2882(final BlockPos p0);
-    
-    List Method2883();
-    
-    void Method2884(final BlockPos p0, final TileEntity p1);
-    
-    void Method2885(final BlockPos p0);
-    
-    List Method2886();
-    
-    void Method2887(final Entity p0);
-    
-    void Method2888(final Entity p0);
-    
-    ItemStack Method2889();
-    
-    void Method2890(final ItemStack p0);
-    
-    int Method2891();
-    
-    int Method2892();
-    
-    int Method2893();
-    
+public interface Class686 {
+    public IBlockState Method2880(BlockPos var1);
+
+    public boolean Method2881(BlockPos var1, IBlockState var2);
+
+    public TileEntity Method2882(BlockPos var1);
+
+    public List Method2883();
+
+    public void Method2884(BlockPos var1, TileEntity var2);
+
+    public void Method2885(BlockPos var1);
+
+    public List Method2886();
+
+    public void Method2887(Entity var1);
+
+    public void Method2888(Entity var1);
+
+    public ItemStack Method2889();
+
+    public void Method2890(ItemStack var1);
+
+    public int Method2891();
+
+    public int Method2892();
+
+    public int Method2893();
+
     @Nonnull
     @Nonnull
-    String Method2894();
-    
-    void Method2895(@Nonnull @Nonnull final String p0);
+    public String Method2894();
+
+    public void Method2895(@Nonnull @Nonnull String var1);
 }
+

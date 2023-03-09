@@ -1,71 +1,76 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.mojang.authlib.Agent
+ *  com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService
+ *  com.mojang.authlib.yggdrasil.YggdrasilUserAuthentication
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.util.Session
+ */
 package lavahack.client;
 
-import java.net.*;
-import com.mojang.authlib.yggdrasil.*;
-import com.mojang.authlib.*;
-import net.minecraft.util.*;
-import net.minecraft.client.*;
-import java.lang.reflect.*;
-import java.util.*;
+import com.mojang.authlib.Agent;
+import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
+import com.mojang.authlib.yggdrasil.YggdrasilUserAuthentication;
+import java.lang.reflect.Field;
+import java.net.Proxy;
+import java.util.ArrayList;
+import java.util.List;
+import lavahack.client.Class1796;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.Session;
 
-public class Class2018
-{
-    private static final List Field17289;
+public class Class2018 {
+    private static final List Field17289 = new ArrayList();
     private int Field17290;
-    
-    public static YggdrasilUserAuthentication Method7474(final String username, final String password, final boolean b) {
-        final YggdrasilUserAuthentication yggdrasilUserAuthentication = (YggdrasilUserAuthentication)new YggdrasilAuthenticationService(Proxy.NO_PROXY, "").createUserAuthentication(Agent.MINECRAFT);
-        yggdrasilUserAuthentication.setUsername(username);
-        yggdrasilUserAuthentication.setPassword(password);
-        final YggdrasilUserAuthentication yggdrasilUserAuthentication2;
+
+    public static YggdrasilUserAuthentication Method7474(String string, String string2, boolean bl) {
+        YggdrasilUserAuthentication yggdrasilUserAuthentication = (YggdrasilUserAuthentication)new YggdrasilAuthenticationService(Proxy.NO_PROXY, "").createUserAuthentication(Agent.MINECRAFT);
+        yggdrasilUserAuthentication.setUsername(string);
+        yggdrasilUserAuthentication.setPassword(string2);
         new Thread(() -> {
-            yggdrasilUserAuthentication2.logIn();
-            if (b) {
-                Method7476(new Session(yggdrasilUserAuthentication2.getSelectedProfile().getName(), yggdrasilUserAuthentication2.getSelectedProfile().getId().toString(), yggdrasilUserAuthentication2.getAuthenticatedToken(), "mojang"));
-            }
-            return;
+            yggdrasilUserAuthentication.logIn();
+            if (!bl) return;
+            Class2018.Method7476(new Session(yggdrasilUserAuthentication.getSelectedProfile().getName(), yggdrasilUserAuthentication.getSelectedProfile().getId().toString(), yggdrasilUserAuthentication.getAuthenticatedToken(), "mojang"));
         }).start();
         return yggdrasilUserAuthentication;
     }
-    
+
     public static List Method7475() {
-        return Class2018.Field17289;
+        return Field17289;
     }
-    
-    public static void Method7476(final Session value) {
-        final Class<? extends Minecraft> class1 = Minecraft.getMinecraft().getClass();
+
+    public static void Method7476(Session session) {
+        Class<?> clazz = Minecraft.getMinecraft().getClass();
         Field field = null;
-        for (final Field field2 : class1.getDeclaredFields()) {
-            if (field2.getType().isInstance(value)) {
-                field = field2;
-                Class1796.Field16243.info("Attempting Injection into Session.");
-            }
+        for (Field field2 : clazz.getDeclaredFields()) {
+            if (!field2.getType().isInstance(session)) continue;
+            field = field2;
+            Class1796.Field16243.info("Attempting Injection into Session.");
         }
         if (field == null) {
             throw new IllegalStateException("No field of type " + Session.class.getCanonicalName() + " declared.");
         }
         field.setAccessible(true);
-        field.set(Minecraft.getMinecraft(), value);
+        field.set(Minecraft.getMinecraft(), session);
         field.setAccessible(false);
     }
-    
-    static {
-        Field17289 = new ArrayList();
-    }
-    
-    private static String Method7478(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x5806 ^ 0x6));
-            }
-            return new String(value);
+
+    private static String Method7478(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 6;
+            cArray2[n] = (char)(cArray[n] ^ (0x5806 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

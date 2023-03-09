@@ -1,37 +1,59 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  mcp.MethodsReturnNonnullByDefault
+ *  net.minecraft.client.renderer.RenderGlobal
+ *  net.minecraft.client.renderer.chunk.ChunkCompileTaskGenerator
+ *  net.minecraft.client.renderer.chunk.ChunkCompileTaskGenerator$Status
+ *  net.minecraft.client.renderer.chunk.CompiledChunk
+ *  net.minecraft.client.renderer.chunk.ListedRenderChunk
+ *  net.minecraft.client.renderer.chunk.SetVisibility
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.world.ChunkCache
+ *  net.minecraft.world.World
+ *  net.minecraftforge.fml.relauncher.Side
+ *  net.minecraftforge.fml.relauncher.SideOnly
+ */
 package lavahack.client;
 
-import net.minecraftforge.fml.relauncher.*;
-import mcp.*;
-import javax.annotation.*;
-import net.minecraft.client.renderer.*;
-import net.minecraft.util.math.*;
-import net.minecraft.client.renderer.chunk.*;
-import net.minecraft.world.*;
+import javax.annotation.ParametersAreNonnullByDefault;
+import lavahack.client.Class1479;
+import lavahack.client.Class1600;
+import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.client.renderer.RenderGlobal;
+import net.minecraft.client.renderer.chunk.ChunkCompileTaskGenerator;
+import net.minecraft.client.renderer.chunk.CompiledChunk;
+import net.minecraft.client.renderer.chunk.ListedRenderChunk;
+import net.minecraft.client.renderer.chunk.SetVisibility;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ChunkCache;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-@SideOnly(Side.CLIENT)
+@SideOnly(value=Side.CLIENT)
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class Class290 extends ListedRenderChunk
-{
+public class Class290
+extends ListedRenderChunk {
     private String Field9245 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class290(final World world, final RenderGlobal renderGlobal, final BlockPos blockPos, final int n) {
+
+    public Class290(World world, RenderGlobal renderGlobal, BlockPos blockPos, int n) {
         super(world, renderGlobal, n);
     }
-    
-    public void rebuildChunk(final float n, final float n2, final float n3, final ChunkCompileTaskGenerator chunkCompileTaskGenerator) {
+
+    public void rebuildChunk(float f, float f2, float f3, ChunkCompileTaskGenerator chunkCompileTaskGenerator) {
         chunkCompileTaskGenerator.getLock().lock();
-        if (chunkCompileTaskGenerator.getStatus() == ChunkCompileTaskGenerator$Status.COMPILING) {
-            final BlockPos getPosition = this.getPosition();
-            final Class1479 class1479 = (Class1479)this.getWorld();
-            if (getPosition.getX() < 0 || getPosition.getZ() < 0 || getPosition.getX() >= class1479.getWidth() || getPosition.getZ() >= class1479.getLength()) {
-                final SetVisibility setVisibility = new SetVisibility();
+        if (chunkCompileTaskGenerator.getStatus() == ChunkCompileTaskGenerator.Status.COMPILING) {
+            BlockPos blockPos = this.getPosition();
+            Class1479 class1479 = (Class1479)this.getWorld();
+            if (blockPos.getX() < 0 || blockPos.getZ() < 0 || blockPos.getX() >= class1479.getWidth() || blockPos.getZ() >= class1479.getLength()) {
+                SetVisibility setVisibility = new SetVisibility();
                 setVisibility.setAllVisible(true);
-                final CompiledChunk compiledChunk = new CompiledChunk();
+                CompiledChunk compiledChunk = new CompiledChunk();
                 compiledChunk.setVisibility(setVisibility);
                 chunkCompileTaskGenerator.setCompiledChunk(compiledChunk);
                 chunkCompileTaskGenerator.getLock().unlock();
@@ -39,10 +61,11 @@ public class Class290 extends ListedRenderChunk
             }
         }
         chunkCompileTaskGenerator.getLock().unlock();
-        super.rebuildChunk(n, n2, n3, chunkCompileTaskGenerator);
+        super.rebuildChunk(f, f2, f3, chunkCompileTaskGenerator);
     }
-    
-    protected ChunkCache createRegionRenderCache(final World world, final BlockPos blockPos, final BlockPos blockPos2, final int n) {
-        return (ChunkCache)new Class1600(world, blockPos, blockPos2, n);
+
+    protected ChunkCache createRegionRenderCache(World world, BlockPos blockPos, BlockPos blockPos2, int n) {
+        return new Class1600(world, blockPos, blockPos2, n);
     }
 }
+

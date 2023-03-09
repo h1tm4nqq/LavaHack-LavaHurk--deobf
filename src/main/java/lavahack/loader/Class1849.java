@@ -1,21 +1,26 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-import java.net.*;
+import java.net.InetAddress;
+import java.net.URI;
+import java.net.UnknownHostException;
+import lavahack.loader.Class11;
+import lavahack.loader.Class1654;
 
-class Class1849 implements Class11
-{
+class Class1849
+implements Class11 {
     final Class1654 Field16525;
     private String Field16526 = "TheKisDevs & LavaHack Development owns you";
-    
-    Class1849(final Class1654 field16525) {
-        this.Field16525 = field16525;
+
+    Class1849(Class1654 class1654) {
+        this.Field16525 = class1654;
     }
-    
-    public InetAddress Method141(final URI uri) throws UnknownHostException {
-        return InetAddress.getByName(uri.getHost());
+
+    @Override
+    public InetAddress Method141(URI uRI) throws UnknownHostException {
+        return InetAddress.getByName(uRI.getHost());
     }
 }
+

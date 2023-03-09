@@ -1,27 +1,23 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-public class Class804 extends RuntimeException
-{
-    private static final long Field11418;
+public class Class804
+extends RuntimeException {
+    private static final long Field11418 = -6468967874576651628L;
     private String Field11419 = "TheKisDevs & LavaHack Development owns you";
-    
-    public Class804(final String message) {
-        super(message);
+
+    public Class804(String string) {
+        super(string);
     }
-    
-    public Class804(final Throwable cause) {
-        super(cause);
+
+    public Class804(Throwable throwable) {
+        super(throwable);
     }
-    
-    public Class804(final String message, final Throwable cause) {
-        super(message, cause);
-    }
-    
-    static {
-        Field11418 = -6468967874576651628L;
+
+    public Class804(String string, Throwable throwable) {
+        super(string, throwable);
     }
 }
+

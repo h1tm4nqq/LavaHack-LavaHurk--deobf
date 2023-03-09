@@ -1,57 +1,71 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.*;
-import java.util.function.*;
-import javax.swing.*;
-import java.io.*;
-import java.awt.*;
-import java.awt.datatransfer.*;
-import java.nio.file.*;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.util.Comparator;
+import javax.swing.ImageIcon;
+import lavahack.client.Class42;
+import lavahack.client.Class873;
+import lavahack.client.Class963;
+import lavahack.client.Class97;
 
-public class Class344 extends Class42
-{
+public class Class344
+extends Class42 {
     @Class873
     public static Class344 Field9432;
     private int Field9433;
-    
+
     public Class344() {
         super("BetterScreenshot", "offix sori no mne 'eto otchen nado ni termay repy poshaluysta", Class97.Field8339);
     }
-    
+
     public static Image Method1698() throws IOException {
-        final ImageIcon imageIcon = new ImageIcon(Files.list(new File(Class344.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.gameDir.getAbsolutePath() + "/screenshots/").toPath()).filter(Class344::Method1702).max(Comparator.comparingLong((ToLongFunction<? super Path>)Class344::Method1701)).get().toString());
-        return (imageIcon.getIconWidth() > 0 && imageIcon.getIconHeight() > 0) ? imageIcon.getImage() : null;
+        ImageIcon imageIcon = new ImageIcon(Files.list(new File(Class344.vyW9vRV2f2w4J1b94egeWDRZaB6Qg1yi.gameDir.getAbsolutePath() + "/screenshots/").toPath()).filter(Class344::Method1702).max(Comparator.comparingLong(Class344::Method1701)).get().toString());
+        if (imageIcon.getIconWidth() <= 0) return null;
+        if (imageIcon.getIconHeight() <= 0) return null;
+        Image image = imageIcon.getImage();
+        return image;
     }
-    
-    public static void Method1699(final Image image) {
-        new Thread(Class344::Method1700).start();
+
+    public static void Method1699(Image image) {
+        new Thread(() -> Class344.Method1700(image)).start();
     }
-    
-    private static void Method1700(final Image image) {
+
+    private static void Method1700(Image image) {
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new Class963(image), null);
     }
-    
-    private static long Method1701(final Path path) {
+
+    private static long Method1701(Path path) {
         return path.toFile().lastModified();
     }
-    
-    private static boolean Method1702(final Path path) {
-        return !Files.isDirectory(path, new LinkOption[0]);
+
+    private static boolean Method1702(Path path) {
+        if (Files.isDirectory(path, new LinkOption[0])) return false;
+        return true;
     }
-    
-    private static String Method57(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x3040 ^ 0x8F));
-            }
-            return new String(value);
+
+    private static String Method57(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 143;
+            cArray2[n] = (char)(cArray[n] ^ (0x3040 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

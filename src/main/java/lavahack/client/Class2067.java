@@ -1,29 +1,32 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.net.*;
+import java.net.URL;
+import java.net.URLConnection;
 
-public class Class2067
-{
+public class Class2067 {
     private String Field17440 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public static boolean Method7582(final String spec) {
-        new URL(spec).openConnection().connect();
+
+    public static boolean Method7582(String string) {
+        URLConnection uRLConnection = new URL(string).openConnection();
+        uRLConnection.connect();
         return true;
     }
-    
-    private static String Method7583(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x1B56 ^ 0x4B));
-            }
-            return new String(value);
+
+    private static String Method7583(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 75;
+            cArray2[n] = (char)(cArray[n] ^ (0x1B56 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

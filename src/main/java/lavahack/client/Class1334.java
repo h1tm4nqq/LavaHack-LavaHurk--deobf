@@ -1,41 +1,47 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.MoverType
+ */
 package lavahack.client;
 
-import com.kisman.cc.event.*;
-import net.minecraft.entity.*;
+import com.kisman.cc.event.Class2157;
+import net.minecraft.entity.MoverType;
 
-public class Class1334 extends Class2157
-{
+public class Class1334
+extends Class2157 {
     public MoverType Field14102;
     public double Field14103;
     public double Field14104;
     public double Field14105;
     private String Field14106 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class1334(final MoverType field14102, final double field14103, final double field14104, final double field14105) {
+
+    public Class1334(MoverType moverType, double d, double d2, double d3) {
         super(new Object[0]);
-        this.Field14102 = field14102;
-        this.Field14103 = field14103;
-        this.Field14104 = field14104;
-        this.Field14105 = field14105;
+        this.Field14102 = moverType;
+        this.Field14103 = d;
+        this.Field14104 = d2;
+        this.Field14105 = d3;
     }
-    
+
+    @Override
     public String Method163() {
         return "player_move";
     }
-    
-    private static String Method170(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x78F7 ^ 0x23));
-            }
-            return new String(value);
+
+    private static String Method170(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 35;
+            cArray2[n] = (char)(cArray[n] ^ (0x78F7 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

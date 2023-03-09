@@ -1,16 +1,20 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.network.Packet
+ */
 package lavahack.client;
 
-import net.minecraft.network.*;
+import lavahack.client.Class145;
+import net.minecraft.network.Packet;
 
-public class Class2015 extends Class145
-{
+public class Class2015
+extends Class145 {
     private String Field17277 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class2015(final Packet packet) {
+
+    public Class2015(Packet packet) {
         super(packet);
     }
 }
+

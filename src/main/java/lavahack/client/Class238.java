@@ -1,35 +1,43 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.concurrent.*;
-import java.nio.channels.*;
-import javax.net.ssl.*;
-import java.io.*;
+import java.io.IOException;
+import java.nio.channels.ByteChannel;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.SocketChannel;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLEngine;
+import javax.net.ssl.SSLParameters;
+import lavahack.client.Class1313;
+import lavahack.client.Class566;
 
-public class Class238 extends Class1313
-{
+public class Class238
+extends Class1313 {
     private final SSLParameters Field9038;
     private String Field9039 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class238(final SSLContext sslContext, final SSLParameters sslParameters) {
-        this(sslContext, Executors.newSingleThreadScheduledExecutor(), sslParameters);
+
+    public Class238(SSLContext sSLContext, SSLParameters sSLParameters) {
+        this(sSLContext, Executors.newSingleThreadScheduledExecutor(), sSLParameters);
     }
-    
-    public Class238(final SSLContext sslContext, final ExecutorService executorService, final SSLParameters field9038) {
-        super(sslContext, executorService);
-        if (field9038 == null) {
+
+    public Class238(SSLContext sSLContext, ExecutorService executorService, SSLParameters sSLParameters) {
+        super(sSLContext, executorService);
+        if (sSLParameters == null) {
             throw new IllegalArgumentException();
         }
-        this.Field9038 = field9038;
+        this.Field9038 = sSLParameters;
     }
-    
-    public ByteChannel Method1316(final SocketChannel socketChannel, final SelectionKey selectionKey) throws IOException {
-        final SSLEngine sslEngine = this.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.createSSLEngine();
-        sslEngine.setUseClientMode(false);
-        sslEngine.setSSLParameters(this.Field9038);
-        return new Class566(socketChannel, sslEngine, this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf, selectionKey);
+
+    @Override
+    public ByteChannel Method1316(SocketChannel socketChannel, SelectionKey selectionKey) throws IOException {
+        SSLEngine sSLEngine = this.leqS0IyKEB621E1SrHdAcHHAUjScjmKi.createSSLEngine();
+        sSLEngine.setUseClientMode(false);
+        sSLEngine.setSSLParameters(this.Field9038);
+        return new Class566(socketChannel, sSLEngine, this.YlFSugLHQAjzunVBKfamPjSRsvHTy3jf, selectionKey);
     }
 }
+

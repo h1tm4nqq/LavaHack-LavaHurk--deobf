@@ -1,138 +1,171 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.math.Vec3d
+ */
 package lavahack.client;
 
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import lavahack.client.Class1036;
+import lavahack.client.Class132;
+import lavahack.client.Class1435;
+import lavahack.client.Class1763;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 
-public enum Class590
-{
-    Field10504("Sides", 0, false, Class1435.Method5744().Method7663(class424 -> {
-        final Vec3d vec3d = (Vec3d)class424.Method2054(0);
-        Class132.Method903(Class132.Method905(new BlockPos(vec3d.x, vec3d.y, vec3d.z)));
+public enum Class590 {
+    Field10504(false, Class1435.Method5744().Method7663(class424 -> {
+        Vec3d vec3d = (Vec3d)class424.Method2054(0);
+        BlockPos blockPos = new BlockPos(vec3d.x, vec3d.y, vec3d.z);
+        List list = Class132.Method905(blockPos);
+        Class132.Method903(list);
         return null;
-    })), 
-    Field10505("Square", 1, false, Class1435.Method5744().Method7663(class424 -> {
-        final Vec3d vec3d = (Vec3d)class424.Method2054(0);
-        Class132.Method903(Class132.Method904(new BlockPos(vec3d.x, vec3d.y, vec3d.z)));
+    })),
+    Field10505(false, Class1435.Method5744().Method7663(class424 -> {
+        Vec3d vec3d = (Vec3d)class424.Method2054(0);
+        BlockPos blockPos = new BlockPos(vec3d.x, vec3d.y, vec3d.z);
+        List list = Class132.Method904(blockPos);
+        Class132.Method903(list);
         return null;
-    })), 
-    Field10506("SmartSquare", 2, false, Class1435.Method5744().Method7663(class424 -> {
-        final Vec3d vec3d = (Vec3d)class424.Method2054(0);
-        final Entity entity = (Entity)class424.Method2054(1);
-        final BlockPos blockPos = new BlockPos(vec3d.x, vec3d.y, vec3d.z);
-        final ArrayList<BlockPos> list = new ArrayList<BlockPos>();
-        final EnumFacing getFacingFromVector = EnumFacing.getFacingFromVector((float)entity.motionX, 0.0f, (float)entity.motionZ);
-        for (final EnumFacing enumFacing : EnumFacing.HORIZONTALS) {
-            if (enumFacing != getFacingFromVector) {
-                list.add(blockPos.offset(enumFacing));
+    })),
+    Field10506(false, Class1435.Method5744().Method7663(class424 -> {
+        Vec3d vec3d = (Vec3d)class424.Method2054(0);
+        Entity entity = (Entity)class424.Method2054(1);
+        BlockPos blockPos = new BlockPos(vec3d.x, vec3d.y, vec3d.z);
+        ArrayList<BlockPos> arrayList = new ArrayList<BlockPos>();
+        EnumFacing enumFacing = EnumFacing.getFacingFromVector((float)((float)entity.motionX), (float)0.0f, (float)((float)entity.motionZ));
+        EnumFacing[] enumFacingArray = EnumFacing.HORIZONTALS;
+        int n = enumFacingArray.length;
+        int n2 = 0;
+        while (true) {
+            if (n2 >= n) {
+                Class132.Method903(arrayList);
+                return null;
             }
+            EnumFacing enumFacing2 = enumFacingArray[n2];
+            if (enumFacing2 != enumFacing) {
+                arrayList.add(blockPos.offset(enumFacing2));
+            }
+            ++n2;
         }
-        Class132.Method903((List)list);
-        return null;
-    })), 
-    Field10507("PlayerPosition", 3, true, Class1435.Method5744().Method7663(class424 -> {
-        final Vec3d vec3d = (Vec3d)class424.Method2054(0);
-        final Entity entity = (Entity)class424.Method2054(1);
-        Class132.Method898(new BlockPos(vec3d.x, vec3d.y, vec3d.z));
-        double x = vec3d.x;
-        double y = vec3d.y;
-        double z = vec3d.z;
-        for (int n = Class132.Method900(Class132.Field8485).Method335() * 20 + Class132.Method901(Class132.Field8485).Method335(), i = 0; i < n; ++i) {
-            x += entity.motionX;
+    })),
+    Field10507(true, Class1435.Method5744().Method7663(class424 -> {
+        Vec3d vec3d = (Vec3d)class424.Method2054(0);
+        Entity entity = (Entity)class424.Method2054(1);
+        BlockPos blockPos = new BlockPos(vec3d.x, vec3d.y, vec3d.z);
+        Class132.Method898(blockPos);
+        double d = vec3d.x;
+        double d2 = vec3d.y;
+        double d3 = vec3d.z;
+        int n = Class132.Method900(Class132.Field8485).Method335() * 20 + Class132.Method901(Class132.Field8485).Method335();
+        int n2 = 0;
+        while (n2 < n) {
+            d += entity.motionX;
             if (!Class132.Method902(Class132.Field8485).Method365()) {
-                y += entity.motionY;
+                d2 += entity.motionY;
             }
-            z += entity.motionZ;
-            Class132.Method898(new BlockPos(x, y, z));
+            BlockPos blockPos2 = new BlockPos(d, d2, d3 += entity.motionZ);
+            Class132.Method898(blockPos2);
+            ++n2;
         }
         return null;
-    })), 
-    Field10508("Player", 4, true, Class1435.Method5744().Method7663(class424 -> {
-        final Vec3d vec3d = (Vec3d)class424.Method2054(0);
-        final Entity entity = (Entity)class424.Method2054(1);
-        Class132.Method898(new BlockPos(vec3d.x, vec3d.y, vec3d.z));
-        double x = vec3d.x;
-        double y = vec3d.y;
-        double z = vec3d.z;
-        for (int n = Class132.Method900(Class132.Field8485).Method335() * 20 + Class132.Method901(Class132.Field8485).Method335(), i = 0; i < n; ++i) {
-            x += entity.motionX;
+    })),
+    Field10508(true, Class1435.Method5744().Method7663(class424 -> {
+        Vec3d vec3d = (Vec3d)class424.Method2054(0);
+        Entity entity = (Entity)class424.Method2054(1);
+        BlockPos blockPos = new BlockPos(vec3d.x, vec3d.y, vec3d.z);
+        Class132.Method898(blockPos);
+        double d = vec3d.x;
+        double d2 = vec3d.y;
+        double d3 = vec3d.z;
+        int n = Class132.Method900(Class132.Field8485).Method335() * 20 + Class132.Method901(Class132.Field8485).Method335();
+        int n2 = 0;
+        while (n2 < n) {
+            d += entity.motionX;
             if (!Class132.Method902(Class132.Field8485).Method365()) {
-                y += entity.motionY;
+                d2 += entity.motionY;
             }
-            z += entity.motionZ;
-            final BlockPos blockPos = new BlockPos(x + Double.longBitsToDouble(4599075939470750515L), y, z + Double.longBitsToDouble(4599075939470750515L));
-            final BlockPos blockPos2 = new BlockPos(x + Double.longBitsToDouble((long)1147542287 ^ 0x3FD333337755283CL), y, z - Double.longBitsToDouble(4599075939470750515L));
-            final BlockPos blockPos3 = new BlockPos(x - Double.longBitsToDouble((long)225277774 ^ 0x3FD333333E5E447DL), y, z + Double.longBitsToDouble((long)1157738399 ^ 0x3FD3333376329CACL));
-            final BlockPos blockPos4 = new BlockPos(x - Double.longBitsToDouble((long)1922183124 ^ 0x3FD3333341A11CE7L), y, z - Double.longBitsToDouble(4599075939470750515L));
-            Class132.Method898(blockPos);
+            BlockPos blockPos2 = new BlockPos(d + Double.longBitsToDouble(0x3FD3333333333333L), d2, (d3 += entity.motionZ) + Double.longBitsToDouble(0x3FD3333333333333L));
+            BlockPos blockPos3 = new BlockPos(d + Double.longBitsToDouble((long)1147542287 ^ 0x3FD333337755283CL), d2, d3 - Double.longBitsToDouble(0x3FD3333333333333L));
+            BlockPos blockPos4 = new BlockPos(d - Double.longBitsToDouble((long)225277774 ^ 0x3FD333333E5E447DL), d2, d3 + Double.longBitsToDouble((long)1157738399 ^ 0x3FD3333376329CACL));
+            BlockPos blockPos5 = new BlockPos(d - Double.longBitsToDouble((long)1922183124 ^ 0x3FD3333341A11CE7L), d2, d3 - Double.longBitsToDouble(0x3FD3333333333333L));
             Class132.Method898(blockPos2);
             Class132.Method898(blockPos3);
             Class132.Method898(blockPos4);
+            Class132.Method898(blockPos5);
+            ++n2;
         }
         return null;
-    })), 
-    Field10509("Scaffold", 5, false, Class1435.Method5744().Method7663(class424 -> {
-        final Vec3d vec3d = (Vec3d)class424.Method2054(0);
-        final Entity entity = (Entity)class424.Method2054(1);
-        final BlockPos blockPos = new BlockPos(vec3d.x, vec3d.y, vec3d.z);
-        final BlockPos method897 = Class132.Method897(entity, blockPos);
-        if (Class1036.Method4213(blockPos).isEmpty() && method897 != null) {
-            Class132.Method898(method897);
+    })),
+    Field10509(false, Class1435.Method5744().Method7663(class424 -> {
+        Vec3d vec3d = (Vec3d)class424.Method2054(0);
+        Entity entity = (Entity)class424.Method2054(1);
+        BlockPos blockPos = new BlockPos(vec3d.x, vec3d.y, vec3d.z);
+        BlockPos blockPos2 = Class132.Method897(entity, blockPos);
+        if (Class1036.Method4213(blockPos).isEmpty() && blockPos2 != null) {
+            Class132.Method898(blockPos2);
         }
         Class132.Method898(blockPos);
         return null;
-    })), 
-    Field10510("ScaffoldDamage", 6, false, Class1435.Method5744().Method7663(class424 -> {
-        final Vec3d vec3d = (Vec3d)class424.Method2054(0);
-        final Entity entity = (Entity)class424.Method2054(1);
-        final BlockPos blockPos = new BlockPos(vec3d.x, vec3d.y, vec3d.z);
-        final BlockPos method897 = Class132.Method897(entity, blockPos);
-        if (Class1036.Method4213(blockPos).isEmpty() && method897 != null) {
-            Class132.Method898(method897);
+    })),
+    Field10510(false, Class1435.Method5744().Method7663(class424 -> {
+        Vec3d vec3d = (Vec3d)class424.Method2054(0);
+        Entity entity = (Entity)class424.Method2054(1);
+        BlockPos blockPos = new BlockPos(vec3d.x, vec3d.y, vec3d.z);
+        BlockPos blockPos2 = Class132.Method897(entity, blockPos);
+        if (Class1036.Method4213(blockPos).isEmpty() && blockPos2 != null) {
+            Class132.Method898(blockPos2);
         }
         Class132.Method898(blockPos);
-        if (Class132.Method899(entity, blockPos) != null) {
-            Class132.Method898(blockPos);
-        }
+        BlockPos blockPos3 = Class132.Method899(entity, blockPos);
+        if (blockPos3 == null) return null;
+        Class132.Method898(blockPos);
         return null;
     }));
-    
+
     private final boolean Field10511;
     private final Class1763 Field10512;
-    private static final Class590[] Field10513;
     private int Field10514;
-    
-    private Class590(final String name, final int ordinal, final boolean field10511, final Class1763 field10512) {
-        this.Field10511 = field10511;
-        this.Field10512 = field10512;
+
+    /*
+     * WARNING - void declaration
+     */
+    private Class590() {
+        void var4_2;
+        void var3_1;
+        this.Field10511 = var3_1;
+        this.Field10512 = var4_2;
     }
-    
+
     public boolean Method2555() {
         return this.Field10511;
     }
-    
+
     public Class1763 Method2556() {
         return this.Field10512;
     }
-    
-    static {
-        Field10513 = new Class590[] { Class590.Field10504, Class590.Field10505, Class590.Field10506, Class590.Field10507, Class590.Field10508, Class590.Field10509, Class590.Field10510 };
-    }
-    
-    private static String Method2564(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x5E6D ^ 0xBD));
-            }
-            return new String(value);
+
+    private static String Method2564(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 189;
+            cArray2[n] = (char)(cArray[n] ^ (0x5E6D ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

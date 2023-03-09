@@ -1,36 +1,35 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.awt.*;
+import java.awt.Color;
 
-public interface Class1876
-{
-    void Method2444(final float p0, final float p1, final int p2, final int p3);
-    
-    void Method2445(final double p0, final double p1, final double p2, final double p3, final Color p4);
-    
-    void Method2446(final double p0, final double p1, final double p2, final double p3, final float p4, final Color p5);
-    
-    void Method2447(final Color p0);
-    
-    void Method2448(final int p0, final int p1, final String p2, final Color p3);
-    
-    int Method2449(final String p0);
-    
-    int Method2450(final String p0);
-    
-    void Method2451(final double p0, final double p1, final double p2, final double p3, final double p4, final double p5, final Color p6);
-    
-    void Method2452();
-    
-    void Method2453();
-    
-    void Method2454();
-    
-    int Method2455();
-    
-    Color Method2456();
+public interface Class1876 {
+    public void Method2444(float var1, float var2, int var3, int var4);
+
+    public void Method2445(double var1, double var3, double var5, double var7, Color var9);
+
+    public void Method2446(double var1, double var3, double var5, double var7, float var9, Color var10);
+
+    public void Method2447(Color var1);
+
+    public void Method2448(int var1, int var2, String var3, Color var4);
+
+    public int Method2449(String var1);
+
+    public int Method2450(String var1);
+
+    public void Method2451(double var1, double var3, double var5, double var7, double var9, double var11, Color var13);
+
+    public void Method2452();
+
+    public void Method2453();
+
+    public void Method2454();
+
+    public int Method2455();
+
+    public Color Method2456();
 }
+

@@ -1,12 +1,13 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.loader;
 
-import java.net.*;
+import java.net.InetAddress;
+import java.net.URI;
+import java.net.UnknownHostException;
 
-public interface Class11
-{
-    InetAddress Method141(final URI p0) throws UnknownHostException;
+public interface Class11 {
+    public InetAddress Method141(URI var1) throws UnknownHostException;
 }
+

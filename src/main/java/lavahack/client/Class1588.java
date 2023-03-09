@@ -1,28 +1,37 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.*;
-import java.nio.channels.*;
-import java.io.*;
+import java.io.IOException;
+import java.nio.channels.ByteChannel;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.SocketChannel;
+import java.util.List;
+import lavahack.client.Class1302;
+import lavahack.client.Class1728;
+import lavahack.client.Class1878;
+import lavahack.client.Class2129;
+import lavahack.client.Class630;
 
-public interface Class1588 extends Class1878
-{
-    Class1302 Method1314(final Class630 p0, final Class2129 p1);
-    
-    Class1302 Method1315(final Class630 p0, final List p1);
-    
-    ByteChannel Method1316(final SocketChannel p0, final SelectionKey p1) throws IOException;
-    
-    void Method1317();
-    
-    default Class1728 Method1313(final Class630 class630, final List list) {
-        return (Class1728)this.Method1315(class630, list);
+public interface Class1588
+extends Class1878 {
+    public Class1302 Method1314(Class630 var1, Class2129 var2);
+
+    public Class1302 Method1315(Class630 var1, List var2);
+
+    public ByteChannel Method1316(SocketChannel var1, SelectionKey var2) throws IOException;
+
+    public void Method1317();
+
+    @Override
+    default public Class1728 Method1313(Class630 class630, List list) {
+        return this.Method1315(class630, list);
     }
-    
-    default Class1728 Method1312(final Class630 class630, final Class2129 class631) {
-        return (Class1728)this.Method1314(class630, class631);
+
+    @Override
+    default public Class1728 Method1312(Class630 class630, Class2129 class2129) {
+        return this.Method1314(class630, class2129);
     }
 }
+

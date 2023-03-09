@@ -1,47 +1,58 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  kotlin.Metadata
+ *  kotlin.jvm.internal.Intrinsics
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.TextComponentString
+ */
 package lavahack.client;
 
-import kotlin.*;
-import org.jetbrains.annotations.*;
-import kotlin.jvm.internal.*;
-import com.kisman.cc.util.*;
-import net.minecraft.util.text.*;
-import net.minecraft.client.*;
-import net.minecraft.client.network.*;
+import com.kisman.cc.util.Class2142;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.network.NetHandlerPlayClient;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import org.jetbrains.annotations.NotNull;
 
-@Metadata(mv = { 1, 1, 13 }, bv = { 1, 0, 3 }, k = 2, d1 = { "\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\u001a\u000e\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003?\u0006\u0004" }, d2 = { "disconnectFromMC", "", "reason", "", "kisman.cc" })
-public final class Class1340
-{
+@Metadata(mv={1, 1, 13}, bv={1, 0, 3}, k=2, d1={"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\u001a\u000e\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003\u00a8\u0006\u0004"}, d2={"disconnectFromMC", "", "reason", "", "kisman.cc"})
+public final class Class1340 {
     private String Field14120 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public static final void Method5396(@NotNull @NotNull final String s) {
-        Intrinsics.checkParameterIsNotNull((Object)s, "reason");
-        final Minecraft field17803 = Class2142.Field17803;
-        Intrinsics.checkExpressionValueIsNotNull((Object)field17803, "mc");
-        if (field17803.getConnection() != null) {
-            final Minecraft field17804 = Class2142.Field17803;
-            Intrinsics.checkExpressionValueIsNotNull((Object)field17804, "mc");
-            final NetHandlerPlayClient getConnection = field17804.getConnection();
-            if (getConnection == null) {
-                Intrinsics.throwNpe();
-            }
-            Intrinsics.checkExpressionValueIsNotNull((Object)getConnection, "mc.connection!!");
-            getConnection.getNetworkManager().closeChannel((ITextComponent)new TextComponentString(s));
+
+    public static final void Method5396(@NotNull @NotNull String string) {
+        Intrinsics.checkParameterIsNotNull((Object)string, (String)"reason");
+        Minecraft minecraft = Class2142.Field17803;
+        Intrinsics.checkExpressionValueIsNotNull((Object)minecraft, (String)"mc");
+        if (minecraft.getConnection() == null) return;
+        Minecraft minecraft2 = Class2142.Field17803;
+        Intrinsics.checkExpressionValueIsNotNull((Object)minecraft2, (String)"mc");
+        NetHandlerPlayClient netHandlerPlayClient = minecraft2.getConnection();
+        if (netHandlerPlayClient == null) {
+            Intrinsics.throwNpe();
         }
+        Intrinsics.checkExpressionValueIsNotNull((Object)netHandlerPlayClient, (String)"mc.connection!!");
+        netHandlerPlayClient.getNetworkManager().closeChannel((ITextComponent)new TextComponentString(string));
     }
-    
-    private static String Method5397(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x6343 ^ 0x3));
-            }
-            return new String(value);
+
+    private static String Method5397(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 3;
+            cArray2[n] = (char)(cArray[n] ^ (0x6343 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

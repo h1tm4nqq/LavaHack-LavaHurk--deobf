@@ -1,85 +1,89 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.math.AxisAlignedBB
+ *  net.minecraft.util.math.BlockPos
+ */
 package lavahack.client;
 
-import java.awt.*;
-import net.minecraft.util.math.*;
-import com.kisman.cc.util.*;
+import com.kisman.cc.util.Class2027;
+import java.awt.Color;
+import lavahack.client.Class1240;
+import lavahack.client.Class2008;
+import lavahack.client.Class815;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 
-public class Class2125
-{
-    protected Class1240 Field17667;
-    protected Color Field17668;
-    protected Color Field17669;
-    protected float Field17670;
-    protected Class2008 Field17671;
+public class Class2125 {
+    protected Class1240 Field17667 = null;
+    protected Color Field17668 = Class815.Field11486.Method3625();
+    protected Color Field17669 = Class815.Field11486.Method3625();
+    protected float Field17670 = 1.0f;
+    protected Class2008 Field17671 = null;
     private int Field17672;
-    
+
     protected Class2125() {
-        this.Field17667 = null;
-        this.Field17668 = Class815.Field11486.Method3625();
-        this.Field17669 = Class815.Field11486.Method3625();
-        this.Field17670 = 1.0f;
-        this.Field17671 = null;
     }
-    
+
     public static Class2125 Method7307() {
         return new Class2125();
     }
-    
-    public Class2125 Method7308(final Class1240 field17667) {
-        this.Field17667 = field17667;
+
+    public Class2125 Method7308(Class1240 class1240) {
+        this.Field17667 = class1240;
         return this;
     }
-    
-    public Class2125 Method7309(final AxisAlignedBB axisAlignedBB) {
+
+    public Class2125 Method7309(AxisAlignedBB axisAlignedBB) {
         this.Field17667 = new Class1240(axisAlignedBB);
         return this;
     }
-    
-    public Class2125 Method7310(final BlockPos blockPos) {
+
+    public Class2125 Method7310(BlockPos blockPos) {
         this.Field17667 = new Class1240(blockPos);
         return this;
     }
-    
-    public Class2125 Method7311(final Color field17668) {
-        this.Field17668 = field17668;
+
+    public Class2125 Method7311(Color color) {
+        this.Field17668 = color;
         return this;
     }
-    
-    public Class2125 Method7312(final Class2027 class2027) {
+
+    public Class2125 Method7312(Class2027 class2027) {
         this.Field17668 = class2027.Method3625();
         return this;
     }
-    
-    public Class2125 Method7313(final Color field17668, final Color field17669) {
-        this.Field17668 = field17668;
-        this.Field17669 = field17669;
+
+    public Class2125 Method7313(Color color, Color color2) {
+        this.Field17668 = color;
+        this.Field17669 = color2;
         return this;
     }
-    
-    public Class2125 Method7314(final Class2027 class2027, final Class2027 class2028) {
+
+    public Class2125 Method7314(Class2027 class2027, Class2027 class20272) {
         this.Field17668 = class2027.Method3625();
-        this.Field17669 = class2028.Method3625();
+        this.Field17669 = class20272.Method3625();
         return this;
     }
-    
-    public Class2125 Method7315(final float field17670) {
-        this.Field17670 = field17670;
+
+    public Class2125 Method7315(float f) {
+        this.Field17670 = f;
         return this;
     }
-    
-    public Class2125 Method7316(final Class2008 field17671) {
-        this.Field17671 = field17671;
+
+    public Class2125 Method7316(Class2008 class2008) {
+        this.Field17671 = class2008;
         return this;
     }
-    
+
     public void Method7317() {
-        if (this.Field17667 == null || this.Field17671 == null) {
+        if (this.Field17667 == null) return;
+        if (this.Field17671 == null) {
             return;
         }
-        Class815.Method3446(Class815.Method3447(this.Field17667.Method4989()), this.Field17670, new Class2027(this.Field17668), new Class2027(this.Field17669), this.Field17671);
+        AxisAlignedBB axisAlignedBB = Class815.Method3447(this.Field17667.Method4989());
+        Class815.Method3446(axisAlignedBB, this.Field17670, new Class2027(this.Field17668), new Class2027(this.Field17669), this.Field17671);
     }
 }
+

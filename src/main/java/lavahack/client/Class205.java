@@ -1,35 +1,35 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import org.objectweb.asm.*;
+import org.objectweb.asm.ClassWriter;
 
-public class Class205 extends ClassWriter
-{
+public class Class205
+extends ClassWriter {
     private int Field8896;
-    
-    public Class205(final int n) {
+
+    public Class205(int n) {
         super(n);
     }
-    
-    protected String Method1216(final String s, final String s2) {
-        if (s.equals("blr")) {
-            return "blk";
-        }
-        return "java/lang/Object";
+
+    protected String Method1216(String string, String string2) {
+        if (!string.equals("blr")) return "java/lang/Object";
+        return "blk";
     }
-    
-    private static String Method1217(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x2FE9 ^ 0x44));
-            }
-            return new String(value);
+
+    private static String Method1217(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 68;
+            cArray2[n] = (char)(cArray[n] ^ (0x2FE9 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

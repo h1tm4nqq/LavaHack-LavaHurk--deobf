@@ -1,10 +1,9 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-interface Class1984
-{
-    void Method7342() throws Exception;
+interface Class1984 {
+    public void Method7342() throws Exception;
 }
+

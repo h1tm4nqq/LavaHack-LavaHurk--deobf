@@ -1,22 +1,33 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  baritone.utils.accessor.IChunkProviderServer
+ *  net.minecraft.world.chunk.storage.IChunkLoader
+ *  net.minecraft.world.gen.ChunkProviderServer
+ *  org.spongepowered.asm.mixin.Final
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.Shadow
+ */
 package com.kisman.cc.mixin.mixins.baritone;
 
-import baritone.utils.accessor.*;
-import net.minecraft.world.gen.*;
-import net.minecraft.world.chunk.storage.*;
-import org.spongepowered.asm.mixin.*;
+import baritone.utils.accessor.IChunkProviderServer;
+import net.minecraft.world.chunk.storage.IChunkLoader;
+import net.minecraft.world.gen.ChunkProviderServer;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin({ ChunkProviderServer.class })
-public class MixinChunkProviderServer implements IChunkProviderServer
-{
+@Mixin(value={ChunkProviderServer.class})
+public class MixinChunkProviderServer
+implements IChunkProviderServer {
     @Shadow
     @Final
     public IChunkLoader Field12719;
-    
+
     public IChunkLoader getChunkLoader() {
+        MixinChunkProviderServer mixinChunkProviderServer = this;
         return null;
     }
 }
+

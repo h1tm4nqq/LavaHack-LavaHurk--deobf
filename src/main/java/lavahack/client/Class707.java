@@ -1,67 +1,79 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ */
 package lavahack.client;
 
-import org.jetbrains.annotations.*;
-import java.io.*;
-import net.minecraft.client.*;
+import java.io.File;
+import java.io.FileWriter;
+import lavahack.client.Class1291;
+import lavahack.client.Class158;
+import lavahack.client.Class2059;
+import lavahack.client.Class460;
+import net.minecraft.client.Minecraft;
+import org.jetbrains.annotations.NotNull;
 
-public class Class707 extends Class158
-{
-    private static final File Field11016;
+public class Class707
+extends Class158 {
+    private static final File Field11016 = new File(Minecraft.getMinecraft().gameDir + "kisman.cc/", "fmtcmd.txt");
     private String Field11017 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
+
     public Class707() {
         super("fmt");
-        if (!Class707.Field11016.exists()) {
-            Method2946(Class707.Field11016, false);
+        if (!Field11016.exists()) {
+            Class707.Method2946(Field11016, false);
         }
-        this.Method445(new Class1368[] { (Class1368)new Class460((Class158)this), (Class1368)new Class1291((Class158)this), (Class1368)new Class2059((Class158)this) });
+        this.Method445(new Class460(this), new Class1291(this), new Class2059(this));
     }
-    
+
+    @Override
     public String Method447() {
         return "Format chat messages";
     }
-    
+
+    @Override
     public String Method448() {
         return "-fmt <fmt/config> <message to be formatted (only when used with fmt)>";
     }
-    
-    public void Method443(@NotNull @NotNull final String s, @NotNull @NotNull final String[] array) {
-        this.Method446(s, array);
+
+    @Override
+    public void Method443(@NotNull @NotNull String string, @NotNull @NotNull String[] stringArray) {
+        this.Method446(string, stringArray);
     }
-    
-    private static void Method2946(final File file, final boolean b) {
-        final String lineSeparator = System.lineSeparator();
-        if (b) {
+
+    private static void Method2946(File file, boolean bl) {
+        String string = System.lineSeparator();
+        if (bl) {
             file.delete();
         }
-        new FileWriter(file).write("CommandPrefix:%" + lineSeparator + "QuotePrefix:Q" + lineSeparator + "LookupPrefix:L" + lineSeparator + "InsertPrefix:I" + lineSeparator + "ContentBounders:{}");
+        FileWriter fileWriter = new FileWriter(file);
+        fileWriter.write("CommandPrefix:%" + string + "QuotePrefix:Q" + string + "LookupPrefix:L" + string + "InsertPrefix:I" + string + "ContentBounders:{}");
     }
-    
+
     static File Method2947() {
-        return Class707.Field11016;
+        return Field11016;
     }
-    
-    static void Method2948(final File file, final boolean b) {
-        Method2946(file, b);
+
+    static void Method2948(File file, boolean bl) {
+        Class707.Method2946(file, bl);
     }
-    
-    static {
-        Field11016 = new File(Minecraft.getMinecraft().gameDir + "kisman.cc/", "fmtcmd.txt");
-    }
-    
-    private static String Method441(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x5761 ^ 0xDA));
-            }
-            return new String(value);
+
+    private static String Method441(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 218;
+            cArray2[n] = (char)(cArray[n] ^ (0x5761 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

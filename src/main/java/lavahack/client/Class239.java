@@ -1,20 +1,22 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ */
 package lavahack.client;
 
-import net.minecraft.block.*;
-import java.util.*;
+import java.util.Map;
+import net.minecraft.block.Block;
 
-public class Class239
-{
+public class Class239 {
     public final Block Field9040;
     public final Map Field9041;
     private String Field9042 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    public Class239(final Block field9040, final Map field9041) {
-        this.Field9040 = field9040;
-        this.Field9041 = field9041;
+
+    public Class239(Block block, Map map) {
+        this.Field9040 = block;
+        this.Field9041 = map;
     }
 }
+

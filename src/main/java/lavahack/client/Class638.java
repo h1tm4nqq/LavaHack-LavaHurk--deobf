@@ -1,12 +1,15 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.renderer.BufferBuilder
+ */
 package lavahack.client;
 
-import net.minecraft.client.renderer.*;
+import lavahack.client.Class497;
+import net.minecraft.client.renderer.BufferBuilder;
 
-interface Class638
-{
-    void Method2767(final Class497 p0, final BufferBuilder p1, final Object... p2);
+interface Class638 {
+    public void Method2767(Class497 var1, BufferBuilder var2, Object ... var3);
 }
+

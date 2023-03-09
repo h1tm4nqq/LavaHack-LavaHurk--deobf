@@ -1,44 +1,55 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import lavahack.client.Class1655;
+import lavahack.client.Class1807;
 
-class Class969 extends Class1807
-{
+class Class969
+extends Class1807 {
     private String Field12161 = " TheKisDevs & LavaHack Development owns you, and I am sorry, because it is uncrackable <3";
-    
-    Class969(final ClassLoader classLoader) {
-        super(classLoader, (Set)new HashSet());
+
+    Class969(ClassLoader classLoader) {
+        super(classLoader, new HashSet());
     }
-    
-    List Method2962(final String s) {
+
+    @Override
+    List Method2962(String string) {
         return new ArrayList();
     }
-    
-    List Method2963(final String s) {
+
+    @Override
+    List Method2963(String string) {
         return new ArrayList();
     }
-    
-    Class1655 Method2964(final Class clazz) {
+
+    @Override
+    Class1655 Method2964(Class clazz) {
         return null;
     }
-    
-    Class1655 Method2965(final String s) {
+
+    @Override
+    Class1655 Method2965(String string) {
         return null;
     }
-    
-    Class1655 Method2966(final Package package1) {
+
+    @Override
+    Class1655 Method2966(Package package_) {
         return null;
     }
-    
-    Class1655 Method2967(final String s) {
+
+    @Override
+    Class1655 Method2967(String string) {
         return null;
     }
-    
-    Class1655 Method2968(final String s) {
+
+    @Override
+    Class1655 Method2968(String string) {
         return null;
     }
 }
+

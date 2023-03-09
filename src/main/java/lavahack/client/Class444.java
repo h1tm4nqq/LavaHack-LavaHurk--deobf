@@ -1,82 +1,82 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
-
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ */
 package lavahack.client;
 
-import java.nio.*;
-import java.nio.channels.*;
-import java.io.*;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.ByteChannel;
+import lavahack.client.Class1302;
+import lavahack.client.Class1608;
+import lavahack.client.Class803;
 
-public class Class444
-{
+public class Class444 {
     private int Field9850;
-    
+
     private Class444() {
         throw new IllegalStateException("Utility class");
     }
-    
-    public static boolean Method2094(final ByteBuffer byteBuffer, final Class1302 class1302, final ByteChannel byteChannel) throws IOException {
+
+    public static boolean Method2094(ByteBuffer byteBuffer, Class1302 class1302, ByteChannel byteChannel) throws IOException {
         byteBuffer.clear();
-        final int read = byteChannel.read(byteBuffer);
+        int n = byteChannel.read(byteBuffer);
         byteBuffer.flip();
-        if (read == -1) {
+        if (n == -1) {
             class1302.Method5283();
             return false;
         }
-        return read != 0;
+        if (n == 0) return false;
+        return true;
     }
-    
-    public static boolean Method2095(final ByteBuffer byteBuffer, final Class1302 class1302, final Class1608 class1303) throws IOException {
+
+    public static boolean Method2095(ByteBuffer byteBuffer, Class1302 class1302, Class1608 class1608) throws IOException {
         byteBuffer.clear();
-        final int method2485 = class1303.Method2485(byteBuffer);
+        int n = class1608.Method2485(byteBuffer);
         byteBuffer.flip();
-        if (method2485 == -1) {
-            class1302.Method5283();
-            return false;
-        }
-        return class1303.Method2484();
+        if (n != -1) return class1608.Method2484();
+        class1302.Method5283();
+        return false;
     }
-    
-    public static boolean Method2096(final Class1302 class1302, final ByteChannel byteChannel) throws IOException {
+
+    public static boolean Method2096(Class1302 class1302, ByteChannel byteChannel) throws IOException {
         if (class1302 == null) {
             return false;
         }
         ByteBuffer byteBuffer = (ByteBuffer)class1302.Field13943.peek();
-        Class1608 class1303 = null;
+        Class1608 class1608 = null;
         if (byteBuffer == null) {
-            if (byteChannel instanceof Class1608) {
-                class1303 = (Class1608)byteChannel;
-                if (class1303.Method2482()) {
-                    class1303.Method2483();
-                }
+            if (byteChannel instanceof Class1608 && (class1608 = (Class1608)byteChannel).Method2482()) {
+                class1608.Method2483();
             }
-        }
-        else {
+        } else {
             do {
                 byteChannel.write(byteBuffer);
                 if (byteBuffer.remaining() > 0) {
                     return false;
                 }
                 class1302.Field13943.poll();
-                byteBuffer = (ByteBuffer)class1302.Field13943.peek();
-            } while (byteBuffer != null);
+            } while ((byteBuffer = (ByteBuffer)class1302.Field13943.peek()) != null);
         }
         if (class1302.Field13943.isEmpty() && class1302.Method553() && class1302.Method555() != null && class1302.Method555().Method4419() != null && class1302.Method555().Method4419() == Class803.Field11415) {
             class1302.Method5281();
         }
-        return class1303 == null || !((Class1608)byteChannel).Method2482();
+        if (class1608 == null) return true;
+        if (!((Class1608)byteChannel).Method2482()) return true;
+        return false;
     }
-    
-    private static String Method2097(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x2050 ^ 0x99));
-            }
-            return new String(value);
+
+    private static String Method2097(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 153;
+            cArray2[n] = (char)(cArray[n] ^ (0x2050 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+

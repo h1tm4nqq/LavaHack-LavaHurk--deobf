@@ -1,217 +1,226 @@
 //Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\hitmanqq\Documents\Decompiler\mappings"!
 
-//Decompiled by Procyon!
-
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.renderer.BufferBuilder
+ *  net.minecraft.client.renderer.Tessellator
+ *  net.minecraft.client.renderer.vertex.DefaultVertexFormats
+ *  net.minecraft.util.math.BlockPos
+ */
 package lavahack.client;
 
-import net.minecraft.client.renderer.vertex.*;
-import net.minecraft.util.math.*;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.util.math.BlockPos;
 
-public class Class2162 extends Tessellator
-{
-    private static Class2162 Field17877;
-    private static double Field17878;
-    private double Field17879;
+public class Class2162
+extends Tessellator {
+    private static Class2162 Field17877 = null;
+    private static double Field17878 = 0.0;
+    private double Field17879 = 0.0;
     private int Field17880;
-    
+
     public Class2162() {
-        this(2097152);
+        this(0x200000);
     }
-    
-    public Class2162(final int n) {
+
+    public Class2162(int n) {
         super(n);
-        this.Field17879 = 0.0;
     }
-    
+
     public static Class2162 getInstance() {
-        if (Class2162.Field17877 == null) {
-            Class2162.Field17877 = new Class2162();
-        }
-        return Class2162.Field17877;
+        if (Field17877 != null) return Field17877;
+        Field17877 = new Class2162();
+        return Field17877;
     }
-    
-    public void setTranslation(final double n, final double n2, final double n3) {
-        this.getBuffer().setTranslation(n, n2, n3);
+
+    public void setTranslation(double d, double d2, double d3) {
+        this.getBuffer().setTranslation(d, d2, d3);
     }
-    
+
     public void beginQuads() {
         this.begin(7);
     }
-    
+
     public void beginLines() {
         this.begin(1);
     }
-    
-    public void begin(final int n) {
+
+    public void begin(int n) {
         this.getBuffer().begin(n, DefaultVertexFormats.POSITION_COLOR);
     }
-    
+
     public void draw() {
         super.draw();
     }
-    
-    public void setDelta(final double field17879) {
-        this.Field17879 = field17879;
+
+    public void setDelta(double d) {
+        this.Field17879 = d;
     }
-    
-    public static void setStaticDelta(final double field17878) {
-        Class2162.Field17878 = field17878;
+
+    public static void setStaticDelta(double d) {
+        Field17878 = d;
     }
-    
-    public void drawCuboid(final BlockPos blockPos, final int n, final int n2) {
+
+    public void drawCuboid(BlockPos blockPos, int n, int n2) {
         this.drawCuboid(blockPos, blockPos, n, n2);
     }
-    
-    public void drawCuboid(final BlockPos blockPos, final BlockPos blockPos2, final int n, final int n2) {
-        drawCuboid(this.getBuffer(), blockPos, blockPos2, n, n2, this.Field17879);
+
+    public void drawCuboid(BlockPos blockPos, BlockPos blockPos2, int n, int n2) {
+        Class2162.drawCuboid(this.getBuffer(), blockPos, blockPos2, n, n2, this.Field17879);
     }
-    
-    public static void drawCuboid(final BufferBuilder bufferBuilder, final BlockPos blockPos, final int n, final int n2) {
-        drawCuboid(bufferBuilder, blockPos, blockPos, n, n2);
+
+    public static void drawCuboid(BufferBuilder bufferBuilder, BlockPos blockPos, int n, int n2) {
+        Class2162.drawCuboid(bufferBuilder, blockPos, blockPos, n, n2);
     }
-    
-    public static void drawCuboid(final BufferBuilder bufferBuilder, final BlockPos blockPos, final BlockPos blockPos2, final int n, final int n2) {
-        drawCuboid(bufferBuilder, blockPos, blockPos2, n, n2, Class2162.Field17878);
+
+    public static void drawCuboid(BufferBuilder bufferBuilder, BlockPos blockPos, BlockPos blockPos2, int n, int n2) {
+        Class2162.drawCuboid(bufferBuilder, blockPos, blockPos2, n, n2, Field17878);
     }
-    
-    private static void drawCuboid(final BufferBuilder bufferBuilder, final BlockPos blockPos, final BlockPos blockPos2, final int n, final int n2, final double n3) {
-        if (bufferBuilder.getDrawMode() == -1 || n == 0) {
+
+    private static void drawCuboid(BufferBuilder bufferBuilder, BlockPos blockPos, BlockPos blockPos2, int n, int n2, double d) {
+        if (bufferBuilder.getDrawMode() == -1) return;
+        if (n == 0) {
             return;
         }
-        final double n4 = blockPos.getX() - n3;
-        final double n5 = blockPos.getY() - n3;
-        final double n6 = blockPos.getZ() - n3;
-        final double n7 = blockPos2.getX() + 1 + n3;
-        final double n8 = blockPos2.getY() + 1 + n3;
-        final double n9 = blockPos2.getZ() + 1 + n3;
+        double d2 = (double)blockPos.getX() - d;
+        double d3 = (double)blockPos.getY() - d;
+        double d4 = (double)blockPos.getZ() - d;
+        double d5 = (double)(blockPos2.getX() + 1) + d;
+        double d6 = (double)(blockPos2.getY() + 1) + d;
+        double d7 = (double)(blockPos2.getZ() + 1) + d;
         switch (bufferBuilder.getDrawMode()) {
             case 7: {
-                drawQuads(bufferBuilder, n4, n5, n6, n7, n8, n9, n, n2);
-                break;
+                Class2162.drawQuads(bufferBuilder, d2, d3, d4, d5, d6, d7, n, n2);
+                return;
             }
             case 1: {
-                drawLines(bufferBuilder, n4, n5, n6, n7, n8, n9, n, n2);
-                break;
-            }
-            default: {
-                throw new IllegalStateException("Unsupported mode!");
+                Class2162.drawLines(bufferBuilder, d2, d3, d4, d5, d6, d7, n, n2);
+                return;
             }
         }
+        throw new IllegalStateException("Unsupported mode!");
     }
-    
-    public static void drawQuads(final BufferBuilder bufferBuilder, final double n, final double n2, final double n3, final double n4, final double n5, final double n6, final int n7, final int n8) {
-        drawQuads(bufferBuilder, n, n2, n3, n4, n5, n6, n7, n8 >>> 24 & 0xFF, n8 >>> 16 & 0xFF, n8 >>> 8 & 0xFF, n8 & 0xFF);
+
+    public static void drawQuads(BufferBuilder bufferBuilder, double d, double d2, double d3, double d4, double d5, double d6, int n, int n2) {
+        int n3 = n2 >>> 24 & 0xFF;
+        int n4 = n2 >>> 16 & 0xFF;
+        int n5 = n2 >>> 8 & 0xFF;
+        int n6 = n2 & 0xFF;
+        Class2162.drawQuads(bufferBuilder, d, d2, d3, d4, d5, d6, n, n3, n4, n5, n6);
     }
-    
-    public static void drawQuads(final BufferBuilder bufferBuilder, final double n, final double n2, final double n3, final double n4, final double n5, final double n6, final int n7, final int n8, final int n9, final int n10, final int n11) {
-        if ((n7 & 0x1) != 0x0) {
-            bufferBuilder.pos(n4, n2, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n2, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n2, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n2, n3).color(n9, n10, n11, n8).endVertex();
+
+    public static void drawQuads(BufferBuilder bufferBuilder, double d, double d2, double d3, double d4, double d5, double d6, int n, int n2, int n3, int n4, int n5) {
+        if ((n & 1) != 0) {
+            bufferBuilder.pos(d4, d2, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d2, d6).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d2, d6).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d2, d3).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x2) != 0x0) {
-            bufferBuilder.pos(n4, n5, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n5, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n5, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n5, n6).color(n9, n10, n11, n8).endVertex();
+        if ((n & 2) != 0) {
+            bufferBuilder.pos(d4, d5, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d5, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d5, d6).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d5, d6).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x4) != 0x0) {
-            bufferBuilder.pos(n4, n2, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n2, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n5, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n5, n3).color(n9, n10, n11, n8).endVertex();
+        if ((n & 4) != 0) {
+            bufferBuilder.pos(d4, d2, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d2, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d5, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d5, d3).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x8) != 0x0) {
-            bufferBuilder.pos(n, n2, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n2, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n5, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n5, n6).color(n9, n10, n11, n8).endVertex();
+        if ((n & 8) != 0) {
+            bufferBuilder.pos(d, d2, d6).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d2, d6).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d5, d6).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d5, d6).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x10) != 0x0) {
-            bufferBuilder.pos(n, n2, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n2, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n5, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n5, n3).color(n9, n10, n11, n8).endVertex();
+        if ((n & 0x10) != 0) {
+            bufferBuilder.pos(d, d2, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d2, d6).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d5, d6).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d5, d3).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x20) != 0x0) {
-            bufferBuilder.pos(n4, n2, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n2, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n5, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n5, n6).color(n9, n10, n11, n8).endVertex();
-        }
+        if ((n & 0x20) == 0) return;
+        bufferBuilder.pos(d4, d2, d6).color(n3, n4, n5, n2).endVertex();
+        bufferBuilder.pos(d4, d2, d3).color(n3, n4, n5, n2).endVertex();
+        bufferBuilder.pos(d4, d5, d3).color(n3, n4, n5, n2).endVertex();
+        bufferBuilder.pos(d4, d5, d6).color(n3, n4, n5, n2).endVertex();
     }
-    
-    public static void drawLines(final BufferBuilder bufferBuilder, final double n, final double n2, final double n3, final double n4, final double n5, final double n6, final int n7, final int n8) {
-        drawLines(bufferBuilder, n, n2, n3, n4, n5, n6, n7, n8 >>> 24 & 0xFF, n8 >>> 16 & 0xFF, n8 >>> 8 & 0xFF, n8 & 0xFF);
+
+    public static void drawLines(BufferBuilder bufferBuilder, double d, double d2, double d3, double d4, double d5, double d6, int n, int n2) {
+        int n3 = n2 >>> 24 & 0xFF;
+        int n4 = n2 >>> 16 & 0xFF;
+        int n5 = n2 >>> 8 & 0xFF;
+        int n6 = n2 & 0xFF;
+        Class2162.drawLines(bufferBuilder, d, d2, d3, d4, d5, d6, n, n3, n4, n5, n6);
     }
-    
-    public static void drawLines(final BufferBuilder bufferBuilder, final double n, final double n2, final double n3, final double n4, final double n5, final double n6, final int n7, final int n8, final int n9, final int n10, final int n11) {
-        if ((n7 & 0x11) != 0x0) {
-            bufferBuilder.pos(n, n2, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n2, n6).color(n9, n10, n11, n8).endVertex();
+
+    public static void drawLines(BufferBuilder bufferBuilder, double d, double d2, double d3, double d4, double d5, double d6, int n, int n2, int n3, int n4, int n5) {
+        if ((n & 0x11) != 0) {
+            bufferBuilder.pos(d, d2, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d2, d6).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x12) != 0x0) {
-            bufferBuilder.pos(n, n5, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n5, n6).color(n9, n10, n11, n8).endVertex();
+        if ((n & 0x12) != 0) {
+            bufferBuilder.pos(d, d5, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d5, d6).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x21) != 0x0) {
-            bufferBuilder.pos(n4, n2, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n2, n6).color(n9, n10, n11, n8).endVertex();
+        if ((n & 0x21) != 0) {
+            bufferBuilder.pos(d4, d2, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d2, d6).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x22) != 0x0) {
-            bufferBuilder.pos(n4, n5, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n5, n6).color(n9, n10, n11, n8).endVertex();
+        if ((n & 0x22) != 0) {
+            bufferBuilder.pos(d4, d5, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d5, d6).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x5) != 0x0) {
-            bufferBuilder.pos(n, n2, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n2, n3).color(n9, n10, n11, n8).endVertex();
+        if ((n & 5) != 0) {
+            bufferBuilder.pos(d, d2, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d2, d3).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x6) != 0x0) {
-            bufferBuilder.pos(n, n5, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n5, n3).color(n9, n10, n11, n8).endVertex();
+        if ((n & 6) != 0) {
+            bufferBuilder.pos(d, d5, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d5, d3).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x9) != 0x0) {
-            bufferBuilder.pos(n, n2, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n2, n6).color(n9, n10, n11, n8).endVertex();
+        if ((n & 9) != 0) {
+            bufferBuilder.pos(d, d2, d6).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d2, d6).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0xA) != 0x0) {
-            bufferBuilder.pos(n, n5, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n5, n6).color(n9, n10, n11, n8).endVertex();
+        if ((n & 0xA) != 0) {
+            bufferBuilder.pos(d, d5, d6).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d5, d6).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x14) != 0x0) {
-            bufferBuilder.pos(n, n2, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n5, n3).color(n9, n10, n11, n8).endVertex();
+        if ((n & 0x14) != 0) {
+            bufferBuilder.pos(d, d2, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d5, d3).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x24) != 0x0) {
-            bufferBuilder.pos(n4, n2, n3).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n5, n3).color(n9, n10, n11, n8).endVertex();
+        if ((n & 0x24) != 0) {
+            bufferBuilder.pos(d4, d2, d3).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d4, d5, d3).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x18) != 0x0) {
-            bufferBuilder.pos(n, n2, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n, n5, n6).color(n9, n10, n11, n8).endVertex();
+        if ((n & 0x18) != 0) {
+            bufferBuilder.pos(d, d2, d6).color(n3, n4, n5, n2).endVertex();
+            bufferBuilder.pos(d, d5, d6).color(n3, n4, n5, n2).endVertex();
         }
-        if ((n7 & 0x28) != 0x0) {
-            bufferBuilder.pos(n4, n2, n6).color(n9, n10, n11, n8).endVertex();
-            bufferBuilder.pos(n4, n5, n6).color(n9, n10, n11, n8).endVertex();
-        }
+        if ((n & 0x28) == 0) return;
+        bufferBuilder.pos(d4, d2, d6).color(n3, n4, n5, n2).endVertex();
+        bufferBuilder.pos(d4, d5, d6).color(n3, n4, n5, n2).endVertex();
     }
-    
-    static {
-        Class2162.Field17877 = null;
-        Class2162.Field17878 = 0.0;
-    }
-    
-    private static String a(final String s) {
-        if (s != null) {
-            final char[] charArray = s.toCharArray();
-            final char[] value = new char[charArray.length];
-            for (int i = 0; i < charArray.length; ++i) {
-                value[i] = (char)(charArray[i] ^ (0x4FE9 ^ 0x61));
-            }
-            return new String(value);
+
+    private static String a(String string) {
+        if (string == null) throw new NullPointerException("String deobfuscation parameter should not be null");
+        char[] cArray = string.toCharArray();
+        char[] cArray2 = new char[cArray.length];
+        int n = 0;
+        while (n < cArray.length) {
+            int cfr_ignored_0 = n & 0xFF;
+            int n2 = 97;
+            cArray2[n] = (char)(cArray[n] ^ (0x4FE9 ^ n2));
+            ++n;
         }
-        throw new NullPointerException("String deobfuscation parameter should not be null");
+        return new String(cArray2);
     }
 }
+
