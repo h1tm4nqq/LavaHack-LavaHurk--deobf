@@ -1,15 +1,16 @@
 [
   {
-    "modid": "earthhack",
-    "name": "3arthh4ck",
-    "description": "1.12.2 PvP Client",
-    "version": "1.9.0",
-    "mcversion": "1.12.2",
-    "logoFile": "phobos.png",
-    "url": "https://discordapp.com/invite/5ABu5UU",
-    "updateUrl": "",
-    "authorList": ["3arthqu4ke","oHare","Crystallinqq", "Megyn"],
-    "screenshots": [],
-    "dependencies": []
+  "modid": "kisman",
+  "name": "kisman.cc+",
+  "description": "The Very Best Minecraft Pvp and Pve client by _kisman_ & muffi & PunCakeCat & Skarlord99",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://discord.gg/CJMhy74NYF",
+  "updateUrl": "",
+  "authorList": ["_kisman_", "PunCakeCat", "BigJMuffin", "Skarlord99"],
+  "credits": [",_kisman_#5039", "! BigJMuffin#6215", "PunCakeCat#4572", "Skarlord99#5871"],
+  "logoFile": "assets/kismancc/banner.png",
+  "screenshots": [],
+  "dependencies": []
   }
 ]
